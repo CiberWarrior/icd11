@@ -4,6 +4,9 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "functions": {
+    ".vercel/output/functions/_render/**/*.js": {
+      "runtime": "nodejs20.x"
+    },
     ".vercel/output/functions/**/*.js": {
       "runtime": "nodejs20.x"
     }
