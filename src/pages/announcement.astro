@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+---
+
+<Layout
+  title="Congress Announcement | 11th International Congress of Dipterology"
+  description="Sign up for announcements about the 11th International Congress of Dipterology, Zagreb, Croatia, July 10-16, 2027"
+>
+  <!-- Hero Section with Logo and Form -->
+  <section class="relative py-16 lg:py-24 min-h-screen custom-background">
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <!-- Logo Section - Takes 2 columns -->
+          <div class="lg:col-span-2 p-6 sm:p-8 flex justify-center lg:justify-start items-center">
+            <img 
+              src="/images/Logo ICD2027 wide.png" 
+              alt="ICD 2027 Logo" 
+              class="max-w-full h-auto w-full"
+            />
+          </div>
+          
+          <!-- Contact Form Section - Takes 1 column -->
+          <div class="lg:col-span-1 bg-white/95 backdrop-blur-sm rounded-2xl p-5 sm:p-6 custom-form-border custom-form-shadow flex flex-col animate-fade-in">
+            <div class="mb-5">
+              <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-2.5">Sign in</h2>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Fill out the form below to receive information about the congress.
+              </p>
+            </div>
+            <NewsletterForm />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .custom-background {
+      background-color: #e7f0fd;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(30, 60, 114, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(30, 60, 114, 0.05) 0%, transparent 50%);
+    }
+    .custom-form-border {
+      border: 1px solid #1e3c72;
+    }
+    .custom-form-shadow {
+      box-shadow: 0 10px 25px -5px rgba(30, 60, 114, 0.1), 0 4px 6px -2px rgba(30, 60, 114, 0.05);
+    }
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.6s ease-out;
+    }
+  </style>
+</Layout>
+

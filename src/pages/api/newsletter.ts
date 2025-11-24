@@ -2,11 +2,48 @@ import type { APIRoute } from 'astro';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const data = await request.json();
-    const { firstName, lastName, email, newsletterConsent } = data;
+    // Parse JSON body
+    let data;
+    try {
+      const text = await request.text();
+      
+      if (!text || text.trim() === '') {
+        return new Response(
+          JSON.stringify({ error: 'Request body is empty' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+      
+      data = JSON.parse(text);
+    } catch (parseError) {
+      return new Response(
+        JSON.stringify({ 
+          error: 'Invalid JSON in request body',
+        }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
+    
+    if (!data || Object.keys(data).length === 0) {
+      return new Response(
+        JSON.stringify({ error: 'Request body is empty' }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
+    
+    const { name, surname, email, newsletterConsent } = data;
 
     // Validation
-    if (!firstName || !lastName || !email || !newsletterConsent) {
+    if (!name || !email || !newsletterConsent) {
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
         {
@@ -51,22 +88,40 @@ export const POST: APIRoute = async ({ request }) => {
       email_address: email,
       status: 'subscribed',
       merge_fields: {
-        FNAME: firstName,
-        LNAME: lastName,
+        FNAME: name,
+        LNAME: surname || '',
       },
     };
 
     // Add to Mailchimp
+    // Mailchimp API v3 uses Basic Auth with API key as password
+    // @ts-ignore - Buffer is available globally in Node.js
+    const authString = Buffer.from(`apikey:${MAILCHIMP_API_KEY}`).toString('base64');
+    
     const response = await fetch(mailchimpUrl, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${MAILCHIMP_API_KEY}`,
+        Authorization: `Basic ${authString}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(mailchimpData),
     });
 
-    const responseData = await response.json();
+    let responseData;
+    try {
+      responseData = await response.json();
+    } catch (e) {
+      console.error('Mailchimp API non-JSON response');
+      return new Response(
+        JSON.stringify({
+          error: 'Invalid response from Mailchimp API. Please try again later.',
+        }),
+        {
+          status: 500,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
 
     if (!response.ok) {
       // Handle Mailchimp errors
