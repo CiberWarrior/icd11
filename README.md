@@ -1,43 +1,109 @@
-# Astro Starter Kit: Minimal
+# 11th International Congress of Dipterology - Website
 
-```sh
-npm create astro@latest -- --template minimal
+Modern website for the 11th International Congress of Dipterology, July 10-16, 2027.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
+
+1. Install dependencies:
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Set up environment variables:
+Create a `.env` file in the root directory with your Mailchimp credentials:
 
-## 🚀 Project Structure
+```env
+MAILCHIMP_API_KEY=your_mailchimp_api_key_here
+MAILCHIMP_LIST_ID=your_mailchimp_list_id_here
+MAILCHIMP_SERVER=us1
+```
 
-Inside of your Astro project, you'll see the following folders and files:
+**How to get Mailchimp credentials:**
+- **API Key**: Go to https://us1.admin.mailchimp.com/account/api/ and create an API key
+- **List ID**: Go to https://us1.admin.mailchimp.com/lists/, select your audience/list, and find the List ID in the settings
+- **Server**: Usually found in your Mailchimp dashboard URL (e.g., `us1`, `us2`, `us3`)
 
-```text
+### Development
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+The site will be available at `http://localhost:4321`
+
+### Build
+
+Build for production:
+
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
 /
 ├── public/
+│   ├── images/
+│   │   └── logo.jpg          # Conference logo
+│   └── favicon.svg
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/
+│   │   └── NewsletterForm.astro  # Newsletter subscription form
+│   ├── layouts/
+│   │   └── Layout.astro      # Base layout component
+│   ├── pages/
+│   │   ├── index.astro       # Landing page
+│   │   └── api/
+│   │       └── newsletter.ts # Mailchimp API endpoint
+│   └── styles/
+│       └── global.css        # Global styles and Tailwind
+└── Logo/                     # Original logo assets
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🎨 Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Modern Design**: Cutting-edge design with smooth animations, gradients, and glassmorphism effects
+- **Responsive**: Mobile-first responsive design
+- **Newsletter Integration**: Mailchimp integration for newsletter subscriptions
+- **Performance**: Optimized for fast loading and smooth user experience
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🔧 Tech Stack
 
-## 🧞 Commands
+- **Astro** - Static site generator
+- **Tailwind CSS** - Utility-first CSS framework
+- **TypeScript** - Type safety
+- **Mailchimp API** - Newsletter management
 
-All commands are run from the root of the project, from a terminal:
+## 📝 Notes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- All content is in English
+- The landing page is the foundation for the full website
+- Registration and payment features will be added later
+- Project structure is designed for easy expansion
 
-## 👀 Want to learn more?
+## 🚢 Deployment
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+When ready to deploy, you can use:
+- **Vercel** (recommended for Astro)
+- **Netlify**
+- **Cloudflare Pages**
+- Any static hosting service
+
+Make sure to set your environment variables in your hosting platform's dashboard.
