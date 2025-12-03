@@ -100,10 +100,74 @@ npm run preview
 
 ## 🚢 Deployment
 
-When ready to deploy, you can use:
-- **Vercel** (recommended for Astro)
+### Apache Server Deployment
+
+This project is configured for Apache server with Node.js runtime.
+
+#### Prerequisites
+- Apache server with mod_rewrite enabled
+- Node.js 20.x installed on the server
+- PM2 or similar process manager (recommended)
+
+#### Deployment Steps
+
+1. **Build the project:**
+   ```bash
+   npm install
+   npm run build
+   ```
+
+2. **Upload files to server:**
+   - Upload the entire project directory to your Apache server
+   - Make sure `dist/` folder and all files are uploaded
+
+3. **Set environment variables:**
+   - Create `.env` file on the server with your Mailchimp credentials:
+   ```env
+   MAILCHIMP_API_KEY=your_api_key_here
+   MAILCHIMP_LIST_ID=your_list_id_here
+   MAILCHIMP_SERVER=us1
+   ```
+
+4. **Configure Apache:**
+   - The `.htaccess` file is included for basic routing
+   - For production, you may need to configure Apache VirtualHost with ProxyPass:
+   ```apache
+   <VirtualHost *:80>
+     ServerName icd11.biol.pmf.hr
+     DocumentRoot /path/to/your/project/dist/client
+     
+     <Proxy *>
+       Order deny,allow
+       Allow from all
+     </Proxy>
+     
+     ProxyPreserveHost On
+     ProxyPass /api http://localhost:4321/api
+     ProxyPassReverse /api http://localhost:4321/api
+   </VirtualHost>
+   ```
+
+5. **Start Node.js server:**
+   - Using PM2 (recommended):
+   ```bash
+   pm2 start dist/server/entry.mjs --name icd11-2027
+   pm2 save
+   pm2 startup
+   ```
+   - Or manually:
+   ```bash
+   node dist/server/entry.mjs
+   ```
+
+6. **Set up process manager:**
+   - Install PM2 globally: `npm install -g pm2`
+   - PM2 will automatically restart the server if it crashes
+
+#### Alternative Deployment Options
+
+- **Vercel** (recommended for easy deployment)
 - **Netlify**
 - **Cloudflare Pages**
-- Any static hosting service
 
 Make sure to set your environment variables in your hosting platform's dashboard.

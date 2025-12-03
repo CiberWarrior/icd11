@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { Buffer } from 'node:buffer';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -42,8 +43,8 @@ export const POST: APIRoute = async ({ request }) => {
     
     const { name, surname, email, newsletterConsent } = data;
 
-    // Validation
-    if (!name || !email || !newsletterConsent) {
+    // Validation - all fields are required
+    if (!name || !surname || !email || !newsletterConsent) {
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
         {
@@ -89,13 +90,12 @@ export const POST: APIRoute = async ({ request }) => {
       status: 'subscribed',
       merge_fields: {
         FNAME: name,
-        LNAME: surname || '',
+        LNAME: surname,
       },
     };
 
     // Add to Mailchimp
     // Mailchimp API v3 uses Basic Auth with API key as password
-    // @ts-ignore - Buffer is available globally in Node.js
     const authString = Buffer.from(`apikey:${MAILCHIMP_API_KEY}`).toString('base64');
     
     const response = await fetch(mailchimpUrl, {
