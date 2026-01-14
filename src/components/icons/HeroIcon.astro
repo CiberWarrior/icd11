@@ -1,0 +1,33 @@
+---
+/**
+ * HeroIcon - Simple wrapper for Heroicons SVG files
+ * 
+ * This component provides a clean way to use Heroicons in Astro.
+ * SVG files are imported as raw strings and injected into the DOM.
+ * 
+ * Usage:
+ *   import HeroIcon from './icons/HeroIcon.astro';
+ *   import calendarSvg from 'heroicons/24/outline/calendar.svg?raw';
+ *   
+ *   <HeroIcon svg={calendarSvg} class="w-5 h-5 text-primary-600" />
+ * 
+ * Or use direct import in parent component:
+ *   import calendar from 'heroicons/24/outline/calendar.svg?raw';
+ *   <span class="w-5 h-5" set:html={calendar} />
+ */
+interface Props {
+  svg: string;
+  class?: string;
+}
+
+const { svg, class: className = 'w-5 h-5' } = Astro.props;
+---
+
+<span class={className} set:html={svg} />
+
+<style>
+  span :global(svg) {
+    width: 100%;
+    height: 100%;
+  }
+</style>

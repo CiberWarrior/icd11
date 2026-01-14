@@ -5,10 +5,6 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
-
-// Import Heroicons
-import calendar from 'heroicons/24/outline/calendar.svg?raw';
-import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 ---
 
 <Layout
@@ -18,85 +14,82 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   <Header />
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden hero-gradient">
-    <!-- Enhanced decorative elements -->
-    <div class="absolute inset-0 opacity-20">
-      <div class="absolute top-10 left-10 w-96 h-96 bg-white/30 rounded-full blur-3xl animate-pulse"></div>
-      <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-white/20 rounded-full blur-3xl"></div>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
+  <section class="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
     </div>
-    
-    <!-- Subtle grid overlay -->
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
 
     <div class="relative section-container py-20 lg:py-32">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <!-- Left Content -->
         <div class="text-white animate-fade-in-up">
-          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
-            XI. International Congress of
-            <span class="block text-white">Dipterology</span>
+          <div class="inline-block mb-6 px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full border border-white/20">
+            <span class="text-sm font-semibold">July 10-16, 2027</span>
+          </div>
+          
+          <h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
+            International Congress of
+            <span class="block text-primary-200">Dipterology</span>
           </h1>
           
           <p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
-            Join the world's leading researchers and scientists in Zagreb, Croatia.
+            Join the world's leading researchers and scientists in Zagreb, Croatia for the 11th edition of this premier scientific gathering.
           </p>
 
-          <!-- Date and Location Buttons -->
-          <div class="flex flex-wrap gap-4">
-            <!-- Start Date Button -->
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
-              <span class="w-6 h-6 text-white flex-shrink-0" set:html={calendar} />
-              <div>
-                <div class="text-xs text-white/80 font-medium uppercase tracking-wide">START DATE</div>
-                <div class="text-base font-bold text-white">Jul 10, 2027</div>
-              </div>
-            </div>
-            
-            <!-- Location Button -->
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
-              <span class="w-6 h-6 text-white flex-shrink-0" set:html={mapPin} />
-              <div>
-                <div class="text-xs text-white/80 font-medium uppercase tracking-wide">LOCATION</div>
-                <div class="text-base font-bold text-white">Hotel Westin</div>
-              </div>
-            </div>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <Button variant="accent" size="lg" href="#newsletter">
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+              </svg>
+              Get Notified
+            </Button>
+            <Button variant="secondary" size="lg" href="#about">
+              Learn More
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </Button>
           </div>
 
-          <!-- Countdown Timer -->
-          <div class="mt-12">
-            <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
-                <div id="days" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Days</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
-                <div id="hours" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Hours</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
-                <div id="minutes" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Minutes</div>
-              </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
-                <div id="seconds" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Seconds</div>
-              </div>
+          <!-- Stats -->
+          <div class="mt-12 grid grid-cols-3 gap-6">
+            <div class="text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-bold mb-1">11th</div>
+              <div class="text-sm text-white/70">Edition</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-bold mb-1">500+</div>
+              <div class="text-sm text-white/70">Participants</div>
+            </div>
+            <div class="text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-bold mb-1">7</div>
+              <div class="text-sm text-white/70">Days</div>
             </div>
           </div>
         </div>
 
         <!-- Right Image/Logo -->
-        <div class="relative animate-fade-in delay-200 ml-8 lg:ml-12">
+        <div class="relative animate-fade-in delay-200">
           <div class="relative glass rounded-3xl p-8 lg:p-12 shadow-xl-colored">
             <img 
               src="/images/Logo ICD2027 wide.png" 
               alt="ICD 2027 Logo" 
-              class="w-full h-auto"
+              class="w-full h-auto animate-float"
             />
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <a href="#about" class="text-white/60 hover:text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </a>
     </div>
   </section>
 
@@ -328,32 +321,15 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
         <!-- Left Content -->
         <div>
           <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Hotel Westin, Zagreb
+            Zagreb, Croatia
           </h2>
           <p class="text-xl text-gray-600 leading-relaxed mb-8">
-            The congress will take place at Hotel Westin in Zagreb, the vibrant capital of Croatia. 
+            The congress will take place in Zagreb, the vibrant capital of Croatia. 
             Known for its historic charm, beautiful architecture, and warm hospitality, 
             Zagreb offers the perfect setting for this international gathering.
           </p>
 
           <div class="space-y-6">
-            <!-- Info Item - Venue -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2">Hotel Westin</h4>
-                <p class="text-gray-600">
-                  A premier venue in the heart of Zagreb, offering modern facilities and excellent service for our international congress.
-                </p>
-              </div>
-            </div>
-
             <!-- Info Item -->
             <div class="flex gap-4">
               <div class="flex-shrink-0">
@@ -466,51 +442,6 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   </section>
 
   <Footer />
-
-  <!-- Styles for hero section icons -->
-  <style>
-    /* Ensure Heroicon SVGs display correctly in buttons */
-    .bg-white\/10 span :global(svg) {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-  </style>
-
-  <!-- Countdown Timer Script -->
-  <script>
-    // Countdown to conference start: July 10, 2027, 00:00:00 (local time)
-    const conferenceDate = new Date('2027-07-10T00:00:00').getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = conferenceDate - now;
-
-      if (distance < 0) {
-        // Conference has started
-        document.getElementById('days').textContent = '00';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById('days').textContent = String(days).padStart(2, '0');
-      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    }
-
-    // Update immediately
-    updateCountdown();
-    // Update every second
-    setInterval(updateCountdown, 1000);
-  </script>
 
   <!-- Scroll animations -->
   <script>

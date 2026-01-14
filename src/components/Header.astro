@@ -1,0 +1,197 @@
+---
+const navItems = [
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '#about' },
+  { name: 'Program', href: '#program' },
+  { name: 'Location', href: '#location' },
+  { name: 'Contact', href: '#contact' },
+];
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm"
+>
+  <nav class="section-container py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <a href="/" class="flex items-center">
+        <img
+          src="/images/logo-icd-2027.png"
+          alt="ICD 2027 Logo"
+          class="h-10 w-auto sm:h-12 object-contain rounded-lg"
+        />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-1">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="nav-link px-4 py-2 text-gray-700 hover:text-primary-700 font-medium rounded-lg hover:bg-primary-50 transition-all relative group"
+            >
+              {item.name}
+              <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-3/4 group-hover:left-1/8" />
+            </a>
+          ))
+        }
+      </div>
+
+      <!-- CTA Button -->
+      <div class="hidden md:block">
+        <a
+          href="#newsletter"
+          class="btn-accent inline-flex items-center space-x-2"
+        >
+          <span>Sign Up</span>
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-button"
+        class="md:hidden p-2 text-gray-700 hover:text-primary-700 hover:bg-primary-50 rounded-lg transition-all"
+        aria-label="Toggle menu"
+      >
+        <svg
+          id="menu-icon"
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="close-icon"
+          class="w-6 h-6 hidden"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden mt-4 py-4 border-t border-gray-200 animate-fade-in-down"
+    >
+      <div class="flex flex-col space-y-2">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="mobile-nav-link px-4 py-3 text-gray-700 hover:text-primary-700 font-medium rounded-lg hover:bg-primary-50 transition-all"
+            >
+              {item.name}
+            </a>
+          ))
+        }
+        <a
+          href="#newsletter"
+          class="btn-accent mt-4 text-center"
+        >
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-20"></div>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if (mobileMenuButton && mobileMenu && menuIcon && closeIcon) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+  }
+
+  // Header scroll effect
+  const header = document.getElementById('main-header');
+  let lastScroll = 0;
+
+  if (header) {
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll <= 0) {
+        header.classList.remove('shadow-md');
+        header.classList.add('shadow-sm');
+      } else {
+        header.classList.add('shadow-md');
+        header.classList.remove('shadow-sm');
+      }
+
+      lastScroll = currentScroll;
+    });
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href && href !== '#' && href !== '#newsletter') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 80; // Header height
+          const targetPosition = target.offsetTop - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+          });
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .left-1\/8 {
+    left: 12.5%;
+  }
+</style>

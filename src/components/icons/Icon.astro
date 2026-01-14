@@ -1,0 +1,41 @@
+---
+/**
+ * Icon component for Heroicons
+ * Dynamically loads SVG icons from heroicons package
+ * 
+ * Usage:
+ * <Icon name="calendar" class="w-5 h-5 text-primary-600" />
+ * <Icon name="envelope" variant="solid" class="w-6 h-6" />
+ */
+interface Props {
+  name: string;
+  variant?: 'outline' | 'solid';
+  class?: string;
+}
+
+const { name, variant = 'outline', class: className = 'w-5 h-5' } = Astro.props;
+
+// Map variant to size folder
+const sizeMap = {
+  outline: '24',
+  solid: variant === 'solid' && name.startsWith('mini-') ? '20' : '24',
+};
+
+const size = sizeMap[variant];
+const variantFolder = variant === 'outline' ? 'outline' : 'solid';
+
+// Construct the path to the SVG file
+const iconPath = `heroicons/${size}/${variantFolder}/${name}.svg?raw`;
+
+let iconSvg = '';
+try {
+  // Dynamically import the SVG
+  iconSvg = await import(/* @vite-ignore */ iconPath).then(m => m.default);
+} catch (error) {
+  console.warn(`Icon "${name}" not found at ${iconPath}`);
+}
+---
+
+{iconSvg && (
+  <span class={className} set:html={iconSvg} />
+)}

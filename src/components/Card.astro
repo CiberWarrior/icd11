@@ -1,0 +1,21 @@
+---
+interface Props {
+  variant?: 'default' | 'elevated' | 'glass';
+  class?: string;
+  clickable?: boolean;
+}
+
+const { variant = 'default', class: className = '', clickable = false } = Astro.props;
+
+const variantClasses = {
+  default: 'card',
+  elevated: 'card-elevated',
+  glass: 'card glass',
+};
+
+const classes = `${variantClasses[variant]} ${clickable ? 'cursor-pointer' : ''} ${className}`;
+---
+
+<div class={classes}>
+  <slot />
+</div>
