@@ -1,13 +1,11 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
-import node from '@astrojs/node';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
   output: 'server', // Required for API routes to work
-  adapter: node({
-    mode: 'standalone', // Standalone mode for Apache with Node.js
-  }),
+  adapter: vercel(),
   integrations: [tailwind()],
 });
 

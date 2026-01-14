@@ -66,19 +66,19 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
           <!-- Countdown Timer -->
           <div class="mt-12">
             <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
                 <div id="days" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
                 <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Days</div>
               </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
                 <div id="hours" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
                 <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Hours</div>
               </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
                 <div id="minutes" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
                 <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Minutes</div>
               </div>
-              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center transition-all hover:bg-white/15 hover:scale-105">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
                 <div id="seconds" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
                 <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Seconds</div>
               </div>
@@ -480,6 +480,7 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   <!-- Countdown Timer Script -->
   <script>
     // Countdown to conference start: July 10, 2027, 00:00:00 (local time)
+    // Calculation from current date (today: January 14, 2025) to July 10, 2027
     const conferenceDate = new Date('2027-07-10T00:00:00').getTime();
 
     function updateCountdown() {
