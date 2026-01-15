@@ -5,6 +5,8 @@ import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
 import Card from '../components/Card.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import KeyInformation from '../components/KeyInformation.astro';
+import CallToAction from '../components/CallToAction.astro';
 
 // Import Heroicons
 import calendar from 'heroicons/24/outline/calendar.svg?raw';
@@ -99,6 +101,9 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
       </div>
     </div>
   </section>
+
+  <!-- Key Information Section -->
+  <KeyInformation />
 
   <!-- About Section -->
   <section id="about" class="section-padding bg-gray-50">
@@ -312,9 +317,24 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 
         <!-- CTA -->
         <div class="mt-12 text-center">
-          <p class="text-gray-600 mb-6">Full program details will be announced soon</p>
-          <Button variant="primary" size="lg" href="#newsletter">
-            Get Program Updates
+          <p class="text-gray-600 mb-6">
+            View detailed schedule, sessions, workshops, and poster presentations
+          </p>
+          <Button variant="primary" size="lg" href="/program">
+            View Full Program
+            <svg
+              class="w-5 h-5 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
           </Button>
         </div>
       </div>
@@ -408,12 +428,26 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
           </div>
 
           <div class="mt-8">
-            <Button variant="secondary" href="#" size="lg">
-              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <Button variant="secondary" href="/location" size="lg">
+              Explore Location
+              <svg
+                class="w-5 h-5 ml-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
               </svg>
-              Venue Information (Coming Soon)
             </Button>
+            <p class="text-gray-600 text-sm mt-4">
+              Learn more about Zagreb, venue details, accommodation, and travel
+              information
+            </p>
           </div>
         </div>
 
@@ -433,6 +467,9 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
       </div>
     </div>
   </section>
+
+  <!-- Call to Action Section -->
+  <CallToAction />
 
   <!-- Newsletter Section -->
   <section id="newsletter" class="section-padding bg-gradient-primary relative overflow-hidden">
