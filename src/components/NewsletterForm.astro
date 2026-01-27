@@ -49,21 +49,6 @@
       />
     </div>
 
-    <!-- Country -->
-    <div>
-      <label for="country" class="block text-sm font-semibold text-gray-900 mb-1.5">
-        Country
-      </label>
-      <input
-        type="text"
-        id="country"
-        name="country"
-        required
-        class="w-full px-3 py-2.5 text-sm bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1e3c72] focus:border-[#1e3c72] transition-all shadow-sm hover:border-gray-300"
-        placeholder="Enter your country"
-      />
-    </div>
-
     <!-- Consent Checkbox -->
     <div class="flex items-start gap-3 pt-2">
       <input
@@ -158,7 +143,6 @@
         name: formData.get('name'),
         surname: formData.get('surname'),
         email: formData.get('email'),
-        country: formData.get('country'),
         newsletterConsent: formData.get('newsletterConsent') === 'on',
       };
 
