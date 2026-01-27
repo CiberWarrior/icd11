@@ -149,9 +149,9 @@ This project is configured for Apache server with Node.js runtime.
    ```
 
 5. **Start Node.js server:**
-   - Using PM2 (recommended):
+   - Using PM2 with ecosystem config (recommended):
    ```bash
-   pm2 start dist/server/entry.mjs --name icd11-2027
+   pm2 start ecosystem.config.cjs
    pm2 save
    pm2 startup
    ```
@@ -159,6 +159,17 @@ This project is configured for Apache server with Node.js runtime.
    ```bash
    node dist/server/entry.mjs
    ```
+   
+   **Important:** Make sure your `.env` file is in the project root with your Mailchimp credentials:
+   ```env
+   MAILCHIMP_API_KEY=your_api_key_here
+   MAILCHIMP_LIST_ID=your_list_id_here
+   MAILCHIMP_SERVER=us22
+   ```
+   
+   **Port Configuration:** The application uses `PORT` environment variable (default: 4321).
+   Set `PORT` in `ecosystem.config.cjs` or via environment variable. The Astro Node adapter
+   reads `process.env.PORT` at runtime, so the port can be changed without rebuilding.
 
 6. **Set up process manager:**
    - Install PM2 globally: `npm install -g pm2`

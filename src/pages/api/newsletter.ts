@@ -1,6 +1,14 @@
 import type { APIRoute } from 'astro';
 import { Buffer } from 'node:buffer';
 
+// CORS headers for API responses
+const corsHeaders = {
+  'Content-Type': 'application/json',
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+};
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Parse JSON body
@@ -13,7 +21,7 @@ export const POST: APIRoute = async ({ request }) => {
           JSON.stringify({ error: 'Request body is empty' }),
           {
             status: 400,
-            headers: { 'Content-Type': 'application/json' },
+            headers: corsHeaders,
           }
         );
       }
@@ -26,7 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -36,7 +44,7 @@ export const POST: APIRoute = async ({ request }) => {
         JSON.stringify({ error: 'Request body is empty' }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -49,7 +57,7 @@ export const POST: APIRoute = async ({ request }) => {
         JSON.stringify({ error: 'All fields are required' }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -59,7 +67,7 @@ export const POST: APIRoute = async ({ request }) => {
     if (!emailRegex.test(email)) {
       return new Response(JSON.stringify({ error: 'Invalid email address' }), {
         status: 400,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       });
     }
 
@@ -69,14 +77,18 @@ export const POST: APIRoute = async ({ request }) => {
     const MAILCHIMP_SERVER = import.meta.env.MAILCHIMP_SERVER; // e.g., 'us1', 'us2', etc.
 
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID || !MAILCHIMP_SERVER) {
-      console.error('Mailchimp credentials not configured');
+      console.error('Mailchimp credentials not configured', {
+        hasApiKey: !!MAILCHIMP_API_KEY,
+        hasListId: !!MAILCHIMP_LIST_ID,
+        hasServer: !!MAILCHIMP_SERVER,
+      });
       return new Response(
         JSON.stringify({
           error: 'Newsletter service is not configured. Please contact the administrator.',
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -112,14 +124,14 @@ export const POST: APIRoute = async ({ request }) => {
     try {
       responseData = await response.json();
     } catch (e) {
-      console.error('Mailchimp API non-JSON response');
+      console.error('Mailchimp API non-JSON response', e);
       return new Response(
         JSON.stringify({
           error: 'Invalid response from Mailchimp API. Please try again later.',
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -133,10 +145,16 @@ export const POST: APIRoute = async ({ request }) => {
           }),
           {
             status: 400,
-            headers: { 'Content-Type': 'application/json' },
+            headers: corsHeaders,
           }
         );
       }
+
+      console.error('Mailchimp API error:', {
+        status: response.status,
+        detail: responseData.detail,
+        title: responseData.title,
+      });
 
       return new Response(
         JSON.stringify({
@@ -146,7 +164,7 @@ export const POST: APIRoute = async ({ request }) => {
         }),
         {
           status: response.status,
-          headers: { 'Content-Type': 'application/json' },
+          headers: corsHeaders,
         }
       );
     }
@@ -158,7 +176,7 @@ export const POST: APIRoute = async ({ request }) => {
       }),
       {
         status: 200,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     );
   } catch (error) {
@@ -169,8 +187,20 @@ export const POST: APIRoute = async ({ request }) => {
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: corsHeaders,
       }
     );
   }
+};
+
+// Handle OPTIONS request for CORS preflight
+export const OPTIONS: APIRoute = () => {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  });
 };
