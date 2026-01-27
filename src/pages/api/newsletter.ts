@@ -49,10 +49,10 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
     
-    const { name, surname, email, newsletterConsent } = data;
+    const { name, surname, email, country, newsletterConsent } = data;
 
     // Validation - all fields are required
-    if (!name || !surname || !email || !newsletterConsent) {
+    if (!name || !surname || !email || !country || !newsletterConsent) {
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
         {
@@ -103,6 +103,7 @@ export const POST: APIRoute = async ({ request }) => {
       merge_fields: {
         FNAME: name,
         LNAME: surname,
+        COUNTRY: country,
       },
     };
 
