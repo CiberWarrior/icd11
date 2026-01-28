@@ -1,6 +1,6 @@
 ---
 interface Props {
-  variant?: 'default' | 'elevated' | 'glass';
+  variant?: 'default' | 'elevated' | 'glass' | 'gradient-blue' | 'gradient-red' | 'gradient-purple' | 'gradient-green' | 'gradient-ocean' | 'gradient-sunset';
   class?: string;
   clickable?: boolean;
 }
@@ -11,11 +11,23 @@ const variantClasses = {
   default: 'card',
   elevated: 'card-elevated',
   glass: 'card glass',
+  'gradient-blue': 'card bg-gradient-to-br from-[#0a2540] via-[#1565c0] to-[#42a5f5] text-white shadow-2xl relative overflow-hidden',
+  'gradient-red': 'card bg-gradient-to-br from-[#8e343b] via-[#e63843] to-[#f9c9cd] text-white shadow-2xl relative overflow-hidden',
+  'gradient-purple': 'card bg-gradient-to-br from-indigo-600 via-purple-500 to-pink-400 text-white shadow-2xl relative overflow-hidden',
+  'gradient-green': 'card bg-gradient-to-br from-emerald-600 via-teal-500 to-cyan-400 text-white shadow-2xl relative overflow-hidden',
+  'gradient-ocean': 'card bg-gradient-to-br from-[#0d47a1] via-[#1e88e5] to-[#64b5f6] text-white shadow-2xl relative overflow-hidden',
+  'gradient-sunset': 'card bg-gradient-to-br from-orange-500 via-pink-500 to-purple-600 text-white shadow-2xl relative overflow-hidden',
 };
 
 const classes = `${variantClasses[variant]} ${clickable ? 'cursor-pointer' : ''} ${className}`;
 ---
 
 <div class={classes}>
-  <slot />
+  <!-- Decorative gradient overlay for depth -->
+  {variant.startsWith('gradient-') && (
+    <div class="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/10 pointer-events-none"></div>
+  )}
+  <div class="relative z-10">
+    <slot />
+  </div>
 </div>

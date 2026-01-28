@@ -4,9 +4,12 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
 
-// Import Heroicons
+// Import Heroicons for hero section
 import calendar from 'heroicons/24/outline/calendar.svg?raw';
 import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
+
+// Import Lucide icons for transport
+import { Plane, Car, Bus, Train } from '@lucide/astro';
 ---
 
 <Layout
@@ -101,9 +104,9 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   <!-- Hotel Westin Section -->
   <section class="section-padding bg-white">
     <div class="section-container">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-10 animate-fade-in-up">
+        <div class="text-center mb-10 card-animate">
           <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             The Westin Zagreb Hotel
           </h2>
@@ -112,8 +115,12 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
           </p>
         </div>
 
+        <div class="max-w-6xl mx-auto">
+
+        </div>
+
         <!-- Hotel Content Card -->
-        <Card variant="elevated" class="p-8 lg:p-10 animate-fade-in-up delay-100 hover:scale-100">
+        <Card variant="elevated" class="p-8 lg:p-10 card-animate hover:scale-100 max-w-6xl mx-auto">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <!-- Hotel Images Grid 2x2 - Left column -->
             <div class="order-2 lg:order-1">
@@ -234,9 +241,9 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   <!-- Zagreb & Croatia Section -->
   <section class="section-padding bg-gray-50">
     <div class="section-container">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
-        <div class="text-center mb-10 animate-fade-in-up">
+        <div class="text-center mb-10 card-animate">
           <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Discover Zagreb & Croatia
           </h2>
@@ -245,126 +252,143 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
           </p>
         </div>
 
-        <!-- Croatia Content Card -->
-        <Card variant="elevated" class="p-8 lg:p-10 animate-fade-in-up delay-200 hover:scale-100">
+        <!-- Croatia Content Card - Clean White Background -->
+        <div class="card-animate bg-white rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.01] max-w-6xl mx-auto">
+          <div class="p-8 lg:p-10">
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
             <!-- Croatia Description - Left side -->
             <div class="order-1 lg:col-span-2">
-              <h3 class="text-xl font-bold text-gray-900 mb-5">Croatia – Facts and Figures</h3>
+              <!-- Header with Icon -->
+              <div class="flex items-center gap-3 mb-6">
+                <div class="bg-red-600 rounded-xl p-3 shadow-lg">
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900">Croatia – Facts and Figures</h3>
+              </div>
               
-              <div class="space-y-2 mb-6">
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+              <!-- Facts Box -->
+              <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 mb-6 border border-red-200 shadow-lg">
+              <div class="space-y-2.5">
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Country name:</span>
+                    <span class="font-bold text-gray-900">Country name:</span>
                     <span class="text-gray-700"> Republic of Croatia</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Local form:</span>
+                    <span class="font-bold text-gray-900">Local form:</span>
                     <span class="text-gray-700"> Republika Hrvatska</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Capital city:</span>
+                    <span class="font-bold text-gray-900">Capital city:</span>
                     <span class="text-gray-700"> Zagreb (population of 769,944 – 2021 census)</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Administrative divisions:</span>
+                    <span class="font-bold text-gray-900">Administrative divisions:</span>
                     <span class="text-gray-700"> 20 counties and one city (Zagreb)</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Total area:</span>
+                    <span class="font-bold text-gray-900">Total area:</span>
                     <span class="text-gray-700"> 87,609 sq. km</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Number of islands:</span>
+                    <span class="font-bold text-gray-900">Number of islands:</span>
                     <span class="text-gray-700"> 1,185 (47 inhabited)</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Time zone:</span>
+                    <span class="font-bold text-gray-900">Time zone:</span>
                     <span class="text-gray-700"> CET (GMT+1)</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">International dialling code:</span>
+                    <span class="font-bold text-gray-900">International dialling code:</span>
                     <span class="text-gray-700"> +385</span>
                   </div>
                 </div>
-                <div class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
                   <div class="text-sm">
-                    <span class="font-semibold text-gray-900">Official currency:</span>
+                    <span class="font-bold text-gray-900">Official currency:</span>
                     <span class="text-gray-700"> Euro</span>
                   </div>
                 </div>
               </div>
+              </div>
 
-              <div class="max-w-none mb-6">
-                <p class="text-base text-gray-700 leading-relaxed mb-4">
-                  A small country with a rich history, Croatia awes visitors with its wide variety of culture, cuisine, and natural and architectural wonders. The sophisticated traveller searching for a novel and interesting destination will be delighted to discover the beauty and the mysterious magic of the newest member of the European community.
+              <div class="max-w-none mb-6 space-y-4 text-gray-700">
+                <p class="text-base leading-relaxed">
+                  <strong class="text-gray-900">A small country with a rich history</strong>, Croatia awes visitors with its wide variety of culture, cuisine, and natural and architectural wonders. The sophisticated traveller searching for a novel and interesting destination will be delighted to discover the beauty and the mysterious magic of the newest member of the European community.
                 </p>
 
-                <p class="text-base text-gray-700 leading-relaxed mb-4">
+                <p class="text-base leading-relaxed">
                   Croatia is both a Central European and Mediterranean country, bordering Slovenia in the west, Hungary in the north, Serbia in the east, and Bosnia and Herzegovina in the south. Part of the country lies on the coast while the other rests in continental Europe, creating a dichotomous path of discovery that engages all the senses.
                 </p>
 
-                <p class="text-base text-gray-700 leading-relaxed mb-4">
-                  Travelers to Croatia can explore its 1,185 islands, taste the freshness of locally grown organic produce, tour privately owned wineries, marvel at the breathtaking colours of its famous lakes, and succumb to the seductions of the region's converging cultures.
+                <p class="text-base leading-relaxed">
+                  Travelers to Croatia can explore its <strong class="text-gray-900">1,185 islands</strong>, taste the freshness of locally grown organic produce, tour privately owned wineries, marvel at the breathtaking colours of its famous lakes, and succumb to the seductions of the region's converging cultures.
                 </p>
 
-                <p class="text-base text-gray-700 leading-relaxed mb-6">
-                  Croatia unfolds a unique mix of Italic, Germanic, and Slavic influences, indulging visitors to discover a rare gem in the world of travel. Croatia is now the 28th country admitted into the EU and boasts 10 UNESCO World Heritage Sites.
+                <p class="text-base leading-relaxed">
+                  Croatia unfolds a unique mix of Italic, Germanic, and Slavic influences, indulging visitors to discover a rare gem in the world of travel. <strong class="text-gray-900">Croatia is now the 28th country admitted into the EU and boasts 10 UNESCO World Heritage Sites.</strong>
                 </p>
               </div>
 
               <!-- Language Section -->
-              <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-xl p-5">
-                <h4 class="text-base font-bold text-gray-900 mb-3">Language</h4>
-                <p class="text-gray-700 text-sm leading-relaxed mb-3">
+              <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-2xl p-6 border border-accent-200 shadow-lg">
+                <div class="flex items-center gap-3 mb-4">
+                  <svg class="w-6 h-6 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                  </svg>
+                  <h4 class="text-xl font-bold text-gray-900">Language</h4>
+                </div>
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
                   Official language in Croatia is Croatian. Many people speak English or German and on the coast of Croatia they will probably speak Italian too. Here are some Croatian phrases that might come handy:
                 </p>
-                <div class="grid grid-cols-2 gap-2 text-sm">
-                  <div>
-                    <span class="font-semibold text-gray-900">Thank you</span>
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Thank you</span>
                     <span class="text-gray-600"> = Hvala</span>
                   </div>
-                  <div>
-                    <span class="font-semibold text-gray-900">Please</span>
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Please</span>
                     <span class="text-gray-600"> = Molim</span>
                   </div>
-                  <div>
-                    <span class="font-semibold text-gray-900">Good morning</span>
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Good morning</span>
                     <span class="text-gray-600"> = Dobro jutro</span>
                   </div>
-                  <div>
-                    <span class="font-semibold text-gray-900">Good afternoon</span>
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Good afternoon</span>
                     <span class="text-gray-600"> = Dobar dan</span>
                   </div>
-                  <div>
-                    <span class="font-semibold text-gray-900">Good night</span>
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Good night</span>
                     <span class="text-gray-600"> = Laku noć</span>
                   </div>
-                  <div>
-                    <span class="font-semibold text-gray-900">Goodbye</span>
+                  <div class="bg-white rounded-lg p-2 shadow-sm">
+                    <span class="font-bold text-gray-900">Goodbye</span>
                     <span class="text-gray-600"> = Doviđenja</span>
                   </div>
                 </div>
@@ -373,56 +397,565 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 
             <!-- Zagreb Image - Right side (smaller) -->
             <div class="order-2 lg:col-span-1">
-              <div class="rounded-xl overflow-hidden shadow-lg mx-auto" style="max-width: 394px;">
+              <div class="rounded-2xl overflow-hidden shadow-xl mx-auto border-2 border-gray-200" style="max-width: 394px;">
                 <img 
                   src="/images/zagreb-city.jpg" 
                   alt="Zagreb City" 
                   class="w-full h-auto object-cover"
-                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full aspect-[3/4] flex items-center justify-center bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl\'><svg class=\'w-24 h-24 text-accent-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z\'></path></svg></div>'"
+                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full aspect-[3/4] flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl\'><svg class=\'w-24 h-24 text-gray-400\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z\'></path></svg></div>'"
                 />
               </div>
 
               <!-- More Info Links -->
-              <div class="bg-primary-50 rounded-lg p-5 mt-6">
-                <p class="text-sm text-gray-900 font-semibold mb-3">More information:</p>
-                <div class="space-y-2">
+              <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-6 mt-6 border border-primary-200 shadow-lg">
+                <div class="flex items-center gap-2 mb-4">
+                  <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <p class="text-base text-gray-900 font-bold">More information</p>
+                </div>
+                <div class="space-y-3">
                   <a 
                     href="https://www.infozagreb.hr/en/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="flex items-center gap-2 text-primary-700 hover:text-primary-800 font-medium group"
+                    class="flex items-center gap-2 bg-white hover:bg-primary-100 px-4 py-3 rounded-xl text-primary-700 hover:text-primary-800 font-medium transition-all shadow-sm"
                   >
                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
-                    <span class="underline">Visit Zagreb - Tourist Information</span>
+                    <span>Visit Zagreb</span>
                   </a>
                   <a 
                     href="https://www.meetinzagreb.hr/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    class="flex items-center gap-2 text-primary-700 hover:text-primary-800 font-medium group"
+                    class="flex items-center gap-2 bg-white hover:bg-primary-100 px-4 py-3 rounded-xl text-primary-700 hover:text-primary-800 font-medium transition-all shadow-sm"
                   >
                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
-                    <span class="underline">Meet in Zagreb - Convention Bureau</span>
+                    <span>Meet in Zagreb</span>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- About Zagreb Section -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-12 text-center card-animate">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">About Zagreb</h2>
+        <p class="text-xl text-gray-600 mb-8">City with a Million Hearts</p>
+        
+        <!-- Zagreb Logo -->
+        <div class="flex justify-center">
+          <img 
+            src="/images/zagreb-logo.png" 
+            alt="Zagreb Logo" 
+            class="h-32 lg:h-40 w-auto"
+          />
+        </div>
+      </div>
+
+      <div class="space-y-8 max-w-6xl mx-auto">
+        <!-- Zagreb Description Card - Official City Color -->
+        <div class="card-animate rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.01]" style="background: linear-gradient(135deg, #2271ac 0%, #1a5a8a 100%);">
+          <div class="p-8 lg:p-10 text-white">
+            <!-- Header with Red Heart Icon -->
+            <div class="flex items-start gap-4 mb-8">
+              <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 shadow-lg flex-shrink-0">
+                <svg class="w-12 h-12 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+                </svg>
+              </div>
+              <h3 class="text-3xl lg:text-4xl font-bold leading-tight">Zagreb – City with a Million Hearts</h3>
+            </div>
+            
+            <div class="space-y-6 text-base leading-relaxed text-blue-50">
+              <p>
+                <strong class="text-white">Effervescent, avant-garde and always elegant</strong>, Zagreb embodies the grace and dignity of Old Europe, boasting a rich cultural heritage and artistic vibrancy unlike anywhere else in Croatia. A dynamic, yet unhurried metropolis and capital city, Zagreb's design beckons one to stroll, relax, and observe, with its many gardens, alfresco squares, landscaped promenades, and secret courtyards.
+              </p>
+              
+              <p>
+                Today, Zagreb's long history is evident in every structure and sidewalk, while its vibrant and cutting-edge art scene energizes contemporary society. The city is divided into three sections: <strong class="text-white">Gornji Grad</strong> ("Upper Town") the historic centre, <strong class="text-white">Donji Grad</strong> ("Lower Town") built mostly in the 19th century, and <strong class="text-white">Novi Zagreb</strong> ("New Zagreb"), with the modern metropolis encircling the historic areas.
+              </p>
+            </div>
+
+            <!-- Things to Do Box -->
+            <div class="mt-8 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl">
+              <div class="flex items-center gap-3 mb-4">
+                <svg class="w-7 h-7 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                <h4 class="text-2xl font-bold text-white">Things to do</h4>
+              </div>
+              
+              <p class="text-base leading-relaxed text-blue-50 mb-5">
+                Ride the funicular, visit Zagreb's many colourful markets, embrace the cafe culture, shop for bespoken goods, visit one-of-a kind museums.
+              </p>
+              
+              <div class="flex flex-wrap gap-3">
+                <a 
+                  href="https://www.infozagreb.hr/en/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-5 py-3 rounded-xl text-white font-medium transition-all shadow-lg"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  Visit Zagreb Info
+                </a>
+                
+                <a 
+                  href="https://www.infozagreb.hr/en/multimedia/brochures" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-5 py-3 rounded-xl text-white font-medium transition-all shadow-lg"
+                >
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                  </svg>
+                  Digital Brochures & Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Getting to Zagreb - Modern Grid Cards -->
+        <div class="space-y-6 card-animate">
+          <h3 class="text-2xl font-bold text-gray-900">Getting to Zagreb</h3>
+          
+          <!-- Grid of Transport Cards -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- BY AIR Card -->
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+              <div class="p-8 text-white">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                    <Plane class="w-10 h-10 text-white" />
+                  </div>
+                  <h4 class="text-3xl font-bold">By Air</h4>
+                </div>
+                
+                <div class="space-y-4 text-blue-50">
+                  <p class="text-base leading-relaxed">
+                    Croatia's national air company is Croatia Airlines with direct flights to major European cities: London, Amsterdam, Brussels, Paris, Frankfurt, Munich, Vienna, and many more.
+                  </p>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                    <p class="font-bold text-white mb-2">Dr. Franjo Tuđman Airport</p>
+                    <p class="text-sm mb-4">17 km from city centre (20-25 min by car)</p>
+                    <div class="space-y-2">
+                      <a 
+                        href="https://www.zagreb-airport.hr/en" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center gap-2 text-white hover:text-blue-100 font-medium text-sm underline"
+                      >
+                        Airport Website
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                      </a>
+                      <br />
+                      <a 
+                        href="https://www.infozagreb.hr/travel-plan/arrival#by-plane" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center gap-2 text-white hover:text-blue-100 font-medium text-sm underline"
+                      >
+                        More Info
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Shuttle & Taxi -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <p class="font-semibold text-white mb-2 text-sm">🚐 Shuttle Bus</p>
+                      <p class="text-xs mb-2">Airport to Bus Station</p>
+                      <a 
+                        href="https://www.plesoprijevoz.hr/en/zagreb-croatia/" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="text-white hover:text-blue-100 font-medium text-xs underline"
+                      >
+                        Book shuttle
+                      </a>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                      <p class="font-semibold text-white mb-2 text-sm">🚕 Taxi</p>
+                      <p class="text-xs mb-2">Uber or:</p>
+                      <div class="space-y-1 text-xs">
+                        <a 
+                          href="https://www.ekotaxi.hr/en" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          class="block text-white hover:text-blue-100 font-medium underline"
+                        >
+                          Eko Taxi
+                        </a>
+                        <a 
+                          href="https://taxi1717.hr/en/" 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          class="block text-white hover:text-blue-100 font-medium underline"
+                        >
+                          Taxi 1717
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BY CAR Card -->
+            <div class="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+              <div class="p-8 text-white">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                    <Car class="w-10 h-10 text-white" />
+                  </div>
+                  <h4 class="text-3xl font-bold">By Car</h4>
+                </div>
+                
+                <div class="space-y-4 text-slate-100">
+                  <p class="text-base leading-relaxed">
+                    Zagreb is perfectly positioned between Central and Southeastern Europe and the Adriatic Sea, providing easy access to all major Croatian cities and neighboring capitals.
+                  </p>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                    <p class="font-bold text-white mb-3 text-sm">Major International Routes:</p>
+                    <ul class="space-y-2 text-sm">
+                      <li class="flex items-start gap-2">
+                        <span class="text-red-400 font-bold">•</span>
+                        <span>Trieste - Ljubljana - Zagreb</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-red-400 font-bold">•</span>
+                        <span>Graz - Maribor - Zagreb</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-red-400 font-bold">•</span>
+                        <span>Klagenfurt - Ljubljana - Zagreb</span>
+                      </li>
+                      <li class="flex items-start gap-2">
+                        <span class="text-red-400 font-bold">•</span>
+                        <span>Budapest - Varaždin - Zagreb</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BY BUS Card -->
+            <div class="bg-gradient-to-br from-emerald-800 to-emerald-900 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+              <div class="p-8 text-white">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                    <Bus class="w-10 h-10 text-white" />
+                  </div>
+                  <h4 class="text-3xl font-bold">By Bus</h4>
+                </div>
+                
+                <div class="space-y-4 text-green-50">
+                  <p class="text-base leading-relaxed">
+                    Zagreb Main Bus Station (Autobusni kolodvor, Avenija Marina Držića 4) connects Zagreb with numerous cities in Croatia and Europe on daily basis.
+                  </p>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                    <p class="font-bold text-white mb-3">Bus Station Information</p>
+                    <a 
+                      href="https://www.akz.hr/en" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="inline-flex items-center gap-2 text-white hover:text-green-100 font-medium underline"
+                    >
+                      www.akz.hr/en
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BY TRAIN Card -->
+            <div class="bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+              <div class="p-8 text-white">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4">
+                    <Train class="w-10 h-10 text-white" />
+                  </div>
+                  <h4 class="text-3xl font-bold">By Train</h4>
+                </div>
+                
+                <div class="space-y-4 text-purple-100">
+                  <p class="text-base leading-relaxed">
+                    Zagreb Main Train Station (Glavni kolodvor, Trg kralja Tomislava 12) and Croatian Railways offer cheap connections to main Croatian cities and neighboring countries.
+                  </p>
+                  
+                  <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+                    <p class="font-bold text-white mb-3">Train Station Information</p>
+                    <a 
+                      href="https://www.prodaja.hzpp.hr/en" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="inline-flex items-center gap-2 text-white hover:text-purple-100 font-medium underline"
+                    >
+                      www.prodaja.hzpp.hr/en
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- In Zagreb & Weather - Modern Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 card-animate">
+          
+          <!-- In Zagreb Card -->
+          <div class="rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02]" style="background: linear-gradient(135deg, #2271ac 0%, #1a5a8a 100%);">
+            <div class="p-8 lg:p-10 text-white">
+              <!-- Header with Icon -->
+              <div class="flex items-center gap-4 mb-6">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                  <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-3xl font-bold">In Zagreb</h3>
+              </div>
+              
+                <div class="space-y-6">
+                <p class="text-blue-100 text-base leading-relaxed">
+                  Zagreb's public transportation system is called <strong class="text-white">ZET</strong> (Zagreb Electric Tram). Made up primarily of buses and trams, it also includes a cable car to Medvednica Mountain and a funicular to Gornji grad.
+                </p>
+
+                <!-- Tickets & Information Box -->
+                <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl">
+                  <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-6 h-6 text-yellow-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
+                    </svg>
+                    <h4 class="text-xl font-bold text-white">Tickets & Information</h4>
+                  </div>
+                  
+                  <p class="text-blue-100 text-sm mb-4">
+                    Purchase tickets from driver, at kiosk, or via <strong>Moj ZET</strong> app.
+                  </p>
+                  
+                  <div class="flex flex-wrap gap-3">
+                    <a 
+                      href="https://www.zet.hr/home/581" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg text-white font-medium text-sm transition-all"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                      </svg>
+                      ZET Homepage
+                    </a>
+                    
+                    <a 
+                      href="https://www.zet.hr/tickets-and-fares/fares/605" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm px-4 py-2 rounded-lg text-white font-medium text-sm transition-all"
+                    >
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                      Fares & Tickets
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weather in Zagreb Card -->
+          <div class="bg-gradient-to-br from-sky-400 via-blue-400 to-cyan-400 rounded-2xl shadow-2xl overflow-hidden transform transition-all duration-300 hover:scale-[1.02]">
+            <div class="p-8 lg:p-10 text-white">
+              <!-- Header with Icon -->
+              <div class="flex items-center gap-4 mb-6">
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+                  <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  </svg>
+                </div>
+                <h3 class="text-3xl font-bold">Weather</h3>
+              </div>
+              
+              <!-- Custom Weather Display -->
+              <div id="weather-container" class="space-y-4">
+                <!-- Loading State -->
+                <div id="weather-loading" class="text-center py-8">
+                  <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-white/30 border-t-white"></div>
+                  <p class="text-sky-100 mt-3 font-medium">Loading weather...</p>
+                </div>
+                
+                <!-- Weather Content (will be populated by JS) -->
+                <div id="weather-content" class="hidden space-y-4">
+                  <!-- Current Weather -->
+                  <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl">
+                    <div class="flex items-start justify-between">
+                      <div>
+                        <p class="text-sky-100 text-sm mb-2">Current Weather</p>
+                        <p class="text-5xl font-bold mb-2" id="current-temp">--°C</p>
+                        <p class="text-sky-100 capitalize font-medium" id="current-desc">--</p>
+                      </div>
+                      <div class="text-right">
+                        <div id="current-icon" class="text-6xl drop-shadow-lg">☁️</div>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-6 pt-4 border-t border-white/20">
+                      <div>
+                        <p class="text-sky-200 text-xs mb-1">Feels Like</p>
+                        <p class="font-bold text-lg" id="feels-like">--°C</p>
+                      </div>
+                      <div>
+                        <p class="text-sky-200 text-xs mb-1">Humidity</p>
+                        <p class="font-bold text-lg" id="humidity">--%</p>
+                      </div>
+                      <div>
+                        <p class="text-sky-200 text-xs mb-1">Wind</p>
+                        <p class="font-bold text-lg" id="wind">-- m/s</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 5-Day Forecast -->
+                  <div class="grid grid-cols-5 gap-2" id="forecast-container">
+                    <!-- Forecast items will be inserted here -->
+                  </div>
+                </div>
+
+                <!-- Error State -->
+                <div id="weather-error" class="hidden text-center py-8">
+                  <p class="text-white/90 bg-red-600/50 backdrop-blur-sm rounded-lg p-4">Unable to load weather data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Custom Weather Script with OpenWeatherMap API -->
+  <script is:inline>
+  (async function() {
+    const API_KEY = 'b1b15e88fa797225412429c1c50c122a1'; // OpenWeatherMap API key
+    const CITY = 'Zagreb';
+    const UNITS = 'metric';
+
+    const weatherIcons = {
+      '01d': '☀️', '01n': '🌙',
+      '02d': '⛅', '02n': '☁️',
+      '03d': '☁️', '03n': '☁️',
+      '04d': '☁️', '04n': '☁️',
+      '09d': '🌧️', '09n': '🌧️',
+      '10d': '🌦️', '10n': '🌧️',
+      '11d': '⛈️', '11n': '⛈️',
+      '13d': '❄️', '13n': '❄️',
+      '50d': '🌫️', '50n': '🌫️',
+    };
+
+    try {
+      // Fetch current weather
+      const currentResponse = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
+      );
+      const currentData = await currentResponse.json();
+
+      // Fetch 5-day forecast
+      const forecastResponse = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
+      );
+      const forecastData = await forecastResponse.json();
+
+      // Update current weather
+      document.getElementById('current-temp').textContent = Math.round(currentData.main.temp) + '°C';
+      document.getElementById('current-desc').textContent = currentData.weather[0].description;
+      document.getElementById('current-icon').textContent = weatherIcons[currentData.weather[0].icon] || '☁️';
+      document.getElementById('feels-like').textContent = Math.round(currentData.main.feels_like) + '°C';
+      document.getElementById('humidity').textContent = currentData.main.humidity + '%';
+      document.getElementById('wind').textContent = currentData.wind.speed.toFixed(1) + ' m/s';
+
+      // Process forecast data (get one per day at noon)
+      const dailyForecasts = [];
+      const processedDates = new Set();
+      
+      forecastData.list.forEach(item => {
+        const date = new Date(item.dt * 1000);
+        const dateStr = date.toLocaleDateString();
+        
+        if (!processedDates.has(dateStr) && dailyForecasts.length < 5) {
+          processedDates.add(dateStr);
+          dailyForecasts.push({
+            day: date.toLocaleDateString('en-US', { weekday: 'short' }),
+            icon: weatherIcons[item.weather[0].icon] || '☁️',
+            temp: Math.round(item.main.temp),
+          });
+        }
+      });
+
+      // Render forecast
+      const forecastContainer = document.getElementById('forecast-container');
+      forecastContainer.innerHTML = dailyForecasts.map(day => `
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
+          <p class="text-xs font-medium text-sky-100 mb-2">${day.day}</p>
+          <div class="text-2xl mb-2">${day.icon}</div>
+          <p class="text-base font-bold text-white">${day.temp}°C</p>
+        </div>
+      `).join('');
+
+      // Show content, hide loading
+      document.getElementById('weather-loading').classList.add('hidden');
+      document.getElementById('weather-content').classList.remove('hidden');
+
+    } catch (error) {
+      console.error('Weather fetch error:', error);
+      document.getElementById('weather-loading').classList.add('hidden');
+      document.getElementById('weather-error').classList.remove('hidden');
+    }
+  })();
+  </script>
 
   <Footer />
 
   <!-- Styles for hero section icons -->
   <style>
-    /* Ensure Heroicon SVGs display correctly in buttons */
-    .bg-white\/10 span :global(svg) {
+    /* Ensure Heroicon SVGs display correctly in buttons and headings */
+    .bg-white\/10 span :global(svg),
+    h4 span :global(svg) {
       width: 100%;
       height: 100%;
       display: block;
@@ -462,5 +995,30 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
     updateCountdown();
     // Update every second
     setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- Modern Animation Scripts -->
+  <script>
+    // GSAP ScrollTrigger for reveal animations
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate cards on scroll - fade in from bottom
+    gsap.utils.toArray('.card-animate').forEach((card: any) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%',
+          end: 'top 20%',
+          toggleActions: 'play none none reverse',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      });
+    });
   </script>
 </Layout>
