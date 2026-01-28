@@ -1,0 +1,466 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+
+// Import Heroicons
+import calendar from 'heroicons/24/outline/calendar.svg?raw';
+import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
+---
+
+<Layout
+  title="Venue - Hotel Westin Zagreb | ICD 2027"
+  description="The 11th International Congress of Dipterology will be held at the Westin Zagreb Hotel in the heart of Croatia's capital city."
+>
+  <Header />
+
+  <!-- Hero Section - same as index.astro -->
+  <section class="relative overflow-hidden hero-gradient">
+    <!-- Enhanced decorative elements -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-10 left-10 w-96 h-96 bg-white/30 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-white/20 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <!-- Subtle grid overlay -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+    <div class="relative section-container py-20 lg:py-32">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left Content -->
+        <div class="text-white animate-fade-in-up">
+          <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
+            XI. International Congress of
+            <span class="block text-white">Dipterology</span>
+          </h1>
+          
+          <p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+            Join the world's leading researchers and scientists in Zagreb, Croatia.
+          </p>
+
+          <!-- Date and Location Buttons -->
+          <div class="flex flex-wrap gap-4">
+            <!-- Start Date Button -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
+              <span class="w-6 h-6 text-white flex-shrink-0" set:html={calendar} />
+              <div>
+                <div class="text-xs text-white/80 font-medium uppercase tracking-wide">START DATE</div>
+                <div class="text-base font-bold text-white">Jul 10, 2027</div>
+              </div>
+            </div>
+            
+            <!-- Location Button -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
+              <span class="w-6 h-6 text-white flex-shrink-0" set:html={mapPin} />
+              <div>
+                <div class="text-xs text-white/80 font-medium uppercase tracking-wide">LOCATION</div>
+                <div class="text-base font-bold text-white">Hotel Westin</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="mt-12">
+            <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
+                <div id="days" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
+                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Days</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
+                <div id="hours" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
+                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Hours</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
+                <div id="minutes" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
+                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Minutes</div>
+              </div>
+              <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
+                <div id="seconds" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
+                <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image/Logo -->
+        <div class="relative animate-fade-in delay-200 ml-8 lg:ml-12">
+          <div class="relative glass rounded-3xl p-8 lg:p-12 shadow-xl-colored">
+            <img 
+              src="/images/Logo ICD2027 wide.png" 
+              alt="ICD 2027 Logo" 
+              class="w-full h-auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hotel Westin Section -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-10 animate-fade-in-up">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            The Westin Zagreb Hotel
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            Experience world-class hospitality in the heart of Croatia's vibrant capital
+          </p>
+        </div>
+
+        <!-- Hotel Content Card -->
+        <Card variant="elevated" class="p-8 lg:p-10 animate-fade-in-up delay-100 hover:scale-100">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            <!-- Hotel Images Grid 2x2 - Left column -->
+            <div class="order-2 lg:order-1">
+              <div class="grid grid-cols-2 gap-3">
+                <!-- Image 1 -->
+                <div class="aspect-square rounded-xl overflow-hidden shadow-md">
+                  <img 
+                    src="/images/westin-hotel-1.jpg" 
+                    alt="The Westin Zagreb Hotel - Exterior" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><svg class=\'w-12 h-12 text-primary-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\'></path></svg></div>'"
+                  />
+                </div>
+                
+                <!-- Image 2 -->
+                <div class="aspect-square rounded-xl overflow-hidden shadow-md">
+                  <img 
+                    src="/images/westin-hotel-2.jpg" 
+                    alt="The Westin Zagreb Hotel - Lobby" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><svg class=\'w-12 h-12 text-primary-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\'></path></svg></div>'"
+                  />
+                </div>
+                
+                <!-- Image 3 -->
+                <div class="aspect-square rounded-xl overflow-hidden shadow-md">
+                  <img 
+                    src="/images/westin-hotel-3.jpg" 
+                    alt="The Westin Zagreb Hotel - Conference Room" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><svg class=\'w-12 h-12 text-primary-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\'></path></svg></div>'"
+                  />
+                </div>
+                
+                <!-- Image 4 -->
+                <div class="aspect-square rounded-xl overflow-hidden shadow-md">
+                  <img 
+                    src="/images/westin-hotel-4.jpg" 
+                    alt="The Westin Zagreb Hotel - Spa" 
+                    class="w-full h-full object-cover"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center\'><svg class=\'w-12 h-12 text-primary-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\'></path></svg></div>'"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel Description - Right column -->
+            <div class="order-1 lg:order-2 flex flex-col justify-start">
+              <div class="max-w-none">
+                <p class="text-base text-gray-700 leading-relaxed mb-5">
+                  The Westin Zagreb Hotel is centrally located in the very heart of Zagreb. Our conference hotel is situated in a leafy area in Zagreb, adjacent to the Mimara Museum and the world-famous National Theatre and Opera House.
+                </p>
+                
+                <p class="text-base text-gray-700 leading-relaxed mb-5">
+                  Our location is within easy walking distance to the central square, markets, the many trendy cafés, restaurants, designer boutiques, rich cultural attractions, and capital city business destinations.
+                </p>
+
+                <p class="text-base text-gray-700 leading-relaxed mb-5">
+                  Recognized for offering discreet surroundings and professional, caring service, our premium business hotel in Croatia is a regular host to high-profile local, national, and international events. It has been the favorite home-away-from-home for visiting royalty, world leaders, international dignitaries, and other travelers seeking the calm comfort of a modern and corporate hotel in Zagreb city center.
+                </p>
+
+                <p class="text-base text-gray-700 leading-relaxed">
+                  Take it easy in the evenings with a soothing massage at our Zagreb hotel's spa, to make the most of your stay in Croatia.
+                </p>
+              </div>
+
+              <!-- Hotel Features Icons -->
+              <div class="grid grid-cols-2 gap-3 mt-8">
+                <a 
+                  href="https://www.marriott.com/en-us/hotels/zagwi-the-westin-zagreb/overview/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-2 group"
+                >
+                  <div class="w-8 h-8 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-primary-700 group-hover:text-primary-800 underline">Hotel Westin</span>
+                </a>
+
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-gray-700">Conference Facilities</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-gray-700">Wellness & Spa</span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-sm font-medium text-gray-700">Premium Service</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Zagreb & Croatia Section -->
+  <section class="section-padding bg-gray-50">
+    <div class="section-container">
+      <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-10 animate-fade-in-up">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Discover Zagreb & Croatia
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            A small country with a rich history, culture, and natural wonders
+          </p>
+        </div>
+
+        <!-- Croatia Content Card -->
+        <Card variant="elevated" class="p-8 lg:p-10 animate-fade-in-up delay-200 hover:scale-100">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+            <!-- Croatia Description - Left side -->
+            <div class="order-1 lg:col-span-2">
+              <h3 class="text-xl font-bold text-gray-900 mb-5">Croatia – Facts and Figures</h3>
+              
+              <div class="space-y-2 mb-6">
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Country name:</span>
+                    <span class="text-gray-700"> Republic of Croatia</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Local form:</span>
+                    <span class="text-gray-700"> Republika Hrvatska</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Capital city:</span>
+                    <span class="text-gray-700"> Zagreb (population of 769,944 – 2021 census)</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Administrative divisions:</span>
+                    <span class="text-gray-700"> 20 counties and one city (Zagreb)</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Total area:</span>
+                    <span class="text-gray-700"> 87,609 sq. km</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Number of islands:</span>
+                    <span class="text-gray-700"> 1,185 (47 inhabited)</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Time zone:</span>
+                    <span class="text-gray-700"> CET (GMT+1)</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">International dialling code:</span>
+                    <span class="text-gray-700"> +385</span>
+                  </div>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-1.5 h-1.5 bg-red-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                  <div class="text-sm">
+                    <span class="font-semibold text-gray-900">Official currency:</span>
+                    <span class="text-gray-700"> Euro</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="max-w-none mb-6">
+                <p class="text-base text-gray-700 leading-relaxed mb-4">
+                  A small country with a rich history, Croatia awes visitors with its wide variety of culture, cuisine, and natural and architectural wonders. The sophisticated traveller searching for a novel and interesting destination will be delighted to discover the beauty and the mysterious magic of the newest member of the European community.
+                </p>
+
+                <p class="text-base text-gray-700 leading-relaxed mb-4">
+                  Croatia is both a Central European and Mediterranean country, bordering Slovenia in the west, Hungary in the north, Serbia in the east, and Bosnia and Herzegovina in the south. Part of the country lies on the coast while the other rests in continental Europe, creating a dichotomous path of discovery that engages all the senses.
+                </p>
+
+                <p class="text-base text-gray-700 leading-relaxed mb-4">
+                  Travelers to Croatia can explore its 1,185 islands, taste the freshness of locally grown organic produce, tour privately owned wineries, marvel at the breathtaking colours of its famous lakes, and succumb to the seductions of the region's converging cultures.
+                </p>
+
+                <p class="text-base text-gray-700 leading-relaxed mb-6">
+                  Croatia unfolds a unique mix of Italic, Germanic, and Slavic influences, indulging visitors to discover a rare gem in the world of travel. Croatia is now the 28th country admitted into the EU and boasts 10 UNESCO World Heritage Sites.
+                </p>
+              </div>
+
+              <!-- Language Section -->
+              <div class="bg-gradient-to-br from-accent-50 to-accent-100 rounded-xl p-5">
+                <h4 class="text-base font-bold text-gray-900 mb-3">Language</h4>
+                <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                  Official language in Croatia is Croatian. Many people speak English or German and on the coast of Croatia they will probably speak Italian too. Here are some Croatian phrases that might come handy:
+                </p>
+                <div class="grid grid-cols-2 gap-2 text-sm">
+                  <div>
+                    <span class="font-semibold text-gray-900">Thank you</span>
+                    <span class="text-gray-600"> = Hvala</span>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-gray-900">Please</span>
+                    <span class="text-gray-600"> = Molim</span>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-gray-900">Good morning</span>
+                    <span class="text-gray-600"> = Dobro jutro</span>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-gray-900">Good afternoon</span>
+                    <span class="text-gray-600"> = Dobar dan</span>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-gray-900">Good night</span>
+                    <span class="text-gray-600"> = Laku noć</span>
+                  </div>
+                  <div>
+                    <span class="font-semibold text-gray-900">Goodbye</span>
+                    <span class="text-gray-600"> = Doviđenja</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zagreb Image - Right side (smaller) -->
+            <div class="order-2 lg:col-span-1">
+              <div class="rounded-xl overflow-hidden shadow-lg mx-auto" style="max-width: 394px;">
+                <img 
+                  src="/images/zagreb-city.jpg" 
+                  alt="Zagreb City" 
+                  class="w-full h-auto object-cover"
+                  onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full aspect-[3/4] flex items-center justify-center bg-gradient-to-br from-accent-100 to-accent-200 rounded-xl\'><svg class=\'w-24 h-24 text-accent-600\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z\'></path></svg></div>'"
+                />
+              </div>
+
+              <!-- More Info Links -->
+              <div class="bg-primary-50 rounded-lg p-5 mt-6">
+                <p class="text-sm text-gray-900 font-semibold mb-3">More information:</p>
+                <div class="space-y-2">
+                  <a 
+                    href="https://www.infozagreb.hr/en/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="flex items-center gap-2 text-primary-700 hover:text-primary-800 font-medium group"
+                  >
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    <span class="underline">Visit Zagreb - Tourist Information</span>
+                  </a>
+                  <a 
+                    href="https://www.meetinzagreb.hr/" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="flex items-center gap-2 text-primary-700 hover:text-primary-800 font-medium group"
+                  >
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    <span class="underline">Meet in Zagreb - Convention Bureau</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <!-- Styles for hero section icons -->
+  <style>
+    /* Ensure Heroicon SVGs display correctly in buttons */
+    .bg-white\/10 span :global(svg) {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+
+  <!-- Countdown Timer Script -->
+  <script>
+    // Countdown to conference start: July 10, 2027, 00:00:00 (local time)
+    const conferenceDate = new Date('2027-07-10T00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = conferenceDate - now;
+
+      if (distance < 0) {
+        // Conference has started
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Update immediately
+    updateCountdown();
+    // Update every second
+    setInterval(updateCountdown, 1000);
+  </script>
+</Layout>
