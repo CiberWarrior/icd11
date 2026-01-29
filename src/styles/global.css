@@ -126,6 +126,10 @@
     );
   }
 
+  .zagreb-gradient {
+    background: linear-gradient(135deg, #2271ac 0%, #1a5a8a 100%);
+  }
+
   /* Hero gradient - premium multi-layer gradient */
   .hero-gradient {
     position: relative;
@@ -221,6 +225,33 @@
   .delay-500 {
     animation-delay: 500ms;
   }
+
+  /*
+   * Venue: gasi sve hover na karticama/boxovima (transform, shadow, filter, bg, color).
+   * Hover ostaje samo na <a> i CTA gumbima – ne koristi *:hover.
+   * Specifičnost .card.no-card-hover i .card-elevated.no-card-hover osigurava
+   * override nad .card/.card-elevated i Tailwind hover utilities.
+   */
+  .no-card-hover:hover,
+  .card.no-card-hover:hover,
+  .card-elevated.no-card-hover:hover {
+    transform: none !important;
+    transition: none !important;
+    box-shadow: inherit !important;
+    filter: none !important;
+  }
+
+  /* Group-hover (npr. tekst u linku) – isključi unutar .no-card-hover */
+  .no-card-hover .group:hover .group-hover\:text-primary-800 {
+    color: inherit !important;
+  }
+
+  /* Card with no shadow (normal or hover) – e.g. Discover Zagreb & Croatia */
+  .card-flat,
+  .card-flat:hover {
+    box-shadow: none !important;
+  }
+
 }
 
 /* Smooth transitions for interactive elements */
@@ -232,4 +263,151 @@ textarea {
   transition-property: color, background-color, border-color, box-shadow, transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+}
+
+/* =========================================================
+   VENUE PAGE – hover ONLY on links (<a>), like home hero.
+   Unlayered so it wins over Tailwind/DaisyUI.
+   ========================================================= */
+
+/* Venue: bez sjene na cijeloj stranici */
+.venue-page,
+.venue-page * {
+  box-shadow: none !important;
+}
+
+.venue-page *:not(a) {
+  transition-property: none !important;
+  animation: none !important;
+}
+
+/* Ne mijenjati color/background na containerima (div) – inače kartica nasljeđuje boju od parenta i cijeli tekst se promijeni */
+.venue-page *:not(a):hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  text-decoration: none !important;
+  text-decoration-color: inherit !important;
+  outline: none !important;
+}
+
+/* Tekst (p, span, naslovi): bez hover promjene boje – NE uključivati div da kartice ne nasljeđuju body boju */
+.venue-page p:hover,
+.venue-page span:hover,
+.venue-page h1:hover,
+.venue-page h2:hover,
+.venue-page h3:hover,
+.venue-page h4:hover,
+.venue-page h5:hover,
+.venue-page h6:hover,
+.venue-page strong:hover {
+  color: inherit !important;
+  background-color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* group-hover ugašen za sve osim linkova (npr. tekst u karticama) */
+.venue-page .group:not(a) [class*='group-hover'] {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+.venue-page .group:not(a):hover [class*='group-hover'] {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+.venue-page .card:hover,
+.venue-page .card-elevated:hover,
+.venue-page .card-animate:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Westin kartica (i sve s no-card-hover): bez ikakvog hovera */
+.venue-page .card.no-card-hover:hover,
+.venue-page .card-elevated.no-card-hover:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+/* Grid kartice i sve kartice: bez hovera (transform/shadow/filter) */
+.venue-page [class*='grid'] > *:not(a):hover,
+.venue-page div[class*='rounded-2xl']:hover,
+.venue-page div[class*='rounded-xl']:hover,
+.venue-page div[class*='rounded-lg']:hover,
+.venue-page [class*='backdrop-blur']:hover,
+.venue-page [class*='bg-white']:hover,
+.venue-page [class*='bg-gradient']:hover,
+.venue-page [class*='border-accent']:hover,
+.venue-page [class*='accent-50']:hover,
+.venue-page [class*='accent-100']:hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Ružičaste kartice (accent gradient): bez sjene */
+.venue-page [class*='from-accent-50'],
+.venue-page [class*='to-accent-100'] {
+  box-shadow: none !important;
+}
+
+/* Tekst u kutijama (Ride the funicular, Airport to Bus Station, Purchase tickets...) – nikad hover */
+.venue-page p:hover,
+.venue-page [class*='space-y'] p:hover,
+.venue-page [class*='bg-white'] p:hover,
+.venue-page [class*='backdrop-blur'] p:hover {
+  color: inherit !important;
+  background-color: transparent !important;
+  text-decoration: none !important;
+}
+
+  /* Only links (including “buttons that are links” <a>) keep transition + hover on venue page */
+.venue-page a:not(.venue-cta-link) {
+  transition-property: none !important;
+  animation: none !important;
+}
+.venue-page a:not(.venue-cta-link):hover,
+.venue-page a:not(.venue-cta-link):hover * {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  background-color: inherit !important;
+  color: inherit !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.venue-page a.venue-cta-link,
+.venue-page a.venue-cta-link * {
+  transition-property: color, background-color, border-color, box-shadow, transform, text-decoration-color, filter !important;
+  animation: auto !important;
+}
+.venue-page a.venue-cta-link:hover,
+.venue-page a.venue-cta-link:hover * {
+  transform: unset !important;
+  box-shadow: unset !important;
+  filter: unset !important;
+  background-color: unset !important;
+  color: unset !important;
+  text-decoration-color: unset !important;
+  outline: unset !important;
+}
+
+/* Hero on venue: no hover (same as home) */
+.venue-page section.hero-gradient,
+.venue-page section.hero-gradient *:not(a) {
+  transition-property: none !important;
+  animation: none !important;
+}
+.venue-page section.hero-gradient:hover,
+.venue-page section.hero-gradient *:not(a):hover {
+  transform: none !important;
+  box-shadow: none !important;
+  filter: none !important;
+  background-color: inherit !important;
+  color: inherit !important;
 }
