@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout
+  title="About | ICD 2027"
+  description="Learn about the International Congress of Dipterology, its history, and the organizing committee for ICD 2027 in Zagreb."
+>
+  <Header />
+
+  <HeroCountdown />
+
+  <!-- Content Section (skeleton – add content later) -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto">
+        <Card variant="elevated" class="p-8 lg:p-10">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">About ICD</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Content about the International Congress of Dipterology, its mission, and history will go here.
+          </p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Organizing Committee</h2>
+          <p class="text-gray-600 leading-relaxed">
+            Organizing committee and local hosts information will go here.
+          </p>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

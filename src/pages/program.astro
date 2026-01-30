@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+---
+
+<Layout
+  title="Program | ICD 2027"
+  description="Congress program: scientific sessions, workshops, field excursion, and social events for ICD 2027 in Zagreb."
+>
+  <Header />
+
+  <HeroCountdown />
+
+  <!-- Content Section (skeleton – add schedule later) -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto">
+        <Card variant="elevated" class="p-8 lg:p-10 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Program overview and key dates will go here.
+          </p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Daily Schedule</h2>
+          <p class="text-gray-600 leading-relaxed">
+            Detailed daily schedule (sessions, workshops, posters, field excursion, gala) will go here.
+          </p>
+        </Card>
+        <!-- Placeholder for timeline / schedule items -->
+        <Card variant="elevated" class="p-6">
+          <div class="space-y-4">
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-24 px-3 py-2 bg-primary-100 rounded-lg text-center text-sm font-semibold text-primary-700">
+                Jul 10
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">Registration & Opening</h3>
+                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-24 px-3 py-2 bg-accent-100 rounded-lg text-center text-sm font-semibold text-accent-700">
+                Jul 11–14
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">Scientific Sessions</h3>
+                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-24 px-3 py-2 bg-green-100 rounded-lg text-center text-sm font-semibold text-green-700">
+                Jul 15
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">Field Excursion</h3>
+                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-24 px-3 py-2 bg-purple-100 rounded-lg text-center text-sm font-semibold text-purple-700">
+                Jul 16
+              </div>
+              <div>
+                <h3 class="font-bold text-gray-900">Closing & Gala</h3>
+                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

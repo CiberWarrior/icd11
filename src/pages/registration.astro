@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+---
+
+<Layout
+  title="Registration | ICD 2027"
+  description="Register for the 11th International Congress of Dipterology. Fees, deadlines, and registration link for ICD 2027 in Zagreb."
+>
+  <Header />
+
+  <HeroCountdown />
+
+  <!-- Content Section (skeleton – add fees & link later) -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto">
+        <Card variant="elevated" class="p-8 lg:p-10 mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Registration Information</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Registration opening date, deadlines, and general information will go here.
+          </p>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Registration Fees</h2>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Fee categories (early/late, members/non-members, students, etc.) and prices will go here.
+          </p>
+          <div class="mt-8">
+            <Button variant="primary" size="lg" href="#">
+              Register (link to be added)
+            </Button>
+            <p class="text-gray-500 text-sm mt-2">
+              Registration platform link will be added when available.
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -12,7 +12,7 @@ const navItems = [
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-sm"
+  class="fixed top-0 left-0 right-0 z-50 bg-white"
 >
   <nav class="section-container py-4">
     <div class="flex items-center justify-between">
@@ -120,26 +120,6 @@ const navItems = [
         menuIcon.classList.remove('hidden');
         closeIcon.classList.add('hidden');
       });
-    });
-  }
-
-  // Header scroll effect
-  const header = document.getElementById('main-header');
-  let lastScroll = 0;
-
-  if (header) {
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll <= 0) {
-        header.classList.remove('shadow-md');
-        header.classList.add('shadow-sm');
-      } else {
-        header.classList.add('shadow-md');
-        header.classList.remove('shadow-sm');
-      }
-
-      lastScroll = currentScroll;
     });
   }
 
