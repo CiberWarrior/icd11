@@ -24,11 +24,13 @@ const contactInfo = [
       <!-- Logo & Description -->
       <div class="lg:col-span-2">
         <div class="flex items-center space-x-3 mb-6">
-          <div
-            class="w-14 h-14 bg-white/10 backdrop-blur-lg rounded-xl flex items-center justify-center border border-white/20"
-          >
-            <span class="text-white font-bold text-2xl">ICD</span>
-          </div>
+          <a href="/" class="flex-shrink-0">
+            <img
+              src="/images/logo-icd-2027.png"
+              alt="ICD 2027 Logo"
+              class="h-12 w-auto sm:h-14 object-contain rounded-lg"
+            />
+          </a>
           <div>
             <div class="text-xl font-bold">ICD 2027</div>
             <div class="text-sm text-white/80">
@@ -42,7 +44,7 @@ const contactInfo = [
         </p>
         <div class="mt-6 flex items-center space-x-2 text-white/90">
           <span class="w-5 h-5 inline-block" set:html={calendar} />
-          <span class="text-lg font-semibold">July 10-16, 2027</span>
+          <span class="text-lg font-semibold">July 11-16, 2027</span>
         </div>
       </div>
 

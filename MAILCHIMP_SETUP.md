@@ -57,6 +57,7 @@ npm run dev
    - Name (required)
    - Surname (required)
    - Email (required)
+   - Country (required)
    - Newsletter consent checkbox (required)
 
 2. **Form submits to `/api/newsletter`** endpoint
@@ -116,7 +117,27 @@ The form fields map to Mailchimp merge fields:
 - `name` → `FNAME` (First Name)
 - `surname` → `LNAME` (Last Name)
 - `email` → `email_address`
+- `country` → **`COUNTRY`** (you must add this merge field in Mailchimp – see below)
 - `newsletterConsent` → Used for validation (must be checked)
 
-Make sure your Mailchimp list has `FNAME` and `LNAME` merge fields configured (they are usually there by default).
+`FNAME` and `LNAME` exist by default. **`COUNTRY` does not** – you must create it.
+
+---
+
+## Country not showing in Mailchimp?
+
+The form sends Country to Mailchimp as merge field **`COUNTRY`**. If that merge field does not exist in your audience, Mailchimp ignores the value and you will not see it in the contact profile.
+
+**Fix: add the COUNTRY merge field in Mailchimp**
+
+1. In Mailchimp: **Audience** → **Settings** (gear icon).
+2. Under **Audience fields and *|MERGE|* tags**, click **Manage audience fields** (or **Add A Field**).
+3. Click **Add A Field**.
+4. Set:
+   - **Label:** e.g. `Country`
+   - **Merge tag:** **`COUNTRY`** (must be exactly uppercase `COUNTRY` – the API uses this tag).
+   - **Type:** Text (or as you prefer).
+5. Save.
+
+After adding it, new signups will show Country in the contact profile. Existing contacts will not have Country filled in unless you update them or they resubscribe.
 
