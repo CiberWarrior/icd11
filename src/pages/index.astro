@@ -4,10 +4,6 @@ import Header from '../components/Header.astro';
 import HeroCountdown from '../components/HeroCountdown.astro';
 import Footer from '../components/Footer.astro';
 import Button from '../components/Button.astro';
-import Card from '../components/Card.astro';
-import NewsletterForm from '../components/NewsletterForm.astro';
-import KeyInformation from '../components/KeyInformation.astro';
-import CallToAction from '../components/CallToAction.astro';
 ---
 
 <Layout
@@ -18,238 +14,68 @@ import CallToAction from '../components/CallToAction.astro';
 
   <HeroCountdown />
 
-  <!-- Key Information Section -->
-  <KeyInformation />
-
-  <!-- About Section -->
-  <section id="about" class="section-padding bg-gray-50">
+  <!-- Important Dates Section -->
+  <section id="dates" class="section-padding bg-white">
     <div class="section-container">
-      <div class="text-center max-w-3xl mx-auto mb-16 animate-fade-in-up">
+      <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-          About the Congress
+          Important Dates
         </h2>
         <p class="text-xl text-gray-600 leading-relaxed">
-          The International Congress of Dipterology is the premier global gathering for researchers, 
-          scientists, and professionals in the field of fly research and taxonomy.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Feature Card 1 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-100">
-          <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">World-Class Speakers</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Learn from leading experts and pioneers in dipterology from universities 
-            and research institutions worldwide.
-          </p>
-        </Card>
-
-        <!-- Feature Card 2 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Cutting-Edge Research</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Discover the latest research findings, methodologies, and innovations 
-            in fly taxonomy and ecology.
-          </p>
-        </Card>
-
-        <!-- Feature Card 3 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Global Networking</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Connect with researchers and professionals from over 50 countries 
-            and build lasting collaborations.
-          </p>
-        </Card>
-
-        <!-- Feature Card 4 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-100">
-          <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Workshops & Sessions</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Participate in hands-on workshops, poster sessions, and interactive 
-            discussions on specialized topics.
-          </p>
-        </Card>
-
-        <!-- Feature Card 5 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-200">
-          <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Explore Zagreb</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Experience the beautiful Croatian capital with its rich history, 
-            culture, and Mediterranean atmosphere.
-          </p>
-        </Card>
-
-        <!-- Feature Card 6 -->
-        <Card variant="elevated" class="p-8 animate-fade-in-up delay-300">
-          <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-bold text-gray-900 mb-4">Exhibition & Resources</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Visit the exhibition area featuring publishers, equipment manufacturers, 
-            and research organizations.
-          </p>
-        </Card>
-      </div>
-    </div>
-  </section>
-
-  <!-- Program Section -->
-  <section id="program" class="section-padding bg-white">
-    <div class="section-container">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-          Congress Program
-        </h2>
-        <p class="text-xl text-gray-600 leading-relaxed">
-          Seven days of inspiring presentations, workshops, and networking opportunities.
+          Mark your calendar and don't miss registration deadlines.
         </p>
       </div>
 
       <div class="max-w-4xl mx-auto">
-        <div class="space-y-6">
-          <!-- Timeline Item 1 -->
-          <Card variant="elevated" class="p-6 lg:p-8 hover:scale-[1.02] transition-transform">
-            <div class="flex flex-col md:flex-row gap-6 items-start">
-              <div class="flex-shrink-0 text-center md:text-left">
-                <div class="inline-block px-4 py-2 bg-primary-100 rounded-lg">
-                  <div class="text-2xl font-bold text-primary-700">July 10</div>
-                  <div class="text-sm text-primary-600">Thursday</div>
-                </div>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Registration & Opening Ceremony</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  Welcome reception, registration, and official opening ceremony with keynote presentations 
-                  from distinguished speakers in the field.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Welcome Reception</span>
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Keynote</span>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Early Bird -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-green-500 border border-gray-100">
+            <div class="p-6 text-center">
+              <div class="text-sm uppercase tracking-wider text-green-600 font-semibold mb-2">Early Bird</div>
+              <div class="text-3xl font-bold text-gray-900 mb-1">1 Sep 2026</div>
+              <div class="text-gray-500 text-sm mb-4">to 28 Feb 2027</div>
+              <div class="inline-block px-4 py-2 bg-green-50 rounded-lg text-green-700 font-semibold text-sm">
+                Best rates available
               </div>
             </div>
-          </Card>
+          </div>
 
-          <!-- Timeline Item 2 -->
-          <Card variant="elevated" class="p-6 lg:p-8 hover:scale-[1.02] transition-transform">
-            <div class="flex flex-col md:flex-row gap-6 items-start">
-              <div class="flex-shrink-0 text-center md:text-left">
-                <div class="inline-block px-4 py-2 bg-accent-100 rounded-lg">
-                  <div class="text-2xl font-bold text-accent-700">July 11-14</div>
-                  <div class="text-sm text-accent-600">Fri - Mon</div>
-                </div>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Scientific Sessions</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  Plenary sessions, oral presentations, poster sessions, and workshops covering 
-                  the latest research in dipterology, taxonomy, and ecology.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Presentations</span>
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Posters</span>
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Workshops</span>
-                </div>
+          <!-- Regular -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-blue-500 border border-gray-100">
+            <div class="p-6 text-center">
+              <div class="text-sm uppercase tracking-wider text-blue-600 font-semibold mb-2">Regular Registration</div>
+              <div class="text-3xl font-bold text-gray-900 mb-1">1 Mar 2027</div>
+              <div class="text-gray-500 text-sm mb-4">to 15 Jun 2027</div>
+              <div class="inline-block px-4 py-2 bg-blue-50 rounded-lg text-blue-700 font-semibold text-sm">
+                Standard rates
               </div>
             </div>
-          </Card>
+          </div>
 
-          <!-- Timeline Item 3 -->
-          <Card variant="elevated" class="p-6 lg:p-8 hover:scale-[1.02] transition-transform">
-            <div class="flex flex-col md:flex-row gap-6 items-start">
-              <div class="flex-shrink-0 text-center md:text-left">
-                <div class="inline-block px-4 py-2 bg-green-100 rounded-lg">
-                  <div class="text-2xl font-bold text-green-700">July 15</div>
-                  <div class="text-sm text-green-600">Tuesday</div>
-                </div>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Field Excursion</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  Guided field trip to explore Croatian biodiversity, collecting sites, 
-                  and natural habitats relevant to dipterology research.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Field Trip</span>
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Collecting</span>
-                </div>
+          <!-- Congress -->
+          <div class="bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-[#2a5298] border border-gray-100">
+            <div class="p-6 text-center">
+              <div class="text-sm uppercase tracking-wider text-[#2a5298] font-semibold mb-2">Congress</div>
+              <div class="text-3xl font-bold text-gray-900 mb-1">11–16 Jul</div>
+              <div class="text-gray-500 text-sm mb-4">2027, Zagreb</div>
+              <div class="inline-block px-4 py-2 bg-blue-50 rounded-lg text-[#2a5298] font-semibold text-sm">
+                Hotel Westin
               </div>
             </div>
-          </Card>
-
-          <!-- Timeline Item 4 -->
-          <Card variant="elevated" class="p-6 lg:p-8 hover:scale-[1.02] transition-transform">
-            <div class="flex flex-col md:flex-row gap-6 items-start">
-              <div class="flex-shrink-0 text-center md:text-left">
-                <div class="inline-block px-4 py-2 bg-purple-100 rounded-lg">
-                  <div class="text-2xl font-bold text-purple-700">July 16</div>
-                  <div class="text-sm text-purple-600">Wednesday</div>
-                </div>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold text-gray-900 mb-3">Closing Ceremony & Gala Dinner</h3>
-                <p class="text-gray-600 leading-relaxed mb-4">
-                  Final presentations, awards ceremony, and farewell gala dinner celebrating 
-                  the achievements and contributions of the congress.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Awards</span>
-                  <span class="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">Gala Dinner</span>
-                </div>
-              </div>
-            </div>
-          </Card>
+          </div>
         </div>
 
-        <!-- CTA -->
-        <div class="mt-12 text-center">
-          <p class="text-gray-600 mb-6">
-            View detailed schedule, sessions, workshops, and poster presentations
-          </p>
-          <Button variant="primary" size="lg" href="/program">
-            View Full Program
-            <svg
-              class="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Button variant="primary" size="lg" href="/registration">
+            Register Now
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Button>
+          <Button variant="secondary" size="lg" href="/registration/abstract-submission">
+            Submit Abstract
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </Button>
         </div>
@@ -257,163 +83,61 @@ import CallToAction from '../components/CallToAction.astro';
     </div>
   </section>
 
-  <!-- Location Section -->
-  <section id="location" class="section-padding bg-gray-50">
+  <!-- Venue Highlight Section -->
+  <section id="venue-highlight" class="section-padding bg-gray-50">
     <div class="section-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <!-- Left Content -->
-        <div>
-          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Hotel Westin, Zagreb
-          </h2>
-          <p class="text-xl text-gray-600 leading-relaxed mb-8">
-            The congress will take place at Hotel Westin in Zagreb, the vibrant capital of Croatia. 
-            Known for its historic charm, beautiful architecture, and warm hospitality, 
-            Zagreb offers the perfect setting for this international gathering.
-          </p>
-
-          <div class="space-y-6">
-            <!-- Info Item - Venue -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2">Hotel Westin</h4>
-                <p class="text-gray-600">
-                  A premier venue in the heart of Zagreb, offering modern facilities and excellent service for our international congress.
-                </p>
-              </div>
-            </div>
-
-            <!-- Info Item -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2">Central Location</h4>
-                <p class="text-gray-600">
-                  Easily accessible from all major European cities with excellent transport connections.
-                </p>
-              </div>
-            </div>
-
-            <!-- Info Item -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2">Accommodation</h4>
-                <p class="text-gray-600">
-                  Wide range of hotels and accommodation options near the congress venue.
-                </p>
-              </div>
-            </div>
-
-            <!-- Info Item -->
-            <div class="flex gap-4">
-              <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                  <svg class="w-6 h-6 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-              </div>
-              <div>
-                <h4 class="text-lg font-semibold text-gray-900 mb-2">Cultural Experience</h4>
-                <p class="text-gray-600">
-                  Rich cultural heritage, museums, restaurants, and beautiful parks to explore.
-                </p>
-              </div>
-            </div>
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <!-- Image -->
+          <div class="rounded-2xl overflow-hidden shadow-xl">
+            <img 
+              src="/images/westin-hotel-1.jpg" 
+              alt="Hotel Westin Zagreb" 
+              class="w-full h-80 lg:h-96 object-cover"
+            />
           </div>
 
-          <div class="mt-8">
+          <!-- Content -->
+          <div>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Hotel Westin, Zagreb
+            </h2>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+              The congress will take place at the prestigious Hotel Westin in the heart of Zagreb, 
+              Croatia's vibrant capital. Centrally located near the National Theatre and Mimara Museum, 
+              the hotel offers world-class conference facilities and easy access to the city's cultural attractions.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <div class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span>City centre</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                <span>5-star hotel</span>
+              </div>
+              <div class="flex items-center gap-2 text-gray-700">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+                <span>Conference facilities</span>
+              </div>
+            </div>
+
             <Button variant="secondary" href="/venue" size="lg">
-              Explore Location
-              <svg
-                class="w-5 h-5 ml-2"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
+              Explore Venue & Zagreb
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Button>
-            <p class="text-gray-600 text-sm mt-4">
-              Learn more about Zagreb, venue details, accommodation, and travel
-              information
-            </p>
           </div>
         </div>
-
-        <!-- Right Map Placeholder -->
-        <Card variant="elevated" class="p-4">
-          <div class="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-xl flex items-center justify-center">
-            <div class="text-center">
-              <svg class="w-24 h-24 mx-auto text-primary-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              </svg>
-              <p class="text-primary-700 font-semibold text-lg">Interactive Map</p>
-              <p class="text-primary-600 text-sm">Coming Soon</p>
-            </div>
-          </div>
-        </Card>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action Section -->
-  <CallToAction />
-
-  <!-- Newsletter Section -->
-  <section id="newsletter" class="section-padding bg-gradient-primary relative overflow-hidden">
-    <!-- Decorative elements -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-20 right-10 w-72 h-72 bg-white rounded-full blur-3xl"></div>
-      <div class="absolute bottom-20 left-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-    </div>
-
-    <div class="section-container relative z-10">
-      <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            Stay Updated
-          </h2>
-          <p class="text-xl text-white/90 leading-relaxed">
-            Sign up to receive the latest news, program updates, and important announcements 
-            about the congress.
-          </p>
-        </div>
-
-        <Card variant="glass" class="p-8 lg:p-12 border border-white/20">
-          <NewsletterForm />
-        </Card>
-
-        <p class="text-center text-white/70 text-sm mt-6">
-          We respect your privacy. Unsubscribe at any time.
-        </p>
       </div>
     </div>
   </section>

@@ -1,0 +1,257 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+
+const scientificMembers = [
+  {
+    name: 'Amrita Srivathsan',
+    role: '',
+    institution: 'Museum für Naturkunde Berlin, Germany',
+    image: '/images/amrita-srivathsan.jpg',
+    bio: 'Dr Amrita Srivathsan is a scientist at the Museum für Naturkunde Berlin\'s Center for Integrative Biodiversity Discovery. Her research focuses on enabling species discovery and understanding species interactions, particularly in hyperdiverse and understudied dark taxa. Her work centers on developing tools and workflows that support molecular approaches to biodiversity research. She developed ONTbarcoder, a tool for real-time DNA barcoding using nanopore sequencing data, and IntegraTax, which supports the clustering and annotation of barcode datasets to facilitate taxonomic projects at both small and large scales. She has also contributed workflows for iDNA-based vertebrate monitoring, using fly-derived DNA to study ecological interactions. Across these areas, her work focuses on developing low-cost molecular approaches and analytical tools that lower practical barriers to applying molecular methods in biodiversity research, alongside empirical studies of species interactions using molecular data. Amrita holds a Bachelor\'s degree from the National University of Singapore and a PhD from the joint National University of Singapore-Imperial College London PhD program.',
+  },
+  {
+    name: 'Art Borkent',
+    role: '',
+    institution: 'Independent Researcher, Canada',
+    image: '/images/art-borkent.jpg',
+    bio: 'Art Borkent entered the Department of Entomology at the University of Alberta (Canada) at the age of 16. He did his B.Sc. and M.Sc. there and then on to Ottawa for his Ph.D. (supervised by Monty Wood), followed by 8 years as a research scientist in Ottawa at the CNC. In 1989 he started working independently, through the support of his wife Annette Borkent, allowing a great deal of freedom. He has published on all 8 families of the Culicomorpha as well as the phylogenetic relationships between nematocerous families. Most of the past 40 years have focused particularly on Ceratopogonidae, the biting midges. Studies have included numbers of revisions, reclassification of the family based on phylogenetic relationships of the 109 genera, the first detailed description and keys to the genera of pupae, along with studies of their amazing fossil record going back to the early Cretaceous. A lovely diversion into the world of frog biting midges (Corethrellidae) led to a world revision of all species; the 456 page publication was recognized with the 2010 Westwood award. He has now published over 5,300 pages of science.',
+  },
+  {
+    name: 'Andrzej Grzywacz',
+    role: '',
+    institution: 'Nicolaus Copernicus University, Toruń, Poland',
+    image: '/images/andrzej-grzywacz.jpg',
+    bio: 'Dr Andrzej Grzywacz earned his MSc and PhD at Nicolaus Copernicus University in Toruń, Poland, where he works since 2013 in the Department of Ecology and Biogeography, currently as an Assistant Professor. From the very beginning of his interest in entomology, his research has been driven by the application of carrion-breeding flies in forensic investigations, with a strong focus on developing tools for species identification and their application into medico-legal practice. He has also been actively involved in the co-organization of international training workshops dedicated to the identification of forensically important Diptera. Throughout his academic career, Andrzej has specialized in the morphology of immature stages, initially concentrating on Muscidae and later expanding his work to explore the diversity of preimaginal stages across multiple dipteran families. His current research focuses on natural history, taxonomy, and evolutionary biology of calyptrate Diptera, combining detailed morphological studies of larvae and adults with genomic approaches to resolve phylogenetic relationships and improve systematics.',
+  },
+  {
+    name: 'Snežana Radenković',
+    role: '',
+    institution: 'University of Novi Sad, Serbia',
+    image: '/images/snezana-radenkovic.jpg',
+    bio: 'Snežana Radenković is Full Professor at Department of Biology and Ecology, Faculty of Sciences, University of Novi Sad. Teaching experience includes Zoology of Invertebrates, Entomology, Animal Taxonomy and Invertebrate Conservation. Her research is focused on taxonomy and systematics of hoverflies, as well as on faunal investigations of Mediterranean Basin, including zoogeographical analysis and conservation planning for rare and endemic species. Of her special interest are phytophagous genera (Merodon, Eumerus and Cheilosia), resolving of taxonomical problems and systematic positions. She has contributed to about 70 publications. She has been Principal investigator of the national project Serbian Pollinator Advice Strategy (SPAS), and participated in several European projects related to pollinators: SAFEGUARD, TAXO-FLY, SPRING, FlyHigh, and STEP. She was also Species Assessor of the IUCN SSC Hoverfly Specialist Group in the European Red List of Hoverflies.',
+  },
+  {
+    name: 'Viktor Baranov',
+    role: '',
+    institution: 'Estación Biológica de Doñana (CSIC), Seville, Spain',
+    image: '/images/viktor-baranov.jpg',
+    bio: 'Viktor Baranov is an entomologist and evolutionary ecologist whose research focuses on freshwater insects, Diptera, and long-term ecological change. He began his scientific career in 2012 at the Institute of Zoology of the National Academy of Sciences of Ukraine (Kyiv). He earned a Doctoral degree from the Leibniz Institute of Freshwater Ecology and Inland Fisheries and Humboldt University of Berlin. His doctoral research addressed the ecological functions of dipteran larvae in lake sediments. Following his PhD, Dr. Baranov held postdoctoral positions at the Senckenberg Research Institute and subsequently at Ludwig Maximilian University of Munich. His widely cited 2020 Conservation Biology paper demonstrated complex, nonlinear climate-driven restructuring of freshwater insect communities over four decades, representing a benchmark study for understanding biodiversity responses to climate change. Dr. Baranov is currently a Ramón y Cajal tenure-track fellow at the Estación Biológica de Doñana (CSIC) in Seville, Spain, where he leads a research group focused on the palaeoecology of true flies (Diptera).',
+  },
+];
+
+const organizingMembers = [
+  {
+    name: 'Marija Ivković',
+    role: 'ICDXI Chair',
+    institution: 'Dept. of Biology, Faculty of Science, University of Zagreb',
+    image: '/images/marija-ivkovic.jpg',
+    bio: '',
+  },
+  {
+    name: 'Vlatka Mičetić Stanković',
+    role: '',
+    institution: 'Croatian Natural History Museum, Zagreb',
+    image: '/images/vlatka-micetic-stankovic.jpg',
+    bio: '',
+  },
+  {
+    name: 'Romana Gračan',
+    role: '',
+    institution: 'Dept. of Biology, Faculty of Science, University of Zagreb',
+    image: '/images/romana-gracan.jpg',
+    bio: '',
+  },
+  {
+    name: 'Tanja Vojvoda Zeljko',
+    role: '',
+    institution: 'Dept. of Biochemical Engineering, Faculty of Food Technology and Biotechnology, University of Zagreb',
+    image: '/images/tanja-vojvoda-zeljko.jpg',
+    bio: '',
+  },
+  {
+    name: 'Mirela Sertić Perić',
+    role: '',
+    institution: 'Dept. of Biology, Faculty of Science, University of Zagreb',
+    image: '/images/mirela-sertic-peric.jpg',
+    bio: '',
+  },
+  {
+    name: 'Ana Klobučar',
+    role: '',
+    institution: 'Andrija Štampar Teaching Institute of Public Health, Zagreb',
+    image: '/images/ana-klobucar.jpg',
+    bio: '',
+  },
+];
+---
+
+<Layout
+  title="Committees | ICD 2027"
+  description="Organizing and scientific committees for ICD 2027 in Zagreb."
+>
+  <Header />
+
+  <HeroCountdown />
+
+  <section class="section-padding bg-[#f9fafb]">
+    <div class="section-container">
+      <div class="max-w-6xl mx-auto space-y-16">
+
+        <!-- Scientific Committee -->
+        <div>
+          <div class="text-center mb-10">
+            <div class="w-14 h-14 rounded-2xl bg-[#2a5298]/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Scientific Committee</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">The scientific committee oversees the academic program and ensures the highest standards of research presented at the congress.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {scientificMembers.map((member, i) => (
+              <button
+                type="button"
+                class="member-card bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-[#2a5298] border border-gray-100 text-center cursor-pointer p-0 w-full group"
+                data-index={`sc-${i}`}
+                aria-label={`View bio of ${member.name}`}
+              >
+                <div class="pt-8 pb-3 flex justify-center">
+                  <img src={member.image} alt={member.name} class="w-48 h-48 rounded-full object-cover object-center shadow-xl" />
+                </div>
+                <div class="px-5 pb-6 pt-2">
+                  <h3 class="font-bold text-gray-900 text-lg mb-1">{member.name}</h3>
+                  {member.role && <p class="text-sm text-[#2a5298] font-medium mb-2">{member.role}</p>}
+                  <p class="text-sm text-gray-500 leading-relaxed">{member.institution}</p>
+                  {member.bio && (
+                    <span class="inline-flex items-center gap-1.5 mt-4 text-xs text-white font-medium bg-[#2a5298] group-hover:bg-[#1e3c72] px-4 py-2 rounded-full transition-colors">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                      Read bio
+                    </span>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Organizing Committee -->
+        <div class="border-t border-gray-200 pt-16">
+          <div class="text-center mb-10">
+            <div class="w-14 h-14 rounded-2xl bg-red-500/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Organizing Committee</h2>
+            <p class="text-gray-500 max-w-2xl mx-auto">The local organizing committee handles all logistical aspects of the congress in Zagreb.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {organizingMembers.map((member, i) => (
+              <div
+                class={`bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-red-500 border border-gray-100 text-center ${member.bio ? 'member-card cursor-pointer group' : ''}`}
+                data-index={member.bio ? `oc-${i}` : undefined}
+              >
+                <div class="pt-8 pb-3 flex justify-center">
+                  <img src={member.image} alt={member.name} class="w-48 h-48 rounded-full object-cover object-center shadow-xl" />
+                </div>
+                <div class="px-5 pb-6 pt-2">
+                  <h3 class="font-bold text-gray-900 text-lg mb-1">{member.name}</h3>
+                  {member.role && <p class="text-sm text-[#2a5298] font-medium mb-2">{member.role}</p>}
+                  <p class="text-sm text-gray-500 leading-relaxed">{member.institution}</p>
+                  {member.bio && (
+                    <span class="inline-flex items-center gap-1.5 mt-4 text-xs text-white font-medium bg-[#2a5298] group-hover:bg-[#1e3c72] px-4 py-2 rounded-full transition-colors">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                      Read bio
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="member-modal" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="modal-backdrop"></div>
+    <div class="relative flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto relative" id="modal-content">
+        <div class="border-t-4 border-t-[#2a5298] rounded-2xl overflow-hidden">
+          <button type="button" id="modal-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors z-10" aria-label="Close">
+            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          <div class="p-6 sm:p-8">
+            <div class="flex flex-col items-center text-center mb-6">
+              <img id="modal-image" src="" alt="" class="w-36 h-36 rounded-full object-cover shadow-lg mb-5 border-4 border-white ring-2 ring-gray-100" />
+              <h3 id="modal-name" class="text-2xl font-bold text-gray-900"></h3>
+              <p id="modal-role" class="text-sm text-[#2a5298] font-medium mt-1"></p>
+              <p id="modal-institution" class="text-sm text-gray-500 mt-2"></p>
+            </div>
+            <div class="border-t border-gray-100 pt-5">
+              <p id="modal-bio" class="text-sm text-gray-600 leading-relaxed"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+
+  <script define:vars={{ scientificMembers, organizingMembers }}>
+    const allMembers = {};
+    scientificMembers.forEach((m, i) => { allMembers[`sc-${i}`] = m; });
+    organizingMembers.forEach((m, i) => { allMembers[`oc-${i}`] = m; });
+
+    const modal = document.getElementById('member-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalClose = document.getElementById('modal-close');
+    const modalImage = document.getElementById('modal-image');
+    const modalName = document.getElementById('modal-name');
+    const modalRole = document.getElementById('modal-role');
+    const modalInstitution = document.getElementById('modal-institution');
+    const modalBio = document.getElementById('modal-bio');
+
+    function openModal(key) {
+      const member = allMembers[key];
+      if (!member || !member.bio) return;
+      modalImage.src = member.image;
+      modalImage.alt = member.name;
+      modalName.textContent = member.name;
+      modalRole.textContent = member.role || '';
+      modalRole.style.display = member.role ? 'block' : 'none';
+      modalInstitution.textContent = member.institution;
+      modalBio.textContent = member.bio;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.member-card[data-index]').forEach((card) => {
+      card.addEventListener('click', () => {
+        openModal(card.dataset.index);
+      });
+    });
+
+    modalBackdrop.addEventListener('click', closeModal);
+    modalClose.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</Layout>
