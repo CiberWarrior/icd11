@@ -404,295 +404,147 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
           </div>
         </div>
 
-        <!-- Getting to Zagreb - Modern Grid Cards -->
-        <div class="space-y-6 card-animate">
-          <h3 class="text-4xl font-bold text-[#2a5298] uppercase tracking-wide">Getting to Zagreb</h3>
-          
-          <!-- Grid of Transport Cards -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            <!-- BY AIR Card -->
-            <div class="rounded-2xl shadow-md overflow-hidden no-card-hover bg-white border border-gray-200 border-t-4 border-t-[#2a5298]">
-              <div class="p-8">
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="bg-[#2a5298]/10 rounded-xl p-3 border border-[#2a5298]/10">
-                    <Plane class="w-8 h-8 text-[#2a5298]" />
-                  </div>
-                  <h4 class="text-xl font-bold text-gray-900">By Air</h4>
-                </div>
-                <div class="space-y-4 text-gray-600">
-                  <p class="text-sm leading-relaxed">
-                    Croatia's national air company is Croatia Airlines with direct flights to major European cities: London, Amsterdam, Brussels, Paris, Frankfurt, Munich, Vienna, and many more.
-                  </p>
-                  <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
-                    <p class="font-bold text-gray-900 mb-1 text-sm">Dr. Franjo Tuđman airport</p>
-                    <p class="text-xs text-gray-500 mb-4">17 km from city centre (20-25 min by car)</p>
-                    <div class="space-y-2">
-                      <a href="https://www.zagreb-airport.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#2a5298] hover:underline font-medium text-sm">
-                        Airport website
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                      </a>
-                      <br />
-                      <a href="https://www.infozagreb.hr/travel-plan/arrival#by-plane" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#2a5298] hover:underline font-medium text-sm">
-                        More info
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <p class="font-semibold text-gray-900 mb-1 text-sm">🚐 Shuttle bus</p>
-                      <p class="text-xs text-gray-500 mb-2">Airport to bus station</p>
-                      <a href="https://www.plesoprijevoz.hr/en/zagreb-croatia/" target="_blank" rel="noopener noreferrer" class="text-[#2a5298] hover:underline font-medium text-xs">Book shuttle</a>
-                    </div>
-                    <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                      <p class="font-semibold text-gray-900 mb-1 text-sm">🚕 Taxi</p>
-                      <p class="text-xs text-gray-500 mb-2">Uber or:</p>
-                      <div class="space-y-1 text-xs">
-                        <a href="https://www.ekotaxi.hr/en" target="_blank" rel="noopener noreferrer" class="block text-[#2a5298] hover:underline font-medium">Eko taxi</a>
-                        <a href="https://taxi1717.hr/en/" target="_blank" rel="noopener noreferrer" class="block text-[#2a5298] hover:underline font-medium">Taxi 1717</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- BY CAR Card -->
-            <div class="rounded-2xl shadow-md overflow-hidden no-card-hover bg-white border border-gray-200 border-t-4 border-t-[#2a5298]">
-              <div class="p-8">
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="bg-[#2a5298]/10 rounded-xl p-3 border border-[#2a5298]/10">
-                    <Car class="w-8 h-8 text-[#2a5298]" />
-                  </div>
-                  <h4 class="text-xl font-bold text-gray-900">By Car</h4>
-                </div>
-                <div class="space-y-4 text-gray-600">
-                  <p class="text-sm leading-relaxed">
-                    Zagreb is perfectly positioned between Central and Southeastern Europe and the Adriatic Sea, providing easy access to all major Croatian cities and neighboring capitals.
-                  </p>
-                  <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
-                    <p class="font-bold text-gray-900 mb-3 text-sm">Major international routes:</p>
-                    <ul class="space-y-1.5 text-sm text-gray-600">
-                      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] flex-shrink-0"></span>Trieste – Ljubljana – Zagreb</li>
-                      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] flex-shrink-0"></span>Graz – Maribor – Zagreb</li>
-                      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] flex-shrink-0"></span>Klagenfurt – Ljubljana – Zagreb</li>
-                      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] flex-shrink-0"></span>Budapest – Varaždin – Zagreb</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- BY BUS Card -->
-            <div class="rounded-2xl shadow-md overflow-hidden no-card-hover bg-white border border-gray-200 border-t-4 border-t-[#2a5298]">
-              <div class="p-8">
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="bg-[#2a5298]/10 rounded-xl p-3 border border-[#2a5298]/10">
-                    <Bus class="w-8 h-8 text-[#2a5298]" />
-                  </div>
-                  <h4 class="text-xl font-bold text-gray-900">By Bus</h4>
-                </div>
-                <div class="space-y-4 text-gray-600">
-                  <p class="text-sm leading-relaxed">
-                    Zagreb main bus station (Autobusni kolodvor, Avenija Marina Držića 4) connects Zagreb with numerous cities in Croatia and Europe on daily basis.
-                  </p>
-                  <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
-                    <p class="font-bold text-gray-900 mb-3 text-sm">Bus Station Information</p>
-                    <a href="https://www.akz.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#2a5298] hover:underline font-medium text-sm">
-                      www.akz.hr/en
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- BY TRAIN Card -->
-            <div class="rounded-2xl shadow-md overflow-hidden no-card-hover bg-white border border-gray-200 border-t-4 border-t-[#2a5298]">
-              <div class="p-8">
-                <div class="flex items-center gap-4 mb-6">
-                  <div class="bg-[#2a5298]/10 rounded-xl p-3 border border-[#2a5298]/10">
-                    <Train class="w-8 h-8 text-[#2a5298]" />
-                  </div>
-                  <h4 class="text-xl font-bold text-gray-900">By Train</h4>
-                </div>
-                <div class="space-y-4 text-gray-600">
-                  <p class="text-sm leading-relaxed">
-                    Zagreb Main Train Station (Glavni kolodvor, Trg kralja Tomislava 12) and Croatian Railways offer cheap connections to main Croatian cities and neighboring countries.
-                  </p>
-                  <div class="bg-gray-50 rounded-xl p-5 border border-gray-200">
-                    <p class="font-bold text-gray-900 mb-3 text-sm">Train Station Information</p>
-                    <a href="https://hzpp.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-[#2a5298] hover:underline font-medium text-sm">
-                      hzpp.hr/en
-                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
 
 
       </div>
     </div>
   </section>
 
-  <!-- Zagreb & Croatia Section – bijela pozadina cijelog bloka -->
-  <section class="section-padding bg-white">
+  <!-- Discover Croatia -->
+  <section class="section-padding bg-[#f9fafb]">
     <div class="section-container">
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-16 card-animate">
-        <h2 class="text-5xl lg:text-6xl font-bold text-[#2a5298] mb-6 uppercase tracking-wide">
+      <div class="text-center max-w-3xl mx-auto mb-12 card-animate">
+        <h2 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-4">
           Discover Croatia
         </h2>
-        <p class="text-xl text-gray-600 leading-relaxed">
+        <p class="text-lg text-gray-600 leading-relaxed">
           A small country with a rich history, culture, and natural wonders
         </p>
       </div>
 
-      <!-- Croatia Content Card – isti gradient kao hero, bijeli tekst, okvir kao na karticama prijevoza -->
-      <div class="card-animate rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto no-card-hover border border-white/20" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);">
-          <div class="p-8 lg:p-10 text-white">
-          <div class="space-y-6">
-            <!-- Header – ikona zastave + naslov bijeli (kao na karticama prijevoza) -->
-            <div class="flex items-center gap-3 mb-6 no-card-hover">
-              <img
-                src="/images/Croatia-flag.jpg"
-                alt="Zastava Hrvatske"
-                class="w-24 h-auto rounded-xl shadow-md object-cover border border-white/60 flex-shrink-0"
-              />
-              <h3 class="text-2xl font-bold text-white">Croatia – Facts and Figures</h3>
-            </div>
+      <div class="max-w-5xl mx-auto space-y-6 card-animate">
 
-            <!-- Facts – okvir kao na karticama prijevoza (bijeli tekst, border-white/20) -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div class="space-y-2.5 text-blue-50">
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Country name:</span>
-                    <span> Republic of Croatia</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Local form:</span>
-                    <span> Republika Hrvatska</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Capital city:</span>
-                    <span> Zagreb (population of 769,944 – 2021 census)</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Administrative divisions:</span>
-                    <span> 20 counties and one city (Zagreb)</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Total area:</span>
-                    <span> 87,609 sq. km</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Number of islands:</span>
-                    <span> 1,185 (47 inhabited)</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Time zone:</span>
-                    <span> CET (GMT+1)</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">International dialling code:</span>
-                    <span> +385</span>
-                  </div>
-                </div>
-                <div class="flex items-start gap-3">
-                  <div class="w-2 h-2 bg-white/80 rounded-full mt-1.5 flex-shrink-0"></div>
-                  <div class="text-sm">
-                    <span class="font-bold text-white">Official currency:</span>
-                    <span> Euro</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Odlomci o Hrvatskoj – bijeli tekst, okvir kao na karticama prijevoza -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div class="space-y-4 text-blue-50">
-                <p class="text-base leading-relaxed">
-                  <strong class="text-white">A small country with a rich history</strong>, Croatia awes visitors with its wide variety of culture, cuisine, and natural and architectural wonders. The sophisticated traveller searching for a novel and interesting destination will be delighted to discover the beauty and the mysterious magic of the newest member of the European community.
-                </p>
-                <p class="text-base leading-relaxed">
-                  Croatia is both a Central European and Mediterranean country, bordering Slovenia in the west, Hungary in the north, Serbia in the east, and Bosnia and Herzegovina in the south. Part of the country lies on the coast while the other rests in continental Europe, creating a dichotomous path of discovery that engages all the senses.
-                </p>
-                <p class="text-base leading-relaxed">
-                  Travelers to Croatia can explore its <strong class="text-white">1,185 islands</strong>, taste the freshness of locally grown organic produce, tour privately owned wineries, marvel at the breathtaking colours of its famous lakes, and succumb to the seductions of the region's converging cultures.
-                </p>
-                <p class="text-base leading-relaxed">
-                  Croatia unfolds a unique mix of Italic, Germanic, and Slavic influences, indulging visitors to discover a rare gem in the world of travel. <strong class="text-white">Croatia is now the 28th country admitted into the EU and boasts 10 UNESCO World Heritage Sites.</strong>
-                </p>
-              </div>
-            </div>
-
-            <!-- Language – bijeli tekst, okvir kao na karticama prijevoza -->
-            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-              <div class="flex items-center gap-3 mb-4">
-                <img src="/images/Croatia-flag.jpg" alt="Zastava Hrvatske" class="w-16 h-auto rounded-lg object-cover border border-white/60 flex-shrink-0" />
-                <h4 class="text-xl font-bold text-white border-l-4 border-white/60 pl-3">Language</h4>
-              </div>
-              <p class="text-blue-50 text-sm leading-relaxed mb-4">
-                Official language in Croatia is Croatian. Many people speak English or German and on the coast of Croatia they will probably speak Italian too. Here are some Croatian phrases that might come handy:
-              </p>
-              <div class="grid grid-cols-2 gap-3 text-sm text-blue-50">
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Thank you</span>
-                  <span> = Hvala</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Please</span>
-                  <span> = Molim</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Good morning</span>
-                  <span> = Dobro jutro</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Good afternoon</span>
-                  <span> = Dobar dan</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Good night</span>
-                  <span> = Laku noć</span>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
-                  <span class="font-bold text-white">Goodbye</span>
-                  <span> = Doviđenja</span>
-                </div>
-              </div>
-            </div>
+        <!-- Croatia Facts card -->
+        <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden no-card-hover">
+          <div class="flex items-center gap-4 p-6 border-b border-gray-100">
+            <img
+              src="/images/Croatia-flag.jpg"
+              alt="Croatia flag"
+              class="w-16 h-auto rounded-lg object-cover border border-gray-200 flex-shrink-0"
+            />
+            <h3 class="text-xl font-bold text-gray-900">Croatia – Facts and Figures</h3>
           </div>
+          <div class="p-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-700">
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Country name:</span> Republic of Croatia</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Local form:</span> Republika Hrvatska</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Capital city:</span> Zagreb (pop. 769,944 – 2021)</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Area:</span> 56,594 km²</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Population:</span> 3,871,833 (2021 census)</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Currency:</span> Euro (€)</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Official language:</span> Croatian</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">EU member since:</span> 2013</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Time zone:</span> CET (UTC+1), CEST (UTC+2)</div>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2a5298] mt-1.5 flex-shrink-0"></span>
+                <div><span class="font-semibold text-gray-900">Electricity:</span> 220 V, 50 Hz</div>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Two column: Nature + Language -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Nature card -->
+          <div class="bg-white rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="bg-[#2a5298]/10 rounded-xl p-2.5 border border-[#2a5298]/10">
+                  <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+                <h4 class="text-base font-bold text-gray-900">Nature & Geography</h4>
+              </div>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Croatia is a crescent-shaped country at the crossroads of Central and Southeast Europe. It borders Slovenia, Hungary, Serbia, Bosnia and Herzegovina, and Montenegro, with a stunning 1,778 km coastline along the Adriatic Sea. The country is home to 8 national parks, including Plitvice Lakes (UNESCO World Heritage Site) and Krka.
+              </p>
+            </div>
+          </div>
+
+          <!-- Language card -->
+          <div class="bg-white rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
+            <div class="p-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="bg-[#2a5298]/10 rounded-xl p-2.5 border border-[#2a5298]/10">
+                  <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                  </svg>
+                </div>
+                <h4 class="text-base font-bold text-gray-900">Language – useful phrases</h4>
+              </div>
+              <p class="text-sm text-gray-600 mb-4">
+                Official language is Croatian. English and German are widely spoken. Here are a few helpful phrases:
+              </p>
+              <div class="grid grid-cols-2 gap-2 text-sm">
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Thank you</span>
+                  <span class="text-gray-500"> = Hvala</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Please</span>
+                  <span class="text-gray-500"> = Molim</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Good morning</span>
+                  <span class="text-gray-500"> = Dobro jutro</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Good afternoon</span>
+                  <span class="text-gray-500"> = Dobar dan</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Goodbye</span>
+                  <span class="text-gray-500"> = Doviđenja</span>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                  <span class="font-semibold text-gray-900">Good night</span>
+                  <span class="text-gray-500"> = Laku noć</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
