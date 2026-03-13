@@ -211,19 +211,19 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
 
       <div class="space-y-8 max-w-6xl mx-auto">
         <!-- Zagreb Description Card -->
-        <div class="card-animate rounded-2xl shadow-md overflow-hidden bg-white border border-gray-200 no-card-hover">
+        <div class="card-animate rounded-2xl shadow-md overflow-hidden bg-gray-50 border border-gray-200 border-t-4 border-t-[#b1414b] no-card-hover">
           <div class="p-8 lg:p-10">
             <!-- Header with Red Heart Icon -->
-            <div class="flex items-start gap-4 mb-8 no-card-hover">
-              <div class="bg-red-50 rounded-2xl p-4 flex-shrink-0 border border-red-100">
-                <svg class="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-3 mb-6 no-card-hover">
+              <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100 flex-shrink-0">
+                <svg class="w-8 h-8 text-[#b1414b]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
                 </svg>
               </div>
-              <h3 class="text-3xl lg:text-4xl font-bold text-[#2a5298] leading-tight">Zagreb – City with a Million Hearts</h3>
+              <h3 class="text-2xl lg:text-3xl font-bold text-[#2a5298] leading-tight">Zagreb – City with a Million Hearts</h3>
             </div>
-            
-            <div class="space-y-5 text-base leading-relaxed text-gray-700">
+
+            <div class="space-y-4 text-sm leading-relaxed text-gray-600">
               <p>
                 <strong class="text-gray-900">Effervescent, avant-garde and always elegant</strong>, Zagreb embodies the grace and dignity of Old Europe, boasting a rich cultural heritage and artistic vibrancy unlike anywhere else in Croatia. A dynamic, yet unhurried metropolis and capital city, Zagreb's design beckons one to stroll, relax, and observe, with its many gardens, alfresco squares, landscaped promenades, and secret courtyards.
               </p>
@@ -233,29 +233,23 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
             </div>
 
             <!-- Things to Do Box -->
-            <div class="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-200 no-card-hover">
-              <div class="flex items-center gap-3 mb-3">
-                <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="mt-6 bg-white rounded-xl p-5 border border-gray-200 no-card-hover">
+              <div class="flex items-center gap-2 mb-2">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
                 </svg>
-                <h4 class="text-lg font-bold text-gray-900">Things to do</h4>
+                <h4 class="text-base font-bold text-gray-900">Things to do</h4>
               </div>
-              <p class="text-sm leading-relaxed text-gray-600 mb-5">
+              <p class="text-sm leading-relaxed text-gray-600 mb-4">
                 Ride the funicular, visit Zagreb's many colourful markets, embrace the cafe culture, shop for bespoken goods, visit one-of-a kind museums.
               </p>
-              <div class="flex flex-wrap gap-3">
+              <div class="flex flex-wrap gap-2">
                 <a href="https://www.infozagreb.hr/en/" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#2a5298] font-medium text-sm rounded-xl border border-[#2a5298]/25 hover:border-[#2a5298]/50 hover:bg-[#2a5298]/5 transition-all">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+                  class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#2a5298] text-white font-medium text-xs rounded-lg hover:bg-[#1e3c72] transition-colors">
                   Visit Zagreb info
                 </a>
                 <a href="https://www.infozagreb.hr/en/multimedia/brochures" target="_blank" rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#2a5298] font-medium text-sm rounded-xl border border-[#2a5298]/25 hover:border-[#2a5298]/50 hover:bg-[#2a5298]/5 transition-all">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                  </svg>
+                  class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#2a5298] text-white font-medium text-xs rounded-lg hover:bg-[#1e3c72] transition-colors">
                   Digital brochures & maps
                 </a>
               </div>
@@ -425,8 +419,8 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
       <div class="max-w-5xl mx-auto space-y-6 card-animate">
 
         <!-- Croatia Facts card -->
-        <div class="bg-white rounded-2xl shadow-md border border-gray-200 overflow-hidden no-card-hover">
-          <div class="flex items-center gap-4 p-6 border-b border-gray-100">
+        <div class="bg-gray-50 rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] overflow-hidden no-card-hover">
+          <div class="flex items-center gap-4 p-6 border-b border-gray-200">
             <img
               src="/images/Croatia-flag.jpg"
               alt="Croatia flag"
@@ -484,10 +478,10 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           <!-- Nature card -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
+          <div class="bg-gray-50 rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
             <div class="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="bg-[#2a5298]/10 rounded-xl p-2.5 border border-[#2a5298]/10">
+                <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
                   <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
@@ -501,10 +495,10 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
           </div>
 
           <!-- Language card -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
+          <div class="bg-gray-50 rounded-2xl shadow-md border border-gray-200 border-t-4 border-t-[#2a5298] no-card-hover">
             <div class="p-6">
               <div class="flex items-center gap-3 mb-4">
-                <div class="bg-[#2a5298]/10 rounded-xl p-2.5 border border-[#2a5298]/10">
+                <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
                   <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                   </svg>
@@ -515,27 +509,27 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
                 Official language is Croatian. English and German are widely spoken. Here are a few helpful phrases:
               </p>
               <div class="grid grid-cols-2 gap-2 text-sm">
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Thank you</span>
                   <span class="text-gray-500"> = Hvala</span>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Please</span>
                   <span class="text-gray-500"> = Molim</span>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Good morning</span>
                   <span class="text-gray-500"> = Dobro jutro</span>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Good afternoon</span>
                   <span class="text-gray-500"> = Dobar dan</span>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Goodbye</span>
                   <span class="text-gray-500"> = Doviđenja</span>
                 </div>
-                <div class="bg-gray-50 rounded-lg p-2.5 border border-gray-200">
+                <div class="bg-white rounded-lg p-2.5 border border-gray-200">
                   <span class="font-semibold text-gray-900">Good night</span>
                   <span class="text-gray-500"> = Laku noć</span>
                 </div>
