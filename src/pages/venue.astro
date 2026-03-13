@@ -301,104 +301,106 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
             <!-- In Zagreb + Weather in grid -->
             <div class="mt-8 pt-8 border-t border-gray-100">
               <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
                 <!-- In Zagreb (ZET) -->
-                <div class="bg-gray-50 rounded-2xl p-6 border-t-4 border-t-[#b1414b] border border-gray-200 no-card-hover">
-                  <div class="flex items-center gap-3 mb-5 no-card-hover">
-                    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                      <svg class="w-8 h-8 text-[#b1414b]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                      </svg>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden no-card-hover">
+                  <div class="bg-gradient-to-r from-[#b1414b] to-[#d4565f] px-7 py-5">
+                    <div class="flex items-center gap-3">
+                      <div class="bg-white/20 backdrop-blur-sm rounded-xl p-2.5">
+                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                      </div>
+                      <h3 class="text-lg font-bold text-white">In Zagreb</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">In Zagreb</h3>
                   </div>
-                  <div class="space-y-5">
+                  <div class="p-7 space-y-5">
                     <p class="text-gray-600 text-sm leading-relaxed">
                       Zagreb's public transportation system is called <strong class="text-gray-900">ZET</strong> (Zagreb Electric Tram). Made up primarily of buses and trams, it also includes a cable car to Medvednica Mountain and a funicular to Gornji grad.
                     </p>
-                    <div class="bg-white rounded-xl p-5 border border-gray-200 no-card-hover">
+                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100 no-card-hover">
                       <div class="flex items-center gap-2 mb-3">
                         <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"></path>
                         </svg>
-                        <h4 class="text-base font-bold text-gray-900">Tickets & Information</h4>
+                        <h4 class="text-sm font-bold text-gray-900">Tickets & Information</h4>
                       </div>
-                      <p class="text-gray-500 text-sm mb-4">Purchase tickets from driver, at kiosk, or via <strong class="text-gray-700">Moj ZET</strong> app.</p>
+                      <p class="text-gray-500 text-xs mb-4">Purchase tickets from driver, at kiosk, or via <strong class="text-gray-700">Moj ZET</strong> app.</p>
                       <div class="flex flex-wrap gap-2">
                         <a href="https://www.zet.hr/home/581" target="_blank" rel="noopener noreferrer"
-                          class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#2a5298]/5 text-[#2a5298] font-medium text-xs rounded-lg border border-[#2a5298]/20 hover:bg-[#2a5298]/10 transition-all">
+                          class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#2a5298] text-white font-medium text-xs rounded-lg hover:bg-[#1e3c72] transition-colors">
                           ZET Homepage
                         </a>
                         <a href="https://www.zet.hr/tickets-and-fares/fares/605" target="_blank" rel="noopener noreferrer"
-                          class="inline-flex items-center gap-1.5 px-3 py-2 bg-[#2a5298]/5 text-[#2a5298] font-medium text-xs rounded-lg border border-[#2a5298]/20 hover:bg-[#2a5298]/10 transition-all">
+                          class="inline-flex items-center gap-1.5 px-3.5 py-2 bg-[#2a5298] text-white font-medium text-xs rounded-lg hover:bg-[#1e3c72] transition-colors">
                           Fares & Tickets
                         </a>
                       </div>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                      <a href="https://www.meetinzagreb.hr/" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2 px-4 py-2.5 bg-white text-[#2a5298] font-medium text-sm rounded-xl border border-[#2a5298]/25 hover:border-[#2a5298]/50 hover:bg-[#2a5298]/5 transition-all">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                        Meet in Zagreb
-                      </a>
-                    </div>
+                    <a href="https://www.meetinzagreb.hr/" target="_blank" rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 px-4 py-2.5 text-[#2a5298] font-medium text-sm rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                      </svg>
+                      Meet in Zagreb
+                    </a>
                   </div>
                 </div>
 
                 <!-- Weather in Zagreb -->
-                <div class="bg-gray-50 rounded-2xl p-6 border-t-4 border-t-[#2a5298] border border-gray-200 no-card-hover">
-                  <div class="flex items-center gap-3 mb-5 no-card-hover">
-                    <div class="bg-white rounded-xl p-3 shadow-sm border border-gray-100">
-                      <svg class="w-8 h-8 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                      </svg>
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden no-card-hover">
+                  <div class="bg-gradient-to-r from-[#2a5298] to-[#3b6fc0] px-7 py-5">
+                    <div class="flex items-center gap-3">
+                      <div class="bg-white/20 backdrop-blur-sm rounded-xl p-2.5">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                      </div>
+                      <h3 class="text-lg font-bold text-white">Weather in Zagreb</h3>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900">Weather in Zagreb</h3>
                   </div>
-                  <div id="weather-container" class="space-y-4">
-                    <div id="weather-loading" class="text-center py-6">
-                      <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-[#2a5298]"></div>
-                      <p class="text-gray-500 mt-3 font-medium text-sm">Loading weather...</p>
-                    </div>
-                    <div id="weather-content" class="hidden space-y-4">
-                      <div class="bg-white rounded-xl p-5 border border-gray-200 no-card-hover">
+                  <div class="p-7">
+                    <div id="weather-container" class="space-y-4">
+                      <div id="weather-loading" class="text-center py-8">
+                        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-[#2a5298]"></div>
+                        <p class="text-gray-400 mt-3 font-medium text-sm">Loading weather...</p>
+                      </div>
+                      <div id="weather-content" class="hidden space-y-5">
                         <div class="flex items-start justify-between">
                           <div>
-                            <p class="text-gray-500 text-sm mb-1">Current Weather</p>
-                            <p class="text-4xl font-bold text-gray-900 mb-1" id="current-temp">--°C</p>
-                            <p class="text-gray-600 capitalize font-medium text-sm" id="current-desc">--</p>
+                            <p class="text-[#2a5298] text-xs font-semibold uppercase tracking-wider mb-1">Current Weather</p>
+                            <p class="text-5xl font-extrabold text-gray-900 mb-1 tracking-tight" id="current-temp">--°C</p>
+                            <p class="text-gray-500 capitalize font-medium text-sm" id="current-desc">--</p>
                           </div>
-                          <div id="current-icon" class="text-5xl drop-shadow-lg">☁️</div>
+                          <div id="current-icon" class="text-6xl drop-shadow-lg">☁️</div>
                         </div>
-                        <div class="grid grid-cols-3 gap-3 mt-4 pt-4 border-t border-gray-100">
-                          <div>
+                        <div class="grid grid-cols-3 gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
+                          <div class="text-center">
                             <p class="text-gray-400 text-xs mb-1">Feels Like</p>
-                            <p class="font-bold text-gray-800 text-sm" id="feels-like">--°C</p>
+                            <p class="font-bold text-gray-900 text-sm" id="feels-like">--°C</p>
                           </div>
-                          <div>
+                          <div class="text-center border-x border-gray-200">
                             <p class="text-gray-400 text-xs mb-1">Humidity</p>
-                            <p class="font-bold text-gray-800 text-sm" id="humidity">--%</p>
+                            <p class="font-bold text-gray-900 text-sm" id="humidity">--%</p>
                           </div>
-                          <div>
+                          <div class="text-center">
                             <p class="text-gray-400 text-xs mb-1">Wind</p>
-                            <p class="font-bold text-gray-800 text-sm" id="wind">-- m/s</p>
+                            <p class="font-bold text-gray-900 text-sm" id="wind">-- m/s</p>
                           </div>
                         </div>
+                        <div class="grid grid-cols-5 gap-2" id="forecast-container"></div>
                       </div>
-                      <div class="grid grid-cols-5 gap-2" id="forecast-container"></div>
-                    </div>
-                    <div id="weather-error" class="hidden text-center py-6">
-                      <p class="text-red-600 bg-red-50 rounded-lg p-3 text-sm border border-red-100">Unable to load weather data.</p>
+                      <div id="weather-error" class="hidden text-center py-6">
+                        <p class="text-red-600 bg-red-50 rounded-lg p-3 text-sm border border-red-100">Unable to load weather data.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
-
-
 
       </div>
     </div>
@@ -410,7 +412,7 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
 
       <!-- Header -->
       <div class="text-center max-w-3xl mx-auto mb-12 card-animate">
-        <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 uppercase tracking-tight">
+        <h2 class="text-5xl lg:text-6xl font-bold text-[#2a5298] mb-4 uppercase tracking-tight">
           Discover Croatia
         </h2>
         <p class="text-lg text-gray-500 leading-relaxed">
@@ -592,10 +594,10 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
       // Render forecast
       const forecastContainer = document.getElementById('forecast-container');
       forecastContainer.innerHTML = dailyForecasts.map(day => `
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center border border-white/20">
-          <p class="text-xs font-medium text-blue-100 mb-2">${day.day}</p>
+        <div class="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
+          <p class="text-xs font-semibold text-[#2a5298] mb-2">${day.day}</p>
           <div class="text-2xl mb-2">${day.icon}</div>
-          <p class="text-base font-bold text-white">${day.temp}°C</p>
+          <p class="text-sm font-bold text-gray-900">${day.temp}°C</p>
         </div>
       `).join('');
 
