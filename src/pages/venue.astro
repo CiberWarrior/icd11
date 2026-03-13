@@ -22,13 +22,6 @@ import Card from '../components/Card.astro';
         <h2 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-4 uppercase tracking-wide">
           The Westin Hotel Zagreb
         </h2>
-        <div class="flex items-center justify-center gap-1 mb-4">
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-          <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
-        </div>
         <p class="text-xl text-gray-600 leading-relaxed">
           Experience world-class hospitality in the heart of Croatia's vibrant capital
         </p>
@@ -198,6 +191,32 @@ import Card from '../components/Card.astro';
             </div>
           </div>
         </Card>
+
+      <!-- Getting Here CTA -->
+      <div class="max-w-6xl mx-auto mt-6">
+        <div class="rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="text-white font-bold text-lg leading-tight">Getting to Zagreb</p>
+              <p class="text-blue-100 text-sm">Travel options: by air, car, bus and train — with links and tips</p>
+            </div>
+          </div>
+          <a
+            href="/information"
+            class="flex-shrink-0 inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm"
+          >
+            Travel Information
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -227,54 +246,16 @@ import Card from '../components/Card.astro';
     </button>
   </div>
 
-  <!-- Getting Here CTA -->
-  <section class="bg-white pb-8">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="rounded-2xl bg-gradient-to-r from-blue-700 to-blue-500 p-6 flex flex-col sm:flex-row items-center justify-between gap-5">
-          <!-- Informational text block only; the CTA action stays on the button. -->
-          <div class="flex items-center gap-4 cursor-default">
-            <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0 pointer-events-none">
-              <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-              </svg>
-            </div>
-            <div class="pointer-events-none">
-              <p class="text-white font-bold text-lg leading-tight">Getting to Zagreb</p>
-              <p class="text-blue-100 text-sm">Travel options: by air, car, bus and train — with links and tips</p>
-            </div>
-          </div>
-          <a
-            href="/information"
-            class="flex-shrink-0 inline-flex items-center gap-2 bg-white text-blue-700 font-semibold px-5 py-2.5 rounded-xl hover:bg-blue-50 transition-colors text-sm"
-          >
-            Travel Information
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Zagreb Section – pozadina #f9fafb -->
+  <!-- About Zagreb Section -->
   <section class="section-padding bg-[#f9fafb]">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16 card-animate">
-        <div class="flex flex-col items-center gap-4">
-          <img
-            src="/images/zagreb-logo.png"
-            alt="Zagreb Logo"
-            class="h-32 lg:h-40 w-auto"
-          />
-        </div>
+        <img src="/images/zagreb-logo.png" alt="Zagreb Logo" class="h-32 lg:h-40 w-auto mx-auto" />
       </div>
 
       <div class="space-y-8 max-w-6xl mx-auto">
         <!-- Zagreb Description -->
-        <div class="card-animate rounded-2xl shadow-xl overflow-hidden bg-white border border-gray-100 no-card-hover">
-          <!-- Hero banner with overlay text -->
+        <div class="card-animate rounded-2xl shadow-xl overflow-hidden bg-white border border-gray-100">
           <div class="relative">
             <div class="grid grid-cols-3 h-56 lg:h-72">
               <button type="button" class="hotel-image-link relative overflow-hidden cursor-zoom-in group p-0 bg-transparent border-0" data-src="/images/zagreb-city.jpg" aria-label="Zagreb tram">
@@ -295,8 +276,6 @@ import Card from '../components/Card.astro';
               <h3 class="text-3xl lg:text-4xl font-bold text-white leading-tight drop-shadow-lg">Zagreb – City with a Million Hearts</h3>
             </div>
           </div>
-
-          <!-- Text content -->
           <div class="p-8 lg:p-10">
             <div class="space-y-5 text-base leading-relaxed text-gray-600">
               <p>
@@ -306,8 +285,6 @@ import Card from '../components/Card.astro';
                 Today, Zagreb's long history is evident in every structure and sidewalk, while its vibrant and cutting-edge art scene energizes contemporary society. The city is divided into three sections: <strong class="text-gray-900">Gornji Grad</strong> ("Upper Town") the historic centre, <strong class="text-gray-900">Donji Grad</strong> ("Lower Town") built mostly in the 19th century, and <strong class="text-gray-900">Novi Zagreb</strong> ("New Zagreb"), with the modern metropolis encircling the historic areas.
               </p>
             </div>
-
-            <!-- Things to Do -->
             <div class="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-100">
               <div class="flex items-center gap-3 mb-4">
                 <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
@@ -319,26 +296,10 @@ import Card from '../components/Card.astro';
                 Ride the funicular, visit Zagreb's many colourful markets, embrace the cafe culture, shop for bespoken goods, visit one-of-a kind museums.
               </p>
               <div class="flex flex-wrap gap-3">
-                <a
-                  href="https://www.infozagreb.hr/en/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 bg-[#2a5298] hover:bg-[#1e3c72] px-5 py-2.5 rounded-xl text-white font-medium text-sm transition-colors"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+                <a href="https://www.infozagreb.hr/en/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#2a5298] hover:bg-[#1e3c72] px-5 py-2.5 rounded-xl text-white font-medium text-sm transition-colors">
                   Visit Zagreb info
                 </a>
-                <a
-                  href="https://www.infozagreb.hr/en/multimedia/brochures"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-[#2a5298] hover:text-[#2a5298] px-5 py-2.5 rounded-xl text-gray-700 font-medium text-sm transition-colors"
-                >
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                  </svg>
+                <a href="https://www.infozagreb.hr/en/multimedia/brochures" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white border border-gray-200 hover:border-[#2a5298] hover:text-[#2a5298] px-5 py-2.5 rounded-xl text-gray-700 font-medium text-sm transition-colors">
                   Digital brochures & maps
                 </a>
               </div>
@@ -348,11 +309,11 @@ import Card from '../components/Card.astro';
 
         <!-- In Zagreb + Weather grid -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <!-- In Zagreb (ZET, transport) -->
-          <div class="bg-gray-100 rounded-2xl shadow-md border-t-4 border-t-red-500 border border-gray-200 p-6 no-card-hover">
-            <div class="flex items-center gap-3 mb-5 no-card-hover">
+          <!-- In Zagreb (ZET transport) -->
+          <div class="bg-gray-100 rounded-2xl shadow-md border-t-4 border-t-red-500 border border-gray-200 p-6">
+            <div class="flex items-center gap-3 mb-5">
               <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                 </svg>
               </div>
@@ -369,21 +330,12 @@ import Card from '../components/Card.astro';
                   </svg>
                   <h4 class="text-sm font-bold text-gray-900">Tickets & Information</h4>
                 </div>
-                <p class="text-gray-500 text-sm mb-3">
-                  Purchase tickets from driver, at kiosk, or via <strong class="text-gray-700">Moj ZET</strong> app.
-                </p>
+                <p class="text-gray-500 text-sm mb-3">Purchase tickets from driver, at kiosk, or via <strong class="text-gray-700">Moj ZET</strong> app.</p>
                 <div class="flex flex-wrap gap-2">
-                  <a href="https://www.zet.hr/home/581" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#2a5298] hover:bg-[#1e3c72] px-3 py-1.5 rounded-lg text-white font-medium text-xs transition-colors">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    ZET Homepage
-                  </a>
-                  <a href="https://www.zet.hr/tickets-and-fares/fares/605" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#2a5298] hover:bg-[#1e3c72] px-3 py-1.5 rounded-lg text-white font-medium text-xs transition-colors">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    Fares & Tickets
-                  </a>
+                  <a href="https://www.zet.hr/home/581" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#2a5298] hover:bg-[#1e3c72] px-3 py-1.5 rounded-lg text-white font-medium text-xs transition-colors">ZET Homepage</a>
+                  <a href="https://www.zet.hr/tickets-and-fares/fares/605" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-[#2a5298] hover:bg-[#1e3c72] px-3 py-1.5 rounded-lg text-white font-medium text-xs transition-colors">Fares & Tickets</a>
                 </div>
               </div>
-
               <div class="border-t border-gray-200 pt-4">
                 <p class="text-sm text-gray-900 font-bold mb-3">More information</p>
                 <a href="https://www.meetinzagreb.hr/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#2a5298] hover:bg-[#1e3c72] px-4 py-2 rounded-lg text-white font-medium text-sm transition-colors">
@@ -395,27 +347,25 @@ import Card from '../components/Card.astro';
           </div>
 
           <!-- Weather in Zagreb -->
-          <div class="bg-gray-100 rounded-2xl shadow-md overflow-hidden no-card-hover border-t-4 border-t-[#2a5298] border border-gray-200 p-6 lg:p-8">
-            <div class="flex items-center gap-3 mb-5 no-card-hover">
+          <div class="bg-gray-100 rounded-2xl shadow-md border-t-4 border-t-[#2a5298] border border-gray-200 p-6 lg:p-8">
+            <div class="flex items-center gap-3 mb-5">
               <div class="w-10 h-10 rounded-lg bg-[#2a5298]/10 flex items-center justify-center flex-shrink-0">
-                <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="w-6 h-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>
               </div>
               <div>
                 <h3 class="text-xl font-bold text-gray-900">Weather in Zagreb</h3>
-                <p id="weather-meta" class="hidden mt-1 text-xs text-gray-400">
-                  Last updated from saved data
-                </p>
+                <p id="weather-meta" class="hidden mt-1 text-xs text-gray-400">Last updated from saved data</p>
               </div>
             </div>
-            <div id="weather-container" class="space-y-4">
+            <div class="space-y-4">
               <div id="weather-loading" class="text-center py-6">
                 <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-300 border-t-[#2a5298]"></div>
                 <p class="text-gray-500 mt-3 font-medium">Loading weather...</p>
               </div>
               <div id="weather-content" class="hidden space-y-4">
-                <div class="bg-white rounded-xl p-5 border border-gray-200 no-card-hover">
+                <div class="bg-white rounded-xl p-5 border border-gray-200">
                   <div class="flex items-start justify-between">
                     <div>
                       <p class="text-gray-400 text-sm mb-2">Current Weather</p>
@@ -447,12 +397,11 @@ import Card from '../components/Card.astro';
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Discover Croatia – siva pozadina sekcije, nježna plava u kartici; manji pt da naslov ide gore -->
+  <!-- Discover Croatia -->
   <section class="section-padding pt-8 lg:pt-12 pb-16 lg:pb-24 bg-[#f9fafb] text-gray-900 font-medium">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-16">
@@ -465,7 +414,7 @@ import Card from '../components/Card.astro';
       </div>
       <div class="max-w-6xl mx-auto space-y-6">
         <!-- Header card with flag -->
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 no-card-hover">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
           <div class="flex items-center gap-5 p-6 lg:p-8 border-b border-gray-100">
             <img
               src="/images/Croatia-flag.jpg"
@@ -477,8 +426,6 @@ import Card from '../components/Card.astro';
               <p class="text-gray-500 text-sm mt-1">EU member since 2013 · 10 UNESCO World Heritage Sites</p>
             </div>
           </div>
-
-          <!-- Stat cards -->
           <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-0 divide-x divide-y lg:divide-y-0 divide-gray-100">
             <div class="p-5 text-center">
               <p class="text-[#2a5298] text-xs font-semibold uppercase tracking-wider mb-1">Country</p>
@@ -514,7 +461,7 @@ import Card from '../components/Card.astro';
         </div>
 
         <!-- About Croatia text -->
-        <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 lg:p-10 no-card-hover">
+        <div class="bg-white rounded-2xl shadow-md border border-gray-100 p-8 lg:p-10">
           <div class="space-y-4 text-gray-600 text-base leading-relaxed">
             <p>
               <strong class="text-gray-900">A small country with a rich history</strong>, Croatia awes visitors with its wide variety of culture, cuisine, and natural and architectural wonders. The sophisticated traveller searching for a novel and interesting destination will be delighted to discover the beauty and the mysterious magic of the newest member of the European community.
@@ -532,7 +479,7 @@ import Card from '../components/Card.astro';
         </div>
 
         <!-- Language card -->
-        <div class="bg-white rounded-2xl shadow-md border-t-4 border-t-red-500 border border-gray-100 p-6 lg:p-8 no-card-hover">
+        <div class="bg-white rounded-2xl shadow-md border-t-4 border-t-red-500 border border-gray-100 p-6 lg:p-8">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center flex-shrink-0">
               <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -557,235 +504,7 @@ import Card from '../components/Card.astro';
     </div>
   </section>
 
-  <!-- Custom Weather Script with OpenWeatherMap API -->
-  <script is:inline>
-  (async function() {
-    const API_KEY = 'b1b15e88fa797225412429c1c50c122a1'; // OpenWeatherMap API key
-    const CITY = 'Zagreb';
-    const UNITS = 'metric';
-    const STORAGE_KEY = 'icd2027-zagreb-weather-cache';
-    const REQUEST_TIMEOUT_MS = 8000;
 
-    const weatherIcons = {
-      '01d': '☀️', '01n': '🌙',
-      '02d': '⛅', '02n': '☁️',
-      '03d': '☁️', '03n': '☁️',
-      '04d': '☁️', '04n': '☁️',
-      '09d': '🌧️', '09n': '🌧️',
-      '10d': '🌦️', '10n': '🌧️',
-      '11d': '⛈️', '11n': '⛈️',
-      '13d': '❄️', '13n': '❄️',
-      '50d': '🌫️', '50n': '🌫️',
-    };
-
-    // Fail fast on slow or invalid API responses so the UI can use a safe fallback.
-    async function fetchJsonWithTimeout(url) {
-      const controller = new AbortController();
-      const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-
-      try {
-        const response = await fetch(url, { signal: controller.signal });
-
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`);
-        }
-
-        return await response.json();
-      } finally {
-        window.clearTimeout(timeoutId);
-      }
-    }
-
-    function hasCurrentWeatherData(data) {
-      return Boolean(
-        data &&
-        data.main &&
-        typeof data.main.temp === 'number' &&
-        typeof data.main.feels_like === 'number' &&
-        typeof data.main.humidity === 'number' &&
-        data.wind &&
-        typeof data.wind.speed === 'number' &&
-        Array.isArray(data.weather) &&
-        data.weather[0] &&
-        data.weather[0].icon
-      );
-    }
-
-    function hasForecastData(data) {
-      return Boolean(data && Array.isArray(data.list) && data.list.length);
-    }
-
-    // Pick the forecast entry closest to local noon for each day.
-    function getDailyForecasts(forecastList) {
-      const forecastsByDate = new Map();
-
-      forecastList.forEach((item) => {
-        if (!item || typeof item.dt !== 'number' || !item.main || !item.weather?.[0]) {
-          return;
-        }
-
-        const date = new Date(item.dt * 1000);
-        const dateKey = date.toLocaleDateString('en-CA');
-        const distanceToNoon = Math.abs(date.getHours() - 12);
-        const existing = forecastsByDate.get(dateKey);
-
-        if (!existing || distanceToNoon < existing.distanceToNoon) {
-          forecastsByDate.set(dateKey, { item, distanceToNoon });
-        }
-      });
-
-      return Array.from(forecastsByDate.values())
-        .slice(0, 5)
-        .map(({ item }) => {
-          const date = new Date(item.dt * 1000);
-
-          return {
-            day: date.toLocaleDateString('en-US', { weekday: 'short' }),
-            icon: weatherIcons[item.weather[0].icon] || '☁️',
-            temp: Math.round(item.main.temp),
-          };
-        });
-    }
-
-    function formatSavedAt(savedAt) {
-      if (!savedAt || Number.isNaN(savedAt)) {
-        return '';
-      }
-
-      return new Date(savedAt).toLocaleString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit',
-      });
-    }
-
-    function renderWeather(currentData, forecastData, options = {}) {
-      const currentTemp = document.getElementById('current-temp');
-      const currentDesc = document.getElementById('current-desc');
-      const currentIcon = document.getElementById('current-icon');
-      const feelsLike = document.getElementById('feels-like');
-      const humidity = document.getElementById('humidity');
-      const wind = document.getElementById('wind');
-      const forecastContainer = document.getElementById('forecast-container');
-      const weatherLoading = document.getElementById('weather-loading');
-      const weatherContent = document.getElementById('weather-content');
-      const weatherError = document.getElementById('weather-error');
-      const weatherMeta = document.getElementById('weather-meta');
-      const { isCached = false, savedAt = null } = options;
-
-      if (
-        !currentTemp ||
-        !currentDesc ||
-        !currentIcon ||
-        !feelsLike ||
-        !humidity ||
-        !wind ||
-        !forecastContainer ||
-        !weatherLoading ||
-        !weatherContent ||
-        !weatherError ||
-        !weatherMeta
-      ) {
-        return;
-      }
-
-      currentTemp.textContent = Math.round(currentData.main.temp) + '°C';
-      currentDesc.textContent = currentData.weather[0].description;
-      currentIcon.textContent = weatherIcons[currentData.weather[0].icon] || '☁️';
-      feelsLike.textContent = Math.round(currentData.main.feels_like) + '°C';
-      humidity.textContent = currentData.main.humidity + '%';
-      wind.textContent = currentData.wind.speed.toFixed(1) + ' m/s';
-
-      const dailyForecasts = getDailyForecasts(forecastData.list);
-
-      forecastContainer.innerHTML = dailyForecasts.map(day => `
-        <div class="bg-white rounded-xl p-3 text-center border border-gray-200">
-          <p class="text-xs font-medium text-gray-400 mb-2">${day.day}</p>
-          <div class="text-2xl mb-2">${day.icon}</div>
-          <p class="text-base font-bold text-gray-900">${day.temp}°C</p>
-        </div>
-      `).join('');
-
-      if (isCached) {
-        const formattedSavedAt = formatSavedAt(savedAt);
-        weatherMeta.textContent = formattedSavedAt
-          ? `Last updated: ${formattedSavedAt} (saved data)`
-          : 'Showing last saved weather data';
-        weatherMeta.classList.remove('hidden');
-      } else {
-        weatherMeta.classList.add('hidden');
-      }
-
-      weatherLoading.classList.add('hidden');
-      weatherError.classList.add('hidden');
-      weatherContent.classList.remove('hidden');
-    }
-
-    function showWeatherError(message) {
-      const weatherLoading = document.getElementById('weather-loading');
-      const weatherContent = document.getElementById('weather-content');
-      const weatherError = document.getElementById('weather-error');
-
-      if (!weatherLoading || !weatherContent || !weatherError) {
-        return;
-      }
-
-      weatherLoading.classList.add('hidden');
-      weatherContent.classList.add('hidden');
-      weatherError.classList.remove('hidden');
-      weatherError.innerHTML = `<p class="text-white/90 bg-red-600/50 backdrop-blur-sm rounded-lg p-3 text-sm">${message}</p>`;
-    }
-
-    try {
-      const [currentData, forecastData] = await Promise.all([
-        fetchJsonWithTimeout(
-          `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
-        ),
-        fetchJsonWithTimeout(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
-        ),
-      ]);
-
-      if (!hasCurrentWeatherData(currentData) || !hasForecastData(forecastData)) {
-        throw new Error('Weather response is missing expected fields.');
-      }
-
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          currentData,
-          forecastData,
-          savedAt: Date.now(),
-        })
-      );
-
-      renderWeather(currentData, forecastData);
-    } catch (error) {
-      console.error('Weather fetch error:', error);
-
-      const cachedWeather = localStorage.getItem(STORAGE_KEY);
-
-      if (cachedWeather) {
-        try {
-          const { currentData, forecastData, savedAt } = JSON.parse(cachedWeather);
-
-          if (hasCurrentWeatherData(currentData) && hasForecastData(forecastData)) {
-            renderWeather(currentData, forecastData, {
-              isCached: true,
-              savedAt,
-            });
-            return;
-          }
-        } catch (cacheError) {
-          console.error('Weather cache parse error:', cacheError);
-        }
-      }
-
-      showWeatherError('Unable to load live weather data right now.');
-    }
-  })();
-  </script>
 
     <Footer />
   </div>
@@ -798,6 +517,100 @@ import Card from '../components/Card.astro';
       display: block;
     }
   </style>
+
+  <!-- Weather script -->
+  <script is:inline>
+  (async function() {
+    const API_KEY = 'b1b15e88fa797225412429c1c50c122a1';
+    const CITY = 'Zagreb';
+    const UNITS = 'metric';
+    const STORAGE_KEY = 'icd2027-zagreb-weather-cache';
+    const REQUEST_TIMEOUT_MS = 8000;
+    const weatherIcons = {
+      '01d':'☀️','01n':'🌙','02d':'⛅','02n':'☁️','03d':'☁️','03n':'☁️',
+      '04d':'☁️','04n':'☁️','09d':'🌧️','09n':'🌧️','10d':'🌦️','10n':'🌧️',
+      '11d':'⛈️','11n':'⛈️','13d':'❄️','13n':'❄️','50d':'🌫️','50n':'🌫️',
+    };
+    async function fetchJsonWithTimeout(url) {
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+      try {
+        const response = await fetch(url, { signal: controller.signal });
+        if (!response.ok) throw new Error(`Status ${response.status}`);
+        return await response.json();
+      } finally { window.clearTimeout(timeoutId); }
+    }
+    function hasCurrentWeatherData(data) {
+      return Boolean(data?.main && typeof data.main.temp === 'number' && data.wind && data.weather?.[0]?.icon);
+    }
+    function hasForecastData(data) { return Boolean(data && Array.isArray(data.list) && data.list.length); }
+    function getDailyForecasts(list) {
+      const map = new Map();
+      list.forEach(item => {
+        if (!item?.dt || !item.main || !item.weather?.[0]) return;
+        const date = new Date(item.dt * 1000);
+        const key = date.toLocaleDateString('en-CA');
+        const dist = Math.abs(date.getHours() - 12);
+        const ex = map.get(key);
+        if (!ex || dist < ex.dist) map.set(key, { item, dist });
+      });
+      return Array.from(map.values()).slice(0, 5).map(({ item }) => {
+        const d = new Date(item.dt * 1000);
+        return { day: d.toLocaleDateString('en-US', { weekday: 'short' }), icon: weatherIcons[item.weather[0].icon] || '☁️', temp: Math.round(item.main.temp) };
+      });
+    }
+    function renderWeather(cur, fore, opts = {}) {
+      const el = id => document.getElementById(id);
+      if (!el('current-temp')) return;
+      el('current-temp').textContent = Math.round(cur.main.temp) + '°C';
+      el('current-desc').textContent = cur.weather[0].description;
+      el('current-icon').textContent = weatherIcons[cur.weather[0].icon] || '☁️';
+      el('feels-like').textContent = Math.round(cur.main.feels_like) + '°C';
+      el('humidity').textContent = cur.main.humidity + '%';
+      el('wind').textContent = cur.wind.speed.toFixed(1) + ' m/s';
+      el('forecast-container').innerHTML = getDailyForecasts(fore.list).map(d => `
+        <div class="bg-white rounded-xl p-3 text-center border border-gray-200">
+          <p class="text-xs font-medium text-gray-400 mb-2">${d.day}</p>
+          <div class="text-2xl mb-2">${d.icon}</div>
+          <p class="text-base font-bold text-gray-900">${d.temp}°C</p>
+        </div>`).join('');
+      if (opts.isCached && opts.savedAt) {
+        el('weather-meta').textContent = `Last updated: ${new Date(opts.savedAt).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })} (saved data)`;
+        el('weather-meta').classList.remove('hidden');
+      }
+      el('weather-loading').classList.add('hidden');
+      el('weather-error').classList.add('hidden');
+      el('weather-content').classList.remove('hidden');
+    }
+    function showWeatherError() {
+      const el = id => document.getElementById(id);
+      el('weather-loading').classList.add('hidden');
+      el('weather-content').classList.add('hidden');
+      el('weather-error').classList.remove('hidden');
+    }
+    try {
+      const [cur, fore] = await Promise.all([
+        fetchJsonWithTimeout(`https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${API_KEY}`),
+        fetchJsonWithTimeout(`https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&units=${UNITS}&appid=${API_KEY}`),
+      ]);
+      if (!hasCurrentWeatherData(cur) || !hasForecastData(fore)) throw new Error('Bad data');
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ currentData: cur, forecastData: fore, savedAt: Date.now() }));
+      renderWeather(cur, fore);
+    } catch (e) {
+      const cached = localStorage.getItem(STORAGE_KEY);
+      if (cached) {
+        try {
+          const { currentData, forecastData, savedAt } = JSON.parse(cached);
+          if (hasCurrentWeatherData(currentData) && hasForecastData(forecastData)) {
+            renderWeather(currentData, forecastData, { isCached: true, savedAt });
+            return;
+          }
+        } catch (_) {}
+      }
+      showWeatherError();
+    }
+  })();
+  </script>
 
   <!-- Scroll animations: Intersection Observer (same approach as index.astro) -->
   <script>

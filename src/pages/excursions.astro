@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Excursions | ICD 2027"
+  description="Discover excursions and the Zagreb city tour offered during the 11th International Congress of Dipterology, July 2027."
+>
+  <Header />
+
+  <HeroCountdown />
+
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Excursions</h2>
+          <p class="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
+            Explore the natural diversity and cultural heritage of Croatia during your stay at ICD 2027.
+          </p>
+        </div>
+
+        <!-- Coming Soon notice -->
+        <div class="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-2xl px-6 py-5">
+          <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-blue-800 text-sm leading-relaxed">
+            Detailed excursion descriptions, pricing, and booking information will be published closer to the congress.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

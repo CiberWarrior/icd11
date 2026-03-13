@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import HeroCountdown from '../components/HeroCountdown.astro';
 import Footer from '../components/Footer.astro';
-import Card from '../components/Card.astro';
 ---
 
 <Layout
@@ -14,56 +13,207 @@ import Card from '../components/Card.astro';
 
   <HeroCountdown />
 
-  <!-- Content Section (skeleton – add schedule later) -->
+  <!-- Program Section -->
   <section class="section-padding bg-white">
     <div class="section-container">
       <div class="max-w-4xl mx-auto">
-        <Card variant="elevated" class="p-8 lg:p-10 mb-8">
-          <p class="text-gray-500 leading-relaxed">
-            The congress program will be available soon.
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Congress Program</h2>
+          <p class="text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto">
+            11–16 July 2027 &middot; Zagreb, Croatia
           </p>
-        </Card>
-        <!-- Placeholder for timeline / schedule items -->
-        <Card variant="elevated" class="p-6">
+        </div>
+
+        <!-- Coming Soon notice -->
+        <div class="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-2xl px-6 py-5 mb-10">
+          <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <p class="text-blue-800 text-sm leading-relaxed">
+            The detailed scientific program is currently being prepared. The overview below shows the daily structure of the congress. Full session schedules, speaker lists and abstracts will be published closer to the event.
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Vertical line -->
+          <div class="absolute left-[2.75rem] top-0 bottom-0 w-0.5 bg-gray-200 hidden sm:block"></div>
+
           <div class="space-y-4">
-            <div class="flex gap-4 items-start">
-              <div class="flex-shrink-0 w-24 px-3 py-2 bg-primary-100 rounded-lg text-center text-sm font-semibold text-primary-700">
-                Jul 11
+
+            <!-- Day 1 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#2a5298] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Fri</div>
+                  <div class="text-2xl font-bold leading-none">11</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
               </div>
-              <div>
-                <h3 class="font-bold text-gray-900">Registration & Opening</h3>
-                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <div class="flex-shrink-0 w-24 px-3 py-2 bg-accent-100 rounded-lg text-center text-sm font-semibold text-accent-700">
-                Jul 11–14
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900">Scientific Sessions</h3>
-                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <div class="flex-shrink-0 w-24 px-3 py-2 bg-green-100 rounded-lg text-center text-sm font-semibold text-green-700">
-                Jul 15
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900">Field Excursion</h3>
-                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
-              </div>
-            </div>
-            <div class="flex gap-4 items-start">
-              <div class="flex-shrink-0 w-24 px-3 py-2 bg-purple-100 rounded-lg text-center text-sm font-semibold text-purple-700">
-                Jul 16
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900">Closing & Gala</h3>
-                <p class="text-gray-600 text-sm">Placeholder – add details later.</p>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-[#2a5298]/10 text-[#2a5298] px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                    </svg>
+                    Registration
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-amber-50 text-amber-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    Opening
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Registration &amp; Opening Ceremony</h3>
+                <p class="text-gray-500 text-sm mt-1">Participant check-in and official opening of the 11th International Congress of Dipterology.</p>
               </div>
             </div>
+
+            <!-- Day 2 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#1565c0] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Sat</div>
+                  <div class="text-2xl font-bold leading-none">12</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
+              </div>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Scientific Sessions
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-teal-50 text-teal-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    City Tour
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Scientific Sessions &amp; City Tour</h3>
+                <p class="text-gray-500 text-sm mt-1">Morning and afternoon scientific sessions followed by a guided tour of Zagreb's historic city centre.</p>
+              </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#1565c0] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Sun</div>
+                  <div class="text-2xl font-bold leading-none">13</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
+              </div>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Scientific Sessions
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Scientific Sessions</h3>
+                <p class="text-gray-500 text-sm mt-1">Full day of scientific sessions and presentations.</p>
+              </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#1565c0] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Mon</div>
+                  <div class="text-2xl font-bold leading-none">14</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
+              </div>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Scientific Sessions
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-purple-50 text-purple-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z" />
+                    </svg>
+                    Congress Dinner
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Scientific Sessions &amp; Congress Dinner</h3>
+                <p class="text-gray-500 text-sm mt-1">Scientific sessions throughout the day, followed by the official Congress Dinner in the evening.</p>
+              </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#1565c0] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Tue</div>
+                  <div class="text-2xl font-bold leading-none">15</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
+              </div>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Scientific Sessions
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Scientific Sessions</h3>
+                <p class="text-gray-500 text-sm mt-1">Full day of scientific sessions and presentations.</p>
+              </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="flex gap-5 items-start group">
+              <div class="flex-shrink-0 flex flex-col items-center">
+                <div class="w-22 sm:w-24 bg-[#2a5298] text-white rounded-xl px-3 py-3 text-center shadow-md z-10">
+                  <div class="text-xs font-semibold uppercase tracking-wider opacity-80">Wed</div>
+                  <div class="text-2xl font-bold leading-none">16</div>
+                  <div class="text-xs font-medium opacity-80">Jul</div>
+                </div>
+              </div>
+              <div class="flex-1 bg-white border border-gray-100 rounded-2xl shadow-sm p-5 group-hover:shadow-md transition-shadow">
+                <div class="flex flex-wrap gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                    Scientific Sessions
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-[#2a5298]/10 text-[#2a5298] px-3 py-1 rounded-full">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                    </svg>
+                    Closing
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-gray-900">Scientific Sessions &amp; Closing Ceremony</h3>
+                <p class="text-gray-500 text-sm mt-1">Final scientific sessions and the official closing ceremony of ICD 2027.</p>
+              </div>
+            </div>
+
           </div>
-        </Card>
+        </div>
+
+        <!-- Bottom notice -->
+        <p class="text-center text-gray-400 text-sm mt-10">
+          Detailed session schedules and speaker information will be added as the program is finalised.
+        </p>
+
       </div>
     </div>
   </section>

@@ -128,7 +128,7 @@ import Button from '../components/Button.astro';
                     <div class="flex items-center gap-3">
                       <span class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
                         <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 20h20M4 20C4 13.373 7.582 8 12 8s8 5.373 8 12M12 8V5m-1 0h2"></path>
                         </svg>
                       </span>
                       Congress Dinner
@@ -146,7 +146,7 @@ import Button from '../components/Button.astro';
                     <div class="flex items-center gap-3">
                       <span class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
                         <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 20h20M4 20C4 13.373 7.582 8 12 8s8 5.373 8 12M12 8V5m-1 0h2"></path>
                         </svg>
                       </span>
                       Congress Dinner (Accompanying person)
@@ -267,76 +267,53 @@ import Button from '../components/Button.astro';
         </div>
 
         <!-- Student Verification Notice -->
-        <Card variant="glass" class="p-6 mb-8 bg-blue-50 border border-blue-200">
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0">
-              <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-semibold text-blue-900 mb-1">Student Registration Verification</h4>
-              <p class="text-blue-800">
-                To certify your student status, please provide a copy of your Student ID or confirmation signed by your advisor/head of department by e-mail.
-              </p>
-            </div>
+        <div class="flex items-start gap-4 bg-amber-50 border border-amber-200 rounded-2xl px-6 py-5 mb-8">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mt-0.5">
+            <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
+            </svg>
           </div>
-        </Card>
-
-        <!-- Cancellation Policy -->
-        <Card variant="elevated" class="p-8 lg:p-10 mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-6">Cancellation & Payment Conditions</h2>
-
-          <p class="text-gray-600 mb-6">
-            Registration cancellations must be sent to <a href="mailto:icd2027@etours.hr" class="text-primary font-medium hover:underline">icd2027@etours.hr</a>
-          </p>
-
-          <div class="space-y-4 mb-8">
-            <div class="flex items-start gap-4 p-4 bg-green-50 rounded-lg border border-green-200">
-              <div class="flex-shrink-0 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-green-900">Before 1st March 2027</h4>
-                <p class="text-green-800">Full refund, deducting a handling fee of EUR 30</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
-              <div class="flex-shrink-0 w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-yellow-900">2nd March – 10th June 2027</h4>
-                <p class="text-yellow-800">30% refund, deducting a handling fee of EUR 30</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-4 p-4 bg-red-50 rounded-lg border border-red-200">
-              <div class="flex-shrink-0 w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </div>
-              <div>
-                <h4 class="font-semibold text-red-900">After 11th June 2027</h4>
-                <p class="text-red-800">No refund</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="p-4 bg-gray-100 rounded-lg">
-            <p class="text-gray-700 text-sm">
-              <strong>Important:</strong> All amendments and cancellations must be sent to 
-              <a href="mailto:icd2027@etours.hr" class="text-primary font-medium hover:underline">icd2027@etours.hr</a>. 
-              Refunds will be processed after the event. Any bank charges or commissions must be covered by the participant.
+          <div>
+            <h4 class="font-semibold text-amber-900 mb-1">Student Registration Verification</h4>
+            <p class="text-amber-800 text-sm leading-relaxed">
+              To certify your student status, please provide a copy of your Student ID or a confirmation
+              signed by your advisor/head of department. Send the documentation by e-mail to&nbsp;
+              <a href="mailto:icd2027@etours.hr" class="font-semibold underline underline-offset-2 hover:text-amber-600 transition-colors">
+                icd2027@etours.hr
+              </a>.
             </p>
           </div>
-        </Card>
+        </div>
+
+        <!-- Cancellation Policy -->
+        <div class="mb-8 border border-gray-200 rounded-xl p-6">
+          <h3 class="text-base font-semibold text-gray-600 mb-4 uppercase tracking-wide">Cancellation & Payment Conditions</h3>
+
+          <div class="space-y-2 mb-5 text-sm">
+            <div class="flex items-center gap-3 py-2.5 border-b border-gray-100">
+              <span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+              <span class="text-gray-500 w-52 flex-shrink-0">Before 1 Mar 2027</span>
+              <span class="text-gray-700">Full refund (–EUR 30 handling fee)</span>
+            </div>
+            <div class="flex items-center gap-3 py-2.5 border-b border-gray-100">
+              <span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span>
+              <span class="text-gray-500 w-52 flex-shrink-0">2 Mar – 10 Jun 2027</span>
+              <span class="text-gray-700">30% refund (–EUR 30 handling fee)</span>
+            </div>
+            <div class="flex items-center gap-3 py-2.5">
+              <span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span>
+              <span class="text-gray-500 w-52 flex-shrink-0">After 11 Jun 2027</span>
+              <span class="text-gray-700">No refund</span>
+            </div>
+          </div>
+
+          <p class="text-xs text-gray-400 leading-relaxed">
+            All amendments and cancellations must be sent to
+            <a href="mailto:icd2027@etours.hr" class="text-gray-500 hover:text-gray-700 underline underline-offset-2 transition-colors">icd2027@etours.hr</a>.
+            Refunds are processed after the event. Bank charges and commissions are covered by the participant.
+          </p>
+        </div>
 
         <!-- Register Button -->
         <div class="text-center">

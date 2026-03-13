@@ -5,10 +5,8 @@ import HeroCountdown from '../components/HeroCountdown.astro';
 import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
 
-// Import icons
 import envelope from 'heroicons/24/outline/envelope.svg?raw';
 import phone from 'heroicons/24/outline/phone.svg?raw';
-import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 ---
 
 <Layout
@@ -19,120 +17,84 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 
   <HeroCountdown />
 
-  <!-- Contact Information Section -->
   <section class="section-padding bg-gradient-to-b from-slate-50 via-white to-blue-50/40">
     <div class="section-container">
-      <div class="text-center mb-10">
-        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900">Contact</h2>
+      <div class="text-center mb-12">
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-3">Contact</h2>
+        <p class="text-lg text-gray-500">We are happy to answer any questions about ICD 2027.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <!-- Email -->
-        <Card variant="elevated" class="p-7 text-center border border-blue-100/80 bg-white/95 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
-          <div class="w-16 h-16 bg-gradient-to-br from-primary-500 via-primary-600 to-primary-800 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
-            <span class="w-7 h-7 text-white" set:html={envelope} />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Email</h3>
-          <p class="text-sm uppercase tracking-[0.18em] text-gray-500 mb-4">
-            Scientific inquiries
-          </p>
-          <a
-            href="mailto:11icd2027@gmail.com"
-            class="inline-flex items-center justify-center rounded-full bg-blue-50 px-4 py-2 text-primary-700 hover:text-primary-800 transition-colors font-semibold break-all"
-          >
-            11icd2027@gmail.com
-          </a>
-        </Card>
+      <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        <!-- Phone -->
-        <Card variant="elevated" class="p-7 text-center border border-rose-100/80 bg-white/95 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
-          <div class="w-16 h-16 bg-gradient-to-br from-accent-400 via-accent-500 to-accent-700 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
-            <span class="w-7 h-7 text-white" set:html={phone} />
+        <!-- Scientific inquiries -->
+        <Card variant="elevated" class="p-0 overflow-hidden border border-blue-100/80 shadow-[0_20px_55px_rgba(15,23,42,0.10)]">
+          <div class="bg-gradient-to-r from-primary-800 via-primary-700 to-blue-500 px-8 py-6">
+            <h2 class="text-2xl font-bold text-white">Scientific Inquiries</h2>
+            <p class="text-blue-100 text-sm mt-1">Scientific program, abstracts &amp; sessions</p>
           </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Phone</h3>
-          <p class="text-sm uppercase tracking-[0.18em] text-gray-500 mb-4">
-            Technical organizer
-          </p>
-          <a href="tel:+38515508239" class="inline-flex items-center justify-center rounded-full bg-rose-50 px-4 py-2 text-gray-800 hover:text-primary-700 transition-colors font-semibold">
-            +385 1 55 08 239
-          </a>
-        </Card>
-
-        <!-- Location -->
-        <Card variant="elevated" class="p-7 text-center border border-emerald-100/80 bg-white/95 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
-          <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 via-green-600 to-emerald-800 rounded-2xl flex items-center justify-center mx-auto mb-5 shadow-lg">
-            <span class="w-7 h-7 text-white" set:html={mapPin} />
-          </div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Location</h3>
-          <p class="text-sm uppercase tracking-[0.18em] text-gray-500 mb-4">
-            Congress venue
-          </p>
-          <p class="text-gray-700 font-medium">Zagreb, Croatia</p>
-          <p class="text-sm text-gray-500 mt-1">Hotel Westin</p>
-        </Card>
-      </div>
-
-      <!-- Contact Details -->
-      <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Technical organizer -->
-          <Card variant="elevated" class="p-0 overflow-hidden border border-rose-100/80 shadow-[0_20px_55px_rgba(15,23,42,0.10)]">
-            <div class="bg-gradient-to-r from-accent-600 via-accent-500 to-rose-500 px-8 py-5">
-              <h2 class="text-2xl font-bold text-white">
-                Technical organizer
-              </h2>
-            </div>
-            <div class="p-8 space-y-4 text-gray-600 bg-white">
-              <p class="leading-relaxed">
-                e-Tours d.o.o., Ulica grada Vukovara 5/1, 10000 Zagreb
-              </p>
-              <div class="pt-4 border-t border-gray-100 space-y-3">
-                <p class="leading-relaxed">
-                  <span class="font-semibold text-gray-900">Contact:</span>
-                  Mirela Gašpar
-                </p>
-                <p class="leading-relaxed">
-                  <span class="font-semibold text-gray-900">Tel:</span>
-                  <a href="tel:+38515508239" class="text-primary-600 hover:text-primary-700 transition-colors font-medium">+385 1 55 08 239</a>
-                </p>
-                <p class="leading-relaxed">
-                  <span class="font-semibold text-gray-900">E-mail:</span>
-                  <a href="mailto:icd2027@etours.hr" class="text-primary-600 hover:text-primary-700 transition-colors font-medium">icd2027@etours.hr</a>
-                </p>
+          <div class="p-8 bg-white">
+            <p class="text-gray-500 leading-relaxed mb-6 text-sm">
+              For questions regarding the scientific program, abstract submission, or sessions, please contact the Scientific Committee:
+            </p>
+            <div class="flex items-center gap-4 p-4 rounded-xl border border-blue-100 bg-blue-50/60 hover:bg-blue-50 transition-colors group">
+              <div class="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <span class="w-5 h-5 text-primary-600" set:html={envelope} />
+              </div>
+              <div>
+                <div class="text-xs text-gray-400 uppercase tracking-wide mb-0.5">E-mail</div>
+                <a
+                  href="mailto:11icd2027@gmail.com"
+                  class="text-primary-700 font-semibold hover:text-primary-800 transition-colors"
+                >
+                  11icd2027@gmail.com
+                </a>
               </div>
             </div>
-          </Card>
+          </div>
+        </Card>
 
-          <!-- Scientific Program -->
-          <Card variant="elevated" class="p-0 overflow-hidden border border-blue-100/80 shadow-[0_20px_55px_rgba(15,23,42,0.10)]">
-            <div class="bg-gradient-to-r from-primary-800 via-primary-700 to-blue-500 px-8 py-5">
-              <h2 class="text-2xl font-bold text-white">
-                Scientific Program
-              </h2>
+        <!-- Technical organizer -->
+        <Card variant="elevated" class="p-0 overflow-hidden border border-rose-100/80 shadow-[0_20px_55px_rgba(15,23,42,0.10)]">
+          <div class="bg-gradient-to-r from-accent-600 via-accent-500 to-rose-500 px-8 py-6">
+            <h2 class="text-2xl font-bold text-white">Technical Organizer</h2>
+            <p class="text-rose-100 text-sm mt-1">Registration, payments &amp; logistics</p>
+          </div>
+          <div class="p-8 bg-white space-y-5">
+            <div>
+              <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Organization</div>
+              <p class="text-gray-700 font-medium">e-Tours d.o.o.</p>
+              <p class="text-gray-500 text-sm">Ulica grada Vukovara 5/1, 10000 Zagreb</p>
             </div>
-            <div class="p-8 bg-white">
-              <p class="text-gray-600 leading-relaxed mb-6">
-                For questions regarding the scientific program, abstract
-                submission, or sessions, please contact:
-              </p>
-              <div class="rounded-2xl border border-blue-100 bg-blue-50/70 p-5">
-                <div class="flex items-start gap-3">
-                  <span class="w-5 h-5 text-primary-600 mt-1" set:html={envelope} />
-                  <div>
-                    <div class="font-semibold text-gray-900">Email</div>
-                    <a
-                      href="mailto:11icd2027@gmail.com"
-                      class="text-primary-600 hover:text-primary-700 transition-colors font-medium"
-                    >
-                      11icd2027@gmail.com
-                    </a>
-                  </div>
+            <div class="border-t border-gray-100 pt-5 space-y-3">
+              <div>
+                <div class="text-xs text-gray-400 uppercase tracking-wide mb-1">Contact person</div>
+                <p class="text-gray-700 font-medium">Mirela Gašpar</p>
+              </div>
+              <div class="flex items-center gap-4 p-4 rounded-xl border border-rose-100 bg-rose-50/50 hover:bg-rose-50 transition-colors">
+                <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center flex-shrink-0">
+                  <span class="w-5 h-5 text-rose-500" set:html={envelope} />
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400 uppercase tracking-wide mb-0.5">E-mail</div>
+                  <a href="mailto:icd2027@etours.hr" class="text-gray-800 font-semibold hover:text-primary-700 transition-colors">
+                    icd2027@etours.hr
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-center gap-4 px-4 py-2">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 text-gray-400">
+                  <span class="w-5 h-5" set:html={phone} />
+                </div>
+                <div>
+                  <div class="text-xs text-gray-400 uppercase tracking-wide mb-0.5">Tel</div>
+                  <a href="tel:+38515508239" class="text-gray-500 hover:text-gray-700 transition-colors text-sm">
+                    +385 1 55 08 239
+                  </a>
                 </div>
               </div>
             </div>
-          </Card>
-        </div>
-
+          </div>
+        </Card>
 
       </div>
     </div>
@@ -141,8 +103,6 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
   <Footer />
 
   <style>
-    /* Ensure Heroicon SVGs display correctly */
-    .w-14 span :global(svg),
     .w-5 span :global(svg) {
       width: 100%;
       height: 100%;
