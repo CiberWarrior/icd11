@@ -3,41 +3,443 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import HeroCountdown from '../components/HeroCountdown.astro';
 import Footer from '../components/Footer.astro';
+
+const excursions = [
+  {
+    id: 'zagreb-food-tour',
+    title: 'Zagreb Food Tour',
+    tag: 'City Tour',
+    tagColor: 'amber',
+    distance: null,
+    duration: '3–3.5 hours',
+    type: 'Half day',
+    price2pax: 230,
+    extraPerson: 40,
+    maxPeople: null,
+    description:
+      'Taste your way through Zagreb\'s culinary highlights — from Dolac market to the Old Town.',
+    includes: [
+      'Licensed tour guide in English',
+      'Visit to the Mushroom Museum with a guided tour',
+      'Stroll around Dolac central market with tasting of Croatian products (platter of assorted cold cuts)',
+      'Tasting of štrukli — the local delicacy',
+      'Warm up with liqueur or brandy on the way to the Old Town',
+      'Lunch at Stari Fijaker restaurant (traditional continental meal with a glass of wine/beer)',
+      'Coffee/tea with sampling of the Kraš chocolate products in Kraš Choco Café',
+      'A small gift at the end of the tour, vocabulary list and a city map',
+    ],
+    lunchNote: null,
+  },
+  {
+    id: 'trakoscan-varazdin',
+    title: 'Trakošćan Castle & Varaždin',
+    tag: 'Culture',
+    tagColor: 'purple',
+    distance: '230 km',
+    duration: '7 hours',
+    type: 'Full day',
+    price2pax: 325,
+    extraPerson: 55,
+    maxPeople: 4,
+    description:
+      'Visit one of Croatia\'s most beautiful castles, then explore the baroque gem of Varaždin.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance ticket to Trakošćan Castle',
+      'Coffee at the foot of the castle',
+      'Transfer to Varaždin',
+      'Sightseeing tour of Varaždin with a licensed guide',
+    ],
+    lunchNote: 'Lunch is optional.',
+  },
+  {
+    id: 'zagorje-crafts-tito-veliki-tabor',
+    title: 'Zagorje Crafts, Tito\'s Birth Place & Veliki Tabor Castle',
+    tag: 'Culture',
+    tagColor: 'purple',
+    distance: '150 km',
+    duration: '6 hours',
+    type: 'Full day',
+    price2pax: 325,
+    extraPerson: 55,
+    maxPeople: 4,
+    description:
+      'Discover old Zagorje crafts in the open-air Kumrovec Museum, visit Tito\'s birthplace, and explore the medieval Veliki Tabor Castle with its tragic love story.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance ticket to the Kumrovec open-air museum',
+      'Coffee in the village',
+      'Entrance ticket to Veliki Tabor Castle',
+    ],
+    lunchNote:
+      'Optional lunch in a wonderful setting, overlooking the castle.',
+  },
+  {
+    id: 'plitvice-lakes',
+    title: 'Plitvice Lakes National Park',
+    tag: 'Nature',
+    tagColor: 'emerald',
+    distance: '170 km',
+    duration: '8–10 hours',
+    type: 'Full day',
+    price2pax: 470,
+    extraPerson: 70,
+    maxPeople: 4,
+    description:
+      'Visit one of Europe\'s most stunning national parks with cascading lakes and fairy-tale nature.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance ticket to Plitvice Lakes National Park',
+    ],
+    lunchNote:
+      'Lunch in beautiful Rastoke village is optional. Rastoke is known for smaller waterfalls and traditional mills — the restaurant sits on water.',
+  },
+  {
+    id: 'truffle-hunting',
+    title: 'Truffle Hunting Experience',
+    tag: 'Food & Nature',
+    tagColor: 'amber',
+    distance: '50 km',
+    duration: '5 hours',
+    type: 'Half day',
+    price2pax: 385,
+    extraPerson: 130,
+    maxPeople: 4,
+    description:
+      'Hunt truffles with a local hunter and his dogs in the Turopolje region, enjoy a truffle-inspired lunch, and visit the Lukavec Castle.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Truffle hunting experience with a local truffle hunter and his dogs',
+      'Lunch at the nearby restaurant inspired by truffles',
+      'Stop by the Lukavec Castle where witches were once trialed and burnt',
+    ],
+    lunchNote: null,
+  },
+  {
+    id: 'gorski-kotar',
+    title: 'Gorski Kotar Fairy Tale',
+    tag: 'Nature',
+    tagColor: 'emerald',
+    distance: '250 km',
+    duration: '8 hours',
+    type: 'Full day',
+    price2pax: 325,
+    extraPerson: 55,
+    maxPeople: 4,
+    description:
+      'Enjoy the lush green region of Croatia with lakes, forests, caves, and a fantastic local cuisine.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance to the Park-forest Golubinjak',
+      'Entrance to the Lokvarka cave',
+      '45-minute ferry ride on Lokve Lake',
+      'Tasting of local brandies and liqueurs',
+    ],
+    lunchNote:
+      'Lunch is paid extra (typical local cuisine).',
+  },
+  {
+    id: 'lonjsko-polje',
+    title: 'Lonjsko Polje Nature Park',
+    tag: 'Nature',
+    tagColor: 'emerald',
+    distance: '250 km',
+    duration: '6–8 hours',
+    type: 'Half day to full day',
+    price2pax: 325,
+    extraPerson: 55,
+    maxPeople: 4,
+    description:
+      'Beautiful wooden architecture within Lonjsko Polje Nature Park — a home to hundreds of storks.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance to Lonjsko Polje Nature Park',
+      'Coffee/tea',
+    ],
+    lunchNote:
+      'Lunch is not included (we suggest trying local specialties).',
+  },
+  {
+    id: 'samobor',
+    title: 'Samobor Crafts & Gourmet Experience',
+    tag: 'Food & Culture',
+    tagColor: 'amber',
+    distance: '50 km',
+    duration: '5–6 hours',
+    type: 'Half day',
+    price2pax: 310,
+    extraPerson: 45,
+    maxPeople: 4,
+    description:
+      'Walking tour of Samobor with gingerbread-making, bermet tasting, kremšnita, Samobor salami, a cave visit, and a ferry ride across the Sava.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed tour guide in English',
+      'Visit to Samobor market and Samobor salami tasting',
+      'Stroll through the centre of the town',
+      'Visit to the gingerbread manufacture (small gift)',
+      'Custard cake (kremšnita) and bermet tasting on the central square',
+      'Entrance ticket to Grgos Cave (if open)',
+      'Ferry ride across the Sava river',
+      'Stop by the Lužnica Castle run by Sisters of Mercy (shopping possibility)',
+    ],
+    lunchNote: 'Price does not include lunch (optional). Over 4 people — a van is hired (120 EUR additional cost).',
+  },
+  {
+    id: 'trakoscan-krapina-wine',
+    title: 'Trakošćan Castle & Krapina Neanderthal Museum + Wine Tasting',
+    tag: 'Culture & Wine',
+    tagColor: 'purple',
+    distance: '200 km',
+    duration: '5–7 hours',
+    type: 'Full day',
+    price2pax: 325,
+    extraPerson: 55,
+    maxPeople: 4,
+    description:
+      'Combine one of Croatia\'s most beautiful castles with the modern Krapina Neanderthal Museum and a wine tasting with traditional Zagorje snacks.',
+    includes: [
+      'Transfer',
+      'Bottled water',
+      'Licensed guide in English',
+      'Entrance ticket to Trakošćan Castle',
+      'Coffee at the foot of the castle',
+      'Entrance ticket to the Krapina Neanderthal Museum with modern and interactive exhibits',
+      'Wine tasting at Zdolc eco-winery (5 wines) with traditional Zagorje cold cuts, cheeses and nuts (equals lunch)',
+    ],
+    lunchNote: null,
+  },
+];
+
+const tagColorMap: Record<string, { bg: string; text: string }> = {
+  amber: { bg: 'bg-amber-50', text: 'text-amber-700' },
+  emerald: { bg: 'bg-emerald-50', text: 'text-emerald-700' },
+  purple: { bg: 'bg-purple-50', text: 'text-purple-700' },
+};
 ---
 
 <Layout
   title="Excursions | ICD 2027"
-  description="Discover excursions and the Zagreb city tour offered during the 11th International Congress of Dipterology, July 2027."
+  description="Discover day trips and tours around Croatia during the 11th International Congress of Dipterology, July 2027 in Zagreb."
 >
   <Header />
 
   <HeroCountdown />
 
-  <section class="section-padding bg-white">
+  <!-- Intro -->
+  <section class="section-padding bg-gradient-to-b from-white via-gray-50/60 to-white relative overflow-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-[520px] h-[520px] bg-[#2a5298] rounded-full opacity-[0.04] blur-3xl"></div>
+      <div class="absolute -bottom-32 -left-32 w-[420px] h-[420px] bg-amber-400 rounded-full opacity-[0.05] blur-3xl"></div>
+    </div>
+
+    <div class="section-container relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#2a5298] mb-5">
+          Explore Croatia
+        </span>
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-5 leading-tight">
+          Excursions & Day Trips
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
+          Discover Croatia's natural beauty, cultural heritage, and culinary delights with expertly guided tours departing from Zagreb.
+        </p>
+      </div>
+
+      <!-- Excursion cards -->
+      <div class="max-w-5xl mx-auto space-y-6">
+        {excursions.map((ex) => {
+          const color = tagColorMap[ex.tagColor] ?? tagColorMap.amber;
+          return (
+            <div
+              id={ex.id}
+              class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+            >
+              {/* Colour accent bar */}
+              <div
+                class:list={[
+                  'h-1',
+                  ex.tagColor === 'emerald' && 'bg-gradient-to-r from-emerald-400 to-teal-500',
+                  ex.tagColor === 'purple' && 'bg-gradient-to-r from-purple-400 to-indigo-500',
+                  ex.tagColor === 'amber' && 'bg-gradient-to-r from-amber-400 to-orange-500',
+                ]}
+              />
+
+              <div class="p-6 sm:p-8">
+                {/* Header row */}
+                <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                      <span class:list={['inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full', color.bg, color.text]}>
+                        {ex.tag}
+                      </span>
+                      <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">
+                        {ex.type}
+                      </span>
+                      {ex.distance && (
+                        <span class="inline-flex items-center gap-1 text-xs text-gray-400">
+                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {ex.distance}
+                        </span>
+                      )}
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">{ex.title}</h3>
+                  </div>
+
+                  {/* Price badge */}
+                  <div class="flex-shrink-0 text-right">
+                    <div class="text-2xl font-extrabold text-[#2a5298]">{ex.price2pax} €</div>
+                    <div class="text-xs text-gray-400 mt-0.5">for 2 persons</div>
+                    <div class="text-xs text-gray-500 mt-0.5">
+                      +{ex.extraPerson} € / extra person
+                      {ex.maxPeople && <span class="text-gray-400"> (max {ex.maxPeople})</span>}
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-gray-600 leading-relaxed mb-5">{ex.description}</p>
+
+                {/* Duration */}
+                <div class="flex items-center gap-2 text-sm text-gray-500 mb-5">
+                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Duration: {ex.duration}
+                </div>
+
+                {/* Includes */}
+                <details class="group/details">
+                  <summary class="cursor-pointer select-none flex items-center gap-2 text-sm font-semibold text-[#2a5298] hover:text-[#1e3c72] transition-colors">
+                    <svg class="w-4 h-4 transition-transform group-open/details:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    What's included
+                  </summary>
+                  <ul class="mt-3 ml-6 space-y-1.5">
+                    {ex.includes.map((item) => (
+                      <li class="flex items-start gap-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  {ex.lunchNote && (
+                    <p class="mt-3 ml-6 text-sm text-gray-500 italic">{ex.lunchNote}</p>
+                  )}
+                </details>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms & Conditions -->
+  <section class="section-padding bg-gray-50">
     <div class="section-container">
       <div class="max-w-4xl mx-auto">
-
-        <!-- Header -->
-        <div class="text-center mb-12">
-          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Excursions</h2>
-          <p class="text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto">
-            Explore the natural diversity and cultural heritage of Croatia during your stay at ICD 2027.
-          </p>
+        <div class="text-center mb-10">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Terms & Conditions</h2>
         </div>
 
-        <!-- Coming Soon notice -->
-        <div class="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-2xl px-6 py-5">
-          <svg class="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <p class="text-blue-800 text-sm leading-relaxed">
-            Detailed excursion descriptions, pricing, and booking information will be published closer to the congress.
-          </p>
-        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 space-y-6">
 
+          <!-- General -->
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">General</h3>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li class="flex items-start gap-2">
+                <span class="text-[#2a5298] mt-1">•</span>
+                Reservations are on request.
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2a5298] mt-1">•</span>
+                Final price and itinerary depend on availability.
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-[#2a5298] mt-1">•</span>
+                After receiving your request, a final proposal will be sent. Reservation is confirmed after receiving the payment.
+              </li>
+            </ul>
+          </div>
+
+          <div class="h-px bg-gray-100"></div>
+
+          <!-- Cancellation -->
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-3">Cancellation Policy</h3>
+            <div class="space-y-2">
+              <div class="flex items-center gap-3 text-sm">
+                <span class="flex-shrink-0 w-28 font-semibold text-gray-700">Non-refundable</span>
+                <span class="text-gray-500">10% administration cost</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="flex-shrink-0 w-28 font-semibold text-gray-700">30+ days</span>
+                <span class="text-gray-500">50% cancellation fee</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="flex-shrink-0 w-28 font-semibold text-gray-700">29–15 days</span>
+                <span class="text-gray-500">80% cancellation fee</span>
+              </div>
+              <div class="flex items-center gap-3 text-sm">
+                <span class="flex-shrink-0 w-28 font-semibold text-gray-700">14–0 days</span>
+                <span class="text-gray-500">100% cancellation fee</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-px bg-gray-100"></div>
+
+          <!-- Contact -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 bg-blue-50 rounded-xl px-5 py-4">
+            <svg class="w-6 h-6 text-[#2a5298] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <div>
+              <p class="text-sm text-gray-700">
+                For more information and bookings please contact
+              </p>
+              <a href="mailto:icd2027@etours.hr" class="text-[#2a5298] font-semibold hover:underline">
+                icd2027@etours.hr
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <Footer />
+
+  <script>
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('section').forEach((el) => observer.observe(el));
+  </script>
 </Layout>
