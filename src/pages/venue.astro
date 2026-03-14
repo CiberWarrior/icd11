@@ -171,7 +171,7 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
   <!-- Hotel image lightbox - opens on same page, user can close -->
   <div
     id="hotel-image-lightbox"
-    class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 hidden"
+    class="fixed inset-0 z-50 items-center justify-center bg-black/85 p-4 hidden"
     role="dialog"
     aria-modal="true"
     aria-label="Image preview"
@@ -347,52 +347,62 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
                   </div>
                 </div>
 
-                <!-- Weather in Zagreb -->
+                <!-- Weather in Zagreb (live forecast, no API key required) -->
                 <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden no-card-hover">
-                  <div class="bg-gradient-to-r from-[#2a5298] to-[#3b6fc0] px-7 py-5">
+                  <div class="bg-gradient-to-r from-[#1e3c72] to-[#2a5298] px-7 py-5">
                     <div class="flex items-center gap-3">
-                      <div class="bg-white/20 backdrop-blur-sm rounded-xl p-2.5">
+                      <div class="bg-white/20 rounded-xl p-2.5 flex-shrink-0">
                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
                         </svg>
                       </div>
-                      <h3 class="text-lg font-bold text-white">Weather in Zagreb</h3>
+                      <h3 class="text-lg font-bold text-white leading-none">Weather in Zagreb</h3>
                     </div>
                   </div>
-                  <div class="p-7">
-                    <div id="weather-container" class="space-y-4">
-                      <div id="weather-loading" class="text-center py-8">
-                        <div class="inline-block animate-spin rounded-full h-10 w-10 border-4 border-gray-200 border-t-[#2a5298]"></div>
-                        <p class="text-gray-400 mt-3 font-medium text-sm">Loading weather...</p>
+
+                  <div class="p-6">
+                    <div id="weather-loading" class="flex flex-col items-center justify-center py-10 gap-3">
+                      <div class="w-9 h-9 rounded-full border-4 border-gray-100 border-t-[#2a5298] animate-spin"></div>
+                      <p class="text-gray-400 text-sm">Loading weather data…</p>
+                    </div>
+
+                    <div id="weather-content" class="hidden space-y-5">
+                      <div class="flex items-end justify-between gap-4 pb-4 border-b border-gray-100">
+                        <div>
+                          <p class="text-xs font-bold uppercase tracking-widest text-[#2a5298] mb-1">Now</p>
+                          <p class="text-5xl font-extrabold text-gray-900 leading-none tracking-tight" id="current-temp">--°C</p>
+                          <p class="text-gray-400 text-sm mt-1 font-medium" id="current-temp-f">--°F</p>
+                          <p class="text-gray-500 text-sm mt-2 font-medium" id="current-desc">--</p>
+                        </div>
+                        <div class="text-right">
+                          <div id="current-icon" class="text-4xl drop-shadow-lg">☁️</div>
+                          <div class="grid grid-cols-1 gap-2 text-sm mt-3">
+                            <div>
+                              <span class="text-gray-400 text-xs block">Feels like</span>
+                              <span class="font-bold text-gray-800" id="feels-like">--°C / --°F</span>
+                            </div>
+                            <div>
+                              <span class="text-gray-400 text-xs block">Humidity</span>
+                              <span class="font-bold text-gray-800" id="humidity">--%</span>
+                            </div>
+                            <div>
+                              <span class="text-gray-400 text-xs block">Wind</span>
+                              <span class="font-bold text-gray-800" id="wind">-- km/h</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div id="weather-content" class="hidden space-y-5">
-                        <div class="flex items-start justify-between">
-                          <div>
-                            <p class="text-[#2a5298] text-xs font-semibold uppercase tracking-wider mb-1">Current Weather</p>
-                            <p class="text-5xl font-extrabold text-gray-900 mb-1 tracking-tight" id="current-temp">--°C</p>
-                            <p class="text-gray-500 capitalize font-medium text-sm" id="current-desc">--</p>
-                          </div>
-                          <div id="current-icon" class="text-6xl drop-shadow-lg">☁️</div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                          <div class="text-center">
-                            <p class="text-gray-400 text-xs mb-1">Feels Like</p>
-                            <p class="font-bold text-gray-900 text-sm" id="feels-like">--°C</p>
-                          </div>
-                          <div class="text-center border-x border-gray-200">
-                            <p class="text-gray-400 text-xs mb-1">Humidity</p>
-                            <p class="font-bold text-gray-900 text-sm" id="humidity">--%</p>
-                          </div>
-                          <div class="text-center">
-                            <p class="text-gray-400 text-xs mb-1">Wind</p>
-                            <p class="font-bold text-gray-900 text-sm" id="wind">-- m/s</p>
-                          </div>
-                        </div>
+
+                      <div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">5-Day Forecast</p>
                         <div class="grid grid-cols-5 gap-2" id="forecast-container"></div>
                       </div>
-                      <div id="weather-error" class="hidden text-center py-6">
-                        <p class="text-red-600 bg-red-50 rounded-lg p-3 text-sm border border-red-100">Unable to load weather data.</p>
-                      </div>
+                    </div>
+
+                    <div id="weather-error" class="hidden py-6">
+                      <p class="text-sm text-red-700 bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                        Unable to load live weather data. Please try again later.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -535,85 +545,6 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
     </div>
   </section>
 
-  <!-- Custom Weather Script with OpenWeatherMap API -->
-  <script is:inline>
-  (async function() {
-    const API_KEY = 'b1b15e88fa797225412429c1c50c122a1'; // OpenWeatherMap API key
-    const CITY = 'Zagreb';
-    const UNITS = 'metric';
-
-    const weatherIcons = {
-      '01d': '☀️', '01n': '🌙',
-      '02d': '⛅', '02n': '☁️',
-      '03d': '☁️', '03n': '☁️',
-      '04d': '☁️', '04n': '☁️',
-      '09d': '🌧️', '09n': '🌧️',
-      '10d': '🌦️', '10n': '🌧️',
-      '11d': '⛈️', '11n': '⛈️',
-      '13d': '❄️', '13n': '❄️',
-      '50d': '🌫️', '50n': '🌫️',
-    };
-
-    try {
-      // Fetch current weather
-      const currentResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
-      );
-      const currentData = await currentResponse.json();
-
-      // Fetch 5-day forecast
-      const forecastResponse = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&units=${UNITS}&appid=${API_KEY}`
-      );
-      const forecastData = await forecastResponse.json();
-
-      // Update current weather
-      document.getElementById('current-temp').textContent = Math.round(currentData.main.temp) + '°C';
-      document.getElementById('current-desc').textContent = currentData.weather[0].description;
-      document.getElementById('current-icon').textContent = weatherIcons[currentData.weather[0].icon] || '☁️';
-      document.getElementById('feels-like').textContent = Math.round(currentData.main.feels_like) + '°C';
-      document.getElementById('humidity').textContent = currentData.main.humidity + '%';
-      document.getElementById('wind').textContent = currentData.wind.speed.toFixed(1) + ' m/s';
-
-      // Process forecast data (get one per day at noon)
-      const dailyForecasts = [];
-      const processedDates = new Set();
-      
-      forecastData.list.forEach(item => {
-        const date = new Date(item.dt * 1000);
-        const dateStr = date.toLocaleDateString();
-        
-        if (!processedDates.has(dateStr) && dailyForecasts.length < 5) {
-          processedDates.add(dateStr);
-          dailyForecasts.push({
-            day: date.toLocaleDateString('en-US', { weekday: 'short' }),
-            icon: weatherIcons[item.weather[0].icon] || '☁️',
-            temp: Math.round(item.main.temp),
-          });
-        }
-      });
-
-      // Render forecast
-      const forecastContainer = document.getElementById('forecast-container');
-      forecastContainer.innerHTML = dailyForecasts.map(day => `
-        <div class="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
-          <p class="text-xs font-semibold text-[#2a5298] mb-2">${day.day}</p>
-          <div class="text-2xl mb-2">${day.icon}</div>
-          <p class="text-sm font-bold text-gray-900">${day.temp}°C</p>
-        </div>
-      `).join('');
-
-      // Show content, hide loading
-      document.getElementById('weather-loading').classList.add('hidden');
-      document.getElementById('weather-content').classList.remove('hidden');
-
-    } catch (error) {
-      console.error('Weather fetch error:', error);
-      document.getElementById('weather-loading').classList.add('hidden');
-      document.getElementById('weather-error').classList.remove('hidden');
-    }
-  })();
-  </script>
 
     <Footer />
   </div>
@@ -626,6 +557,156 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
       display: block;
     }
   </style>
+
+  <!-- Live weather (Open-Meteo, no API key) -->
+  <script is:inline>
+    (async function () {
+      const LAT = 45.8150;
+      const LON = 15.9819;
+      const URL =
+        `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}` +
+        '&current_weather=true' +
+        '&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,weathercode,windspeed_10m' +
+        '&daily=temperature_2m_max,temperature_2m_min,weathercode' +
+        '&timezone=auto';
+
+      const elLoading = document.getElementById('weather-loading');
+      const elContent = document.getElementById('weather-content');
+      const elError = document.getElementById('weather-error');
+
+      const show = (el) => el.classList.remove('hidden');
+      const hide = (el) => el.classList.add('hidden');
+
+      const iconMap = {
+        0: '☀️',
+        1: '🌤️',
+        2: '⛅',
+        3: '☁️',
+        45: '🌫️',
+        48: '🌫️',
+        51: '🌦️',
+        53: '🌦️',
+        55: '🌧️',
+        56: '🌧️',
+        57: '🌧️',
+        61: '🌧️',
+        63: '🌧️',
+        65: '🌧️',
+        66: '🌧️',
+        67: '🌧️',
+        71: '❄️',
+        73: '❄️',
+        75: '❄️',
+        77: '❄️',
+        80: '🌧️',
+        81: '🌧️',
+        82: '🌧️',
+        85: '❄️',
+        86: '❄️',
+        95: '⛈️',
+        96: '⛈️',
+        99: '⛈️',
+      };
+
+      const descMap = {
+        0: 'Clear sky',
+        1: 'Mainly clear',
+        2: 'Partly cloudy',
+        3: 'Overcast',
+        45: 'Fog',
+        48: 'Rime fog',
+        51: 'Light drizzle',
+        53: 'Moderate drizzle',
+        55: 'Dense drizzle',
+        56: 'Light freezing drizzle',
+        57: 'Dense freezing drizzle',
+        61: 'Slight rain',
+        63: 'Moderate rain',
+        65: 'Heavy rain',
+        66: 'Light freezing rain',
+        67: 'Heavy freezing rain',
+        71: 'Slight snow',
+        73: 'Moderate snow',
+        75: 'Heavy snow',
+        77: 'Snow grains',
+        80: 'Rain showers',
+        81: 'Moderate showers',
+        82: 'Violent showers',
+        85: 'Snow showers',
+        86: 'Heavy snow showers',
+        95: 'Thunderstorm',
+        96: 'Thunderstorm w/ hail',
+        99: 'Thunderstorm w/ heavy hail',
+      };
+
+      const closestIndex = (times, target) => {
+        let bestIndex = 0;
+        let bestDiff = Infinity;
+        const targetTime = new Date(target).getTime();
+        for (let i = 0; i < times.length; i += 1) {
+          const diff = Math.abs(new Date(times[i]).getTime() - targetTime);
+          if (diff < bestDiff) {
+            bestDiff = diff;
+            bestIndex = i;
+          }
+        }
+        return bestIndex;
+      };
+
+      try {
+        const res = await fetch(URL);
+        if (!res.ok) throw new Error('weather fetch failed');
+        const data = await res.json();
+
+        const current = data.current_weather;
+        const hourly = data.hourly;
+        const daily = data.daily;
+
+        const idx = closestIndex(hourly.time, current.time);
+
+        const toF = (c) => Math.round(c * 9 / 5 + 32);
+
+        const temp = Math.round(current.temperature);
+        const feels = Math.round(hourly.apparent_temperature[idx]);
+        const humidity = Math.round(hourly.relativehumidity_2m[idx]);
+        const wind = Math.round(current.windspeed);
+        const code = current.weathercode;
+
+        document.getElementById('current-temp').textContent = `${temp}°C`;
+        document.getElementById('current-temp-f').textContent = `${toF(temp)}°F`;
+        document.getElementById('current-desc').textContent = descMap[code] || 'Weather';
+        document.getElementById('current-icon').textContent = iconMap[code] || '☁️';
+        document.getElementById('feels-like').textContent = `${feels}°C / ${toF(feels)}°F`;
+        document.getElementById('humidity').textContent = `${humidity}%`;
+        document.getElementById('wind').textContent = `${wind} km/h`;
+
+        const forecastEl = document.getElementById('forecast-container');
+        const days = daily.time.slice(0, 5);
+        forecastEl.innerHTML = days.map((dateStr, i) => {
+          const date = new Date(`${dateStr}T12:00:00`);
+          const label = date.toLocaleDateString('en-US', { weekday: 'short' });
+          const codeDay = daily.weathercode[i];
+          const max = Math.round(daily.temperature_2m_max[i]);
+          const min = Math.round(daily.temperature_2m_min[i]);
+          return `
+            <div class="bg-gray-50 rounded-xl p-2.5 text-center border border-gray-100 flex flex-col gap-1">
+              <p class="text-[10px] font-bold text-[#2a5298] uppercase tracking-wide">${label}</p>
+              <div class="text-2xl leading-none">${iconMap[codeDay] || '☁️'}</div>
+              <p class="text-sm font-extrabold text-gray-900">${max}° <span style="font-size:10px;color:#9ca3af;font-weight:500">${toF(max)}°F</span></p>
+              <p class="text-[10px] text-gray-400 leading-none">${min}° / ${toF(min)}°F</p>
+            </div>`;
+        }).join('');
+
+        hide(elLoading);
+        hide(elError);
+        show(elContent);
+      } catch (err) {
+        console.error('Weather error:', err);
+        hide(elLoading);
+        show(elError);
+      }
+    })();
+  </script>
 
   <!-- Scroll animations: Intersection Observer (same approach as index.astro) -->
   <script>
@@ -649,26 +730,33 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
 
     // Hotel image lightbox - open on same page, close via button or Escape
     const lightbox = document.getElementById('hotel-image-lightbox');
-    const lightboxImg = document.getElementById('hotel-lightbox-image');
+    const lightboxImgRaw = document.getElementById('hotel-lightbox-image');
+    const lightboxImg = lightboxImgRaw instanceof HTMLImageElement ? lightboxImgRaw : null;
     const lightboxClose = document.getElementById('hotel-lightbox-close');
 
-    function openLightbox(src) {
-      if (!lightbox || !lightboxImg) return;
-      lightboxImg.src = src;
+    let lightboxSrc = '';
+    const openLightbox = () => {
+      if (!lightbox || !lightboxImg || !lightboxSrc) return;
+      lightboxImg.src = lightboxSrc;
       lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
       document.body.style.overflow = 'hidden';
-    }
+    };
 
     function closeLightbox() {
       if (!lightbox) return;
       lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
       document.body.style.overflow = '';
     }
 
     document.querySelectorAll('.hotel-image-link').forEach((btn) => {
       btn.addEventListener('click', () => {
         const src = btn.getAttribute('data-src');
-        if (src) openLightbox(src);
+        if (src) {
+          lightboxSrc = src;
+          openLightbox();
+        }
       });
     });
 
