@@ -1,106 +1,88 @@
 ---
-// Newsletter form with styled fields and button
 ---
 
 <div class="w-full">
-  <form id="newsletter-form" class="space-y-3">
-    <!-- Name -->
-    <div>
-      <label for="name" class="block text-sm font-semibold text-gray-900 mb-1.5">
-        Name
+  <form class="space-y-4" data-newsletter-form>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <label class="block">
+        <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+          Name
+        </span>
+        <input
+          type="text"
+          name="name"
+          required
+          class="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40 focus:border-[#2a5298] focus:bg-white transition-all"
+          placeholder="Your name"
+        />
       </label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="w-full px-3 py-2.5 text-sm bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1e3c72] focus:border-[#1e3c72] transition-all shadow-sm hover:border-gray-300"
-        placeholder="Enter your name"
-      />
+      <label class="block">
+        <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">
+          Surname
+        </span>
+        <input
+          type="text"
+          name="surname"
+          required
+          class="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40 focus:border-[#2a5298] focus:bg-white transition-all"
+          placeholder="Your surname"
+        />
+      </label>
     </div>
 
-    <!-- Surname -->
-    <div>
-      <label for="surname" class="block text-sm font-semibold text-gray-900 mb-1.5">
-        Surname
-      </label>
+    <label class="block">
+      <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">Country</span>
       <input
         type="text"
-        id="surname"
-        name="surname"
-        required
-        class="w-full px-3 py-2.5 text-sm bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1e3c72] focus:border-[#1e3c72] transition-all shadow-sm hover:border-gray-300"
-        placeholder="Enter your surname"
-      />
-    </div>
-
-    <!-- Email -->
-    <div>
-      <label for="email" class="block text-sm font-semibold text-gray-900 mb-1.5">
-        E-mail
-      </label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="w-full px-3 py-2.5 text-sm bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1e3c72] focus:border-[#1e3c72] transition-all shadow-sm hover:border-gray-300"
-        placeholder="your@email.com"
-      />
-    </div>
-
-    <!-- Country -->
-    <div>
-      <label for="country" class="block text-sm font-semibold text-gray-900 mb-1.5">
-        Country
-      </label>
-      <input
-        type="text"
-        id="country"
         name="country"
         required
-        class="w-full px-3 py-2.5 text-sm bg-white border-2 border-gray-200 rounded-lg text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1e3c72] focus:border-[#1e3c72] transition-all shadow-sm hover:border-gray-300"
-        placeholder="Enter your country"
+        class="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40 focus:border-[#2a5298] focus:bg-white transition-all"
+        placeholder="Your country"
       />
-    </div>
+    </label>
 
-    <!-- Consent Checkbox -->
-    <div class="flex items-start gap-3 pt-2">
+    <label class="block">
+      <span class="block text-xs font-semibold text-gray-500 uppercase tracking-wider mb-1.5">E-mail</span>
+      <input
+        type="email"
+        name="email"
+        required
+        class="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40 focus:border-[#2a5298] focus:bg-white transition-all"
+        placeholder="your@email.com"
+      />
+    </label>
+
+    <label class="flex items-start gap-2.5">
       <input
         type="checkbox"
-        id="newsletterConsent"
         name="newsletterConsent"
         required
-        class="mt-1 w-5 h-5 text-[#1e3c72] border-2 border-gray-300 rounded focus:ring-[#1e3c72] cursor-pointer hover:border-[#1e3c72] transition-colors"
+        class="mt-0.5 w-4 h-4 text-[#2a5298] border-gray-300 rounded focus:ring-[#2a5298] cursor-pointer"
       />
-      <label for="newsletterConsent" class="text-sm text-gray-700 cursor-pointer leading-relaxed">
+      <span class="text-xs text-gray-500 leading-relaxed">
         I would like to receive information about the congress
-        <span class="text-red-600 font-semibold">*</span>
-      </label>
-    </div>
+        <span class="text-red-500">*</span>
+      </span>
+    </label>
 
-    <!-- Submit Button -->
-    <div class="flex justify-end pt-1">
-      <button
-        type="submit"
-        id="submit-btn"
-        class="px-6 py-2.5 text-sm bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md hover:shadow-lg"
-      >
-        <span id="submit-text">SUBMIT</span>
-        <span id="submit-loading" class="hidden">
-          <span class="inline-flex items-center gap-2">
-            <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Submitting...
-          </span>
+    <button
+      type="submit"
+      data-newsletter-submit
+      class="w-full py-3 text-sm bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white font-bold rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2a5298] focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md uppercase tracking-wider"
+    >
+      <span data-newsletter-submit-text>Subscribe</span>
+      <span data-newsletter-submit-loading class="hidden">
+        <span class="inline-flex items-center justify-center gap-2">
+          <svg class="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Submitting...
         </span>
-      </button>
-    </div>
+      </span>
+    </button>
 
-    <!-- Success Message -->
-    <div id="success-message" class="hidden rounded-lg bg-green-50 border-2 border-green-200 p-4">
+    <div data-newsletter-success class="hidden rounded-xl bg-green-50 border border-green-200 p-4">
       <div class="flex items-center gap-3">
         <svg class="w-5 h-5 text-green-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
@@ -109,98 +91,104 @@
       </div>
     </div>
 
-    <!-- Error Message -->
-    <div id="error-message" class="hidden rounded-lg bg-red-50 border-2 border-red-200 p-4">
+    <div data-newsletter-error class="hidden rounded-xl bg-red-50 border border-red-200 p-4">
       <div class="flex items-center gap-3">
         <svg class="w-5 h-5 text-red-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
         </svg>
-        <p id="error-text" class="text-sm font-medium text-red-800">Something went wrong. Please try again.</p>
+        <p data-newsletter-error-text class="text-sm font-medium text-red-800">Something went wrong. Please try again.</p>
       </div>
     </div>
   </form>
 </div>
 
 <script is:inline>
-  // Wait for DOM to be ready
-  (function() {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initForm);
-    } else {
-      initForm();
-    }
-    
-    function initForm() {
-    const form = document.getElementById('newsletter-form');
-    if (!form) {
-      return;
-    }
+  (() => {
+    const initForms = () => {
+      const forms = document.querySelectorAll('[data-newsletter-form]');
+      forms.forEach((form) => {
+        if (form.dataset.initialized === 'true') {
+          return;
+        }
+        form.dataset.initialized = 'true';
 
-    const submitBtn = document.getElementById('submit-btn');
-    const submitText = document.getElementById('submit-text');
-    const submitLoading = document.getElementById('submit-loading');
-    const successMessage = document.getElementById('success-message');
-    const errorMessage = document.getElementById('error-message');
-    const errorText = document.getElementById('error-text');
+        const submitBtn = form.querySelector('[data-newsletter-submit]');
+        const submitText = form.querySelector('[data-newsletter-submit-text]');
+        const submitLoading = form.querySelector('[data-newsletter-submit-loading]');
+        const successMessage = form.querySelector('[data-newsletter-success]');
+        const errorMessage = form.querySelector('[data-newsletter-error]');
+        const errorText = form.querySelector('[data-newsletter-error-text]');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+        if (!submitBtn || !submitText || !submitLoading || !successMessage || !errorMessage || !errorText) {
+          return;
+        }
 
-      successMessage.classList.add('hidden');
-      errorMessage.classList.add('hidden');
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          successMessage.classList.add('hidden');
+          errorMessage.classList.add('hidden');
+          submitText.classList.add('hidden');
+          submitLoading.classList.remove('hidden');
+          submitBtn.disabled = true;
 
-      submitText.classList.add('hidden');
-      submitLoading.classList.remove('hidden');
-      submitBtn.disabled = true;
+          const formData = new FormData(form);
+          const email = String(formData.get('email') || '').trim();
+          const name = String(formData.get('name') || '').trim();
+          const surname = String(formData.get('surname') || '').trim();
+          const country = String(formData.get('country') || '').trim();
+          const newsletterConsent = formData.get('newsletterConsent') === 'on';
 
-      const formData = new FormData(form);
-      const data = {
-        name: formData.get('name'),
-        surname: formData.get('surname'),
-        email: formData.get('email'),
-        country: formData.get('country'),
-        newsletterConsent: formData.get('newsletterConsent') === 'on',
-      };
+          if (!email || !name || !surname || !country || !newsletterConsent) {
+            errorText.textContent = 'Please fill in all required fields.';
+            errorMessage.classList.remove('hidden');
+            submitText.classList.remove('hidden');
+            submitLoading.classList.add('hidden');
+            submitBtn.disabled = false;
+            return;
+          }
 
-      const jsonBody = JSON.stringify(data);
+          const data = {
+            name,
+            surname,
+            country,
+            email,
+            newsletterConsent,
+          };
 
-      if (!jsonBody || jsonBody === '{}') {
-        errorText.textContent = 'Please fill in all required fields.';
-        errorMessage.classList.remove('hidden');
-        submitText.classList.remove('hidden');
-        submitLoading.classList.add('hidden');
-        submitBtn.disabled = false;
-        return;
-      }
-
-      try {
-        const response = await fetch('/api/newsletter', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: jsonBody,
+          try {
+            const response = await fetch('/api/newsletter', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+              },
+              body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (response.ok) {
+              successMessage.classList.remove('hidden');
+              form.dispatchEvent(new CustomEvent('newsletter:subscribed', { bubbles: true }));
+              form.reset();
+            } else {
+              errorText.textContent = result.error || 'Something went wrong. Please try again.';
+              errorMessage.classList.remove('hidden');
+            }
+          } catch (error) {
+            errorText.textContent = 'Network error. Please check your connection.';
+            errorMessage.classList.remove('hidden');
+          } finally {
+            submitText.classList.remove('hidden');
+            submitLoading.classList.add('hidden');
+            submitBtn.disabled = false;
+          }
         });
+      });
+    };
 
-        const result = await response.json();
-
-      if (response.ok) {
-        successMessage.classList.remove('hidden');
-        form.reset();
-      } else {
-        errorText.textContent = result.error || 'Something went wrong. Please try again.';
-        errorMessage.classList.remove('hidden');
-      }
-    } catch (error) {
-      errorText.textContent = 'Network error. Please check your connection.';
-      errorMessage.classList.remove('hidden');
-    } finally {
-      submitText.classList.remove('hidden');
-      submitLoading.classList.add('hidden');
-      submitBtn.disabled = false;
-    }
-    });
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initForms);
+    } else {
+      initForms();
     }
   })();
 </script>

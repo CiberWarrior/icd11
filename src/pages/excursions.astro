@@ -8,6 +8,7 @@ const excursions = [
   {
     id: 'zagreb-food-tour',
     title: 'Zagreb Food Tour',
+    image: '/images/excursion-zagreb-food-tour.jpg',
     tag: 'City Tour',
     tagColor: 'amber',
     distance: null,
@@ -33,6 +34,7 @@ const excursions = [
   {
     id: 'trakoscan-varazdin',
     title: 'Trakošćan Castle & Varaždin',
+    image: '/images/excursion-trakoscan-varazdin.jpg',
     tag: 'Culture',
     tagColor: 'purple',
     distance: '230 km',
@@ -57,6 +59,7 @@ const excursions = [
   {
     id: 'zagorje-crafts-tito-veliki-tabor',
     title: 'Zagorje Crafts, Tito\'s Birth Place & Veliki Tabor Castle',
+    image: '/images/excursion-zagorje-veliki-tabor.jpg',
     tag: 'Culture',
     tagColor: 'purple',
     distance: '150 km',
@@ -81,6 +84,7 @@ const excursions = [
   {
     id: 'plitvice-lakes',
     title: 'Plitvice Lakes National Park',
+    image: '/images/excursion-plitvice.jpg',
     tag: 'Nature',
     tagColor: 'emerald',
     distance: '170 km',
@@ -103,6 +107,7 @@ const excursions = [
   {
     id: 'truffle-hunting',
     title: 'Truffle Hunting Experience',
+    image: '/images/excursion-truffle-hunting.jpg',
     tag: 'Food & Nature',
     tagColor: 'amber',
     distance: '50 km',
@@ -126,6 +131,7 @@ const excursions = [
   {
     id: 'gorski-kotar',
     title: 'Gorski Kotar Fairy Tale',
+    image: '/images/excursion-gorski-kotar.jpg',
     tag: 'Nature',
     tagColor: 'emerald',
     distance: '250 km',
@@ -151,6 +157,7 @@ const excursions = [
   {
     id: 'lonjsko-polje',
     title: 'Lonjsko Polje Nature Park',
+    image: '/images/excursion-lonjsko-polje.jpg',
     tag: 'Nature',
     tagColor: 'emerald',
     distance: '250 km',
@@ -174,6 +181,7 @@ const excursions = [
   {
     id: 'samobor',
     title: 'Samobor Crafts & Gourmet Experience',
+    image: '/images/excursion-samobor.jpg',
     tag: 'Food & Culture',
     tagColor: 'amber',
     distance: '50 km',
@@ -201,6 +209,7 @@ const excursions = [
   {
     id: 'trakoscan-krapina-wine',
     title: 'Trakošćan Castle & Krapina Neanderthal Museum + Wine Tasting',
+    image: '/images/excursion-trakoscan-krapina.jpg',
     tag: 'Culture & Wine',
     tagColor: 'purple',
     distance: '200 km',
@@ -260,91 +269,94 @@ const tagColorMap: Record<string, { bg: string; text: string }> = {
       </div>
 
       <!-- Excursion cards -->
-      <div class="max-w-5xl mx-auto space-y-6">
+      <div class="max-w-6xl mx-auto space-y-8">
         {excursions.map((ex) => {
           const color = tagColorMap[ex.tagColor] ?? tagColorMap.amber;
           return (
             <div
               id={ex.id}
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden"
+              class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
             >
-              {/* Colour accent bar */}
-              <div
-                class:list={[
-                  'h-1',
-                  ex.tagColor === 'emerald' && 'bg-gradient-to-r from-emerald-400 to-teal-500',
-                  ex.tagColor === 'purple' && 'bg-gradient-to-r from-purple-400 to-indigo-500',
-                  ex.tagColor === 'amber' && 'bg-gradient-to-r from-amber-400 to-orange-500',
-                ]}
-              />
-
-              <div class="p-6 sm:p-8">
-                {/* Header row */}
-                <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-                  <div class="flex-1 min-w-0">
-                    <div class="flex flex-wrap items-center gap-2 mb-2">
-                      <span class:list={['inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full', color.bg, color.text]}>
-                        {ex.tag}
-                      </span>
-                      <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">
-                        {ex.type}
-                      </span>
-                      {ex.distance && (
-                        <span class="inline-flex items-center gap-1 text-xs text-gray-400">
-                          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                          </svg>
-                          {ex.distance}
-                        </span>
-                      )}
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug">{ex.title}</h3>
-                  </div>
-
-                  {/* Price badge */}
-                  <div class="flex-shrink-0 text-right">
-                    <div class="text-2xl font-extrabold text-[#2a5298]">{ex.price2pax} €</div>
-                    <div class="text-xs text-gray-400 mt-0.5">for 2 persons</div>
-                    <div class="text-xs text-gray-500 mt-0.5">
-                      +{ex.extraPerson} € / extra person
-                      {ex.maxPeople && <span class="text-gray-400"> (max {ex.maxPeople})</span>}
-                    </div>
+              <div class="flex flex-col lg:flex-row">
+                {/* Image — left side */}
+                <div class="relative lg:w-[380px] flex-shrink-0 overflow-hidden">
+                  <img
+                    src={ex.image}
+                    alt={ex.title}
+                    class="w-full h-56 lg:h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/20 via-transparent to-transparent"></div>
+                  {/* Price overlay on image */}
+                  <div class="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2 shadow-md">
+                    <div class="text-xl font-extrabold text-[#2a5298] leading-tight">{ex.price2pax} €</div>
+                    <div class="text-[10px] text-gray-500 leading-tight">for 2 persons</div>
                   </div>
                 </div>
 
-                <p class="text-gray-600 leading-relaxed mb-5">{ex.description}</p>
-
-                {/* Duration */}
-                <div class="flex items-center gap-2 text-sm text-gray-500 mb-5">
-                  <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Duration: {ex.duration}
-                </div>
-
-                {/* Includes */}
-                <details class="group/details">
-                  <summary class="cursor-pointer select-none flex items-center gap-2 text-sm font-semibold text-[#2a5298] hover:text-[#1e3c72] transition-colors">
-                    <svg class="w-4 h-4 transition-transform group-open/details:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    What's included
-                  </summary>
-                  <ul class="mt-3 ml-6 space-y-1.5">
-                    {ex.includes.map((item) => (
-                      <li class="flex items-start gap-2 text-sm text-gray-600">
-                        <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                {/* Content — right side */}
+                <div class="flex-1 p-6 sm:p-7">
+                  {/* Tags row */}
+                  <div class="flex flex-wrap items-center gap-2 mb-3">
+                    <span class:list={['inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full', color.bg, color.text]}>
+                      {ex.tag}
+                    </span>
+                    <span class="inline-flex items-center text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-600">
+                      {ex.type}
+                    </span>
+                    {ex.distance && (
+                      <span class="inline-flex items-center gap-1 text-xs text-gray-400">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  {ex.lunchNote && (
-                    <p class="mt-3 ml-6 text-sm text-gray-500 italic">{ex.lunchNote}</p>
-                  )}
-                </details>
+                        {ex.distance}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 class="text-xl sm:text-2xl font-bold text-gray-900 leading-snug mb-2">{ex.title}</h3>
+                  <p class="text-gray-600 text-sm leading-relaxed mb-4">{ex.description}</p>
+
+                  {/* Duration + extra person price */}
+                  <div class="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-gray-500 mb-4">
+                    <span class="inline-flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {ex.duration}
+                    </span>
+                    <span class="inline-flex items-center gap-1.5">
+                      <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      +{ex.extraPerson} € / extra person{ex.maxPeople && ` (max ${ex.maxPeople})`}
+                    </span>
+                  </div>
+
+                  {/* Includes */}
+                  <details class="group/details">
+                    <summary class="cursor-pointer select-none flex items-center gap-2 text-sm font-semibold text-[#2a5298] hover:text-[#1e3c72] transition-colors">
+                      <svg class="w-4 h-4 transition-transform group-open/details:rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                      What's included
+                    </summary>
+                    <ul class="mt-3 ml-6 space-y-1.5">
+                      {ex.includes.map((item) => (
+                        <li class="flex items-start gap-2 text-sm text-gray-600">
+                          <svg class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                          </svg>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    {ex.lunchNote && (
+                      <p class="mt-3 ml-6 text-sm text-gray-500 italic">{ex.lunchNote}</p>
+                    )}
+                  </details>
+                </div>
               </div>
             </div>
           );
@@ -358,7 +370,7 @@ const tagColorMap: Record<string, { bg: string; text: string }> = {
     <div class="section-container">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10">
-          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">Terms & Conditions</h2>
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#2a5298] mb-3">Terms & Conditions</h2>
         </div>
 
         <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 sm:p-8 space-y-6">

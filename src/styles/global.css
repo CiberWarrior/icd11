@@ -95,11 +95,11 @@
 
   /* Card styles */
   .card {
-    @apply bg-white rounded-2xl shadow-soft hover:shadow-medium transition-all duration-300;
+    @apply bg-white rounded-2xl shadow-soft;
   }
 
   .card-elevated {
-    @apply card hover:transform hover:-translate-y-1;
+    @apply card;
   }
 
   /* Input styles */

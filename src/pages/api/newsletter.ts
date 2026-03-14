@@ -51,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
     
     const { name, surname, email, country, newsletterConsent } = data;
 
-    // Validation - all fields are required
+    // Validation - all fields are required for quality mailing list data.
     if (!name || !surname || !email || !country || !newsletterConsent) {
       return new Response(
         JSON.stringify({ error: 'All fields are required' }),
