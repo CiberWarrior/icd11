@@ -15,79 +15,209 @@ import NewsletterModal from '../components/NewsletterModal.astro';
 
   <HeroCountdown />
 
-  <!-- Invitation Section -->
+  <!-- Welcome + Gallery (editorial layout) -->
   <section id="invitation" class="section-padding bg-white">
     <div class="section-container">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-7xl mx-auto">
         <div class="text-center mb-10">
           <span class="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#2a5298] mb-5">Welcome</span>
         </div>
 
-        <div class="bg-gradient-to-br from-slate-50 via-white to-blue-50/40 rounded-2xl border border-gray-100 shadow-sm p-8 sm:p-10 space-y-5">
-          <p class="text-gray-700 text-lg leading-relaxed">
-            On behalf of the Council for International Congresses of Dipterology, the ICDXI Organizing Committee and Croatian Association of Freshwater Ecologists (CAFE), we cordially invite you to attend the 11th International Congress of Dipterology (ICDX) to be held in Zagreb, Croatia, from 11–16 July 2027.
-          </p>
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/40 rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
 
-          <p class="text-gray-700 leading-relaxed">
-            To help us with planning, please indicate your interest in attending by
-            <span class="text-[#2a5298] font-semibold">signing up through our newsletter popup</span>.
-          </p>
+          <!-- Left: Invitation text -->
+          <div class="lg:col-span-3 p-8 sm:p-10 space-y-5">
+            <p class="text-gray-700 text-lg leading-relaxed">
+              On behalf of the Council for International Congresses of Dipterology, the ICDXI Organizing Committee and Croatian Association of Freshwater Ecologists (CAFE), we cordially invite you to attend the 11th International Congress of Dipterology (ICDX) to be held in Zagreb, Croatia, from 11–16 July 2027.
+            </p>
 
-          <p class="text-gray-700 leading-relaxed">
-            Are you interested in sponsoring the Congress? We welcome sponsorships and support of any amount! Please see our <a href="#sponsors" class="text-[#2a5298] font-semibold hover:underline">packages for exhibitors</a>.
-          </p>
+            <p class="text-gray-700 leading-relaxed">
+              To help us with planning, please indicate your interest in attending by
+              <span class="text-[#2a5298] font-semibold">signing up through our newsletter popup</span>.
+            </p>
 
-          <p class="text-gray-700 leading-relaxed">
-            Are you interested in being a vendor at the Congress? If so, please contact us directly at
-            <a href="mailto:11icd2027@gmail.com" class="text-[#2a5298] font-semibold hover:underline">11icd2027@gmail.com</a>
-          </p>
+            <p class="text-gray-700 leading-relaxed">
+              Are you interested in sponsoring the Congress? We welcome sponsorships and support of any amount! Please see our <a href="#sponsors" class="text-[#2a5298] font-semibold hover:underline">packages for exhibitors</a>.
+            </p>
 
-          <div class="h-px bg-gray-200"></div>
+            <p class="text-gray-700 leading-relaxed">
+              Are you interested in being a vendor at the Congress? If so, please contact us directly at
+              <a href="mailto:11icd2027@gmail.com" class="text-[#2a5298] font-semibold hover:underline">11icd2027@gmail.com</a>
+            </p>
 
-          <!-- Congress Logo description -->
-          <div class="flex flex-col sm:flex-row items-center gap-6">
-            <a
-              href="/images/logo-icd-wide-2027.png"
-              download="ICDXI-2027-logo.png"
-              title="Click to download the congress logo"
-              class="flex-shrink-0 group"
-            >
-              <img
-                src="/images/logo-icd-wide-2027.png"
-                alt="ICDXI Congress Logo"
-                class="w-36 sm:w-32 drop-shadow-sm"
-              />
-              <span class="block text-center text-xs text-gray-400 mt-1.5 group-hover:text-[#2a5298] transition-colors">
-                ↓ download
-              </span>
-            </a>
-            <div>
-              <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-2">About the Congress Logo</p>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                The ICDXI congress logo is based on two symbols of Zagreb, Lotrščak Tower and Manduševac well, <em>Chironomus</em> sp. emerging from the well and adult <em>Chironomus</em> sp. resting on the Lotrščak tower.
+            <div class="h-px bg-gray-200"></div>
+
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-[#2a5298] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <p class="text-gray-700 leading-relaxed">
+                <strong class="text-gray-800">Stay informed!</strong> Keep an eye on these ICDXI webpages, as we will be updating frequently and there is much more information to come!
               </p>
             </div>
           </div>
 
-          <div class="h-px bg-gray-200"></div>
+          <!-- Right: Diptera Gallery -->
+          <div class="lg:col-span-2 bg-gradient-to-b from-slate-50 to-slate-100/80 lg:bg-gradient-to-br lg:from-slate-50/50 lg:to-slate-100/60 p-6 sm:p-8 lg:border-l border-t lg:border-t-0 border-gray-100 flex flex-col">
+            <div class="grid grid-cols-3 gap-2 max-w-xs mx-auto lg:max-w-none">
+              {[1,2,3,4,5,6].map((n) => (
+                <button
+                  type="button"
+                  class="gallery-thumb relative rounded-lg overflow-hidden aspect-square shadow-sm border border-gray-200/60 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40"
+                  data-gallery-src={`/images/fly-${n}.jpg`}
+                  aria-label={`Diptera photo ${n}`}
+                >
+                  <img
+                    src={`/images/fly-${n}.jpg`}
+                    alt={`Diptera photo ${n}`}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
 
-          <div class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-[#2a5298] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <p class="text-gray-700 leading-relaxed">
-              <strong class="text-gray-800">Stay informed!</strong> Keep an eye on these ICDXI webpages, as we will be updating frequently and there is much more information to come!
-            </p>
+            <!-- Congress Logo -->
+            <div class="mt-5 pt-5 border-t border-gray-200/60">
+              <div class="flex items-start gap-4">
+                <a
+                  href="/images/logo-icd-wide-2027.png"
+                  download="ICDXI-2027-logo.png"
+                  title="Click to download the congress logo"
+                  class="flex-shrink-0 group"
+                >
+                  <img
+                    src="/images/logo-icd-wide-2027.png"
+                    alt="ICDXI Congress Logo"
+                    class="w-20 drop-shadow-sm"
+                  />
+                  <span class="block text-center text-[10px] text-gray-400 mt-1 group-hover:text-[#2a5298] transition-colors">
+                    ↓ download
+                  </span>
+                </a>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-1.5">About the Congress Logo</p>
+                  <p class="text-xs text-gray-600 leading-relaxed">
+                    The ICDXI congress logo is based on two symbols of Zagreb, Lotrščak Tower and Manduševac well, <em>Chironomus</em> sp. emerging from the well and adult <em>Chironomus</em> sp. resting on the Lotrščak tower.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
-
       </div>
     </div>
   </section>
 
+  <!-- Gallery Lightbox -->
+  <div
+    id="gallery-lightbox"
+    class="hidden fixed inset-0 z-[80] bg-black/90 items-center justify-center p-4 cursor-zoom-out"
+    aria-modal="true"
+    role="dialog"
+  >
+    <button
+      type="button"
+      id="gallery-lightbox-close"
+      class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
+      aria-label="Close"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <button
+      type="button"
+      id="gallery-prev"
+      class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
+      aria-label="Previous"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button
+      type="button"
+      id="gallery-next"
+      class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
+      aria-label="Next"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    <img
+      id="gallery-lightbox-img"
+      src=""
+      alt=""
+      class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain"
+    />
+  </div>
+
+  <script is:inline>
+    (function () {
+      var thumbs = document.querySelectorAll('.gallery-thumb');
+      var lightbox = document.getElementById('gallery-lightbox');
+      var img = document.getElementById('gallery-lightbox-img');
+      var closeBtn = document.getElementById('gallery-lightbox-close');
+      var prevBtn = document.getElementById('gallery-prev');
+      var nextBtn = document.getElementById('gallery-next');
+      var sources = [];
+      var current = 0;
+
+      thumbs.forEach(function (thumb, i) {
+        sources.push(thumb.getAttribute('data-gallery-src'));
+        thumb.addEventListener('click', function () {
+          current = i;
+          show();
+        });
+      });
+
+      function show() {
+        img.src = sources[current];
+        img.alt = 'Diptera photo ' + (current + 1);
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function hide() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      function prev() {
+        current = (current - 1 + sources.length) % sources.length;
+        img.src = sources[current];
+        img.alt = 'Diptera photo ' + (current + 1);
+      }
+
+      function next() {
+        current = (current + 1) % sources.length;
+        img.src = sources[current];
+        img.alt = 'Diptera photo ' + (current + 1);
+      }
+
+      closeBtn.addEventListener('click', hide);
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+      lightbox.addEventListener('click', function (e) {
+        if (e.target === lightbox) hide();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (lightbox.classList.contains('hidden')) return;
+        if (e.key === 'Escape') hide();
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+    })();
+  </script>
+
   <!-- Important Dates Section -->
-  <section id="dates" class="py-10 lg:py-14 bg-white">
+  <section id="dates" class="pt-4 pb-10 lg:pt-6 lg:pb-14 bg-white">
     <div class="section-container">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-4 leading-tight">
@@ -458,7 +588,6 @@ import NewsletterModal from '../components/NewsletterModal.astro';
 
   <Footer />
   <NewsletterModal />
-
   <!-- Scroll animations -->
   <script>
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
