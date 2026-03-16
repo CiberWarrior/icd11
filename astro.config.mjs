@@ -14,6 +14,7 @@ if (isVercel) {
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://icd2027.org',
   output: 'server',
   adapter,
   server: {
