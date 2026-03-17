@@ -26,7 +26,12 @@ const ogImage = image.startsWith('http') ? image : `${siteURL}${image}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2a5298" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Preconnect hints -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="preconnect" href="https://www.google-analytics.com" />
 
     <!-- Google Search Console verification -->
     <meta name="google-site-verification" content="VELrpj_z7zyD2AWYe8O8XUP4JPkdJXSUxcNuQabAgD8" />
@@ -53,6 +58,36 @@ const ogImage = image.startsWith('http') ? image : `${siteURL}${image}`;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "11th International Congress of Dipterology (ICD 2027)",
+      "description": "The 11th International Congress of Dipterology brings together researchers from around the world to discuss all aspects of Diptera (true flies) biology, systematics, ecology, and evolution.",
+      "startDate": "2027-07-11",
+      "endDate": "2027-07-16",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "Place",
+        "name": "The Westin Zagreb Hotel",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Izidora Kršnjavoga 1",
+          "addressLocality": "Zagreb",
+          "postalCode": "10000",
+          "addressCountry": "HR"
+        }
+      },
+      "image": `${siteURL}/images/logo-icd-2027.png`,
+      "url": siteURL,
+      "organizer": {
+        "@type": "Organization",
+        "name": "ICD 2027 Organizing Committee",
+        "url": siteURL
+      }
+    })} />
 
     <!-- Google Analytics GA4 — only in production -->
     {import.meta.env.PROD && (
