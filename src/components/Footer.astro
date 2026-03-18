@@ -48,6 +48,32 @@ const contactInfo = [
           <span class="w-5 h-5 inline-block" set:html={calendar} />
           <span class="text-lg font-semibold">July 11-16, 2027</span>
         </div>
+
+        <!-- Dipterists Society -->
+        <div class="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
+          <a
+            href="https://dipterists.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex-shrink-0 hover:opacity-70 transition-opacity"
+            title="Dipterists Society"
+          >
+            <img
+              src="/images/Dipterists_Society_logo.png"
+              alt="Dipterists Society"
+              class="w-24 h-24 object-contain invert opacity-80"
+            />
+          </a>
+          <div>
+            <a
+              href="https://dipterists.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white transition-colors block mb-0.5"
+            >Dipterists Society</a>
+            <p class="text-xs text-white/50 leading-relaxed">An International Society for Dipterology</p>
+          </div>
+        </div>
       </div>
 
       <!-- Quick Links -->
@@ -143,7 +169,7 @@ const contactInfo = [
       class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
     >
       <div class="text-white/60 text-sm">
-        © {currentYear} International Congress of Dipterology. All rights reserved.
+        © {currentYear} <a href="https://dipterists.org" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Dipterists Society</a>. All rights reserved.
       </div>
       <div class="flex space-x-6 text-sm">
         <a href="#" class="text-white/60 hover:text-white transition-colors">
