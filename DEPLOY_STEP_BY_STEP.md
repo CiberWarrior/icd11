@@ -1,162 +1,166 @@
-# Korak-po-korak: deploy bilo koje izmjene na server
+# Deploy na produkciju (Apache + Node + PM2)
 
-Koristi ove korake svaki put kad izmijeniš bilo što u projektu (tekst, slike, stilovi, stranice...) i želiš to objaviti na živoj stranici.
-
----
-
-## ⚠️ ZLATNO PRAVILO
-
-```
-izmjena u kodu → npm run build → FTP upload dist/ → pm2 restart
-```
-
-**`npm run dev` (localhost) NE utječe na `dist/` — build mora biti pokrenut ručno!**  
-Ako preskoči build, na server ćeš poslati staru verziju.
+Jedan vodič za sve: **standardni deploy (FTP)** i **alternativa (git + build na serveru)** za administratore.
 
 ---
 
-## Faza 1: Na svom računalu (lokalno)
+## Koji način koristiti?
 
-### Korak 1.1 – Otvori terminal u mapi projekta
+| Način | Kada | Sažetak |
+|--------|------|--------|
+| **A — FTP (standard)** | Svaki put kad radiš na svom Macu i želiš objavu | `npm run build` lokalno → upload cijelog **`dist/`** → **`pm2 restart`** na serveru. **GitHub (`git push`) = backup koda** — na serveru **ne treba** `git pull`. |
+| **B — Git na serveru** | Server ima git klon i netko deploya direktno s GitHuba | SSH → `git pull` → `npm install` → `npm run build` → `pm2 restart`. |
 
-- Otvori terminal (ili Cursor terminal).
-- Otvori mapu projekta:
-  ```bash
-  cd /Users/renata/Desktop/ICD112027
-  ```
+**Zlatno pravilo za način A:**
 
-### Korak 1.2 – Napravi izmjenu (ako još nisi)
-
-- Izmijeni što trebaš (`.astro` fajl, slike u `public/images/`, itd.).
-- Spremi datoteku (Cmd+S).
-
-### Korak 1.3 – ✅ OBAVEZNO: Pokreni build
-
-```bash
-npm run build
+```
+izmjena u kodu → npm run build → FTP upload cijelog dist/ → pm2 restart
 ```
 
-- Pričekaj da napiše `Complete!` (bez crvenih grešaka).
-- **Ako piše greška — STANI, ne prelazi na FTP, prvo riješi grešku.**
-
-### Korak 1.4 – Provjeri da je build novi
-
-```bash
-ls -la dist/
-```
-
-Datum uz `client` i `server` mora biti **danas**. Ako nije — build nije prošao.
-
-Za provjeru konkretne izmjene (npr. tekst):
-```bash
-grep "što si mijenjala" dist/server/pages/STRANICA.astro.mjs
-```
-
-Ako je sve OK, prelazi na Fazu 2.
+`npm run dev` **ne** ažurira `dist/` — build mora biti pokrenut ručno nakon izmjena.
 
 ---
 
-## Faza 2: Upload na server (FTP)
+## Način A: korak po korak (FTP)
 
-### Korak 2.1 – Spoji se na server preko FTP-a
+### 1. Lokalno (Mac)
 
-- Otvori FTP klijent (FileZilla, Cyberduck, ili što već koristiš).
-- Spoji se na server: `webserv.biol.pmf.hr`, korisnik: `icd11`
+1. Otvori terminal u mapi projekta, npr.:
+   ```bash
+   cd /Users/renchi/Desktop/ICD112027
+   ```
+2. Uredi datoteke, **spremi** (Cmd+S).
+3. Build:
+   ```bash
+   npm run build
+   ```
+   Pričekaj **`[build] Complete!`** bez grešaka. Ako build padne — ne uploadaj, prvo popravi.
+4. (Opcija) Provjera da je `dist/` svjež:
+   ```bash
+   ls -la dist/
+   ```
+   Datumi kod `client` i `server` trebaju biti od danas.
 
-### Korak 2.2 – Na serveru pronađi mapu projekta
+### 2. FTP
 
-- Na serveru (desna strana u FTP-u) otvori: `/var/www/icd11.biol.pmf.hr/`
-- Unutra je mapa `dist` (s podmapama `client` i `server`).
+1. Spoji se na server (npr. **webserv.biol.pmf.hr**, korisnik **icd11**).
+2. Na serveru otvori mapu projekta, npr. **`/var/www/icd11.biol.pmf.hr/`**.
+3. S lokalnog računala uploadaj **cijelu** mapu **`dist/`** (uključujući **`client`** i **`server`**) i **prepiši** postojeće datoteke.
 
-### Korak 2.3 – Prebaci cijeli lokalni `dist` na server
+### 3. SSH — restart PM2
 
-- **Lokalno (lijevo):** otvori `ICD112027/dist/` — vidiš `client` i `server`.
-- **Na serveru (desno):** otvori `/var/www/icd11.biol.pmf.hr/`
-- **Povuci** cijelu mapu `dist` s lijeve na desnu i **prepiši** (Replace/Overwrite).
-- Pričekaj da se sve datoteke prenesu.
+1. Na **Macu** (ne na serveru dok ne vidiš prompt nakon SSH-a):
+   ```bash
+   ssh icd11@webserv.biol.pmf.hr
+   ```
+2. Kad vidiš npr. `icd11@webserv:~$`, **ne pokreći ponovo** `ssh` na isti host — već si na serveru.
+3. Restart (radi i iz `~`, ne moraš prije `cd` u `/var/www/...`):
+   ```bash
+   pm2 restart icd11-2027
+   pm2 status
+   ```
+   Proces **icd11-2027** treba biti **online**.
+4. Izlaz: `exit`
 
-Kad je upload gotov, prelazi na Fazu 3.
+**Česte zablude:** put `/var/www/...` ne postoji na Macu — samo nakon SSH-a na Linux. `pm2` naredbe izvršavaj samo u SSH sesiji na serveru, ne lokalno.
 
----
+### 4. Preglednik
 
-## Faza 3: Restart Node procesa na serveru (SSH)
-
-### Korak 3.1 – Spoji se na server
-
-```bash
-ssh icd11@webserv.biol.pmf.hr
-```
-
-Upiši lozinku kad zatraži.
-
-### Korak 3.2 – Otvori mapu projekta na serveru
-
-```bash
-cd /var/www/icd11.biol.pmf.hr
-```
-
-### Korak 3.3 – ✅ OBAVEZNO: Restart PM2
-
-```bash
-pm2 restart icd11-2027
-```
-
-Očekivani ispis: `[PM2] Process successfully restarted`
-
-### Korak 3.4 – Provjera statusa
-
-```bash
-pm2 status
-```
-
-`icd11-2027` mora biti `online` (zeleno). Ako je `errored`, pokreni:
-```bash
-pm2 logs icd11-2027 --lines 30
-```
-i pošalji poruku greške.
-
-### Korak 3.5 – Izlazak s servera
-
-```bash
-exit
-```
+- Inkognito prozor ili **Cmd+Shift+R** (hard refresh) da izbjegneš stari cache.
 
 ---
 
-## Faza 4: Provjera u pregledniku
+## Način B: git pull + build na serveru (admin)
 
-- Otvori stranicu u **inkognito prozoru** (Cmd+Shift+N) — izbjegava cache probleme.
-- URL: `http://icd11.biol.pmf.hr/STRANICA`
-- Provjeri da je izmjena vidljiva.
+Koristi se kad je u `/var/www/icd11.biol.pmf.hr/` (ili gdje već) puni git klon i deploy ide bez FTP-a.
 
-Ako vidiš staru verziju u normalnom prozoru — pritisni **Cmd+Shift+R** (hard refresh).
+1. (Opcija) Backup:
+   ```bash
+   cd /var/www/icd11.biol.pmf.hr
+   tar -czf backup_$(date +%Y%m%d_%H%M%S).tar.gz dist/ public/ .env
+   ```
+2. Pull i build:
+   ```bash
+   cd /var/www/icd11.biol.pmf.hr
+   git pull origin main
+   npm install
+   npm run build
+   ```
+   Očekivano: `[build] Complete!`
+3. Provjera **`.env`** u rootu projekta (Mailchimp i sl.) — vidi **`ENV_UPLOAD_CHECKLIST.md`** ako treba.
+4. Restart:
+   ```bash
+   pm2 restart icd11-2027
+   pm2 logs icd11-2027 --lines 20
+   ```
 
 ---
 
 ## Ako nešto ne radi
 
-| Problem | Rješenje |
-|---|---|
-| Izmjena nije vidljiva na serveru | Provjeri je li `npm run build` pokrenut **nakon** izmjene |
-| Build ima stari datum (`ls -la dist/`) | Pokreni `npm run build` ponovo |
-| PM2 ne prepoznaje `icd11-2027` | `pm2 list` → nađi točan naziv → `pm2 restart TO_IME` |
-| Greška pri buildu | Kopiraj grešku iz terminala i pošalji |
-| Vidiš staru verziju u browseru | Inkognito prozor ili Cmd+Shift+R |
+| Problem | Što provjeriti |
+|--------|----------------|
+| Izmjena se ne vidi | `npm run build` **nakon** izmjene? Uploadan **cijeli** `dist/`? `pm2 restart` **nakon** uploada? Inkognito / hard refresh? |
+| Stari datum u `dist/` | Ponovno `npm run build` lokalno. |
+| `pm2` nije prepoznat | Naredbe na **serveru** u SSH-u, ne na Macu. |
+| PM2 `errored` | `pm2 logs icd11-2027 --lines 40` |
+
+### Build: "Module not found" (na serveru, način B)
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+npm run build
+```
+
+### PM2 / newsletter: Mailchimp greške u logu
+
+- `.env` u **rootu** projekta na serveru, ispravni ključevi (ne placeholder). Nakon izmjene: `pm2 restart icd11-2027`.
+
+### Slike se ne vide
+
+- Jesu li nove slike u **`public/`** i ušle u build? Za način A: nakon builda uploadaj i **`public`** ako mijenjaš samo slike bez novog `dist` client assets — u pravilu novi build + novi `dist/` rješava.
 
 ---
 
-## Brzi podsjetnik (copy-paste)
+## Provjera nakon deploya (SSH, server)
 
 ```bash
-# 1. Lokalno — build
-cd /Users/renata/Desktop/ICD112027
+pm2 status
+pm2 logs icd11-2027 --lines 20
+```
+
+Lokalno na serveru (Apache proxy na port 4322):
+
+```bash
+curl -I http://localhost/
+```
+
+Očekivano: **200 OK** (ne redirect na port u URL-u). Apache ProxyPass: **`APACHE_PROXYPASS_INSTRUCTIONS.md`**.
+
+---
+
+## Sigurnost
+
+- **Nikad** ne commitaj `.env` u git.
+- Lozinke ne ostavljaj u datotekama u repou.
+- SSH ključ umjesto lozinke — preporuka za često spajanje.
+
+Detalji oko uploada `.env` na server: **`ENV_UPLOAD_CHECKLIST.md`**.
+
+---
+
+## Brzi copy-paste (način A)
+
+```bash
+# Lokalno
+cd /Users/renchi/Desktop/ICD112027
 npm run build
 
-# 2. [FTP upload dist/ na server]
+# Zatim: FTP — cijeli dist/ na /var/www/icd11.biol.pmf.hr/
 
-# 3. Server — restart
+# Server (SSH)
 ssh icd11@webserv.biol.pmf.hr
-cd /var/www/icd11.biol.pmf.hr
 pm2 restart icd11-2027
 pm2 status
 exit
@@ -164,7 +168,9 @@ exit
 
 ---
 
-## Sigurnost
+## Ostala dokumentacija
 
-- **Lozinke ne spremaj u datoteke u projektu** (nikad u git).
-- Za SSH preporuka: postavi SSH ključ na server i koristi ga umjesto lozinke.
+- **Apache ProxyPass** (bez `:4322` u URL-u): `APACHE_PROXYPASS_INSTRUCTIONS.md`
+- **Mailchimp / .env na serveru:** `ENV_UPLOAD_CHECKLIST.md`
+
+Repozitorij: https://github.com/CiberWarrior/icd11

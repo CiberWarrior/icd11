@@ -100,85 +100,95 @@ npm run preview
 
 ## 🚢 Deployment
 
-### Apache Server Deployment
+### Apache + Node (PM2)
 
-This project is configured for Apache server with Node.js runtime.
+The app uses **SSR** (`output: 'server'`) with `@astrojs/node`. Apache does not serve the site alone: it **reverse-proxies** all traffic to the Node process. Typical workflow: **`git push`** to GitHub for backup, then **FTP `dist/`** to the server and **`pm2 restart`** — no `git pull` on the server is required for that path. Full instructions (FTP + optional git-on-server): **`DEPLOY_STEP_BY_STEP.md`**. Apache ProxyPass: **`APACHE_PROXYPASS_INSTRUCTIONS.md`**.
 
 #### Prerequisites
-- Apache server with mod_rewrite enabled
-- Node.js 20.x installed on the server
-- PM2 or similar process manager (recommended)
 
-#### Deployment Steps
+- Apache with `proxy`, `proxy_http`, and `headers` enabled (`sudo a2enmod proxy proxy_http headers`)
+- Node.js 20.x on the server
+- PM2 (recommended): `npm install -g pm2`
 
-1. **Build the project:**
-   ```bash
-   npm install
-   npm run build
-   ```
+#### 1. Build
 
-2. **Upload files to server:**
-   - Upload the entire project directory to your Apache server
-   - Make sure `dist/` folder and all files are uploaded
+```bash
+npm install
+npm run build
+```
 
-3. **Set environment variables:**
-   - Create `.env` file on the server with your Mailchimp credentials:
-   ```env
-   MAILCHIMP_API_KEY=your_api_key_here
-   MAILCHIMP_LIST_ID=your_list_id_here
-   MAILCHIMP_SERVER=us1
-   ```
+#### 2. Upload
 
-4. **Configure Apache:**
-   - The `.htaccess` file is included for basic routing
-   - For production, you may need to configure Apache VirtualHost with ProxyPass:
-   ```apache
-   <VirtualHost *:80>
-     ServerName icd11.biol.pmf.hr
-     DocumentRoot /path/to/your/project/dist/client
-     
-     <Proxy *>
-       Order deny,allow
-       Allow from all
-     </Proxy>
-     
-     ProxyPreserveHost On
-     ProxyPass /api http://localhost:4321/api
-     ProxyPassReverse /api http://localhost:4321/api
-   </VirtualHost>
-   ```
+Copy the built **`dist/`** directory (both `client/` and `server/`) to the server project path (e.g. `/var/www/icd11.biol.pmf.hr/`), overwriting the previous `dist/`. See **`DEPLOY_STEP_BY_STEP.md`** for FTP/SSH paths.
 
-5. **Start Node.js server:**
-   - Using PM2 with ecosystem config (recommended):
-   ```bash
-   pm2 start ecosystem.config.cjs
-   pm2 save
-   pm2 startup
-   ```
-   - Or manually:
-   ```bash
-   node dist/server/entry.mjs
-   ```
-   
-   **Important:** Make sure your `.env` file is in the project root with your Mailchimp credentials:
-   ```env
-   MAILCHIMP_API_KEY=your_api_key_here
-   MAILCHIMP_LIST_ID=your_list_id_here
-   MAILCHIMP_SERVER=us22
-   ```
-   
-   **Port Configuration:** The application uses `PORT` environment variable (default: 4321).
-   Set `PORT` in `ecosystem.config.cjs` or via environment variable. The Astro Node adapter
-   reads `process.env.PORT` at runtime, so the port can be changed without rebuilding.
+#### 3. Environment
 
-6. **Set up process manager:**
-   - Install PM2 globally: `npm install -g pm2`
-   - PM2 will automatically restart the server if it crashes
+Create a **`.env`** in the **project root on the server** (same folder as `ecosystem.config.cjs`):
 
-#### Alternative Deployment Options
+```env
+MAILCHIMP_API_KEY=your_api_key_here
+MAILCHIMP_LIST_ID=your_list_id_here
+MAILCHIMP_SERVER=us22
+```
 
-- **Vercel** (recommended for easy deployment)
-- **Netlify**
-- **Cloudflare Pages**
+Use your real Mailchimp region if not `us22`.
 
-Make sure to set your environment variables in your hosting platform's dashboard.
+#### 4. Apache: ProxyPass to Node
+
+Proxy **all requests** to the Node app. **`ecosystem.config.cjs`** sets **`PORT: 4322`** — Apache must target **that** port (not 4321; 4321 is the dev server default in `astro.config.mjs`).
+
+HTTP:
+
+```apache
+<VirtualHost *:80>
+    ServerName icd11.biol.pmf.hr
+
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:4322/
+    ProxyPassReverse / http://localhost:4322/
+</VirtualHost>
+```
+
+HTTPS (add inside your existing `*:443` vhost alongside SSL directives):
+
+```apache
+<VirtualHost *:443>
+    ServerName icd11.biol.pmf.hr
+    # ... SSLEngine, certificates, etc.
+
+    ProxyPreserveHost On
+    ProxyPass / http://localhost:4322/
+    ProxyPassReverse / http://localhost:4322/
+</VirtualHost>
+```
+
+Then: `sudo apache2ctl configtest` and `sudo systemctl restart apache2`.
+
+Do **not** use `Redirect` to the Node port for HTML — use **ProxyPass** so URLs stay without `:4322`. See **`APACHE_PROXYPASS_INSTRUCTIONS.md`** for troubleshooting.
+
+#### 5. Run with PM2
+
+From the project root on the server:
+
+```bash
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 startup
+```
+
+Updates after a new build:
+
+```bash
+pm2 restart icd11-2027
+```
+
+**Port:** Production uses **`process.env.PORT`** from PM2 (`4322` in `ecosystem.config.cjs`). Change it there if the port must differ; no rebuild required.
+
+Manual run (not recommended): `PORT=4322 node dist/server/entry.mjs`
+
+#### Alternative hosting
+
+- **Vercel** (this repo switches to the Vercel adapter when `VERCEL` is set)
+- **Netlify**, **Cloudflare Pages**
+
+Set environment variables in the host dashboard for those platforms.
