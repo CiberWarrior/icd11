@@ -13,404 +13,699 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
   <Header />
   <HeroCountdown />
 
-  <!-- Page Header -->
-  <section class="bg-white pt-12 pb-8">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-          <div class="bg-gradient-to-r from-[#1e3c72] to-[#2a5298] px-8 py-6">
-            <h2 class="text-2xl lg:text-3xl font-bold text-white">General Information</h2>
-            <p class="text-white/70 text-sm mt-1">Everything you need to know for your trip to Zagreb</p>
-          </div>
-          <div class="px-8 py-4 flex flex-wrap gap-3 bg-gray-50/50">
-            <a href="#visa" class="inline-flex items-center gap-2 text-sm font-medium text-[#2a5298] hover:text-white bg-white hover:bg-[#2a5298] border border-gray-200 hover:border-[#2a5298] px-4 py-2 rounded-full transition-all duration-200 shadow-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Visa & Entry
-            </a>
-            <a href="#travel" class="inline-flex items-center gap-2 text-sm font-medium text-[#2a5298] hover:text-white bg-white hover:bg-[#2a5298] border border-gray-200 hover:border-[#2a5298] px-4 py-2 rounded-full transition-all duration-200 shadow-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-              Getting to Zagreb
-            </a>
-            <a href="#useful" class="inline-flex items-center gap-2 text-sm font-medium text-[#2a5298] hover:text-white bg-white hover:bg-[#2a5298] border border-gray-200 hover:border-[#2a5298] px-4 py-2 rounded-full transition-all duration-200 shadow-sm">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              Useful Info
-            </a>
-          </div>
-        </div>
+  <main class="bg-slate-50/80 pb-20 pt-10 lg:pb-28 lg:pt-14">
+    <!-- Page intro + anchor nav -->
+    <section class="section-container">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="home-title text-[#1e3c72]">General information</h1>
+        <p class="home-subtitle mb-10">
+          Visa, travel options, and practical details for your stay in Zagreb.
+        </p>
+        <nav
+          class="flex flex-wrap items-center justify-center gap-2 border-y border-slate-200/80 py-4 text-sm"
+          aria-label="Page sections"
+        >
+          <a
+            href="#visa"
+            class="rounded-lg px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-[#2a5298]"
+            >Visa & entry</a
+          >
+          <span class="text-slate-300" aria-hidden="true">·</span>
+          <a
+            href="#travel"
+            class="rounded-lg px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-[#2a5298]"
+            >Getting to Zagreb</a
+          >
+          <span class="text-slate-300" aria-hidden="true">·</span>
+          <a
+            href="#useful"
+            class="rounded-lg px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-[#2a5298]"
+            >Useful info</a
+          >
+        </nav>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Visa & Entry Section -->
-  <section id="visa" class="pb-10 bg-white">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-          <div class="bg-gradient-to-r from-orange-500 to-orange-400 px-6 py-4 lg:px-8">
-            <div class="flex items-center gap-3">
-              <svg class="w-5 h-5 text-white/90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-              <div>
-                <h3 class="text-base font-bold text-white leading-tight">Visa & Entry Requirements</h3>
-                <p class="text-white/70 text-xs mt-0.5">Important — please check before travelling</p>
-              </div>
-            </div>
+    <!-- Visa & Entry -->
+    <section id="visa" class="section-container section-padding !pt-12">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="sr-only">Visa & entry requirements</h2>
+        <div
+          class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm"
+        >
+          <div
+            class="border-b border-slate-100 bg-gradient-to-r from-[#1e3c72] to-[#2a5298] px-6 py-5 sm:px-8"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-wider text-white/95"
+            >
+              Visa & entry
+            </p>
+            <p class="mt-1 text-sm text-white/75">
+              Check requirements before you travel.
+            </p>
           </div>
-          <div class="px-6 py-6 lg:px-8 space-y-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="flex items-start gap-3 p-4 bg-green-50/70 rounded-xl border border-green-100">
-                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-green-100 border border-green-200 flex items-center justify-center mt-0.5">
-                  <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                </span>
-                <div>
-                  <p class="text-sm font-bold text-green-900 mb-1">EU citizens</p>
-                  <p class="text-sm text-gray-600">You only need a valid national ID card to enter Croatia.</p>
-                </div>
+          <div class="space-y-6 px-6 py-6 sm:px-8 sm:py-8">
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div
+                class="rounded-2xl border border-emerald-200/80 bg-emerald-50/50 p-4"
+              >
+                <p class="text-sm font-semibold text-emerald-900">EU citizens</p>
+                <p class="mt-1 text-sm leading-relaxed text-emerald-900/80">
+                  A valid national ID card is sufficient to enter Croatia.
+                </p>
               </div>
-              <div class="flex items-start gap-3 p-4 bg-blue-50/70 rounded-xl border border-blue-100">
-                <span class="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-100 border border-blue-200 flex items-center justify-center mt-0.5">
-                  <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm0 0h9"></path></svg>
-                </span>
-                <div>
-                  <p class="text-sm font-bold text-blue-900 mb-1">Non-EU citizens</p>
-                  <p class="text-sm text-gray-600">A valid passport is required. Check visa requirements at <a href="https://mvep.gov.hr/en" target="_blank" rel="noopener noreferrer" class="text-blue-700 font-semibold underline hover:text-blue-900">mvep.gov.hr/en</a></p>
-                </div>
+              <div
+                class="rounded-2xl border border-sky-200/80 bg-sky-50/50 p-4"
+              >
+                <p class="text-sm font-semibold text-sky-950">
+                  Non-EU citizens
+                </p>
+                <p class="mt-1 text-sm leading-relaxed text-sky-900/85">
+                  A valid passport is required. Check visa requirements at
+                  <a
+                    href="https://mvep.gov.hr/en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-semibold text-[#2a5298] underline decoration-primary-600/25 underline-offset-2 hover:decoration-primary-600"
+                    >mvep.gov.hr/en</a
+                  >
+                </p>
               </div>
             </div>
-            <div class="relative p-5 bg-gray-50 rounded-xl border border-gray-200">
-              <div class="absolute top-0 left-0 w-1 h-full bg-[#2a5298] rounded-l-xl"></div>
-              <h4 class="font-bold text-gray-900 text-sm mb-2 pl-3">Invitation / Confirmation Letter</h4>
-              <p class="text-sm text-gray-600 leading-relaxed pl-3">
-                An official confirmation letter can be sent upon request to <a href="mailto:11icd2027@gmail.com" class="text-[#2a5298] font-semibold underline hover:text-[#1e3c72]">11icd2027@gmail.com</a> — only for participants who have registered, paid the registration fee, and submitted an abstract that was not rejected. The letter does not cover any fees, nor is it a guarantee to obtain the visa.
+
+            <div
+              class="rounded-2xl border border-blue-100 border-l-4 border-l-[#2a5298] bg-gradient-to-r from-blue-50/60 to-slate-50/40 px-4 py-4 sm:px-5"
+            >
+              <p class="text-sm font-semibold text-slate-900">
+                Invitation / confirmation letter
+              </p>
+              <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                An official letter can be requested at
+                <a
+                  href="mailto:11icd2027@gmail.com"
+                  class="font-semibold text-[#2a5298] underline decoration-primary-600/25 underline-offset-2"
+                  >11icd2027@gmail.com</a
+                >
+                — for registered participants who have paid and submitted an
+                abstract that was not rejected. The letter does not cover fees
+                and does not guarantee a visa.
               </p>
             </div>
-            <p class="text-sm text-gray-400 italic pl-1">
-              Participants should make their own arrangements with respect to health and travel insurance.
+
+            <p class="text-xs italic text-slate-500">
+              Arrange your own health and travel insurance.
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Getting to Zagreb -->
-  <section id="travel" class="py-10 lg:py-16 bg-white">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-10">
-          <h3 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-3 uppercase tracking-tight">Getting to Zagreb</h3>
-          <p class="text-base text-gray-500">Zagreb is well connected with the rest of Europe via major international routes</p>
+    <!-- Getting to Zagreb -->
+    <section id="travel" class="section-container section-padding !pt-0">
+      <div class="mx-auto max-w-5xl">
+        <div class="home-section-header">
+          <h2 class="home-title text-[#1e3c72]">Getting to Zagreb</h2>
+          <p class="home-subtitle">
+            Zagreb is well connected to the rest of Europe by air, road, bus,
+            and rail.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-          <!-- BY AIR -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-            <div class="bg-gradient-to-r from-sky-500 to-blue-500 px-6 py-4 flex items-center gap-3">
-              <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                <Plane class="w-5 h-5 text-white" />
-              </div>
-              <h4 class="text-lg font-bold text-white">By Air</h4>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <!-- By Air -->
+          <article
+            class="flex flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-sky-50/50 to-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-sky-400 to-blue-600"></div>
+            <div class="flex flex-col p-6 sm:p-7">
+            <div
+              class="mb-5 flex items-center gap-3 border-b border-sky-100/80 pb-4"
+            >
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-100 text-sky-700"
+              >
+                <Plane class="h-5 w-5" stroke-width={1.75} />
+              </span>
+              <h3 class="text-lg font-bold text-sky-950">By air</h3>
             </div>
-            <div class="p-6">
-              <p class="text-sm text-gray-600 leading-relaxed mb-5">
-                Croatia's national air company is Croatia airlines with direct flights to major European cities: London, Amsterdam, Brussels, Paris, Frankfurt, Munich, Vienna, and many more.
+            <p class="text-sm leading-relaxed text-sky-900/80">
+              Croatia Airlines and other carriers offer connections to major
+              European cities: London, Amsterdam, Brussels, Paris, Frankfurt,
+              Munich, Vienna, and more.
+            </p>
+            <div
+              class="mt-5 rounded-2xl border border-sky-100 bg-sky-50/60 p-4"
+            >
+              <div class="mb-2 flex flex-wrap items-start justify-between gap-2">
+                <p class="text-sm font-semibold text-sky-950">
+                  Dr. Franjo Tuđman Airport
+                </p>
+                <span
+                  class="rounded-md bg-sky-200/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-sky-900"
+                  >ZAG</span
+                >
+              </div>
+              <p class="text-xs text-sky-800/70">
+                ~17 km from the centre (about 20–25 min by car)
               </p>
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100 mb-4">
-                <div class="flex justify-between items-start mb-2">
-                  <p class="font-bold text-gray-900 text-sm">Dr. Franjo Tuđman airport</p>
-                  <span class="bg-sky-100 text-sky-700 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">ZAG</span>
-                </div>
-                <p class="text-xs text-gray-500 mb-3">17 km from city centre (20-25 min by car)</p>
-                <div class="flex flex-wrap gap-2">
-                  <a href="https://www.zagreb-airport.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2a5298] hover:text-[#1e3c72] bg-white px-3 py-1.5 rounded-lg border border-gray-200 hover:border-[#2a5298] transition-colors">
-                    Airport website <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                  </a>
-                  <a href="https://www.infozagreb.hr/travel-plan/arrival#by-plane" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2a5298] hover:text-[#1e3c72] bg-white px-3 py-1.5 rounded-lg border border-gray-200 hover:border-[#2a5298] transition-colors">
-                    More info <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                  </a>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <a
+                  href="https://www.zagreb-airport.hr/en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 rounded-lg border border-sky-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-sky-800 transition hover:border-sky-400"
+                  >Airport website</a
+                >
+                <a
+                  href="https://www.infozagreb.hr/travel-plan/arrival#by-plane"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1 rounded-lg border border-sky-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-sky-800 transition hover:border-sky-400"
+                  >Visitor info</a
+                >
+              </div>
+            </div>
+            <div class="mt-4 grid grid-cols-2 gap-3">
+              <div class="rounded-xl border border-sky-100/90 bg-white/80 p-3">
+                <p class="text-sm font-semibold text-sky-950">Shuttle</p>
+                <p class="mt-0.5 text-xs text-sky-800/70">Airport ↔ bus station</p>
+                <a
+                  href="https://www.plesoprijevoz.hr/en/zagreb-croatia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-2 inline-block text-xs font-semibold text-sky-800"
+                  >Book shuttle</a
+                >
+              </div>
+              <div class="rounded-xl border border-sky-100/90 bg-white/80 p-3">
+                <p class="text-sm font-semibold text-sky-950">Taxi</p>
+                <p class="mt-0.5 text-xs text-sky-800/70">Uber or local</p>
+                <div class="mt-2 space-y-1 text-xs font-semibold">
+                  <a
+                    href="https://www.ekotaxi.hr/en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-sky-800"
+                    >Eko taxi</a
+                  >
+                  <a
+                    href="https://taxi1717.hr/en/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block text-sky-800"
+                    >Taxi 1717</a
+                  >
                 </div>
               </div>
-              <div class="grid grid-cols-2 gap-3">
-                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <p class="font-bold text-gray-900 mb-1 text-sm flex items-center gap-1.5"><span>🚐</span> Shuttle bus</p>
-                  <p class="text-xs text-gray-500 mb-2">Airport to bus station</p>
-                  <a href="https://www.plesoprijevoz.hr/en/zagreb-croatia/" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#2a5298] hover:text-[#1e3c72]">Book shuttle</a>
-                </div>
-                <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <p class="font-bold text-gray-900 mb-1 text-sm flex items-center gap-1.5"><span>🚕</span> Taxi</p>
-                  <p class="text-xs text-gray-500 mb-2">Uber or:</p>
-                  <div class="space-y-1 text-xs">
-                    <a href="https://www.ekotaxi.hr/en" target="_blank" rel="noopener noreferrer" class="block font-semibold text-[#2a5298] hover:text-[#1e3c72]">Eko taxi</a>
-                    <a href="https://taxi1717.hr/en/" target="_blank" rel="noopener noreferrer" class="block font-semibold text-[#2a5298] hover:text-[#1e3c72]">Taxi 1717</a>
-                  </div>
-                </div>
-              </div>
+            </div>
+            </div>
+          </article>
+
+          <!-- By Car -->
+          <article
+            class="flex flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-emerald-50/40 to-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-emerald-400 to-teal-600"></div>
+            <div class="flex flex-col p-6 sm:p-7">
+            <div
+              class="mb-5 flex items-center gap-3 border-b border-emerald-100/80 pb-4"
+            >
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800"
+              >
+                <Car class="h-5 w-5" stroke-width={1.75} />
+              </span>
+              <h3 class="text-lg font-bold text-emerald-950">By car</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-emerald-950/80">
+              Zagreb lies between Central and South-Eastern Europe and the
+              Adriatic, with good road links across Croatia and to neighbouring
+              capitals.
+            </p>
+            <div
+              class="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50/50 p-4"
+            >
+              <p class="mb-3 text-sm font-semibold text-emerald-950">
+                Major international routes
+              </p>
+              <ul class="space-y-2 text-sm text-emerald-900/80">
+                <li class="flex gap-2">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-500"
+                  ></span>
+                  Trieste – Ljubljana – Zagreb
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-500"
+                  ></span>
+                  Graz – Maribor – Zagreb
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-500"
+                  ></span>
+                  Klagenfurt – Ljubljana – Zagreb
+                </li>
+                <li class="flex gap-2">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-emerald-500"
+                  ></span>
+                  Budapest – Varaždin – Zagreb
+                </li>
+              </ul>
+            </div>
+            </div>
+          </article>
+
+          <!-- By Bus -->
+          <article
+            class="flex flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-violet-50/40 to-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-violet-400 to-purple-600"></div>
+            <div class="flex flex-col p-6 sm:p-7">
+            <div
+              class="mb-5 flex items-center gap-3 border-b border-violet-100/80 pb-4"
+            >
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-100 text-violet-800"
+              >
+                <Bus class="h-5 w-5" stroke-width={1.75} />
+              </span>
+              <h3 class="text-lg font-bold text-violet-950">By bus</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-violet-950/80">
+              Main bus station (Autobusni kolodvor, Avenija Marina Držića 4)
+              connects Zagreb with cities across Croatia and Europe daily.
+            </p>
+            <div
+              class="mt-5 rounded-2xl border border-violet-100 bg-violet-50/50 p-4"
+            >
+              <p class="text-sm font-semibold text-violet-950">
+                Bus station
+              </p>
+              <p class="mt-0.5 text-xs text-violet-800/70">Avenija Marina Držića 4</p>
+              <a
+                href="https://www.akz.hr/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-flex items-center gap-1 rounded-lg border border-violet-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-violet-900 transition hover:border-violet-400"
+                >www.akz.hr/en</a
+              >
+            </div>
+            </div>
+          </article>
+
+          <!-- By Train -->
+          <article
+            class="flex flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-gradient-to-b from-amber-50/50 to-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-amber-400 to-orange-500"></div>
+            <div class="flex flex-col p-6 sm:p-7">
+            <div
+              class="mb-5 flex items-center gap-3 border-b border-amber-100/80 pb-4"
+            >
+              <span
+                class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100 text-amber-900"
+              >
+                <Train class="h-5 w-5" stroke-width={1.75} />
+              </span>
+              <h3 class="text-lg font-bold text-amber-950">By train</h3>
+            </div>
+            <p class="text-sm leading-relaxed text-amber-950/80">
+              Zagreb Glavni kolodvor (Trg kralja Tomislava 12) and HZPP offer
+              connections across Croatia and to neighbouring countries.
+            </p>
+            <div
+              class="mt-5 rounded-2xl border border-amber-100 bg-amber-50/60 p-4"
+            >
+              <p class="text-sm font-semibold text-amber-950">
+                Train station
+              </p>
+              <p class="mt-0.5 text-xs text-amber-900/70">Trg kralja Tomislava 12</p>
+              <a
+                href="https://hzpp.hr/en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-3 inline-flex items-center gap-1 rounded-lg border border-amber-200/80 bg-white px-3 py-1.5 text-xs font-semibold text-amber-900 transition hover:border-amber-400"
+                >www.hzpp.hr</a
+              >
+            </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Useful Information -->
+    <section id="useful" class="section-container section-padding !pt-0">
+      <div class="mx-auto max-w-5xl">
+        <div class="home-section-header">
+          <h2 class="home-title text-[#1e3c72]">Useful information</h2>
+          <p class="home-subtitle">
+            Currency, power, time zone, and other everyday details.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-[#1e3c72] to-[#2a5298]"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 text-blue-800"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Currency & exchange</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Croatia uses the Euro. Exchange at banks, post offices, and
+              exchange offices.
+            </p>
             </div>
           </div>
 
-          <!-- BY CAR -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-            <div class="bg-gradient-to-r from-emerald-500 to-green-500 px-6 py-4 flex items-center gap-3">
-              <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                <Car class="w-5 h-5 text-white" />
-              </div>
-              <h4 class="text-lg font-bold text-white">By Car</h4>
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-indigo-400 to-indigo-700"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-100 text-indigo-800"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="2"
+                  stroke-width="1.75"></rect>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M3 10h18M7 15h3M13 15h4"></path>
+              </svg>
             </div>
-            <div class="p-6">
-              <p class="text-sm text-gray-600 leading-relaxed mb-5">
-                Zagreb is perfectly positioned between Central and Southeastern Europe and the Adriatic Sea, providing easy access to all major Croatian cities and neighboring capitals.
-              </p>
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p class="font-bold text-gray-900 mb-3 text-sm">Major international routes:</p>
-                <ul class="space-y-2.5 text-sm text-gray-600">
-                  <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>Trieste – Ljubljana – Zagreb</li>
-                  <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>Graz – Maribor – Zagreb</li>
-                  <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>Klagenfurt – Ljubljana – Zagreb</li>
-                  <li class="flex items-center gap-2.5"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span>Budapest – Varaždin – Zagreb</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- BY BUS -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-            <div class="bg-gradient-to-r from-violet-500 to-purple-500 px-6 py-4 flex items-center gap-3">
-              <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                <Bus class="w-5 h-5 text-white" />
-              </div>
-              <h4 class="text-lg font-bold text-white">By Bus</h4>
-            </div>
-            <div class="p-6">
-              <p class="text-sm text-gray-600 leading-relaxed mb-5">
-                Zagreb main bus station (Autobusni kolodvor, Avenija Marina Držića 4) connects Zagreb with numerous cities in Croatia and Europe on daily basis.
-              </p>
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p class="font-bold text-gray-900 text-sm mb-1">Bus Station Information</p>
-                <p class="text-xs text-gray-500 mt-1">Avenija Marina Držića 4</p>
-                <a href="https://www.akz.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2a5298] hover:text-[#1e3c72] mt-3 bg-white px-3 py-1.5 rounded-lg border border-gray-200 hover:border-[#2a5298] transition-colors">
-                  www.akz.hr/en <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
-              </div>
+            <h3 class="text-base font-bold text-slate-900">Credit cards</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Major cards widely accepted: Visa, Mastercard, Maestro, Diners
+              Club.
+            </p>
             </div>
           </div>
 
-          <!-- BY TRAIN -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-            <div class="bg-gradient-to-r from-amber-500 to-orange-400 px-6 py-4 flex items-center gap-3">
-              <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                <Train class="w-5 h-5 text-white" />
-              </div>
-              <h4 class="text-lg font-bold text-white">By Train</h4>
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-amber-400 to-orange-500"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-amber-100 text-amber-900"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M13 2L5 14h5l-1 8 8-12h-5l1-8z"></path>
+              </svg>
             </div>
-            <div class="p-6">
-              <p class="text-sm text-gray-600 leading-relaxed mb-5">
-                Zagreb Main Train Station (Glavni kolodvor, Trg kralja Tomislava 12) and Croatian Railways offer affordable connections to main Croatian cities and neighboring countries.
-              </p>
-              <div class="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <p class="font-bold text-gray-900 text-sm mb-1">Train Station Information</p>
-                <p class="text-xs text-gray-500 mt-1">Trg kralja Tomislava 12</p>
-                <a href="https://hzpp.hr/en" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-semibold text-[#2a5298] hover:text-[#1e3c72] mt-3 bg-white px-3 py-1.5 rounded-lg border border-gray-200 hover:border-[#2a5298] transition-colors">
-                  www.hzpp.hr <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                </a>
+            <h3 class="text-base font-bold text-slate-900">Electricity</h3>
+            <p class="mt-2 font-mono text-sm text-amber-950/90">
+              220 V · 50 Hz · type C/F
+            </p>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-cyan-400 to-cyan-700"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-cyan-100 text-cyan-900"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="8" stroke-width="1.75"></circle>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M12 8v4l2.5 2.5"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Time zone</h3>
+            <p class="mt-2 font-mono text-sm text-cyan-950/90">CET · GMT+1</p>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm sm:col-span-2 lg:col-span-1"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-rose-400 to-red-600"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-rose-100 text-rose-800"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M5 4h4l2 5-2.5 1.5a13 13 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2h-1C10.37 21 3 13.63 3 5V4a2 2 0 0 1 2-2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Emergency numbers</h3>
+            <p class="mt-1 text-xs text-slate-500">
+              Country +385 · Zagreb area (0)1
+            </p>
+            <dl
+              class="mt-3 grid grid-cols-2 gap-2 text-center text-sm sm:grid-cols-4 lg:grid-cols-2"
+            >
+              <div class="rounded-lg border border-rose-100 bg-rose-50/80 py-2">
+                <dt class="text-[10px] uppercase tracking-wide text-rose-600/90">
+                  General
+                </dt>
+                <dd class="font-semibold tabular-nums text-rose-950">112</dd>
               </div>
+              <div class="rounded-lg border border-rose-100 bg-rose-50/80 py-2">
+                <dt class="text-[10px] uppercase tracking-wide text-rose-600/90">
+                  Police
+                </dt>
+                <dd class="font-semibold tabular-nums text-rose-950">192</dd>
+              </div>
+              <div class="rounded-lg border border-rose-100 bg-rose-50/80 py-2">
+                <dt class="text-[10px] uppercase tracking-wide text-rose-600/90">
+                  Fire
+                </dt>
+                <dd class="font-semibold tabular-nums text-rose-950">193</dd>
+              </div>
+              <div class="rounded-lg border border-rose-100 bg-rose-50/80 py-2">
+                <dt class="text-[10px] uppercase tracking-wide text-rose-600/90">
+                  Ambulance
+                </dt>
+                <dd class="font-semibold tabular-nums text-rose-950">194</dd>
+              </div>
+            </dl>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-green-400 to-emerald-700"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-green-100 text-green-800"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect
+                  x="4"
+                  y="5"
+                  width="16"
+                  height="15"
+                  rx="2"
+                  stroke-width="1.75"></rect>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M8 3v4M16 3v4M4 10h16"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Opening hours</h3>
+            <div class="mt-3 space-y-2 text-sm">
+              <div
+                class="flex justify-between gap-2 border-b border-slate-100 py-1.5"
+              >
+                <span class="text-slate-600">Banks & post</span>
+                <span class="shrink-0 font-medium tabular-nums text-slate-900"
+                  >8:00–19:30</span
+                >
+              </div>
+              <div class="flex justify-between gap-2 py-1.5">
+                <span class="text-slate-600">Groceries</span>
+                <span class="shrink-0 font-medium tabular-nums text-slate-900"
+                  >6:00–20:00</span
+                >
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-violet-400 to-violet-800"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-violet-100 text-violet-900"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <rect
+                  x="7"
+                  y="2.5"
+                  width="10"
+                  height="19"
+                  rx="2"
+                  stroke-width="1.75"></rect>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M11 5.5h2"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">GSM operators</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Several operators in Croatia — check roaming with your provider
+              before travel.
+            </p>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-teal-400 to-teal-700"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-100 text-teal-900"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M12 3C12 3 7 9 7 13a5 5 0 0 0 10 0c0-4-5-10-5-10z"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Water</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              Tap water is safe to drink throughout Croatia.
+            </p>
+            </div>
+          </div>
+
+          <div
+            class="overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="h-1.5 bg-gradient-to-r from-teal-500 to-[#2a5298]"></div>
+            <div class="p-5">
+            <div
+              class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#e8eef8] text-[#1e3c72]"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M12 3l7 3v5c0 4.5-2.8 7.7-7 10-4.2-2.3-7-5.5-7-10V6l7-3z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.75"
+                  d="M9.5 12l1.8 1.8L14.8 10.3"></path>
+              </svg>
+            </div>
+            <h3 class="text-base font-bold text-slate-900">Customs</h3>
+            <p class="mt-2 text-sm text-slate-600">
+              <a
+                href="https://www.carina.hr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-semibold text-[#2a5298] underline decoration-primary-600/25 underline-offset-2 hover:decoration-primary-600"
+                >www.carina.hr</a
+              >
+            </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Useful Information -->
-  <section id="useful" class="py-10 lg:py-16 bg-[#f9fafb]">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-10">
-          <h3 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-3 uppercase tracking-tight">Useful Information</h3>
-          <p class="text-base text-gray-500">Practical details to help you plan your trip</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <!-- Currency & Exchange -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-[#1e3c72] to-[#2a5298]"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Currency & Exchange</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                The basic Croatian currency unit is the Euro. Foreign currency can be exchanged at banks, post offices, and exchange offices.
-              </p>
-            </div>
-          </div>
-
-          <!-- Credit Cards -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-[#1e3c72] to-[#2a5298]"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2" stroke-width="1.8"></rect>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 10h18"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 15h3"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 15h4"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Credit Cards</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                All major credit cards are accepted throughout Croatia: Visa, Mastercard, Maestro, Diners Club.
-              </p>
-            </div>
-          </div>
-
-          <!-- Electricity -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-yellow-400 to-amber-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 2L5 14h5l-1 8 8-12h-5l1-8z"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Electricity</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                <span class="inline-block bg-yellow-50 text-yellow-800 font-bold text-xs px-2.5 py-1 rounded-lg border border-yellow-200">220 V · 50 Hz · Type C/F</span>
-              </p>
-            </div>
-          </div>
-
-          <!-- Time Zone -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-[#1e3c72] to-[#2a5298]"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="8" stroke-width="1.8"></circle>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l2.5 2.5"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Time Zone</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                <span class="inline-block bg-sky-50 text-sky-800 font-bold text-xs px-2.5 py-1 rounded-lg border border-sky-200">CET · GMT+1</span>
-              </p>
-            </div>
-          </div>
-
-          <!-- Emergency Numbers -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-red-500 to-rose-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 4h4l2 5-2.5 1.5a13 13 0 0 0 5 5l1.5-2.5 5 2v4a2 2 0 0 1-2 2h-1C10.37 21 3 13.63 3 5V4a2 2 0 0 1 2-2z"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Emergency Numbers</h4>
-              <p class="text-xs text-gray-500 mb-3">Country code: +385 · Zagreb: (0)1</p>
-              <div class="grid grid-cols-2 gap-2">
-                <div class="bg-red-50/50 rounded-lg px-3 py-2 text-center border border-red-100">
-                  <p class="text-[10px] text-red-400 uppercase tracking-wider font-medium">General</p>
-                  <p class="font-extrabold text-gray-900 text-lg">112</p>
-                </div>
-                <div class="bg-red-50/50 rounded-lg px-3 py-2 text-center border border-red-100">
-                  <p class="text-[10px] text-red-400 uppercase tracking-wider font-medium">Police</p>
-                  <p class="font-extrabold text-gray-900 text-lg">192</p>
-                </div>
-                <div class="bg-red-50/50 rounded-lg px-3 py-2 text-center border border-red-100">
-                  <p class="text-[10px] text-red-400 uppercase tracking-wider font-medium">Fire</p>
-                  <p class="font-extrabold text-gray-900 text-lg">193</p>
-                </div>
-                <div class="bg-red-50/50 rounded-lg px-3 py-2 text-center border border-red-100">
-                  <p class="text-[10px] text-red-400 uppercase tracking-wider font-medium">Ambulance</p>
-                  <p class="font-extrabold text-gray-900 text-lg">194</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Opening Hours -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-emerald-500 to-green-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-green-50 border border-green-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="4" y="5" width="16" height="15" rx="2" stroke-width="1.8"></rect>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 3v4"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 3v4"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 10h16"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-3">Opening Hours</h4>
-              <div class="space-y-2">
-                <div class="flex justify-between items-center text-sm bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
-                  <span class="text-gray-600">Banks & post offices</span>
-                  <span class="font-bold text-gray-900 text-xs">8:00 – 19:30</span>
-                </div>
-                <div class="flex justify-between items-center text-sm bg-gray-50 rounded-lg px-3 py-2 border border-gray-100">
-                  <span class="text-gray-600">Grocery stores</span>
-                  <span class="font-bold text-gray-900 text-xs">6:00 – 20:00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- GSM Operators -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-violet-500 to-purple-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-violet-50 border border-violet-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="7" y="2.5" width="10" height="19" rx="2" stroke-width="1.8"></rect>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 5.5h2"></path>
-                  <circle cx="12" cy="18" r="0.8" fill="currentColor" stroke="none"></circle>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">GSM Operators</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Five GSM operators in Croatia. Contact your local operator to check roaming availability and costs.
-              </p>
-            </div>
-          </div>
-
-          <!-- Water -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-cyan-400 to-blue-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-cyan-50 border border-cyan-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3C12 3 7 9 7 13a5 5 0 0 0 10 0c0-4-5-10-5-10z"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Water</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                <span class="inline-flex items-center gap-1.5"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg> Tap water is drinkable in all parts of Croatia.</span>
-              </p>
-            </div>
-          </div>
-
-          <!-- Customs -->
-          <div class="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden group hover:shadow-lg transition-shadow duration-300">
-            <div class="h-1 bg-gradient-to-r from-emerald-500 to-teal-400"></div>
-            <div class="p-6">
-              <div class="w-11 h-11 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center mb-4">
-                <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3l7 3v5c0 4.5-2.8 7.7-7 10-4.2-2.3-7-5.5-7-10V6l7-3z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 12l1.8 1.8L14.8 10.3"></path>
-                </svg>
-              </div>
-              <h4 class="text-base font-bold text-gray-900 mb-2">Customs</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">
-                Customs Administration: <a href="https://www.carina.hr" target="_blank" rel="noopener noreferrer" class="text-[#2a5298] font-semibold hover:underline">www.carina.hr</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <Footer />
 </Layout>

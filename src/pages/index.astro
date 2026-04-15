@@ -15,608 +15,1070 @@ import NewsletterModal from '../components/NewsletterModal.astro';
 
   <HeroCountdown />
 
-  <!-- Welcome + Gallery (editorial layout) -->
-  <section id="invitation" class="section-padding bg-white">
-    <div class="section-container">
-      <div class="max-w-7xl mx-auto">
-        <div class="text-center mb-10">
-          <span class="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#2a5298] mb-5">Welcome</span>
+  <main class="home-page overflow-x-hidden">
+    <!-- Welcome + Gallery -->
+    <section
+      id="invitation"
+      class="relative py-20 lg:py-28 bg-slate-50"
+      data-home-animate
+    >
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(42,82,152,0.14),transparent_55%)]"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="home-bg-plus-pattern pointer-events-none absolute inset-0"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="section-container relative z-10">
+        <div class="home-section-header mb-14 lg:mb-16">
+          <h2 class="home-title text-[#1e3c72]">Invitation to ICD XI</h2>
+          <p class="home-subtitle">
+            Zagreb welcomes the global dipterology community — plan your participation and stay connected.
+          </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-5 gap-0 bg-gradient-to-br from-slate-50 via-white to-blue-50/40 rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-
-          <!-- Left: Invitation text -->
-          <div class="lg:col-span-3 p-8 sm:p-10 space-y-5">
-            <p class="text-gray-700 text-lg leading-relaxed">
-              On behalf of the Council for International Congresses of Dipterology, the ICDXI Organizing Committee and Croatian Association of Freshwater Ecologists (CAFE), we cordially invite you to attend the 11th International Congress of Dipterology (ICDX) to be held in Zagreb, Croatia, from 11–16 July 2027.
-            </p>
-
-            <p class="text-gray-700 leading-relaxed">
-              To help us with planning, please indicate your interest in attending by
-              <span class="text-[#2a5298] font-semibold">signing up through our newsletter popup</span>.
-            </p>
-
-            <p class="text-gray-700 leading-relaxed">
-              Are you interested in sponsoring the Congress? We welcome sponsorships and support of any amount! Please see our <a href="#sponsors" class="text-[#2a5298] font-semibold hover:underline">packages for exhibitors</a>.
-            </p>
-
-            <p class="text-gray-700 leading-relaxed">
-              Are you interested in being a vendor at the Congress? If so, please contact us directly at
-              <a href="mailto:11icd2027@gmail.com" class="text-[#2a5298] font-semibold hover:underline">11icd2027@gmail.com</a>
-            </p>
-
-            <div class="h-px bg-gray-200"></div>
-
-            <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-[#2a5298] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <p class="text-gray-700 leading-relaxed">
-                <strong class="text-gray-800">Stay informed!</strong> Keep an eye on these ICDXI webpages, as we will be updating frequently and there is much more information to come!
-              </p>
-            </div>
-
-            <!-- Dipterists Society -->
-            <div class="flex items-center gap-3">
-              <a
-                href="https://dipterists.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex-shrink-0 hover:opacity-60 transition-opacity"
-                title="Dipterists Society"
+        <div
+          class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 lg:items-start"
+        >
+          <div class="lg:col-span-7">
+            <div
+              class="relative rounded-3xl border border-slate-200/80 bg-white p-8 shadow-[0_4px_40px_-12px_rgba(30,60,114,0.12)] sm:p-10 lg:p-12"
+            >
+              <div
+                class="pointer-events-none absolute -right-px -top-px h-24 w-24 rounded-tr-3xl border-t border-r border-primary-600/10"
+                aria-hidden="true"
               >
-                <img
-                  src="/images/Dipterists_Society_logo.png"
-                  alt="Dipterists Society"
-                  class="w-20 h-20 object-contain opacity-70"
-                />
-              </a>
-              <p class="text-sm text-gray-500 leading-relaxed">
-                This congress is organised under the auspices of the <a href="https://dipterists.org" target="_blank" rel="noopener noreferrer" class="text-[#2a5298] font-semibold hover:underline">Dipterists Society</a> — An International Society for Dipterology.
-              </p>
-            </div>
-          </div>
+              </div>
+              <div class="space-y-6 text-base leading-relaxed text-slate-700 sm:text-lg">
+                <p class="text-pretty first-letter:float-left first-letter:mr-3 first-letter:mt-0.5 first-letter:text-4xl first-letter:font-bold first-letter:text-[#2a5298] sm:first-letter:text-5xl">
+                  On behalf of the Council for International Congresses of
+                  Dipterology, the ICDXI Organizing Committee and Croatian
+                  Association of Freshwater Ecologists (CAFE), we cordially invite
+                  you to attend the 11th International Congress of Dipterology
+                  (ICDX) to be held in Zagreb, Croatia, from 11–16 July 2027.
+                </p>
 
-          <!-- Right: Diptera Gallery -->
-          <div class="lg:col-span-2 bg-gradient-to-b from-slate-50 to-slate-100/80 lg:bg-gradient-to-br lg:from-slate-50/50 lg:to-slate-100/60 p-6 sm:p-8 lg:border-l border-t lg:border-t-0 border-gray-100 flex flex-col gap-4">
+                <p>
+                  To help us with planning, please indicate your interest in
+                  attending by
+                  <span class="font-semibold text-[#2a5298]"
+                    >signing up through our newsletter popup</span
+                  >.
+                </p>
 
-            <!-- Photo grid -->
-            <div class="grid grid-cols-3 gap-2 max-w-xs mx-auto lg:max-w-none">
-              {[1,2,3,4,5,6].map((n) => (
-                <button
-                  type="button"
-                  class="gallery-thumb relative rounded-lg overflow-hidden aspect-square shadow-sm border border-gray-200/60 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40"
-                  data-gallery-src={`/images/fly-${n}.jpg`}
-                  aria-label={`Diptera photo ${n}`}
+                <p>
+                  Are you interested in sponsoring the Congress? We welcome
+                  sponsorships and support of any amount! Please see our
+                  <a
+                    href="#sponsors"
+                    class="font-semibold text-[#2a5298] underline decoration-primary-600/30 underline-offset-2 transition hover:decoration-primary-600"
+                    >packages for exhibitors</a
+                  >.
+                </p>
+
+                <p>
+                  Are you interested in being a vendor at the Congress? If so,
+                  please contact us directly at
+                  <a
+                    href="mailto:11icd2027@gmail.com"
+                    class="font-semibold text-[#2a5298] underline decoration-primary-600/30 underline-offset-2 transition hover:decoration-primary-600"
+                    >11icd2027@gmail.com</a
+                  >
+                </p>
+              </div>
+
+              <div class="my-8 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
+
+              <div class="flex gap-4 rounded-2xl bg-slate-50/90 p-4 sm:p-5">
+                <svg
+                  class="mt-0.5 h-5 w-5 shrink-0 text-[#2a5298]"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  ></path>
+                </svg>
+                <p class="text-sm leading-relaxed text-slate-600 sm:text-base">
+                  <strong class="text-slate-800">Stay informed!</strong> Keep an eye
+                  on these ICDXI webpages — we update frequently and more
+                  information is coming.
+                </p>
+              </div>
+
+              <div class="mt-8 flex flex-col gap-4 border-t border-slate-100 pt-8 sm:flex-row sm:items-center">
+                <a
+                  href="https://dipterists.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group shrink-0"
+                  title="Dipterists Society"
                 >
                   <img
-                    src={`/images/fly-${n}.jpg`}
-                    alt={`Diptera photo ${n}`}
-                    class="w-full h-full object-cover"
-                    loading="lazy"
+                    src="/images/Dipterists_Society_logo.png"
+                    alt="Dipterists Society"
+                    class="h-16 w-16 object-contain opacity-80 transition group-hover:opacity-100 sm:h-20 sm:w-20"
                   />
-                </button>
-              ))}
+                </a>
+                <p class="text-sm leading-relaxed text-slate-500">
+                  This congress is organised under the auspices of the
+                  <a
+                    href="https://dipterists.org"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="font-semibold text-[#2a5298] underline decoration-primary-600/25 underline-offset-2 hover:decoration-primary-600"
+                    >Dipterists Society</a
+                  >
+                  — An International Society for Dipterology.
+                </p>
+              </div>
             </div>
+          </div>
 
-            <!-- Congress Logo card -->
-            <div class="rounded-xl bg-white border border-gray-200/80 shadow-sm p-4 flex items-center gap-4">
-              <a
-                href="/images/logo-icd-wide-2027.png"
-                download="ICDXI-2027-logo.png"
-                title="Click to download the congress logo"
-                class="flex-shrink-0 group flex flex-col items-center"
+          <div class="lg:col-span-5">
+            <div class="sticky top-28 space-y-6">
+              <p
+                class="text-center text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 lg:text-left"
               >
-                <img
-                  src="/images/logo-icd-wide-2027.png"
-                  alt="ICDXI Congress Logo"
-                  class="w-20 drop-shadow-sm group-hover:scale-105 transition-transform"
-                />
-                <span class="text-[10px] text-gray-400 mt-1 group-hover:text-[#2a5298] transition-colors">
-                  ↓ download
-                </span>
-              </a>
-              <div>
-                <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-1.5">About the Congress Logo</p>
-                <p class="text-xs text-gray-600 leading-relaxed">
-                  The ICDXI congress logo is based on two symbols of Zagreb, Lotrščak Tower and Manduševac well, <em>Chironomus</em> sp. emerging from the well and adult <em>Chironomus</em> sp. resting on the Lotrščak tower.
-                </p>
+                Diptera gallery
+              </p>
+              <div class="mx-auto grid max-w-sm grid-cols-3 gap-2.5 sm:gap-3 lg:mx-0 lg:max-w-none">
+                {[1, 2, 3, 4, 5, 6].map((n) => (
+                  <button
+                    type="button"
+                    class="gallery-thumb group relative aspect-square overflow-hidden rounded-2xl border border-slate-200/80 shadow-sm ring-1 ring-black/[0.04] transition duration-300 hover:z-10 hover:shadow-lg hover:ring-primary-600/20 focus:outline-none focus:ring-2 focus:ring-[#2a5298]/40"
+                    data-gallery-src={`/images/fly-${n}.jpg`}
+                    aria-label={`Diptera photo ${n}`}
+                  >
+                    <img
+                      src={`/images/fly-${n}.jpg`}
+                      alt=""
+                      class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+
+              <div
+                class="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm sm:p-6"
+              >
+                <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+                  <a
+                    href="/images/logo-icd-wide-2027.png"
+                    download="ICDXI-2027-logo.png"
+                    title="Click to download the congress logo"
+                    class="group flex shrink-0 flex-col items-center self-center sm:self-start"
+                  >
+                    <img
+                      src="/images/logo-icd-wide-2027.png"
+                      alt="ICDXI Congress Logo"
+                      class="w-24 drop-shadow-sm transition group-hover:scale-105 sm:w-28"
+                    />
+                    <span
+                      class="mt-2 text-[10px] text-slate-400 transition group-hover:text-[#2a5298]"
+                    >
+                      ↓ download logo
+                    </span>
+                  </a>
+                  <div>
+                    <p
+                      class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
+                    >
+                      About the congress logo
+                    </p>
+                    <p class="text-xs leading-relaxed text-slate-600">
+                      The ICDXI logo combines symbols of Zagreb — Lotrščak Tower
+                      and Manduševac well — with <em>Chironomus</em> sp. emerging
+                      from the well and an adult resting on the tower.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
-
         </div>
       </div>
+    </section>
+
+    <!-- Gallery Lightbox -->
+    <div
+      id="gallery-lightbox"
+      class="fixed inset-0 z-[80] hidden cursor-zoom-out items-center justify-center bg-black/92 p-4 backdrop-blur-sm"
+      aria-modal="true"
+      role="dialog"
+    >
+      <button
+        type="button"
+        id="gallery-lightbox-close"
+        class="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+        aria-label="Close"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+      <button
+        type="button"
+        id="gallery-prev"
+        class="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+        aria-label="Previous"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button
+        type="button"
+        id="gallery-next"
+        class="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+        aria-label="Next"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+      <img
+        id="gallery-lightbox-img"
+        src=""
+        alt=""
+        class="max-h-[85vh] max-w-full rounded-2xl object-contain shadow-2xl"
+      />
     </div>
-  </section>
 
-  <!-- Gallery Lightbox -->
-  <div
-    id="gallery-lightbox"
-    class="hidden fixed inset-0 z-[80] bg-black/90 items-center justify-center p-4 cursor-zoom-out"
-    aria-modal="true"
-    role="dialog"
-  >
-    <button
-      type="button"
-      id="gallery-lightbox-close"
-      class="absolute top-5 right-5 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
-      aria-label="Close"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-    <button
-      type="button"
-      id="gallery-prev"
-      class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
-      aria-label="Previous"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <button
-      type="button"
-      id="gallery-next"
-      class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
-      aria-label="Next"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-    <img
-      id="gallery-lightbox-img"
-      src=""
-      alt=""
-      class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain"
-    />
-  </div>
+    <script is:inline>
+      (function () {
+        var thumbs = document.querySelectorAll('.gallery-thumb');
+        var lightbox = document.getElementById('gallery-lightbox');
+        var img = document.getElementById('gallery-lightbox-img');
+        var closeBtn = document.getElementById('gallery-lightbox-close');
+        var prevBtn = document.getElementById('gallery-prev');
+        var nextBtn = document.getElementById('gallery-next');
+        var sources = [];
+        var current = 0;
 
-  <script is:inline>
-    (function () {
-      var thumbs = document.querySelectorAll('.gallery-thumb');
-      var lightbox = document.getElementById('gallery-lightbox');
-      var img = document.getElementById('gallery-lightbox-img');
-      var closeBtn = document.getElementById('gallery-lightbox-close');
-      var prevBtn = document.getElementById('gallery-prev');
-      var nextBtn = document.getElementById('gallery-next');
-      var sources = [];
-      var current = 0;
-
-      thumbs.forEach(function (thumb, i) {
-        sources.push(thumb.getAttribute('data-gallery-src'));
-        thumb.addEventListener('click', function () {
-          current = i;
-          show();
+        thumbs.forEach(function (thumb, i) {
+          sources.push(thumb.getAttribute('data-gallery-src'));
+          thumb.addEventListener('click', function () {
+            current = i;
+            show();
+          });
         });
-      });
 
-      function show() {
-        img.src = sources[current];
-        img.alt = 'Diptera photo ' + (current + 1);
-        lightbox.classList.remove('hidden');
-        lightbox.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-      }
+        function show() {
+          img.src = sources[current];
+          img.alt = 'Diptera photo ' + (current + 1);
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
 
-      function hide() {
-        lightbox.classList.add('hidden');
-        lightbox.classList.remove('flex');
-        document.body.style.overflow = '';
-      }
+        function hide() {
+          lightbox.classList.add('hidden');
+          lightbox.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
 
-      function prev() {
-        current = (current - 1 + sources.length) % sources.length;
-        img.src = sources[current];
-        img.alt = 'Diptera photo ' + (current + 1);
-      }
+        function prev() {
+          current = (current - 1 + sources.length) % sources.length;
+          img.src = sources[current];
+          img.alt = 'Diptera photo ' + (current + 1);
+        }
 
-      function next() {
-        current = (current + 1) % sources.length;
-        img.src = sources[current];
-        img.alt = 'Diptera photo ' + (current + 1);
-      }
+        function next() {
+          current = (current + 1) % sources.length;
+          img.src = sources[current];
+          img.alt = 'Diptera photo ' + (current + 1);
+        }
 
-      closeBtn.addEventListener('click', hide);
-      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
-      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(); });
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) hide();
-      });
+        closeBtn.addEventListener('click', hide);
+        prevBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          prev();
+        });
+        nextBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          next();
+        });
+        lightbox.addEventListener('click', function (e) {
+          if (e.target === lightbox) hide();
+        });
 
-      document.addEventListener('keydown', function (e) {
-        if (lightbox.classList.contains('hidden')) return;
-        if (e.key === 'Escape') hide();
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'ArrowRight') next();
-      });
-    })();
-  </script>
+        document.addEventListener('keydown', function (e) {
+          if (lightbox.classList.contains('hidden')) return;
+          if (e.key === 'Escape') hide();
+          if (e.key === 'ArrowLeft') prev();
+          if (e.key === 'ArrowRight') next();
+        });
+      })();
+    </script>
 
-  <!-- Important Dates Section -->
-  <section id="dates" class="pt-4 pb-10 lg:pt-6 lg:pb-14 bg-white">
-    <div class="section-container">
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-4 leading-tight">
-          Important Dates
-        </h2>
-        <p class="text-lg text-gray-600 leading-relaxed max-w-xl mx-auto">
-          Plan ahead and secure your spot at the congress.
-        </p>
-      </div>
-
-      <div class="max-w-5xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-
-          <!-- Regular Registration -->
-          <div class="relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-400 to-emerald-500"></div>
-            <div class="p-7">
-              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-green-50 border border-green-100 mb-5">
-                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="text-base font-semibold text-green-700 mb-4">Regular Registration</p>
-              <p class="text-lg text-gray-600 font-medium">1 Sep 2026 to 28 Feb 2027</p>
-              <div class="h-px bg-gray-100 mt-5 mb-4"></div>
-              <p class="text-sm text-gray-500">Standard rates apply.</p>
-            </div>
-          </div>
-
-          <!-- Abstract Submission -->
-          <div class="relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2a5298] to-[#6fa3ef]"></div>
-            <div class="p-7">
-              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 mb-5">
-                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-              </div>
-              <p class="text-base font-semibold text-[#2a5298] mb-4">Abstract Submission</p>
-              <p class="text-lg text-gray-600 font-medium">1 Oct 2026 to 31 Mar 2027</p>
-              <div class="h-px bg-gray-100 mt-5 mb-4"></div>
-              <p class="text-sm text-gray-500">Submit your abstract for oral or poster presentation.</p>
-            </div>
-          </div>
-
-          <!-- Late Registration -->
-          <div class="relative bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#b1414b] to-[#8e343b]"></div>
-            <div class="p-7">
-              <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-red-50 border border-red-100 mb-5">
-                <svg class="w-5 h-5 text-[#b1414b]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <p class="text-base font-semibold text-[#b1414b] mb-4">Late Registration</p>
-              <p class="text-lg text-gray-600 font-medium">1 Mar 2027 to 15 Jun 2027</p>
-              <div class="h-px bg-gray-100 mt-5 mb-4"></div>
-              <p class="text-sm text-gray-500">Late rates apply.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="/registration" class="inline-flex items-center gap-2 px-8 py-4 bg-[#2a5298] text-white font-bold rounded-xl transition-colors duration-200 shadow-md text-sm tracking-wide">
-            Register Now
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-          <a href="/registration" class="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#2a5298] font-bold rounded-xl border border-[#2a5298]/25 transition-colors duration-200 text-sm tracking-wide">
-            Submit Abstract
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sponsorship & Exhibition Section -->
-  <section id="sponsors" class="section-padding bg-gradient-to-b from-gray-50 via-white to-gray-50 relative overflow-hidden">
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-32 -right-32 w-[400px] h-[400px] bg-amber-400 rounded-full opacity-[0.04] blur-3xl"></div>
-      <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-[#2a5298] rounded-full opacity-[0.04] blur-3xl"></div>
-    </div>
-
-    <div class="section-container relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <span class="inline-block text-xs font-bold tracking-[0.3em] uppercase text-[#2a5298] mb-5">Support the Congress</span>
-        <h2 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-5 leading-tight">
-          Sponsorship & Exhibition
-        </h2>
-        <p class="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
-          Your partnership opportunities at ICDXI. We welcome sponsorships and support of any amount!
-        </p>
-      </div>
-
-      <!-- Sponsorship Packages -->
-      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-
-        <!-- Golden -->
-        <div class="relative bg-white rounded-2xl border-2 border-amber-300 shadow-md overflow-hidden">
-          <div class="h-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500"></div>
-          <div class="absolute top-5 right-5">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-700 px-3 py-1 rounded-full">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              Golden
-            </span>
-          </div>
-          <div class="p-7 pt-6">
-            <p class="text-sm font-semibold text-amber-700 uppercase tracking-wider mb-1">Golden Sponsor</p>
-            <div class="flex items-baseline gap-1 mb-5">
-              <span class="text-4xl font-extrabold text-gray-900">5,000</span>
-              <span class="text-lg font-semibold text-gray-500">EUR</span>
-            </div>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span><strong class="text-gray-800">5 days</strong> of exhibition space (4 m²)</span>
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Company logo &amp; QR code on the official congress website
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Logo in the Book of Abstracts (PDF) and all printed congress materials
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Conference bag insert (leaflets or one promotional item)
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Silver -->
-        <div class="relative bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-          <div class="h-2 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-400"></div>
-          <div class="absolute top-5 right-5">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider bg-gray-100 text-gray-600 px-3 py-1 rounded-full">
-              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-              </svg>
-              Silver
-            </span>
-          </div>
-          <div class="p-7 pt-6">
-            <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">Silver Sponsor</p>
-            <div class="flex items-baseline gap-1 mb-5">
-              <span class="text-4xl font-extrabold text-gray-900">2,500</span>
-              <span class="text-lg font-semibold text-gray-500">EUR</span>
-            </div>
-            <ul class="space-y-3 mb-6">
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span><strong class="text-gray-800">4 days</strong> of exhibition space (2 m²)</span>
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Company logo &amp; QR code on the official congress website
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Logo in the Book of Abstracts (PDF) and all printed congress materials
-              </li>
-              <li class="flex items-start gap-2.5 text-sm text-gray-600">
-                <svg class="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                Conference bag insert (leaflets or one promotional item)
-              </li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Additional packages + Vendor -->
-      <div class="max-w-6xl mx-auto mb-10">
-        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-          <div class="h-1.5 bg-gradient-to-r from-[#2a5298] via-[#6fa3ef] to-amber-400"></div>
-          <div class="p-7 sm:p-8">
-            <h3 class="text-xl sm:text-2xl font-bold text-[#2a5298] mb-6 tracking-wide">
-              ADDITIONAL SPONSORSHIP PACKAGES
-            </h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-
-              <!-- Logo & Branding -->
-              <div class="rounded-2xl border border-blue-100 bg-gradient-to-b from-white to-blue-50/60 p-5 flex flex-col">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-100 mb-4">
-                  <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5" />
-                  </svg>
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-2">Logo & Branding</p>
-                <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                  Logo, QR code on the congress website, Book of Abstracts (pdf) and on all printed congress materials
-                </p>
-                <div class="pt-3 border-t border-blue-100">
-                  <p class="text-2xl font-extrabold text-[#2a5298]">300 <span class="text-sm font-semibold text-gray-400">EUR</span></p>
-                </div>
-              </div>
-
-              <!-- Exhibition Booth -->
-              <div class="rounded-2xl border border-blue-100 bg-gradient-to-b from-white to-blue-50/60 p-5 flex flex-col">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-100 mb-4">
-                  <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0V3a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v6.349" />
-                  </svg>
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-2">Exhibition Booth</p>
-                <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                  Exhibition booth (2m²/day). Information table, two chairs. One complimentary delegate registration
-                </p>
-                <div class="pt-3 border-t border-blue-100">
-                  <p class="text-2xl font-extrabold text-[#2a5298]">500 <span class="text-sm font-semibold text-gray-400">EUR</span></p>
-                </div>
-              </div>
-
-              <!-- Advertisement -->
-              <div class="rounded-2xl border border-blue-100 bg-gradient-to-b from-white to-blue-50/60 p-5 flex flex-col">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-blue-100 mb-4">
-                  <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
-                  </svg>
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wider text-[#2a5298] mb-2">Advertisement</p>
-                <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                  One full-page advertisement in Book of Abstracts
-                </p>
-                <div class="pt-3 border-t border-blue-100">
-                  <p class="text-2xl font-extrabold text-[#2a5298]">250 <span class="text-sm font-semibold text-gray-400">EUR</span></p>
-                </div>
-              </div>
-
-              <!-- Refreshment Sponsor -->
-              <div class="rounded-2xl border border-amber-200 bg-gradient-to-b from-white to-amber-50/60 p-5 flex flex-col">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100 mb-4">
-                  <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
-                  </svg>
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">Refreshment Sponsor</p>
-                <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                  Your brand featured at all refreshment areas throughout the congress
-                </p>
-                <div class="pt-3 border-t border-amber-200">
-                  <p class="text-2xl font-extrabold text-amber-700">1,500 <span class="text-sm font-semibold text-gray-400">EUR</span></p>
-                </div>
-              </div>
-
-              <!-- Coffee Breaks Sponsor -->
-              <div class="rounded-2xl border border-amber-200 bg-gradient-to-b from-white to-amber-50/60 p-5 flex flex-col">
-                <div class="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100 mb-4">
-                  <svg class="w-5 h-5 text-amber-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z" />
-                  </svg>
-                </div>
-                <p class="text-xs font-bold uppercase tracking-wider text-amber-700 mb-2">Coffee Breaks Sponsor</p>
-                <p class="text-sm text-gray-600 leading-relaxed flex-1 mb-4">
-                  Exclusive branding at all coffee break stations during the congress
-                </p>
-                <div class="pt-3 border-t border-amber-200">
-                  <p class="text-2xl font-extrabold text-amber-700">1,000 <span class="text-sm font-semibold text-gray-400">EUR</span></p>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Thank you / CTA -->
-      <div class="max-w-3xl mx-auto text-center">
-        <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl border border-blue-100 px-8 py-8">
-          <p class="text-lg font-bold text-gray-800 mb-2">Thank you for your interest!</p>
-          <p class="text-gray-600 leading-relaxed mb-5">
-            Have any questions or want to get involved? Please send us an email.
+    <!-- Important Dates -->
+    <section
+      id="dates"
+      class="relative bg-white py-20 lg:py-28"
+      data-home-animate
+    >
+      <div class="section-container">
+        <div class="home-section-header">
+          <h2 class="home-title text-[#1e3c72]">Important dates</h2>
+          <p class="home-subtitle">
+            Mark your calendar — registration, abstracts, and late deadlines at
+            a glance.
           </p>
-          <a
-            href="mailto:11icd2027@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20ICD%20XI"
-            class="inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#2a5298] text-white font-bold rounded-xl shadow-md text-sm tracking-wide"
+        </div>
+
+        <div class="relative mx-auto max-w-5xl">
+          <div
+            class="pointer-events-none absolute left-[8%] right-[8%] top-10 hidden h-px bg-gradient-to-r from-emerald-200 via-[#7eb8ea] to-rose-200 md:block"
+            aria-hidden="true"
           >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </div>
+
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5">
+            <!-- Regular Registration -->
+            <article
+              class="group relative flex flex-col rounded-3xl border border-slate-200/90 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div
+                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-emerald-400 to-teal-500"
+              >
+              </div>
+              <span
+                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-sm font-extrabold text-emerald-700 ring-1 ring-emerald-100"
+              >
+                01
+              </span>
+              <h3 class="mb-2 text-lg font-bold text-emerald-800">
+                Regular registration
+              </h3>
+              <p class="mb-6 text-lg font-semibold text-slate-800">
+                1 Sep 2026 – 28 Feb 2027
+              </p>
+              <p class="mt-auto text-sm leading-relaxed text-slate-500">
+                Standard rates apply for delegates and accompanying persons.
+              </p>
+            </article>
+
+            <!-- Abstract Submission -->
+            <article
+              class="group relative flex flex-col rounded-3xl border border-slate-200/90 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div
+                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#2a5298] to-sky-400"
+              >
+              </div>
+              <span
+                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-sm font-extrabold text-[#2a5298] ring-1 ring-blue-100"
+              >
+                02
+              </span>
+              <h3 class="mb-2 text-lg font-bold text-[#1e3c72]">
+                Abstract submission
+              </h3>
+              <p class="mb-6 text-lg font-semibold text-slate-800">
+                1 Oct 2026 – 31 Mar 2027
+              </p>
+              <p class="mt-auto text-sm leading-relaxed text-slate-500">
+                Submit your abstract for oral or poster presentation.
+              </p>
+            </article>
+
+            <!-- Late Registration -->
+            <article
+              class="group relative flex flex-col rounded-3xl border border-slate-200/90 bg-white p-8 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div
+                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#b1414b] to-rose-500"
+              >
+              </div>
+              <span
+                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-red-50 text-sm font-extrabold text-[#b1414b] ring-1 ring-red-100"
+              >
+                03
+              </span>
+              <h3 class="mb-2 text-lg font-bold text-[#8e343b]">
+                Late registration
+              </h3>
+              <p class="mb-6 text-lg font-semibold text-slate-800">
+                1 Mar 2027 – 15 Jun 2027
+              </p>
+              <p class="mt-auto text-sm leading-relaxed text-slate-500">
+                Late rates apply — secure your place before the deadline.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div
+          class="mt-14 flex flex-col items-center justify-center gap-4 sm:flex-row"
+        >
+          <a
+            href="/registration"
+            class="inline-flex items-center gap-2 rounded-2xl bg-[#2a5298] px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-primary-900/10 transition hover:bg-[#244a87]"
+          >
+            Register now
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
-            11icd2027@gmail.com
+          </a>
+          <a
+            href="/registration"
+            class="inline-flex items-center gap-2 rounded-2xl border-2 border-[#2a5298]/20 bg-white px-8 py-4 text-sm font-bold uppercase tracking-wide text-[#2a5298] transition hover:border-[#2a5298]/40 hover:bg-slate-50"
+          >
+            Submit abstract
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              ></path>
+            </svg>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Venue Highlight Section -->
-  <section id="venue-highlight" class="section-padding bg-gray-50">
-    <div class="section-container">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          <!-- Image -->
-          <div class="rounded-2xl overflow-hidden shadow-xl">
-            <img 
-              src="/images/westin-hotel-1.jpg" 
-              alt="Hotel Westin Zagreb" 
-              class="w-full h-80 lg:h-96 object-cover"
-            />
+    <!-- Sponsorship & Exhibition -->
+    <section
+      id="sponsors"
+      class="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50 py-20 lg:py-28"
+      data-home-animate
+    >
+      <div
+        class="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-amber-300/20 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-[#2a5298]/10 blur-3xl"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="section-container relative z-10">
+        <div class="home-section-header">
+          <h2 class="home-title text-[#1e3c72]">Sponsorship & exhibition</h2>
+          <p class="home-subtitle max-w-2xl">
+            Your partnership strengthens the congress. We welcome sponsorships
+            and support at every level.
+          </p>
+        </div>
+
+        <div class="mx-auto mb-12 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
+          <!-- Golden -->
+          <article
+            class="relative overflow-hidden rounded-3xl border-2 border-amber-200/80 bg-white shadow-md transition hover:shadow-xl"
+          >
+            <div
+              class="h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500"
+            >
+            </div>
+            <div class="absolute right-6 top-6">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-800"
+              >
+                <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
+                </svg>
+                Golden
+              </span>
+            </div>
+            <div class="p-8 pt-10">
+              <p class="mb-1 text-sm font-semibold uppercase tracking-wider text-amber-800">
+                Golden sponsor
+              </p>
+              <div class="mb-6 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-slate-900">5,000</span>
+                <span class="text-lg font-semibold text-slate-500">EUR</span>
+              </div>
+              <ul class="space-y-3 text-sm text-slate-600">
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-amber-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span
+                    ><strong class="text-slate-800">5 days</strong> of exhibition
+                    space (4 m²)</span
+                  >
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-amber-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Company logo &amp; QR code on the official congress website
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-amber-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Logo in the Book of Abstracts (PDF) and all printed materials
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-amber-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Conference bag insert (leaflets or one promotional item)
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Silver -->
+          <article
+            class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
+          >
+            <div
+              class="h-2 bg-gradient-to-r from-slate-300 via-slate-200 to-slate-400"
+            >
+            </div>
+            <div class="absolute right-6 top-6">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-600"
+              >
+                <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
+                </svg>
+                Silver
+              </span>
+            </div>
+            <div class="p-8 pt-10">
+              <p class="mb-1 text-sm font-semibold uppercase tracking-wider text-slate-500">
+                Silver sponsor
+              </p>
+              <div class="mb-6 flex items-baseline gap-1">
+                <span class="text-4xl font-extrabold text-slate-900">2,500</span>
+                <span class="text-lg font-semibold text-slate-500">EUR</span>
+              </div>
+              <ul class="space-y-3 text-sm text-slate-600">
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span
+                    ><strong class="text-slate-800">4 days</strong> of exhibition
+                    space (2 m²)</span
+                  >
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Company logo &amp; QR code on the official congress website
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Logo in the Book of Abstracts (PDF) and all printed materials
+                </li>
+                <li class="flex gap-2.5">
+                  <svg
+                    class="mt-0.5 h-4 w-4 shrink-0 text-slate-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Conference bag insert (leaflets or one promotional item)
+                </li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Additional packages -->
+        <div class="mx-auto mb-14 max-w-6xl">
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div
+              class="h-1.5 bg-gradient-to-r from-[#2a5298] via-sky-400 to-amber-400"
+            >
+            </div>
+            <div class="p-8 sm:p-10">
+              <h3
+                class="mb-8 text-center text-xl font-extrabold tracking-wide text-[#1e3c72] sm:text-2xl"
+              >
+                Additional sponsorship packages
+              </h3>
+
+              <div
+                class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+              >
+                <div
+                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
+                >
+                  <div
+                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-[#2a5298]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
+                  >
+                    Logo &amp; branding
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    Logo, QR code on the congress website, Book of Abstracts
+                    (pdf) and on all printed congress materials
+                  </p>
+                  <div class="border-t border-blue-100 pt-3">
+                    <p class="text-2xl font-extrabold text-[#2a5298]">
+                      300 <span class="text-sm font-semibold text-slate-400"
+                        >EUR</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
+                >
+                  <div
+                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-[#2a5298]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0V3a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v6.349"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
+                  >
+                    Exhibition booth
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    Exhibition booth (2m²/day). Information table, two chairs.
+                    One complimentary delegate registration
+                  </p>
+                  <div class="border-t border-blue-100 pt-3">
+                    <p class="text-2xl font-extrabold text-[#2a5298]">
+                      500 <span class="text-sm font-semibold text-slate-400"
+                        >EUR</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
+                >
+                  <div
+                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-[#2a5298]"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
+                  >
+                    Advertisement
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    One full-page advertisement in Book of Abstracts
+                  </p>
+                  <div class="border-t border-blue-100 pt-3">
+                    <p class="text-2xl font-extrabold text-[#2a5298]">
+                      250 <span class="text-sm font-semibold text-slate-400"
+                        >EUR</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col rounded-2xl border border-amber-200/60 bg-gradient-to-b from-white to-amber-50/50 p-5"
+                >
+                  <div
+                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-amber-700"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="mb-2 text-xs font-bold uppercase tracking-wider text-amber-800"
+                  >
+                    Refreshment sponsor
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    Your brand featured at all refreshment areas throughout the
+                    congress
+                  </p>
+                  <div class="border-t border-amber-200/80 pt-3">
+                    <p class="text-2xl font-extrabold text-amber-800">
+                      1,500 <span class="text-sm font-semibold text-slate-400"
+                        >EUR</span
+                      >
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="flex flex-col rounded-2xl border border-amber-200/60 bg-gradient-to-b from-white to-amber-50/50 p-5 sm:col-span-2 lg:col-span-1"
+                >
+                  <div
+                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100"
+                  >
+                    <svg
+                      class="h-5 w-5 text-amber-700"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="mb-2 text-xs font-bold uppercase tracking-wider text-amber-800"
+                  >
+                    Coffee breaks sponsor
+                  </p>
+                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
+                    Exclusive branding at all coffee break stations during the
+                    congress
+                  </p>
+                  <div class="border-t border-amber-200/80 pt-3">
+                    <p class="text-2xl font-extrabold text-amber-800">
+                      1,000 <span class="text-sm font-semibold text-slate-400"
+                        >EUR</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mx-auto max-w-xl text-center">
+          <div
+            class="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50/90 to-white px-8 py-10 shadow-sm"
+          >
+            <p class="mb-2 text-lg font-bold text-slate-800">
+              Thank you for your interest!
+            </p>
+            <p class="mb-6 text-slate-600">
+              Questions or ideas? Reach out — we are happy to help.
+            </p>
+            <a
+              href="mailto:11icd2027@gmail.com?subject=Sponsorship%20Inquiry%20%E2%80%93%20ICD%20XI"
+              class="inline-flex items-center gap-2.5 rounded-2xl bg-[#2a5298] px-7 py-3.5 text-sm font-bold tracking-wide text-white shadow-md transition hover:bg-[#244a87]"
+            >
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              11icd2027@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Venue highlight -->
+    <section
+      id="venue-highlight"
+      class="bg-slate-100/80 py-20 lg:py-28"
+      data-home-animate
+    >
+      <div class="section-container">
+        <div
+          class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16"
+        >
+          <div class="relative">
+            <div
+              class="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-[#2a5298]/20 to-transparent blur-2xl"
+              aria-hidden="true"
+            >
+            </div>
+            <div
+              class="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-black/5"
+            >
+              <img
+                src="/images/westin-hotel-1.jpg"
+                alt="Hotel Westin Zagreb"
+                class="h-80 w-full object-cover lg:h-[26rem]"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/80 to-transparent p-6 pt-16"
+              >
+                <p class="text-sm font-bold uppercase tracking-widest text-white/90">
+                  Official venue
+                </p>
+                <p class="text-xl font-bold text-white">The Westin Zagreb</p>
+              </div>
+            </div>
           </div>
 
-          <!-- Content -->
           <div>
-            <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 class="mb-5 text-3xl font-extrabold tracking-tight text-slate-900 lg:text-4xl">
               Hotel Westin, Zagreb
             </h2>
-            <p class="text-lg text-gray-600 leading-relaxed mb-6">
-              The congress will take place at the prestigious Hotel Westin in the heart of Zagreb, 
-              Croatia's vibrant capital. Centrally located near the National Theatre and Mimara Museum, 
-              the hotel offers world-class conference facilities and easy access to the city's cultural attractions.
+            <p class="mb-8 text-lg leading-relaxed text-slate-600">
+              The congress takes place at the prestigious Westin in the heart of
+              Croatia's capital — steps from the National Theatre and Mimara
+              Museum, with first-class conference facilities and rich cultural
+              life within easy reach.
             </p>
 
-            <div class="flex flex-wrap gap-4 mb-8">
-              <div class="flex items-center gap-2 text-gray-700">
-                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <span>City centre</span>
+            <div class="mb-10 flex flex-wrap gap-6">
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <span
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-slate-200/80"
+                >
+                  <svg
+                    class="h-5 w-5 text-[#2a5298]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </span>
+                <span class="font-medium">City centre</span>
               </div>
-              <div class="flex items-center gap-2 text-gray-700">
-                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                </svg>
-                <span>Conference facilities</span>
+              <div class="flex items-center gap-2.5 text-slate-700">
+                <span
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-slate-200/80"
+                >
+                  <svg
+                    class="h-5 w-5 text-[#2a5298]"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    ></path>
+                  </svg>
+                </span>
+                <span class="font-medium">Conference facilities</span>
               </div>
             </div>
 
             <Button variant="secondary" href="/venue" size="lg">
-              Explore Venue & Zagreb
-              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              Explore venue &amp; Zagreb
+              <svg
+                class="ml-2 h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
             </Button>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <Footer />
   <NewsletterModal />
-  <!-- Scroll animations -->
+
   <script>
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) { entry.target.classList.add('animate-fade-in-up'); observer.unobserve(entry.target); }
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
       });
     }, observerOptions);
-    document.querySelectorAll('.card, section').forEach((el) => observer.observe(el));
+    document.querySelectorAll('[data-home-animate]').forEach((el) => {
+      observer.observe(el);
+    });
   </script>
 </Layout>

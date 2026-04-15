@@ -12,43 +12,43 @@ const corsHeaders = {
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Parse JSON body
-    let data;
+    let data: Record<string, unknown>;
     try {
       const text = await request.text();
-      
+
       if (!text || text.trim() === '') {
         return new Response(
           JSON.stringify({ error: 'Request body is empty' }),
           {
             status: 400,
             headers: corsHeaders,
-          }
+          },
         );
       }
-      
-      data = JSON.parse(text);
-    } catch (parseError) {
+
+      data = JSON.parse(text) as Record<string, unknown>;
+    } catch {
       return new Response(
-        JSON.stringify({ 
+        JSON.stringify({
           error: 'Invalid JSON in request body',
         }),
         {
           status: 400,
           headers: corsHeaders,
-        }
+        },
       );
     }
-    
+
     if (!data || Object.keys(data).length === 0) {
       return new Response(
         JSON.stringify({ error: 'Request body is empty' }),
         {
           status: 400,
           headers: corsHeaders,
-        }
+        },
       );
     }
-    
+
     const { name, surname, email, country, newsletterConsent } = data;
 
     // Validation - all fields are required for quality mailing list data.
@@ -58,13 +58,13 @@ export const POST: APIRoute = async ({ request }) => {
         {
           status: 400,
           headers: corsHeaders,
-        }
+        },
       );
     }
 
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(String(email))) {
       return new Response(JSON.stringify({ error: 'Invalid email address' }), {
         status: 400,
         headers: corsHeaders,
@@ -84,12 +84,13 @@ export const POST: APIRoute = async ({ request }) => {
       });
       return new Response(
         JSON.stringify({
-          error: 'Newsletter service is not configured. Please contact the administrator.',
+          error:
+            'Newsletter service is not configured. Please contact the administrator.',
         }),
         {
           status: 500,
           headers: corsHeaders,
-        }
+        },
       );
     }
 
@@ -98,8 +99,8 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Prepare Mailchimp payload
     const mailchimpData = {
-      email_address: email,
-      status: 'subscribed',
+      email_address: String(email),
+      status: 'subscribed' as const,
       merge_fields: {
         FNAME: name,
         LNAME: surname,
@@ -109,8 +110,10 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Add to Mailchimp
     // Mailchimp API v3 uses Basic Auth with API key as password
-    const authString = Buffer.from(`apikey:${MAILCHIMP_API_KEY}`).toString('base64');
-    
+    const authString = Buffer.from(`apikey:${MAILCHIMP_API_KEY}`).toString(
+      'base64',
+    );
+
     const response = await fetch(mailchimpUrl, {
       method: 'POST',
       headers: {
@@ -120,9 +123,9 @@ export const POST: APIRoute = async ({ request }) => {
       body: JSON.stringify(mailchimpData),
     });
 
-    let responseData;
+    let responseData: { title?: string; detail?: string };
     try {
-      responseData = await response.json();
+      responseData = (await response.json()) as typeof responseData;
     } catch (e) {
       console.error('Mailchimp API non-JSON response', e);
       return new Response(
@@ -132,7 +135,7 @@ export const POST: APIRoute = async ({ request }) => {
         {
           status: 500,
           headers: corsHeaders,
-        }
+        },
       );
     }
 
@@ -146,7 +149,7 @@ export const POST: APIRoute = async ({ request }) => {
           {
             status: 400,
             headers: corsHeaders,
-          }
+          },
         );
       }
 
@@ -165,7 +168,7 @@ export const POST: APIRoute = async ({ request }) => {
         {
           status: response.status,
           headers: corsHeaders,
-        }
+        },
       );
     }
 
@@ -177,7 +180,7 @@ export const POST: APIRoute = async ({ request }) => {
       {
         status: 200,
         headers: corsHeaders,
-      }
+      },
     );
   } catch (error) {
     console.error('Newsletter subscription error:', error);
@@ -188,7 +191,7 @@ export const POST: APIRoute = async ({ request }) => {
       {
         status: 500,
         headers: corsHeaders,
-      }
+      },
     );
   }
 };
