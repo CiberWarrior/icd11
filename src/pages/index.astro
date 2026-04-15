@@ -220,15 +220,11 @@ import NewsletterModal from '../components/NewsletterModal.astro';
       <button
         type="button"
         id="gallery-lightbox-close"
-        class="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+        class="fixed right-5 top-5 z-[90] flex h-12 w-12 items-center justify-center rounded-full bg-black/60 text-white shadow-xl ring-1 ring-white/20 transition hover:bg-black/80"
         aria-label="Close"
       >
         <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
       <button
@@ -484,11 +480,6 @@ import NewsletterModal from '../components/NewsletterModal.astro';
       data-home-animate
     >
       <div
-        class="pointer-events-none absolute -left-40 top-20 h-80 w-80 rounded-full bg-amber-300/20 blur-3xl"
-        aria-hidden="true"
-      >
-      </div>
-      <div
         class="pointer-events-none absolute -right-40 bottom-20 h-96 w-96 rounded-full bg-[#2a5298]/10 blur-3xl"
         aria-hidden="true"
       >
@@ -506,7 +497,7 @@ import NewsletterModal from '../components/NewsletterModal.astro';
         <div class="mx-auto mb-12 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-2">
           <!-- Golden -->
           <article
-            class="relative overflow-hidden rounded-3xl border-2 border-amber-200/80 bg-white shadow-md transition hover:shadow-xl"
+            class="relative overflow-hidden rounded-3xl border-2 border-amber-200/80 bg-white shadow-md"
           >
             <div
               class="h-2 bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500"
@@ -602,7 +593,7 @@ import NewsletterModal from '../components/NewsletterModal.astro';
 
           <!-- Silver -->
           <article
-            class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md"
+            class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
           >
             <div
               class="h-2 bg-gradient-to-r from-slate-300 via-slate-200 to-slate-400"
@@ -713,200 +704,119 @@ import NewsletterModal from '../components/NewsletterModal.astro';
                 Additional sponsorship packages
               </h3>
 
-              <div
-                class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
-              >
-                <div
-                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
-                  >
-                    <svg
-                      class="h-5 w-5 text-[#2a5298]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
-                  >
-                    Logo &amp; branding
-                  </p>
-                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
-                    Logo, QR code on the congress website, Book of Abstracts
-                    (pdf) and on all printed congress materials
-                  </p>
-                  <div class="border-t border-blue-100 pt-3">
-                    <p class="text-2xl font-extrabold text-[#2a5298]">
-                      300 <span class="text-sm font-semibold text-slate-400"
-                        >EUR</span
-                      >
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+                <!-- Logo & Branding -->
+                <div class="group flex flex-col overflow-hidden rounded-2xl border border-[#2a5298]/12 bg-white shadow-sm">
+                  <div class="h-1 bg-[#2a5298]/60"></div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2a5298]/8">
+                      <!-- Swatch / brand identity -->
+                      <svg class="h-6 w-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"></path>
+                      </svg>
+                    </div>
+                    <p class="mb-1.5 text-xs font-bold uppercase tracking-wider text-[#1e3c72]">
+                      Logo &amp; branding
                     </p>
+                    <p class="mb-5 flex-1 text-sm leading-relaxed text-slate-500">
+                      Logo, QR code on the congress website, Book of Abstracts (pdf) and on all printed congress materials
+                    </p>
+                    <div class="mt-auto flex items-baseline gap-1 border-t border-slate-100 pt-4">
+                      <span class="text-2xl font-extrabold text-[#1e3c72]">300</span>
+                      <span class="text-xs font-semibold text-slate-400">EUR</span>
+                    </div>
                   </div>
                 </div>
 
-                <div
-                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
-                  >
-                    <svg
-                      class="h-5 w-5 text-[#2a5298]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0V3a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v6.349"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
-                  >
-                    Exhibition booth
-                  </p>
-                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
-                    Exhibition booth (2m²/day). Information table, two chairs.
-                    One complimentary delegate registration
-                  </p>
-                  <div class="border-t border-blue-100 pt-3">
-                    <p class="text-2xl font-extrabold text-[#2a5298]">
-                      500 <span class="text-sm font-semibold text-slate-400"
-                        >EUR</span
-                      >
+                <!-- Exhibition Booth -->
+                <div class="group flex flex-col overflow-hidden rounded-2xl border border-[#2a5298]/12 bg-white shadow-sm">
+                  <div class="h-1 bg-[#2a5298]/60"></div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2a5298]/8">
+                      <!-- Building storefront / booth -->
+                      <svg class="h-6 w-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016A3.001 3.001 0 0021 9.349m-18 0V3a.75.75 0 01.75-.75h16.5a.75.75 0 01.75.75v6.349"></path>
+                      </svg>
+                    </div>
+                    <p class="mb-1.5 text-xs font-bold uppercase tracking-wider text-[#1e3c72]">
+                      Exhibition booth
                     </p>
+                    <p class="mb-5 flex-1 text-sm leading-relaxed text-slate-500">
+                      Exhibition booth (2m²/day). Information table, two chairs. One complimentary delegate registration
+                    </p>
+                    <div class="mt-auto flex items-baseline gap-1 border-t border-slate-100 pt-4">
+                      <span class="text-2xl font-extrabold text-[#1e3c72]">500</span>
+                      <span class="text-xs font-semibold text-slate-400">EUR</span>
+                    </div>
                   </div>
                 </div>
 
-                <div
-                  class="flex flex-col rounded-2xl border border-blue-100/80 bg-gradient-to-b from-white to-slate-50/80 p-5"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100"
-                  >
-                    <svg
-                      class="h-5 w-5 text-[#2a5298]"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="mb-2 text-xs font-bold uppercase tracking-wider text-[#2a5298]"
-                  >
-                    Advertisement
-                  </p>
-                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
-                    One full-page advertisement in Book of Abstracts
-                  </p>
-                  <div class="border-t border-blue-100 pt-3">
-                    <p class="text-2xl font-extrabold text-[#2a5298]">
-                      250 <span class="text-sm font-semibold text-slate-400"
-                        >EUR</span
-                      >
+                <!-- Advertisement -->
+                <div class="group flex flex-col overflow-hidden rounded-2xl border border-[#2a5298]/12 bg-white shadow-sm">
+                  <div class="h-1 bg-[#2a5298]/60"></div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#2a5298]/8">
+                      <!-- Megaphone / advertisement -->
+                      <svg class="h-6 w-6 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"></path>
+                      </svg>
+                    </div>
+                    <p class="mb-1.5 text-xs font-bold uppercase tracking-wider text-[#1e3c72]">
+                      Advertisement
                     </p>
+                    <p class="mb-5 flex-1 text-sm leading-relaxed text-slate-500">
+                      One full-page advertisement in Book of Abstracts
+                    </p>
+                    <div class="mt-auto flex items-baseline gap-1 border-t border-slate-100 pt-4">
+                      <span class="text-2xl font-extrabold text-[#1e3c72]">250</span>
+                      <span class="text-xs font-semibold text-slate-400">EUR</span>
+                    </div>
                   </div>
                 </div>
 
-                <div
-                  class="flex flex-col rounded-2xl border border-amber-200/60 bg-gradient-to-b from-white to-amber-50/50 p-5"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100"
-                  >
-                    <svg
-                      class="h-5 w-5 text-amber-700"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1.5"
-                        d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="mb-2 text-xs font-bold uppercase tracking-wider text-amber-800"
-                  >
-                    Refreshment sponsor
-                  </p>
-                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
-                    Your brand featured at all refreshment areas throughout the
-                    congress
-                  </p>
-                  <div class="border-t border-amber-200/80 pt-3">
-                    <p class="text-2xl font-extrabold text-amber-800">
-                      1,500 <span class="text-sm font-semibold text-slate-400"
-                        >EUR</span
-                      >
+                <!-- Refreshment sponsor -->
+                <div class="group flex flex-col overflow-hidden rounded-2xl border border-amber-200/70 bg-white shadow-sm">
+                  <div class="h-1 bg-gradient-to-r from-amber-400 to-yellow-300"></div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
+                      <!-- Wine/cocktail glass -->
+                      <svg class="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.25 4.5h13.5m-13.5 0a.75.75 0 00-.527 1.28L12 12.75l6.777-6.97A.75.75 0 0018.75 4.5m-13.5 0h13.5M12 12.75v6.75m0 0H9m3 0h3"></path>
+                      </svg>
+                    </div>
+                    <p class="mb-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+                      Refreshment sponsor
                     </p>
+                    <p class="mb-5 flex-1 text-sm leading-relaxed text-slate-500">
+                      Your brand featured at all refreshment areas throughout the congress
+                    </p>
+                    <div class="mt-auto flex items-baseline gap-1 border-t border-amber-100 pt-4">
+                      <span class="text-2xl font-extrabold text-amber-800">1,500</span>
+                      <span class="text-xs font-semibold text-slate-400">EUR</span>
+                    </div>
                   </div>
                 </div>
 
-                <div
-                  class="flex flex-col rounded-2xl border border-amber-200/60 bg-gradient-to-b from-white to-amber-50/50 p-5 sm:col-span-2 lg:col-span-1"
-                >
-                  <div
-                    class="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-100"
-                  >
-                    <svg
-                      class="h-5 w-5 text-amber-700"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"
-                      ></path>
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1.001A3.75 3.75 0 0012 18z"
-                      ></path>
-                    </svg>
-                  </div>
-                  <p
-                    class="mb-2 text-xs font-bold uppercase tracking-wider text-amber-800"
-                  >
-                    Coffee breaks sponsor
-                  </p>
-                  <p class="mb-4 flex-1 text-sm leading-relaxed text-slate-600">
-                    Exclusive branding at all coffee break stations during the
-                    congress
-                  </p>
-                  <div class="border-t border-amber-200/80 pt-3">
-                    <p class="text-2xl font-extrabold text-amber-800">
-                      1,000 <span class="text-sm font-semibold text-slate-400"
-                        >EUR</span
-                      >
+                <!-- Coffee Breaks sponsor -->
+                <div class="group flex flex-col overflow-hidden rounded-2xl border border-amber-200/70 bg-white shadow-sm">
+                  <div class="h-1 bg-gradient-to-r from-amber-400 to-yellow-300"></div>
+                  <div class="flex flex-1 flex-col p-5">
+                    <div class="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-amber-50">
+                      <!-- Coffee cup -->
+                      <svg class="h-6 w-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8.25h12M6 8.25a2.25 2.25 0 00-2.25 2.25v.75A7.5 7.5 0 0011.25 18.5h1.5a7.5 7.5 0 007.5-7.25v-.75A2.25 2.25 0 0018 8.25M6 8.25V6a2.25 2.25 0 012.25-2.25h7.5A2.25 2.25 0 0118 6v2.25m0 0h2.25A1.5 1.5 0 0121.75 9.75v1.5a4.5 4.5 0 01-3.75 4.43M7.5 21h9"></path>
+                      </svg>
+                    </div>
+                    <p class="mb-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+                      Coffee breaks sponsor
                     </p>
+                    <p class="mb-5 flex-1 text-sm leading-relaxed text-slate-500">
+                      Exclusive branding at all coffee break stations during the congress
+                    </p>
+                    <div class="mt-auto flex items-baseline gap-1 border-t border-amber-100 pt-4">
+                      <span class="text-2xl font-extrabold text-amber-800">1,000</span>
+                      <span class="text-xs font-semibold text-slate-400">EUR</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -914,7 +824,7 @@ import NewsletterModal from '../components/NewsletterModal.astro';
           </div>
         </div>
 
-        <div class="mx-auto max-w-xl text-center">
+        <div class="mx-auto mt-10 max-w-xl text-center">
           <div
             class="rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50/90 to-white px-8 py-10 shadow-sm"
           >
