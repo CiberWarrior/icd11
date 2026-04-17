@@ -30,7 +30,21 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        /* Jedan stack: UI fontovi OS-a, bez učitavanja fontova s weba */
+        sans: [
+          'system-ui',
+          'ui-sans-serif',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Helvetica Neue',
+          'Arial',
+          'sans-serif',
+        ],
       },
       boxShadow: {
         soft: '0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',

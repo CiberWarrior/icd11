@@ -1,4 +1,4 @@
-/* No Google Fonts – using system font stack (see tailwind.config.mjs fontFamily.sans) */
+/* Tipografija: samo system / UI sans stack (tailwind fontFamily.sans) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,10 +9,11 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-optical-sizing: auto;
   }
 
   body {
-    @apply font-sans text-gray-900 bg-white;
+    @apply font-sans text-base leading-relaxed text-gray-900 bg-white;
     margin: 0;
     padding: 0;
   }
@@ -24,6 +25,7 @@
   h5,
   h6 {
     @apply font-bold;
+    text-rendering: optimizeLegibility;
   }
 
   h1 {
@@ -87,7 +89,7 @@
   }
 
   .home-title {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-4;
+    @apply text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-4;
   }
 
   .home-subtitle {
