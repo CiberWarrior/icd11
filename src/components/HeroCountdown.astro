@@ -1,86 +1,152 @@
 ---
-// Hero section: shared hero + countdown (moved from index.astro / venue.astro)
 import calendar from 'heroicons/24/outline/calendar.svg?raw';
 import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 ---
 
-<!-- Hero Section -->
+<!-- Unified site hero -->
 <section class="relative overflow-hidden hero-gradient">
-  <!-- Enhanced decorative elements -->
   <div class="absolute inset-0 opacity-20">
-    <div class="absolute top-10 left-10 w-96 h-96 bg-white/30 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-10 right-10 w-[500px] h-[500px] bg-white/20 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl"></div>
+    <div class="absolute left-10 top-10 h-96 w-96 rounded-full bg-white/30 blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-10 right-10 h-[500px] w-[500px] rounded-full bg-white/20 blur-3xl"></div>
+    <div class="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-white/10 blur-3xl"></div>
   </div>
 
-  <!-- Subtle grid overlay -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+  <div
+    class="absolute inset-0 opacity-[0.03]"
+    style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"
+  >
+  </div>
 
-  <div class="relative section-container py-14 lg:py-20">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <!-- Left Content -->
-      <div class="text-white animate-fade-in-up">
-        <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight text-white">
+  <div class="relative section-container py-12 sm:py-14 lg:py-[4.5rem]">
+    <div
+      class="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(320px,0.88fr)] lg:gap-10 xl:gap-14"
+    >
+      <div class="max-w-2xl text-white animate-fade-in-up">
+        <h1
+          class="max-w-[11ch] text-4xl font-bold leading-[1.02] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4.2rem]"
+        >
           XI. International Congress of
-          <span class="block text-white">Dipterology</span>
+          <span class="mt-1 block text-white">Dipterology</span>
         </h1>
 
-        <p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed">
+        <p
+          class="mt-4 max-w-xl text-lg leading-8 text-white/90 sm:text-[1.3125rem] sm:leading-9 lg:mt-5"
+        >
           Join the world's leading researchers and scientists in Zagreb, Croatia.
         </p>
 
-        <!-- Date and Location Buttons -->
-        <div class="flex flex-wrap gap-4">
-          <!-- Start Date Button -->
-          <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
-            <span class="w-6 h-6 text-white flex-shrink-0" set:html={calendar} />
-            <div>
-              <div class="text-xs text-white/80 font-medium uppercase tracking-wide">START DATE</div>
-              <div class="text-base font-bold text-white">Jul 11, 2027</div>
+        <div
+          class="mt-6 grid max-w-xl grid-cols-1 gap-2.5 rounded-2xl border border-white/10 bg-white/5 p-2.5 backdrop-blur-sm sm:grid-cols-2 lg:mt-7"
+        >
+          <div
+            class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/8 px-4 py-3"
+          >
+            <span class="hero-meta-icon h-5 w-5 shrink-0 text-white" set:html={calendar} />
+            <div class="min-w-0">
+              <div
+                class="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70"
+              >
+                START DATE
+              </div>
+              <div class="mt-1 text-base font-semibold text-white sm:text-[1.05rem]">
+                Jul 11, 2027
+              </div>
             </div>
           </div>
 
-          <!-- Location Button -->
-          <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-3 border border-white/20 shadow-lg flex items-center gap-3">
-            <span class="w-6 h-6 text-white flex-shrink-0" set:html={mapPin} />
-            <div>
-              <div class="text-xs text-white/80 font-medium uppercase tracking-wide">LOCATION</div>
-              <div class="text-base font-bold text-white">Hotel Westin</div>
+          <div
+            class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/8 px-4 py-3"
+          >
+            <span class="hero-meta-icon h-5 w-5 shrink-0 text-white" set:html={mapPin} />
+            <div class="min-w-0">
+              <div
+                class="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70"
+              >
+                LOCATION
+              </div>
+              <div class="mt-1 text-base font-semibold text-white sm:text-[1.05rem]">
+                Hotel Westin
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Countdown Timer -->
-        <div class="mt-12">
-          <div id="countdown" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
-              <div id="days" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-              <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Days</div>
+        <div
+          class="mt-7 max-w-2xl rounded-[1.75rem] border border-white/10 bg-white/5 p-3 backdrop-blur-sm lg:mt-8"
+        >
+          <div id="countdown" class="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
+            <div
+              class="rounded-2xl border border-white/10 bg-white/8 px-3 py-3.5 text-center sm:px-4 sm:py-4"
+            >
+              <div id="days" class="text-3xl font-bold leading-none text-white sm:text-4xl lg:text-[2.65rem]">
+                --
+              </div>
+              <div
+                class="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xs"
+              >
+                Days
+              </div>
             </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
-              <div id="hours" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-              <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Hours</div>
+            <div
+              class="rounded-2xl border border-white/10 bg-white/8 px-3 py-3.5 text-center sm:px-4 sm:py-4"
+            >
+              <div
+                id="hours"
+                class="text-3xl font-bold leading-none text-white sm:text-4xl lg:text-[2.65rem]"
+              >
+                --
+              </div>
+              <div
+                class="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xs"
+              >
+                Hours
+              </div>
             </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
-              <div id="minutes" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-              <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Minutes</div>
+            <div
+              class="rounded-2xl border border-white/10 bg-white/8 px-3 py-3.5 text-center sm:px-4 sm:py-4"
+            >
+              <div
+                id="minutes"
+                class="text-3xl font-bold leading-none text-white sm:text-4xl lg:text-[2.65rem]"
+              >
+                --
+              </div>
+              <div
+                class="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xs"
+              >
+                Minutes
+              </div>
             </div>
-            <div class="bg-white/10 backdrop-blur-md rounded-lg px-4 py-6 border border-white/20 shadow-lg text-center">
-              <div id="seconds" class="text-4xl lg:text-5xl font-bold mb-2 text-white">--</div>
-              <div class="text-sm text-white/80 font-medium uppercase tracking-wide">Seconds</div>
+            <div
+              class="rounded-2xl border border-white/10 bg-white/8 px-3 py-3.5 text-center sm:px-4 sm:py-4"
+            >
+              <div
+                id="seconds"
+                class="text-3xl font-bold leading-none text-white sm:text-4xl lg:text-[2.65rem]"
+              >
+                --
+              </div>
+              <div
+                class="mt-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xs"
+              >
+                Seconds
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Right Image/Logo -->
-      <div class="relative animate-fade-in delay-200 ml-8 lg:ml-12">
-        <div class="relative glass rounded-3xl p-6 lg:p-10 shadow-xl-colored">
-          <img
-            src="/images/logo-icd-2027-wide.png"
-            alt="ICD 2027 Logo"
-            class="w-full h-auto"
-          />
+      <div class="flex animate-fade-in items-center justify-center delay-200 lg:justify-end">
+        <div class="w-full max-w-md lg:max-w-xl">
+          <div
+            class="rounded-[2rem] border border-white/[0.20] bg-white/[0.40] p-3 shadow-[0_22px_64px_-30px_rgba(15,23,42,0.68)] backdrop-blur-sm sm:p-4 lg:p-5"
+          >
+            <img
+              src="/images/logo-icd-2027-wide.png"
+              alt="ICD 2027 Logo"
+              class="mx-auto h-auto w-full max-w-[37rem]"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -88,15 +154,13 @@ import mapPin from 'heroicons/24/outline/map-pin.svg?raw';
 </section>
 
 <style>
-  /* Ensure Heroicon SVGs display correctly in buttons */
-  .bg-white\/10 span :global(svg) {
+  .hero-meta-icon :global(svg) {
     width: 100%;
     height: 100%;
     display: block;
   }
 </style>
 
-<!-- Countdown Timer Script -->
 <script>
   // Countdown to conference start: July 11, 2027, 00:00:00 (local time)
   const conferenceDate = new Date('2027-07-11T00:00:00').getTime();
