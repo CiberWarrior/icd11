@@ -104,6 +104,38 @@ Koristi se kad je u `/var/www/icd11.biol.pmf.hr/` (ili gdje već) puni git klon 
 | Stari datum u `dist/` | Ponovno `npm run build` lokalno. |
 | `pm2` nije prepoznat | Naredbe na **serveru** u SSH-u, ne na Macu. |
 | PM2 `errored` | `pm2 logs icd11-2027 --lines 40` |
+| **PM2 lista prazna** ili **Service Unavailable** | Vidi sekciju "PM2: Aplikacija nije pokrenuta" ispod. |
+
+### PM2: Aplikacija nije pokrenuta
+
+Ako `pm2 status` ne pokazuje **icd11-2027** ili je aplikacija **stopped**, pokreni ju s ecosystem configom:
+
+```bash
+ssh icd11@webserv.biol.pmf.hr
+cd /var/www/icd11.biol.pmf.hr
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 status
+exit
+```
+
+**VAŽNO:** Koristi `ecosystem.config.cjs` (NE direktno `dist/server/entry.mjs`) jer ecosystem file postavlja **PORT=4322** koji Apache ProxyPass očekuje.
+
+Ako vidiš da aplikacija sluša na **port 4321** umjesto 4322:
+
+```bash
+pm2 delete icd11-2027
+pm2 start ecosystem.config.cjs
+pm2 save
+```
+
+Provjera porta u logovima:
+
+```bash
+pm2 logs icd11-2027 --lines 5
+```
+
+Treba vidjeti: `Server listening on http://localhost:4322`
 
 ### Build: "Module not found" (na serveru, način B)
 
