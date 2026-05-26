@@ -1,0 +1,39 @@
+---
+description: Project-specific rules for ICD11 Astro website
+alwaysApply: true
+---
+
+# Project Rules: ICD11
+
+This project is an Astro-based website.
+
+## Working rules
+
+- Preserve the existing Astro project structure.
+- Do not change routes unless explicitly requested.
+- Do not rename files or folders unless explicitly requested.
+- Do not introduce new libraries without asking first.
+- Prefer the smallest safe change.
+- Do not make large refactors unless explicitly requested.
+- Before editing, inspect the relevant files and understand the existing implementation.
+
+## Design and UX rules
+
+- Preserve the existing visual identity of the website.
+- Improve readability, spacing, visual hierarchy, responsiveness, and accessibility.
+- Keep the design professional, polished, and consistent.
+- Do not redesign the whole site unless explicitly asked.
+- Always consider mobile responsiveness.
+
+## Code quality
+
+- Follow the existing formatting and project conventions.
+- Keep code clean, readable, and maintainable.
+- Avoid unnecessary JavaScript.
+- Prefer simple Astro/static solutions where possible.
+- After making changes, explain what changed, which files changed, and how to test locally.
+
+## Deployment
+
+- Keep the project compatible with its current deployment setup.
+- Do not change deployment-related files unless explicitly requested.
