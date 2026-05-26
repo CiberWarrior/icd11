@@ -42,6 +42,14 @@ const plenaryLecturers = [
   },
 ];
 
+const banquetSpeaker = {
+  name: 'Steve Gaimari',
+  role: '',
+  institution: 'California Department of Food and Agriculture (retired)',
+  image: '/images/steve-gaimari.jpg',
+  bio: `Steve Gaimari's passion for insects and other creepy-crawlies started very young, though he only realized he could make a living at it as an undergraduate working in the mosquito ecology lab of Todd Livdahl at Clark University—reasoning that if his professor could do this, he certainly could too! As an MS student at Washington State University, he focused on acalyptrate natural history, specifically predatory biology in the small family Chamaemyiidae, introducing him to the Lauxanioidea, one of the more diverse and morphologically odd groups of acalyptrates, which became his main taxonomic focus. After diversion to Therevidae during his doctoral work with Mike Irwin at the University of Illinois, Steve also dabbles with other flies, including other acalyptrates (particularly Odiniidae, frankly because they look a bit like chamaemyiids). After a stint as a Smithsonian post-doc, he joined the California Department of Food and Agriculture in 2001, as a dipterist (especially Tephritidae, being the scourge of California agriculture), eventually heading the Entomology and Nematology diagnostics labs before his retirement in 2023. Meanwhile, Steve incorporated the North American Dipterists Society (now Dipterists Society) as a nonprofit, now serving as a Director and its current President (plus webmaster and Fly Times editor), and he chaired the previous ICD. Among his favorite activities while not at a microscope are field work and collecting antiquarian dipterological literature. However, lest you think Steve is only obsessed with flies, he also enjoys life with his wife Helen, woodworking, fishing (of course that does include fly fishing…), gardening, birdwatching, and he is a Commissioner of the ICZN. But really... it's mostly about flies.`,
+};
+
 const symposia = [
   { title: 'Acalyptratae', convenor: 'Keith Bayless' },
   { title: 'Advances in Afrotropical Dipterology', convenor: 'Ashley Kirk-Spriggs & Bradley J. Sinclair' },
@@ -126,6 +134,46 @@ const symposia = [
               </div>
             </button>
           ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banquet Speaker -->
+  <section class="section-padding bg-white">
+    <div class="section-container">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path>
+            </svg>
+          </div>
+          <h2 class="text-3xl lg:text-4xl font-bold text-[#2a5298] mb-3">Banquet Speaker</h2>
+        </div>
+
+        <div class="flex justify-center">
+          <button
+            type="button"
+            class="member-card bg-white rounded-2xl shadow-md overflow-hidden border-t-4 border-t-amber-500 border border-gray-100 text-center cursor-pointer p-0 w-full max-w-xs group"
+            data-index="banquet-speaker"
+            aria-label={`View bio of ${banquetSpeaker.name}`}
+          >
+            <div class="pt-6 pb-2 flex justify-center">
+              <img src={banquetSpeaker.image} alt={banquetSpeaker.name} class="w-32 h-32 lg:w-36 lg:h-36 rounded-full object-cover object-center shadow-xl" />
+            </div>
+            <div class="px-4 pb-5 pt-2">
+              <h3 class="font-bold text-gray-900 text-base mb-1">{banquetSpeaker.name}</h3>
+              {banquetSpeaker.role && <p class="text-sm text-amber-600 font-medium mb-2">{banquetSpeaker.role}</p>}
+              <p class="text-sm text-gray-500 leading-relaxed">{banquetSpeaker.institution}</p>
+              {banquetSpeaker.bio && (
+                <span class="inline-flex items-center gap-1.5 mt-4 text-xs text-white font-medium bg-amber-600 group-hover:bg-amber-700 px-4 py-2 rounded-full transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                  Read bio
+                </span>
+              )}
+            </div>
+          </button>
         </div>
       </div>
     </div>
@@ -495,9 +543,10 @@ const symposia = [
 
   <Footer />
 
-  <script define:vars={{ plenaryLecturers }}>
+  <script define:vars={{ plenaryLecturers, banquetSpeaker }}>
     const allMembers = {};
     plenaryLecturers.forEach((m, i) => { allMembers[`pl-${i}`] = m; });
+    allMembers['banquet-speaker'] = banquetSpeaker;
 
     const modal = document.getElementById('member-modal');
     const modalBackdrop = document.getElementById('modal-backdrop');
