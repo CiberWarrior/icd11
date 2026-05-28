@@ -190,6 +190,119 @@ import Card from '../components/Card.astro';
     </div>
   </section>
 
+  <!-- Congress Dinner Venue -->
+  <section class="section-padding bg-[#f9fafb]">
+    <div class="section-container">
+      <Card variant="elevated" class="p-8 lg:p-10 card-animate max-w-6xl mx-auto no-card-hover">
+        
+        <!-- Header with amber/gold accent -->
+        <div class="flex items-center gap-3 mb-6">
+          <div class="bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl p-3 shadow-sm">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 
+                    d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"></path>
+            </svg>
+          </div>
+          <h3 class="text-2xl lg:text-3xl font-bold text-[#2a5298]">Congress Dinner</h3>
+        </div>
+
+        <!-- Venue Name + Date Badge -->
+        <div class="mb-6">
+          <h4 class="text-3xl font-extrabold text-gray-900 mb-2">ODRANSKI RIBIČ</h4>
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full">
+            <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span class="text-sm font-bold text-amber-700">Friday, 16 July 2027</span>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="space-y-4 text-base text-gray-700 leading-relaxed mb-8">
+          <p>
+            <strong class="text-gray-900">A beautiful setting in the heart of untouched nature.</strong>
+          </p>
+          <p>
+            Odranski ribič is a restaurant with a rich 50-year tradition, located only 10 km from 
+            Velika Gorica and 25 km from the center of Zagreb. Since 2004, when it was completely 
+            newly built, it has met all the requirements of modern hospitality and operates according 
+            to strict HACCP standards.
+          </p>
+          <p>
+            Odranski ribič is, above all, a family restaurant that extends over three hectares of 
+            lawn bordered by the Odra River and a century-old Turopolje oak forest.
+          </p>
+        </div>
+
+        <!-- Images Grid 2x2 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          <button type="button" 
+                  class="hotel-image-link w-full block aspect-[4/3] rounded-xl overflow-hidden shadow-md cursor-pointer group transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg border-0 p-0" 
+                  data-src="/images/odranski-1.jpg" 
+                  aria-label="Open image full size">
+            <img src="/images/odranski-1.jpg" 
+                 alt="Odranski Ribič – Exterior view" 
+                 class="w-full h-full object-cover transition duration-300 group-hover:brightness-110" />
+          </button>
+          
+          <button type="button" 
+                  class="hotel-image-link w-full block aspect-[4/3] rounded-xl overflow-hidden shadow-md cursor-pointer group transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg border-0 p-0" 
+                  data-src="/images/odranski-2.jpg" 
+                  aria-label="Open image full size">
+            <img src="/images/odranski-2.jpg" 
+                 alt="Odranski Ribič – Dining area" 
+                 class="w-full h-full object-cover transition duration-300 group-hover:brightness-110" />
+          </button>
+          
+          <button type="button" 
+                  class="hotel-image-link w-full block aspect-[4/3] rounded-xl overflow-hidden shadow-md cursor-pointer group transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg border-0 p-0" 
+                  data-src="/images/odranski-3.jpg" 
+                  aria-label="Open image full size">
+            <img src="/images/odranski-3.jpg" 
+                 alt="Odranski Ribič – Outdoor setting" 
+                 class="w-full h-full object-cover transition duration-300 group-hover:brightness-110" />
+          </button>
+          
+          <button type="button" 
+                  class="hotel-image-link w-full block aspect-[4/3] rounded-xl overflow-hidden shadow-md cursor-pointer group transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg border-0 p-0" 
+                  data-src="/images/odranski-4.jpg" 
+                  aria-label="Open image full size">
+            <img src="/images/odranski-4.jpg" 
+                 alt="Odranski Ribič – Natural surroundings" 
+                 class="w-full h-full object-cover transition duration-300 group-hover:brightness-110" />
+          </button>
+        </div>
+
+        <!-- Highlight Features -->
+        <div class="flex flex-wrap gap-3">
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945"></path>
+            </svg>
+            3 hectares
+          </span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full text-sm font-medium text-blue-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5"></path>
+            </svg>
+            Odra River
+          </span>
+          <span class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full text-sm font-medium text-amber-700">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+            </svg>
+            Century-old Oak Forest
+          </span>
+        </div>
+
+      </Card>
+    </div>
+  </section>
+
   <!-- Hotel image lightbox - opens on same page, user can close -->
   <div
     id="hotel-image-lightbox"
