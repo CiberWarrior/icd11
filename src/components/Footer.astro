@@ -22,57 +22,53 @@ const contactInfo = [
 
 <footer class="bg-gradient-to-br from-primary-900 to-primary-800 text-white">
   <div class="section-container section-padding">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-      <!-- Logo & Description -->
-      <div class="lg:col-span-2">
-        <div class="flex items-center space-x-3 mb-6">
-          <a href="/" class="flex-shrink-0">
-            <img
-              src="/images/logo-icd-2027.png"
-              alt="ICD 2027 Logo"
-              class="h-12 w-auto sm:h-14 object-contain rounded-lg"
-            />
-          </a>
-          <div>
-            <div class="text-xl font-bold">ICDXI 2027</div>
-            <div class="text-sm text-white/80">
-              International Congress of Dipterology
-            </div>
-          </div>
-        </div>
-        <p class="text-white/70 leading-relaxed max-w-md">
-          The 11th International Congress of Dipterology brings together leading
-          researchers and scientists from around the world to Zagreb, Croatia.
-        </p>
-        <div class="mt-6 flex items-center space-x-2 text-white/90">
-          <span class="w-5 h-5 inline-block" set:html={calendar} />
-          <span class="text-lg font-semibold">July 11-16, 2027</span>
-        </div>
-
-        <!-- Dipterists Society -->
-        <div class="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+      <!-- Partner Logos -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-white">Partners</h3>
+        <div class="space-y-5">
+          <!-- Dipterists Society -->
           <a
             href="https://dipterists.org"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex-shrink-0 hover:opacity-70 transition-opacity"
+            class="flex items-center gap-3 group"
             title="Dipterists Society"
           >
             <img
               src="/images/Dipterists_Society_logo.png"
               alt="Dipterists Society"
-              class="w-24 h-24 object-contain invert opacity-80"
+              class="w-24 h-24 object-contain invert opacity-80 group-hover:opacity-100 transition-opacity flex-shrink-0"
             />
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-white/90 group-hover:text-white transition-colors mb-0.5">
+                Dipterists Society
+              </div>
+              <p class="text-xs text-white/50 leading-relaxed">An International Society for Dipterology</p>
+            </div>
           </a>
-          <div>
-            <a
-              href="https://dipterists.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-xs font-bold uppercase tracking-wider text-white/90 hover:text-white transition-colors block mb-0.5"
-            >Dipterists Society</a>
-            <p class="text-xs text-white/50 leading-relaxed">An International Society for Dipterology</p>
-          </div>
+
+          <!-- Husek -->
+          <a
+            href="https://www.husek.hr"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 group"
+            title="Husek"
+          >
+            <img
+              src="/images/Husek-logo.png"
+              alt="Husek"
+              class="w-24 h-24 object-contain group-hover:opacity-80 transition-opacity flex-shrink-0"
+            />
+            <div>
+              <div class="text-xs font-bold uppercase tracking-wider text-white/90 group-hover:text-white transition-colors mb-0.5">
+                Husek
+              </div>
+              <p class="text-xs text-white/50 leading-relaxed">Conference Sponsor</p>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -163,11 +159,12 @@ const contactInfo = [
         </div>
       </div>
     </div>
-
+    
     <!-- Bottom Bar -->
-    <div
-      class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
-    >
+    <div class="max-w-5xl mx-auto">
+      <div
+        class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0"
+      >
       <div class="text-white/60 text-sm">
         © {currentYear} <a href="https://dipterists.org" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Dipterists Society</a>. All rights reserved.
       </div>
@@ -179,6 +176,7 @@ const contactInfo = [
           Terms of Service
         </a>
       </div>
+    </div>
     </div>
   </div>
 </footer>
