@@ -54,12 +54,14 @@ izmjena u kodu → npm run build → FTP upload cijelog dist/ → pm2 restart
    ssh icd11@webserv.biol.pmf.hr
    ```
 2. Kad vidiš npr. `icd11@webserv:~$`, **ne pokreći ponovo** `ssh` na isti host — već si na serveru.
-3. Restart (radi i iz `~`, ne moraš prije `cd` u `/var/www/...`):
+3. Restart (radi i iz `~`, ne moraš prije `cd` u projekt folder):
    ```bash
    pm2 restart icd11-2027
    pm2 status
    ```
    Proces **icd11-2027** treba biti **online**.
+   
+   **Napomena:** Projekt se nalazi u `~/WEB-icd11.biol.pmf.hr` (simbolički link na `/var/www/icd11.biol.pmf.hr/`)
 4. Izlaz: `exit`
 
 **Česte zablude:** put `/var/www/...` ne postoji na Macu — samo nakon SSH-a na Linux. `pm2` naredbe izvršavaj samo u SSH sesiji na serveru, ne lokalno.
@@ -72,16 +74,18 @@ izmjena u kodu → npm run build → FTP upload cijelog dist/ → pm2 restart
 
 ## Način B: git pull + build na serveru (admin)
 
-Koristi se kad je u `/var/www/icd11.biol.pmf.hr/` (ili gdje već) puni git klon i deploy ide bez FTP-a.
+Koristi se kad je u projektu puni git klon i deploy ide bez FTP-a.
+
+**Napomena:** Projekt se nalazi u `~/WEB-icd11.biol.pmf.hr` preko SSH-a (simbolički link na `/var/www/icd11.biol.pmf.hr/`)
 
 1. (Opcija) Backup:
    ```bash
-   cd /var/www/icd11.biol.pmf.hr
+   cd ~/WEB-icd11.biol.pmf.hr
    tar -czf backup_$(date +%Y%m%d_%H%M%S).tar.gz dist/ public/ .env
    ```
 2. Pull i build:
    ```bash
-   cd /var/www/icd11.biol.pmf.hr
+   cd ~/WEB-icd11.biol.pmf.hr
    git pull origin main
    npm install
    npm run build
@@ -108,16 +112,128 @@ Koristi se kad je u `/var/www/icd11.biol.pmf.hr/` (ili gdje već) puni git klon 
 
 ### PM2: Aplikacija nije pokrenuta
 
-Ako `pm2 status` ne pokazuje **icd11-2027** ili je aplikacija **stopped**, pokreni ju s ecosystem configom:
+**Simptomi:**
+- Apache javlja: **"Service Unavailable"** ili **503 error**
+- Web stranica ne radi
+- Apache radi, ali ne može doći do Node.js aplikacije
+
+**Uzrok:**
+- Server je restartiran (npr. nakon preseljenja, održavanja, ili pada struje)
+- PM2 daemon se pokrenuo, ali aplikacija **nije automatski pokrenuta**
+- Apache pokušava proxyati na port 4322, ali tamo nitko ne sluša
+
+---
+
+#### Korak po korak dijagnoza i rješenje:
+
+**1. Spoji se na server:**
 
 ```bash
 ssh icd11@webserv.biol.pmf.hr
-cd /var/www/icd11.biol.pmf.hr
-pm2 start ecosystem.config.cjs
-pm2 save
+```
+
+**2. Provjeri PM2 status:**
+
+```bash
 pm2 status
+```
+
+**Očekivani problemi:**
+
+| Što vidiš | Što znači |
+|-----------|-----------|
+| Prazna lista (bez procesa) | Aplikacija nije pokrenuta - idi na korak 3 |
+| `icd11-2027` sa statusom `stopped` | Aplikacija je stoppana - idi na korak 3 |
+| `icd11-2027` sa statusom `errored` | Aplikacija ima grešku - provjeri logove: `pm2 logs icd11-2027 --lines 30` |
+| `icd11-2027` sa statusom `online` | Aplikacija radi - problem je negdje drugdje (vidi druge sekcije) |
+
+**3. Provjeri lokaciju projekta:**
+
+```bash
+pwd
+ls -la
+```
+
+Ako si u `/home/icd11`, projekt je u simboličkom linku:
+
+```bash
+cd ~/WEB-icd11.biol.pmf.hr
+pwd
+ls -la
+```
+
+**VAŽNO:** Pravi path je `/home/icd11/WEB-icd11.biol.pmf.hr` (simbolički link na `/var/www/icd11.biol.pmf.hr/`)
+
+**4. Provjeri da `dist` struktura postoji:**
+
+```bash
+ls -la dist/
+```
+
+Mora sadržavati: `client/` i `server/` foldere.
+
+**5. Pokreni aplikaciju:**
+
+```bash
+pm2 start ecosystem.config.cjs
+```
+
+Očekivani output:
+```
+[PM2] App [icd11-2027] launched (1 instances)
+```
+
+**6. Spremi PM2 konfiguraciju:**
+
+```bash
+pm2 save
+```
+
+**7. Provjeri status:**
+
+```bash
+pm2 status
+```
+
+Status treba biti **online**.
+
+**8. Provjeri logove da vidiš port:**
+
+```bash
+pm2 logs icd11-2027 --lines 10
+```
+
+Treba vidjeti:
+```
+Server listening on
+local: http://localhost:4322
+```
+
+**9. Testiraj web stranicu:**
+
+Otvori u pregledniku (inkognito): `https://icd11.biol.pmf.hr`
+
+**10. Izađi iz SSH-a:**
+
+```bash
 exit
 ```
+
+---
+
+#### Sprječavanje problema u budućnosti
+
+Da se aplikacija **automatski pokrene nakon restarta servera**, postavi PM2 startup:
+
+```bash
+ssh icd11@webserv.biol.pmf.hr
+cd ~/WEB-icd11.biol.pmf.hr
+pm2 startup
+```
+
+PM2 će dati naredbu koju trebaš izvršiti (možda će tražiti `sudo`). Nakon toga, aplikacija će se automatski pokretati.
+
+---
 
 **VAŽNO:** Koristi `ecosystem.config.cjs` (NE direktno `dist/server/entry.mjs`) jer ecosystem file postavlja **PORT=4322** koji Apache ProxyPass očekuje.
 
@@ -128,14 +244,6 @@ pm2 delete icd11-2027
 pm2 start ecosystem.config.cjs
 pm2 save
 ```
-
-Provjera porta u logovima:
-
-```bash
-pm2 logs icd11-2027 --lines 5
-```
-
-Treba vidjeti: `Server listening on http://localhost:4322`
 
 ### Build: "Module not found" (na serveru, način B)
 
@@ -197,6 +305,40 @@ pm2 restart icd11-2027
 pm2 status
 exit
 ```
+
+---
+
+## Incident Log: Server preseljenje (14. lipanj 2026)
+
+**Što se dogodilo:**
+- Server je premješten na novu lokaciju i bio ugašen ~2 sata
+- Nakon ponovnog pokretanja servera, web stranica je bila nedostupna
+- Apache je javljao: **"Service Unavailable - 503 error"**
+
+**Dijagnoza:**
+- Apache je radio normalno
+- PM2 daemon se automatski pokrenuo
+- **ALI** - aplikacija `icd11-2027` nije bila pokrenuta
+- Apache nije mogao proxyati zahtjeve na port 4322 jer Node.js aplikacija nije slušala
+
+**Rješenje:**
+```bash
+ssh icd11@webserv.biol.pmf.hr
+cd ~/WEB-icd11.biol.pmf.hr
+pm2 start ecosystem.config.cjs
+pm2 save
+pm2 status
+exit
+```
+
+**Prevencija:**
+- Konfigurirati PM2 startup da se aplikacija automatski pokreće nakon restarta servera
+- Naredba: `pm2 startup` (izvršiti na serveru)
+
+**Naučeno:**
+- FTP pristup koristi path: `/var/www/icd11.biol.pmf.hr/`
+- SSH pristup koristi: `~/WEB-icd11.biol.pmf.hr` (simbolički link)
+- PM2 lista može biti prazna nakon restarta servera ako startup nije konfiguriran
 
 ---
 
