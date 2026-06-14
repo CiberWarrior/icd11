@@ -399,6 +399,27 @@ const symposia = [
           <h2 class="text-3xl lg:text-4xl font-bold text-[#2a5298] mb-3">Symposia</h2>
         </div>
 
+        <!-- Symposia Deadline Notice -->
+        <div class="relative overflow-hidden bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-300 rounded-2xl shadow-lg mb-10">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-amber-200/30 rounded-full -mr-16 -mt-16"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-orange-200/30 rounded-full -ml-12 -mb-12"></div>
+          <div class="relative flex items-center gap-5 px-8 py-6">
+            <div class="flex-shrink-0">
+              <div class="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center shadow-md">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <div class="flex-1">
+              <p class="text-amber-900 font-bold text-base mb-1">Symposia Submission Deadline</p>
+              <p class="text-gray-700 text-base">
+                The deadline for symposia proposals is <strong class="text-amber-900">15 July 2026</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {symposia.map((s, i) => (
             <div class="relative bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden group hover:shadow-md hover:border-[#2a5298]/30 transition-all duration-300">
