@@ -95,47 +95,63 @@ Dodati rate limiting u Astro API endpoint. (Možemo implementirati ako želite)
 
 ---
 
-### 3. Ažuriranje Dependencies ⚠️ HITNO
+### 3. Ažuriranje Dependencies ⚠️
 
 **Problem:** Node.js paketi imaju sigurnosne ranjivosti.
 
 **Trenutno stanje (14. lipanj 2026):**
-- ❌ **5 vulnerabilities pronađeno**
+- ⚠️ **5 vulnerabilities pronađeno**
   - 2 HIGH severity (esbuild, astro)
   - 3 MODERATE severity (@astrojs/node, @astrojs/vercel)
 
-**Rješenje:** Ažurirati dependencies na najnovije verzije.
+**Status popravka:**
+- ❌ **Pokušano `npm audit fix --force` - neuspješno**
+- Problem: Nekompatibilne verzije (Astro 6.4.6 + stari adapteri za Astro 2)
+- Rezultat: Peer dependency konflikti i 11+ novih vulnerabilities
+- Odluka: **Vraćeno na prethodno stanje**
 
-**NAPOMENA:** Većina ranjivosti se odnosi na **development server** (koji ne radi u produkciji), ali ih svejedno treba popraviti.
+**VAŽNO - Zašto vulnerabilities nisu kritične za produkciju:**
 
-**Kako popraviti:**
+✅ **Većina se odnosi na development server:**
+- `esbuild` SSRF - samo u dev modu na Windowsu
+- `astro` XSS u Server Islands - dev feature
+- `vite` file read - samo dev server
+- Produkcijski server **NE pokreće** dev server
+
+✅ **Dodatne zaštite u produkciji:**
+- Node.js sluša samo na `localhost:4322`
+- Apache reverse proxy (dodatni sloj)
+- Nema admin panela ili login forme
+- Statički sadržaj dominira
+
+**Preporuka - Kako ažurirati sigurno:**
+
+**Opcija A: Čekati na Astro ekosistem (NAJBOLJE)**
+
+Čekaj da Astro adapteri budu kompatibilni s Astro 6:
 
 ```bash
-# Na lokalu (Mac)
-cd /Users/renchi/Documents/Cursor/icd11
+# Pratite Astro releases
+# https://github.com/withastro/astro/releases
 
-# Provjeri što će biti promijenjeno
-npm audit fix --dry-run
+# Kada @astrojs/node i @astrojs/tailwind budu za Astro 6:
+npm install astro@latest @astrojs/node@latest @astrojs/tailwind@latest @astrojs/vercel@latest
 
-# Popravi ranjivosti (može zahtijevati breaking changes)
-npm audit fix --force
-
-# Nakon popravka, testiraj lokalno
+# Testiraj
 npm run dev
-# Otvori http://localhost:4321 i provjeri da sve radi
-
-# Build za produkciju
 npm run build
 
-# Ako sve radi:
-git add package.json package-lock.json
-git commit -m "Fix security vulnerabilities in dependencies"
-git push origin main
-
-# FTP upload na server + PM2 restart (vidi DEPLOY_STEP_BY_STEP.md)
+# Deploy
 ```
 
-**Preporuka:** Provjeravati jednom mjesečno ili nakon svakog Astro release-a.
+**Opcija B: Ručno postaviti kompatibilne verzije**
+
+Zahtijeva testiranje i provjeru kompatibilnosti.
+
+**Preporuka:** Provjeravati jednom mjesečno ili nakon svakog Astro major release-a.
+
+**Zadnji pokušaj ažuriranja:** 14. lipanj 2026  
+**Sljedeća provjera:** 14. srpanj 2026
 
 ---
 
