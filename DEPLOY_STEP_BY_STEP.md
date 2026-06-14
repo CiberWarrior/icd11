@@ -4,6 +4,42 @@ Jedan vodič za sve: **standardni deploy (FTP)** i **alternativa (git + build na
 
 ---
 
+## 🚨 HITNO: Server ne radi (Quick Fix)
+
+**Simptomi:** Web stranica pokazuje **"Service Unavailable"** ili ne učitava se.
+
+**Najčešći uzrok:** Server je restartiran (kvar, preseljenje, održavanje) i PM2 aplikacija nije pokrenuta.
+
+**Brzo rješenje (5 minuta):**
+
+```bash
+# 1. Spoji se na server
+ssh icd11@webserv.biol.pmf.hr
+
+# 2. Provjeri PM2 status
+pm2 status
+
+# 3. Ako je lista prazna ili aplikacija nije "online", pokreni je:
+cd ~/WEB-icd11.biol.pmf.hr
+pm2 start ecosystem.config.cjs
+pm2 save
+
+# 4. Provjeri da je pokrenuta
+pm2 status
+
+# 5. Provjeri logove da vidiš port 4322
+pm2 logs icd11-2027 --lines 5
+
+# 6. Izađi
+exit
+```
+
+**Provjera:** Otvori `https://icd11.biol.pmf.hr` u inkognito prozoru.
+
+**Za detalje i dijagnozu problema, vidi sekciju:** [PM2: Aplikacija nije pokrenuta](#pm2-aplikacija-nije-pokrenuta)
+
+---
+
 ## Koji način koristiti?
 
 | Način | Kada | Sažetak |
@@ -223,7 +259,7 @@ exit
 
 #### Sprječavanje problema u budućnosti
 
-Da se aplikacija **automatski pokrene nakon restarta servera**, postavi PM2 startup:
+Da se aplikacija **automatski pokrene nakon restarta servera**, potrebno je postaviti PM2 startup:
 
 ```bash
 ssh icd11@webserv.biol.pmf.hr
@@ -231,7 +267,16 @@ cd ~/WEB-icd11.biol.pmf.hr
 pm2 startup
 ```
 
-PM2 će dati naredbu koju trebaš izvršiti (možda će tražiti `sudo`). Nakon toga, aplikacija će se automatski pokretati.
+PM2 će dati naredbu koja će započinjati s `sudo`. 
+
+**⚠️ VAŽNO:** Korisnik `icd11` nema `sudo` privilegije, što znači:
+- **Ne možete samostalno konfigurirati PM2 startup**
+- Potreban je **IT administrator** s sudo pristupom
+- Administrator mora izvršiti naredbu koju PM2 daje
+
+**Privremeno rješenje (dok admin ne konfigurira startup):**
+- Nakon svakog restarta servera, ručno pokrenite aplikaciju koristeći gore navedene korake
+- Ili koristite **"HITNO: Quick Fix"** proceduru s početka dokumenta
 
 ---
 
