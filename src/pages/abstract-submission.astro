@@ -1,0 +1,759 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import HeroCountdown from '../components/HeroCountdown.astro';
+import Footer from '../components/Footer.astro';
+import 'quill/dist/quill.snow.css';
+
+const symposia = [
+  'Acalyptratae',
+  'Advances in Afrotropical Dipterology',
+  'Applied Dipterology',
+  'Biodiversity surveys and conservation',
+  'Calyptrate systematics and diversity',
+  'Culicomorpha',
+  'Empidoidea',
+  'Lower Cyclorrhapha',
+  'Psychodomorpha',
+  'Tipulomorpha & Ptychopteromorpha',
+  'Integrative taxonomy and vertical stratification of the fly fauna',
+  'Deep time Dipterology',
+  'Phylogenomics',
+  'Taxonomy and ecology of lower Brachycera',
+  'Diptera in Forensic Entomology',
+  'Medical and Veterinary Diptera',
+  'Advances in Automated Diptera Identification and Monitoring',
+  'Diptera ecology and behaviour',
+  'Bibionomorpha Systematics, Diversity and Ecology',
+  'General',
+];
+
+const countries = [
+  'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan',
+  'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia',
+  'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi',
+  'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia',
+  'Comoros', 'Congo', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic',
+  'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic',
+  'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia',
+  'Fiji', 'Finland', 'France',
+  'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana',
+  'Haiti', 'Honduras', 'Hungary',
+  'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy',
+  'Jamaica', 'Japan', 'Jordan',
+  'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan',
+  'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg',
+  'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius',
+  'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar',
+  'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea',
+  'North Macedonia', 'Norway',
+  'Oman',
+  'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal',
+  'Qatar',
+  'Romania', 'Russia', 'Rwanda',
+  'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino',
+  'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia',
+  'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan',
+  'Suriname', 'Sweden', 'Switzerland', 'Syria',
+  'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia',
+  'Turkey', 'Turkmenistan', 'Tuvalu',
+  'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan',
+  'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam',
+  'Yemen',
+  'Zambia', 'Zimbabwe',
+];
+---
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.3s ease-out;
+  }
+</style>
+
+<Layout
+  title="Abstract Submission | ICD 2027"
+>
+  <Header />
+  <HeroCountdown />
+
+  <section class="section-padding bg-gradient-to-b from-slate-50 via-blue-50/20 to-white">
+    <div class="section-container">
+      <div class="max-w-4xl mx-auto">
+        
+        <!-- Page Header -->
+        <div class="text-center mb-12">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/10 to-blue-600/20 flex items-center justify-center mx-auto mb-5 shadow-sm">
+            <svg class="w-8 h-8 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-[#2a5298] mb-4">Abstract Submission</h1>
+          <p class="text-sm text-gray-500 mt-2">Deadline: 15 July 2026</p>
+        </div>
+
+        <!-- Form -->
+        <form id="abstractForm" class="space-y-8">
+          
+          <!-- Presenting Author Section -->
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500/10 to-blue-600/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <span>Presenting Author</span>
+              <span class="text-red-500 text-base">*</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                  Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                  placeholder="First name"
+                />
+              </div>
+              
+              <div>
+                <label for="surname" class="block text-sm font-medium text-gray-700 mb-2">
+                  Surname <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="surname"
+                  name="surname"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                  placeholder="Last name"
+                />
+              </div>
+              
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                  Email <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                  placeholder="your.email@institution.edu"
+                />
+              </div>
+              
+              <div>
+                <label for="country" class="block text-sm font-medium text-gray-700 mb-2">
+                  Country <span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                >
+                  <option value="">Select country...</option>
+                  {countries.map((country) => (
+                    <option value={country}>{country}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div class="md:col-span-2">
+                <label for="institution" class="block text-sm font-medium text-gray-700 mb-2">
+                  Institution <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="institution"
+                  name="institution"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                  placeholder="University or Research Institution"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Co-Authors Section -->
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-2xl font-bold text-gray-900 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500/10 to-indigo-600/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                  </svg>
+                </div>
+                <span>Co-Authors</span>
+                <span class="text-sm text-gray-500 font-normal">(Optional)</span>
+              </h2>
+              <button
+                type="button"
+                id="addCoAuthorBtn"
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white rounded-lg hover:from-[#1e3c72] hover:to-[#2a5298] transition-all transform hover:scale-105 text-sm font-semibold shadow-md hover:shadow-lg"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+                Add Co-Author
+              </button>
+            </div>
+            
+            <p class="text-sm text-gray-500 mb-6">Optional. Add up to 20 co-authors.</p>
+            
+            <div id="coAuthorsContainer" class="space-y-4">
+              <!-- Co-authors will be dynamically added here -->
+            </div>
+          </div>
+
+          <!-- Presentation Details Section -->
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/10 to-purple-600/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <span>Presentation Details</span>
+            </h2>
+            
+            <div class="space-y-6">
+              <div>
+                <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                  Title <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                  placeholder="Title of your presentation"
+                />
+              </div>
+              
+              <div>
+                <label for="symposium" class="block text-sm font-medium text-gray-700 mb-2">
+                  Symposium <span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="symposium"
+                  name="symposium"
+                  required
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent hover:border-gray-400 transition-all"
+                >
+                  <option value="">Select symposium...</option>
+                  {symposia.map((symp) => (
+                    <option value={symp}>{symp}</option>
+                  ))}
+                </select>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-3">
+                  Presentation Type <span class="text-red-500">*</span>
+                </label>
+                <div class="flex gap-6">
+                  <label class="flex items-center cursor-pointer group">
+                    <input
+                      type="radio"
+                      name="presentationType"
+                      value="Oral"
+                      required
+                      class="w-5 h-5 text-[#2a5298] border-gray-300 focus:ring-[#2a5298] focus:ring-2"
+                    />
+                    <span class="ml-3 text-gray-700 group-hover:text-[#2a5298] transition-colors font-medium">Oral Presentation</span>
+                  </label>
+                  <label class="flex items-center cursor-pointer group">
+                    <input
+                      type="radio"
+                      name="presentationType"
+                      value="Poster"
+                      required
+                      class="w-5 h-5 text-[#2a5298] border-gray-300 focus:ring-[#2a5298] focus:ring-2"
+                    />
+                    <span class="ml-3 text-gray-700 group-hover:text-[#2a5298] transition-colors font-medium">Poster Presentation</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Keywords <span class="text-gray-500 text-xs">(up to 5)</span>
+                </label>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {[1, 2, 3, 4, 5].map((num) => (
+                    <input
+                      type="text"
+                      id={`keyword${num}`}
+                      name={`keyword${num}`}
+                      maxlength="50"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent transition-all text-sm"
+                      placeholder={`Keyword ${num}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Abstract Text Section -->
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 hover:shadow-xl transition-shadow">
+            <div class="mb-6">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-emerald-500/10 to-emerald-600/20 flex items-center justify-center">
+                  <svg class="w-5 h-5 text-[#2a5298]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+                <label class="block text-2xl font-bold text-gray-900">
+                  Abstract <span class="text-red-500">*</span>
+                </label>
+              </div>
+              <p class="text-sm text-gray-500 mb-4">
+                Paste your abstract below. Use the italic button for species names. 
+                <span class="font-medium">Maximum 2000 characters.</span>
+              </p>
+            </div>
+            
+            <!-- Quill Editor Container -->
+            <div id="editor" class="bg-white border-2 border-gray-300 rounded-lg min-h-[300px] hover:border-gray-400 focus-within:border-[#2a5298] focus-within:ring-2 focus-within:ring-[#2a5298]/20 transition-all"></div>
+            
+            <!-- Character Count -->
+            <div class="flex justify-between items-center mt-3">
+              <span id="charCount" class="text-sm text-gray-500">0 / 2000 characters</span>
+              <span id="charWarning" class="text-sm text-red-500 hidden">Maximum character limit reached</span>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex justify-center pt-4">
+            <button
+              type="submit"
+              id="submitBtn"
+              class="group relative px-10 py-5 bg-gradient-to-r from-[#2a5298] to-[#1e3c72] text-white text-lg font-bold rounded-xl hover:from-[#1e3c72] hover:to-[#2a5298] transition-all transform hover:scale-105 shadow-xl hover:shadow-2xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-3"
+            >
+              <svg class="w-6 h-6 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Submit</span>
+            </button>
+          </div>
+
+          <!-- Modal Overlay -->
+          <div id="modalOverlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 animate-fadeIn">
+            <div id="modalContent" class="bg-white rounded-2xl shadow-2xl max-w-md w-full transform transition-all animate-scaleIn">
+              <!-- Success Message -->
+              <div id="successMessage" class="hidden p-8">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mb-6 animate-bounce">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3">Thank you, <span id="successName"></span>!</h3>
+                  <p class="text-gray-600 mb-2">Your abstract "<span id="successTitle" class="font-semibold"></span>" has been submitted successfully.</p>
+                  <p class="text-sm text-gray-500">You will receive a confirmation email shortly.</p>
+                </div>
+              </div>
+              
+              <!-- Error Message -->
+              <div id="errorMessage" class="hidden p-8">
+                <div class="flex flex-col items-center text-center">
+                  <div class="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mb-6">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-3">Error</h3>
+                  <p class="text-gray-600 mb-2" id="errorText">There was an error submitting your abstract.</p>
+                  <p class="text-sm text-gray-500">Please try again.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<!-- Form Logic -->
+<script>
+  import Quill from 'quill';
+  
+  let quill;
+  const maxChars = 2000;
+  
+  // Make quill available globally for form submission
+  window.quill = null;
+  
+  function initQuill() {
+    console.log('Initializing Quill editor...');
+    
+    const editorElement = document.getElementById('editor');
+    if (!editorElement) {
+      console.error('Editor element not found!');
+      return;
+    }
+    
+    try {
+      quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Paste your abstract here. Use the toolbar to format text as needed.',
+        modules: {
+          toolbar: [
+            ['bold', 'italic', 'underline'],
+            [{ 'script': 'sub'}, { 'script': 'super' }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'align': [] }],
+            ['link'],
+            ['clean']
+          ]
+        }
+      });
+      
+      // Make quill available globally for form submission
+      window.quill = quill;
+      
+      console.log('Quill initialized successfully!', quill);
+      
+      // Character counter
+      quill.on('text-change', function() {
+        const text = quill.getText();
+        const length = text.trim().length;
+        const charCount = document.getElementById('charCount');
+        const charWarning = document.getElementById('charWarning');
+        
+        if (charCount && charWarning) {
+          charCount.textContent = `${length} / ${maxChars} characters`;
+          
+          if (length > maxChars) {
+            charCount.classList.add('text-red-500', 'font-semibold');
+            charWarning.classList.remove('hidden');
+          } else {
+            charCount.classList.remove('text-red-500', 'font-semibold');
+            charWarning.classList.add('hidden');
+          }
+        }
+      });
+    } catch (error) {
+      console.error('Error initializing Quill:', error);
+      return;
+    }
+  }
+  
+  // Initialize Quill when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initQuill);
+  } else {
+    initQuill();
+  }
+
+  // Co-Authors Management
+  let coAuthors = [];
+  const maxCoAuthors = 20;
+  const coAuthorsContainer = document.getElementById('coAuthorsContainer');
+  const addCoAuthorBtn = document.getElementById('addCoAuthorBtn');
+
+  function addCoAuthor() {
+    if (coAuthors.length >= maxCoAuthors) {
+      alert(`Maximum ${maxCoAuthors} co-authors allowed.`);
+      return;
+    }
+
+    const index = coAuthors.length;
+    coAuthors.push({ name: '', surname: '', institution: '' });
+
+    const coAuthorDiv = document.createElement('div');
+    coAuthorDiv.className = 'border border-gray-200 rounded-lg p-4 bg-gray-50';
+    coAuthorDiv.dataset.index = index;
+    coAuthorDiv.innerHTML = `
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-semibold text-gray-900">Co-Author ${index + 1}</h3>
+        <button
+          type="button"
+          onclick="removeCoAuthor(${index})"
+          class="text-red-600 hover:text-red-800 transition-colors"
+          title="Remove co-author"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input
+          type="text"
+          placeholder="Name"
+          class="coauthor-name w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent transition-all text-sm"
+          data-index="${index}"
+        />
+        <input
+          type="text"
+          placeholder="Surname"
+          class="coauthor-surname w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent transition-all text-sm"
+          data-index="${index}"
+        />
+        <input
+          type="text"
+          placeholder="Institution"
+          class="coauthor-institution md:col-span-2 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2a5298] focus:border-transparent transition-all text-sm"
+          data-index="${index}"
+        />
+      </div>
+    `;
+
+    coAuthorsContainer.appendChild(coAuthorDiv);
+    updateAddButtonState();
+  }
+
+  window.removeCoAuthor = function(index) {
+    const coAuthorDiv = document.querySelector(`[data-index="${index}"]`);
+    if (coAuthorDiv) {
+      coAuthorDiv.remove();
+      coAuthors[index] = null;
+      updateAddButtonState();
+      renumberCoAuthors();
+    }
+  };
+
+  function renumberCoAuthors() {
+    const remaining = Array.from(coAuthorsContainer.querySelectorAll('.border'));
+    remaining.forEach((div, newIndex) => {
+      const h3 = div.querySelector('h3');
+      if (h3) {
+        h3.textContent = `Co-Author ${newIndex + 1}`;
+      }
+    });
+  }
+
+  function updateAddButtonState() {
+    const activeCount = coAuthors.filter(a => a !== null).length;
+    if (activeCount >= maxCoAuthors) {
+      addCoAuthorBtn.disabled = true;
+      addCoAuthorBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+      addCoAuthorBtn.disabled = false;
+      addCoAuthorBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+  }
+
+  addCoAuthorBtn.addEventListener('click', addCoAuthor);
+
+  // Form Submission
+  const form = document.getElementById('abstractForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const successMessage = document.getElementById('successMessage');
+  const successName = document.getElementById('successName');
+  const successTitle = document.getElementById('successTitle');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Check if Quill is initialized
+    if (!quill) {
+      showError('Editor is not ready. Please wait a moment and try again.');
+      return;
+    }
+
+    // Validate abstract length
+    const abstractText = quill.getText().trim();
+    const abstractLength = abstractText.length;
+    
+    if (abstractLength < 100) {
+      showError('Abstract must be at least 100 characters long.');
+      return;
+    }
+    
+    if (abstractLength > maxChars) {
+      showError(`Abstract exceeds the maximum of ${maxChars} characters.`);
+      return;
+    }
+
+    // Get selected presentation type
+    const presentationType = document.querySelector('input[name="presentationType"]:checked').value;
+    
+    // Collect form data
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      surname: document.getElementById('surname').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      country: document.getElementById('country').value,
+      institution: document.getElementById('institution').value.trim(),
+      title: document.getElementById('title').value.trim(),
+      symposium: document.getElementById('symposium').value,
+      presentationType: presentationType,
+      keywords: [
+        document.getElementById('keyword1').value.trim(),
+        document.getElementById('keyword2').value.trim(),
+        document.getElementById('keyword3').value.trim(),
+        document.getElementById('keyword4').value.trim(),
+        document.getElementById('keyword5').value.trim(),
+      ].filter(k => k !== ''),
+      coAuthors: Array.from(document.querySelectorAll('.coauthor-name')).map((input, idx) => {
+        const surnameInput = document.querySelector(`.coauthor-surname[data-index="${input.dataset.index}"]`);
+        const instInput = document.querySelector(`.coauthor-institution[data-index="${input.dataset.index}"]`);
+        return {
+          name: input.value.trim(),
+          surname: surnameInput.value.trim(),
+          institution: instInput.value.trim(),
+        };
+      }).filter(ca => ca.name || ca.surname || ca.institution),
+      abstractHtml: quill.root.innerHTML,
+      abstractText: abstractText,
+    };
+
+    // Google Apps Script Web App URL
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzlBKL6DzmKtAIoHofe47jM05zLlmwOpPvkkEYppo-6hvCBuo09xWKM6do0qr2p00KivA/exec';
+    
+    // Disable submit button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `
+      <svg class="animate-spin h-5 w-5 inline mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+      Submitting...
+    `;
+    
+    try {
+      // Send data to Google Sheets
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Required for Google Apps Script
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      // Note: With 'no-cors' mode, we can't read the response
+      // But if no error is thrown, we assume success
+      console.log('Form submitted successfully:', formData);
+      
+      // Show success message
+      showSuccess(formData.name, formData.title);
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        form.reset();
+        quill.setText('');
+        coAuthorsContainer.innerHTML = '';
+        coAuthors = [];
+        updateAddButtonState();
+        hideModal();
+        
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `
+          <svg class="w-6 h-6 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <span>Submit</span>
+        `;
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      showError('There was an error submitting your abstract. Please try again.');
+      
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `
+        <svg class="w-6 h-6 transition-transform group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>Submit</span>
+      `;
+    }
+  });
+
+  function showSuccess(name, title) {
+    successName.textContent = name;
+    successTitle.textContent = title;
+    modalOverlay.classList.remove('hidden');
+    successMessage.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  }
+
+  function showError(message) {
+    modalOverlay.classList.remove('hidden');
+    errorMessage.classList.remove('hidden');
+    successMessage.classList.add('hidden');
+    errorText.textContent = message;
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+  }
+
+  function hideModal() {
+    modalOverlay.classList.add('hidden');
+    successMessage.classList.add('hidden');
+    errorMessage.classList.add('hidden');
+    document.body.style.overflow = ''; // Re-enable scrolling
+  }
+  
+  // Close modal when clicking on overlay
+  modalOverlay.addEventListener('click', function(e) {
+    if (e.target === modalOverlay) {
+      hideModal();
+    }
+  });
+</script>
+
+<style>
+  /* Quill editor custom styling */
+  .ql-container {
+    font-size: 16px;
+    min-height: 300px;
+  }
+  
+  .ql-editor {
+    min-height: 300px;
+  }
+  
+  .ql-toolbar {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    background-color: #f9fafb;
+  }
+  
+  .ql-container {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+</style>

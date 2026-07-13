@@ -9,7 +9,7 @@ const csp = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com",
   "font-src 'self' data:",
-  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com",
+  "connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://script.google.com https://script.googleusercontent.com",
   "frame-ancestors 'self'",
   "base-uri 'self'",
   "form-action 'self'",
