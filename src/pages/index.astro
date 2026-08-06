@@ -65,9 +65,13 @@ import NewsletterModal from '../components/NewsletterModal.astro';
                 <p>
                   To help us with planning, please indicate your interest in
                   attending by
-                  <span class="font-semibold text-[#2a5298]"
-                    >signing up through our newsletter popup</span
-                  >.
+                  <button
+                    type="button"
+                    data-newsletter-open
+                    class="inline p-0 m-0 bg-transparent border-0 font-semibold text-[#2a5298] underline decoration-primary-600/30 underline-offset-2 cursor-pointer transition hover:decoration-primary-600"
+                  >
+                    signing up for our newsletter
+                  </button>.
                 </p>
 
                 <p>

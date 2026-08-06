@@ -88,14 +88,16 @@ import NewsletterForm from './NewsletterForm.astro';
       modalRoot.dataset.initialized = 'true';
 
       const closeButtons = modalRoot.querySelectorAll('[data-newsletter-close]');
-      let hasOpened = false;
+      let hasAutoOpened = false;
 
       const markAsShown = () => {
         localStorage.setItem(STORAGE_SHOWN_AT, String(Date.now()));
       };
 
-      const canOpenModal = () => {
-        if (localStorage.getItem(STORAGE_SUBSCRIBED) === 'true') {
+      const isSubscribed = () => localStorage.getItem(STORAGE_SUBSCRIBED) === 'true';
+
+      const canAutoOpen = () => {
+        if (isSubscribed()) {
           return false;
         }
         const lastShownAtRaw = localStorage.getItem(STORAGE_SHOWN_AT);
@@ -111,13 +113,22 @@ import NewsletterForm from './NewsletterForm.astro';
         modalRoot.classList.remove('flex');
         modalRoot.setAttribute('aria-hidden', 'true');
         document.documentElement.classList.remove('overflow-hidden');
+        if (window.location.hash === '#newsletter') {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
       };
 
-      const openModal = () => {
-        if (hasOpened || !canOpenModal()) {
+      // force: true = user clicked a link (bypass cooldown); auto triggers stay polite
+      const openModal = ({ force = false } = {}) => {
+        if (isSubscribed()) {
           return;
         }
-        hasOpened = true;
+        if (!force) {
+          if (hasAutoOpened || !canAutoOpen()) {
+            return;
+          }
+          hasAutoOpened = true;
+        }
         markAsShown();
         modalRoot.classList.remove('hidden');
         modalRoot.classList.add('flex');
@@ -151,6 +162,19 @@ import NewsletterForm from './NewsletterForm.astro';
         localStorage.setItem(STORAGE_SUBSCRIBED, 'true');
         closeModal();
       });
+
+      document.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-newsletter-open], a[href="#newsletter"], a[href="/#newsletter"]');
+        if (!trigger) {
+          return;
+        }
+        event.preventDefault();
+        openModal({ force: true });
+      });
+
+      if (window.location.hash === '#newsletter') {
+        openModal({ force: true });
+      }
 
       window.setTimeout(() => {
         openModal();
