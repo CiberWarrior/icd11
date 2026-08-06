@@ -160,7 +160,10 @@ import NewsletterForm from './NewsletterForm.astro';
 
       modalRoot.addEventListener('newsletter:subscribed', () => {
         localStorage.setItem(STORAGE_SUBSCRIBED, 'true');
-        closeModal();
+        // Keep modal open briefly so the welcome message is readable
+        window.setTimeout(() => {
+          closeModal();
+        }, 3500);
       });
 
       document.addEventListener('click', (event) => {

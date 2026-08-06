@@ -128,10 +128,15 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       return json({ error: 'Invalid email address' }, 400, origin);
     }
 
-    // Get Mailchimp credentials from environment variables
-    const MAILCHIMP_API_KEY = import.meta.env.MAILCHIMP_API_KEY;
-    const MAILCHIMP_LIST_ID = import.meta.env.MAILCHIMP_LIST_ID;
-    const MAILCHIMP_SERVER = import.meta.env.MAILCHIMP_SERVER; // e.g., 'us1', 'us2', etc.
+    // Prefer process.env so production (PM2 + server .env) works even when
+    // the build was made without local Mailchimp credentials. import.meta.env
+    // is a fallback for local `astro dev` / builds that inline .env values.
+    const MAILCHIMP_API_KEY =
+      process.env.MAILCHIMP_API_KEY || import.meta.env.MAILCHIMP_API_KEY;
+    const MAILCHIMP_LIST_ID =
+      process.env.MAILCHIMP_LIST_ID || import.meta.env.MAILCHIMP_LIST_ID;
+    const MAILCHIMP_SERVER =
+      process.env.MAILCHIMP_SERVER || import.meta.env.MAILCHIMP_SERVER; // e.g. 'us1'
 
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID || !MAILCHIMP_SERVER) {
       console.error('Mailchimp credentials not configured', {
