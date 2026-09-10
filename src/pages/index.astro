@@ -334,6 +334,142 @@ import NewsletterModal from '../components/NewsletterModal.astro';
       })();
     </script>
 
+    <!-- Quick actions -->
+    <section
+      id="participate"
+      class="relative bg-white py-12 lg:py-16"
+      data-home-animate
+    >
+      <div class="section-container">
+        <div class="mx-auto grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <a
+            href="https://register.empl.io/ICD2027"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative flex flex-col rounded-3xl border border-[#2a5298]/25 bg-[#cdd9ec] p-6 shadow-sm no-underline transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2a5298]/40"
+          >
+            <span
+              class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-[#2a5298] ring-1 ring-[#2a5298]/15 transition group-hover:bg-[#2a5298] group-hover:text-white"
+              aria-hidden="true"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+            <h3 class="mb-2 text-base font-bold text-[#1e3c72]">Register now</h3>
+            <p class="mt-auto text-sm leading-relaxed text-slate-600">
+              Open the live registration form and secure your place.
+            </p>
+            <span
+              class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#2a5298]"
+            >
+              Go to form
+              <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+
+          <a
+            href="/registration"
+            class="group relative flex flex-col rounded-3xl border border-sky-300/80 bg-sky-100 p-6 shadow-sm no-underline transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-500/40"
+          >
+            <span
+              class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-sky-700 ring-1 ring-sky-200/80 transition group-hover:bg-sky-600 group-hover:text-white"
+              aria-hidden="true"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="mb-2 text-base font-bold text-[#1e3c72]">Submit abstract</h3>
+            <p class="mt-auto text-sm leading-relaxed text-slate-600">
+              Review abstract guidelines and prepare your submission.
+            </p>
+            <span
+              class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-sky-700"
+            >
+              Learn more
+              <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+
+          <a
+            href="/venue#accommodation"
+            class="group relative flex flex-col rounded-3xl border border-emerald-300/80 bg-emerald-100 p-6 shadow-sm no-underline transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40"
+          >
+            <span
+              class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-emerald-700 ring-1 ring-emerald-200/80 transition group-hover:bg-emerald-600 group-hover:text-white"
+              aria-hidden="true"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="mb-2 text-base font-bold text-emerald-800">Accommodation</h3>
+            <p class="mt-auto text-sm leading-relaxed text-slate-600">
+              Hotel rates, room options, and cancellation terms.
+            </p>
+            <span
+              class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-emerald-700"
+            >
+              View venue
+              <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+
+          <a
+            href="/venue#congress-dinner"
+            class="group relative flex flex-col rounded-3xl border border-rose-300/80 bg-rose-100 p-6 shadow-sm no-underline transition duration-300 hover:-translate-y-1 hover:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b1414b]/40"
+          >
+            <span
+              class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/80 text-[#b1414b] ring-1 ring-rose-200/80 transition group-hover:bg-[#b1414b] group-hover:text-white"
+              aria-hidden="true"
+            >
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"
+                ></path>
+              </svg>
+            </span>
+            <h3 class="mb-2 text-base font-bold text-[#8e343b]">Congress Dinner</h3>
+            <p class="mt-auto text-sm leading-relaxed text-slate-600">
+              Venue details and date for the official congress dinner.
+            </p>
+            <span
+              class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-[#b1414b]"
+            >
+              View details
+              <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Important Dates -->
     <section
       id="dates"
@@ -428,94 +564,6 @@ import NewsletterModal from '../components/NewsletterModal.astro';
                 Late rates apply — secure your place before the deadline.
               </p>
             </article>
-          </div>
-        </div>
-
-        <div class="mt-14 flex flex-col items-center justify-center gap-4">
-          <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="https://register.empl.io/ICD2027"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-2xl bg-[#2a5298] px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-primary-900/10 transition hover:bg-[#244a87]"
-            >
-              Register now
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2.5"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-              </svg>
-            </a>
-            <a
-              href="/registration"
-              class="inline-flex items-center gap-2 rounded-2xl border-2 border-[#2a5298]/20 bg-white px-8 py-4 text-sm font-bold uppercase tracking-wide text-[#2a5298] transition hover:border-[#2a5298]/40 hover:bg-slate-50"
-            >
-              Submit abstract
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                ></path>
-              </svg>
-            </a>
-          </div>
-          <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="/venue#accommodation"
-              class="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-emerald-900/10 transition hover:bg-emerald-700"
-            >
-              Accommodation
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                ></path>
-              </svg>
-            </a>
-            <a
-              href="/venue#congress-dinner"
-              class="inline-flex items-center gap-2 rounded-2xl bg-[#b1414b] px-8 py-4 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-rose-900/10 transition hover:bg-[#8e343b]"
-            >
-              Congress Dinner
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="1.5"
-                  d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18z"
-                ></path>
-              </svg>
-            </a>
           </div>
         </div>
       </div>
