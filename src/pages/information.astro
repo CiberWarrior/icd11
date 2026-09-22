@@ -8,7 +8,7 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
 
 <Layout
   title="General Information | ICD 2027"
-  description="General information for ICD 2027: visa, travel, accommodation, and useful links for participants in Zagreb."
+  description="General information for ICD 2027: visa, travel, collecting permits for Diptera, and useful links for participants in Zagreb."
 >
   <Header />
   <HeroCountdown />
@@ -19,7 +19,8 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
       <div class="mx-auto max-w-3xl text-center">
         <h1 class="home-title text-[#1e3c72]">General information</h1>
         <p class="home-subtitle mb-10">
-          Visa, travel options, and practical details for your stay in Zagreb.
+          Visa, travel, collecting permits, and practical details for your stay
+          in Zagreb.
         </p>
         <nav
           class="flex flex-wrap items-center justify-center gap-2 border-y border-slate-200/80 py-4 text-sm"
@@ -35,6 +36,12 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
             href="#travel"
             class="rounded-lg px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-[#2a5298]"
             >Getting to Zagreb</a
+          >
+          <span class="text-slate-300" aria-hidden="true">·</span>
+          <a
+            href="#collecting-permits"
+            class="rounded-lg px-3 py-2 font-medium text-slate-600 transition hover:bg-white hover:text-[#2a5298]"
+            >Collecting permits</a
           >
           <span class="text-slate-300" aria-hidden="true">·</span>
           <a
@@ -350,6 +357,355 @@ import { Plane, Car, Bus, Train } from '@lucide/astro';
             </div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Collecting permits for Diptera -->
+    <section
+      id="collecting-permits"
+      class="section-container section-padding !pt-0"
+    >
+      <div class="mx-auto max-w-3xl">
+        <div class="home-section-header !mb-8 text-center sm:text-left">
+          <h2 class="home-title text-[#1e3c72]">Collecting permits for Diptera</h2>
+          <p class="home-subtitle">
+            What you need to know before sampling in Croatia.
+          </p>
+        </div>
+
+        <div class="space-y-5">
+          <!-- Overview -->
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div
+              class="border-b border-slate-100 bg-gradient-to-r from-[#1e3c72] to-[#2a5298] px-6 py-5 sm:px-8"
+            >
+              <p
+                class="text-xs font-semibold uppercase tracking-wider text-white/95"
+              >
+                Legal overview
+              </p>
+              <p class="mt-1 text-sm text-white/75">
+                Regulation on Strictly Protected Species
+              </p>
+            </div>
+            <div class="space-y-5 px-6 py-6 sm:px-8 sm:py-8">
+              <p class="text-sm leading-relaxed text-slate-600">
+                There are no specifically named (nominal) dipteran species on
+                the list of strictly protected insects in Croatia. Instead,
+                collective protection is applied through ecological systems and
+                speleological sites.
+              </p>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div
+                  class="relative overflow-hidden rounded-2xl border border-emerald-200/90 bg-emerald-50/60 p-5"
+                >
+                  <div
+                    class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wider text-emerald-800/80"
+                  >
+                    No permit needed
+                  </p>
+                  <p class="mt-1.5 text-sm font-semibold text-emerald-950">
+                    Outside protected areas
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-emerald-900/80">
+                    If you are not planning to collect Diptera in protected
+                    areas, you do not need any permits.
+                  </p>
+                </div>
+
+                <div
+                  class="relative overflow-hidden rounded-2xl border border-amber-200/90 bg-amber-50/60 p-5"
+                >
+                  <div
+                    class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-800"
+                    aria-hidden="true"
+                  >
+                    <svg
+                      class="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <p
+                    class="text-xs font-semibold uppercase tracking-wider text-amber-800/80"
+                  >
+                    Permit required
+                  </p>
+                  <p class="mt-1.5 text-sm font-semibold text-amber-950">
+                    Inside protected areas
+                  </p>
+                  <p class="mt-2 text-sm leading-relaxed text-amber-950/80">
+                    Scientific and/or professional research on natural
+                    components within a protected area requires an official
+                    permit.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Application checklist -->
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="border-b border-slate-100 px-6 py-5 sm:px-8">
+              <h3 class="text-base font-bold text-slate-900">
+                What your permit application must include
+              </h3>
+              <p class="mt-1 text-sm text-slate-500">
+                Provide all of the following when applying for research in a
+                protected area.
+              </p>
+            </div>
+            <div class="px-6 py-6 sm:px-8 sm:py-7">
+              <ol class="grid gap-3 sm:grid-cols-2">
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >1</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >The party conducting the research</span
+                  >
+                </li>
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >2</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >The research location</span
+                  >
+                </li>
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >3</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >The purpose of the research</span
+                  >
+                </li>
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >4</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >Duration and timing of the research</span
+                  >
+                </li>
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >5</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >The research methodology</span
+                  >
+                </li>
+                <li
+                  class="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/70 p-3.5"
+                >
+                  <span
+                    class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-[#1e3c72] text-xs font-bold text-white"
+                    >6</span
+                  >
+                  <span class="text-sm leading-snug text-slate-700"
+                    >Equipment, tools, machinery, etc. used</span
+                  >
+                </li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Who issues permits -->
+          <div
+            class="overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-sm"
+          >
+            <div class="border-b border-slate-100 px-6 py-5 sm:px-8">
+              <h3 class="text-base font-bold text-slate-900">
+                Who issues the permit
+              </h3>
+              <p class="mt-1 text-sm text-slate-500">
+                Depends on the type of protected area.
+              </p>
+            </div>
+            <div class="grid gap-0 sm:grid-cols-2">
+              <div
+                class="border-b border-slate-100 p-5 sm:border-b-0 sm:border-r sm:p-6"
+              >
+                <p
+                  class="text-xs font-semibold uppercase tracking-wider text-[#2a5298]"
+                >
+                  Ministry
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                  Strict reserves, national parks, special reserves, and nature
+                  parks.
+                </p>
+              </div>
+              <div class="p-5 sm:p-6">
+                <p
+                  class="text-xs font-semibold uppercase tracking-wider text-[#2a5298]"
+                >
+                  Administrative body
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                  Natural monuments, regional parks, significant landscapes,
+                  forest parks, and monuments of park architecture.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Resources -->
+          <div class="grid gap-3 sm:grid-cols-2">
+            <a
+              href="https://bioportal.hr/gis/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition hover:border-[#2a5298]/35 hover:shadow-md"
+            >
+              <span
+                class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-800 transition group-hover:bg-[#1e3c72] group-hover:text-white"
+                aria-hidden="true"
+              >
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-sm font-bold text-slate-900"
+                  >Map of protected areas</span
+                >
+                <span class="mt-1 block text-xs text-slate-500"
+                  >bioportal.hr/gis →</span
+                >
+              </span>
+            </a>
+            <a
+              href="https://en.wikipedia.org/wiki/List_of_protected_areas_of_Croatia"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-4 overflow-hidden rounded-2xl border border-slate-200/90 bg-white p-5 shadow-sm transition hover:border-[#2a5298]/35 hover:shadow-md"
+            >
+              <span
+                class="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-indigo-100 text-indigo-800 transition group-hover:bg-[#1e3c72] group-hover:text-white"
+                aria-hidden="true"
+              >
+                <svg
+                  class="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.75"
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+                  ></path>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-sm font-bold text-slate-900"
+                  >List of protected areas</span
+                >
+                <span class="mt-1 block text-xs text-slate-500"
+                  >Wikipedia →</span
+                >
+              </span>
+            </a>
+          </div>
+
+          <!-- CTA -->
+          <div
+            class="overflow-hidden rounded-3xl border border-[#2a5298]/20 bg-gradient-to-br from-[#1e3c72] to-[#2a5298] p-6 text-white shadow-md sm:p-8"
+          >
+            <p
+              class="text-xs font-semibold uppercase tracking-wider text-white/80"
+            >
+              For congress participants
+            </p>
+            <h3 class="mt-2 text-lg font-bold tracking-tight sm:text-xl">
+              Collecting in a protected area?
+            </h3>
+            <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/85">
+              Send an email with a specific list of areas and all the required
+              information above, so permits can be issued through the Ministry.
+            </p>
+            <a
+              href="mailto:ivkovicmar@gmail.com?subject=ICD%202027%20%E2%80%94%20Collecting%20permit%20request"
+              class="mt-5 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-[#1e3c72] shadow-sm transition hover:bg-slate-50"
+            >
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              ivkovicmar@gmail.com
+            </a>
+          </div>
         </div>
       </div>
     </section>
