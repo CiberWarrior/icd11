@@ -20,6 +20,7 @@
 
 const FOLDER_ID = '1syH7ApUXZRicPs-2eiUXlfnS-Ka5HnN1';
 const SHEET_ID = '1GsrI6qVPGhVuo0wSheVNqf9-biqPdRF2vHrMfJgRh6I';
+const ORGANIZER_EMAIL = '11icd2027@gmail.com';
 
 function doPost(e) {
   try {
@@ -50,11 +51,12 @@ function doPost(e) {
     ].join('\n');
     file.setDescription(description);
 
+    const timestamp = new Date();
+    const fileUrl = file.getUrl();
+
     // Add row to Google Sheet
     try {
       const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
-      const timestamp = new Date();
-      const fileUrl = file.getUrl();
 
       const nextRow = sheet.getLastRow() + 1;
       sheet.getRange(nextRow, 1, 1, 7).setValues([[
@@ -94,6 +96,36 @@ function doPost(e) {
         // File is already saved; do not fail the submission because of email.
         console.error('Abstract confirmation email failed: ' + mailError);
       }
+    }
+
+    // Notify the organisers
+    try {
+      const submitterName = [data.firstName, data.middleName, data.lastName]
+        .filter(Boolean)
+        .join(' ');
+      MailApp.sendEmail({
+        to: ORGANIZER_EMAIL,
+        subject: 'ICD 2027 — New abstract received',
+        body:
+          'A new abstract has been submitted.\n\n' +
+          'Submitter: ' +
+          (submitterName || 'Not provided') +
+          '\n' +
+          'Email: ' +
+          (data.email || 'Not provided') +
+          '\n' +
+          'File: ' +
+          file.getName() +
+          '\n' +
+          'Submitted: ' +
+          timestamp +
+          '\n\n' +
+          'Open file in Google Drive:\n' +
+          fileUrl,
+      });
+    } catch (organizerMailError) {
+      // File is already saved; do not fail the submission because of email.
+      console.error('Abstract organiser notification failed: ' + organizerMailError);
     }
 
     return json_({ success: true, fileId: file.getId() });
