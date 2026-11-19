@@ -474,11 +474,11 @@ import NewsletterModal from '../components/NewsletterModal.astro';
     <!-- Important Dates -->
     <section
       id="dates"
-      class="relative border-t border-slate-100 bg-white pt-16 pb-20 lg:pt-20 lg:pb-28"
+      class="relative border-t border-slate-100 bg-white pt-14 pb-16 lg:pt-20 lg:pb-24"
       data-home-animate
     >
       <div class="section-container">
-        <div class="home-section-header">
+        <div class="home-section-header mb-10 lg:mb-14">
           <h2 class="home-title text-[#1e3c72]">Important dates</h2>
           <p class="home-subtitle">
             Mark your calendar — registration, abstracts, and late deadlines at
@@ -487,92 +487,77 @@ import NewsletterModal from '../components/NewsletterModal.astro';
         </div>
 
         <div class="relative mx-auto max-w-5xl">
+          <!-- Horizontal timeline rail (desktop) -->
           <div
-            class="pointer-events-none absolute left-[8%] right-[8%] top-10 hidden h-px bg-gradient-to-r from-[#0c6b4d]/25 via-[#2a5298]/30 to-[#b1414b]/25 md:block"
+            class="pointer-events-none absolute left-[16%] right-[16%] top-3 hidden h-px bg-gradient-to-r from-[#0c6b4d]/40 via-[#2a5298]/45 to-[#b1414b]/40 md:block"
+            aria-hidden="true"
+          >
+          </div>
+          <!-- Vertical timeline rail (mobile) -->
+          <div
+            class="pointer-events-none absolute bottom-3 left-3 top-3 w-px bg-gradient-to-b from-[#0c6b4d]/40 via-[#2a5298]/45 to-[#b1414b]/40 md:hidden"
             aria-hidden="true"
           >
           </div>
 
-          <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-5">
+          <ol class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-8">
             <!-- Early Bird -->
-            <article
-              class="group relative flex flex-col rounded-3xl border border-[#0c6b4d]/20 bg-white bg-gradient-to-b from-[#0c6b4d]/[0.07] via-white to-white p-8 shadow-[0_12px_32px_-20px_rgba(12,107,77,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-20px_rgba(12,107,77,0.55)]"
-            >
-              <div
-                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#0c6b4d] to-[#14956a]"
-              >
-              </div>
+            <li class="relative pl-10 md:pl-0 md:text-center">
               <span
-                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0c6b4d]/10 text-sm font-extrabold text-[#0c6b4d] ring-1 ring-[#0c6b4d]/15"
+                class="absolute left-[5px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white ring-2 ring-[#0c6b4d] md:static md:mx-auto md:mb-5 md:h-6 md:w-6 md:ring-4 md:ring-[#0c6b4d]/15"
+                aria-hidden="true"
               >
-                01
+                <span class="h-2 w-2 rounded-full bg-[#0c6b4d] md:h-2.5 md:w-2.5"></span>
               </span>
-              <h3 class="mb-2 text-lg font-bold text-[#0c6b4d]">
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#0c6b4d]">
                 Early Bird
-              </h3>
-              <p class="mb-6 text-lg font-semibold text-slate-800">
+              </p>
+              <p class="mt-1.5 text-lg font-bold text-slate-900 sm:text-xl">
                 1 Sep 2026 – 30 Nov 2026
               </p>
-              <p class="text-sm leading-relaxed text-slate-600">
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[26ch]">
                 Standard rates apply for delegates and accompanying persons.
               </p>
-            </article>
+            </li>
 
             <!-- Abstract Submission -->
-            <a
-              href="/abstract-submission"
-              class="group relative flex flex-col rounded-3xl border border-[#2a5298]/25 bg-white bg-gradient-to-b from-[#2a5298]/[0.09] via-white to-white p-8 shadow-[0_12px_32px_-20px_rgba(30,60,114,0.5)] no-underline transition duration-300 hover:-translate-y-1 hover:border-[#2a5298]/40 hover:shadow-[0_20px_44px_-20px_rgba(30,60,114,0.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2a5298] focus-visible:ring-offset-2"
-            >
-              <div
-                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#1e3c72] to-[#2a5298]"
-              >
-              </div>
+            <li class="relative pl-10 md:pl-0 md:text-center">
               <span
-                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#2a5298]/10 text-sm font-extrabold text-[#2a5298] ring-1 ring-[#2a5298]/15"
+                class="absolute left-[5px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white ring-2 ring-[#2a5298] md:static md:mx-auto md:mb-5 md:h-6 md:w-6 md:ring-4 md:ring-[#2a5298]/15"
+                aria-hidden="true"
               >
-                02
+                <span class="h-2 w-2 rounded-full bg-[#2a5298] md:h-2.5 md:w-2.5"></span>
               </span>
-              <h3 class="mb-2 text-lg font-bold text-[#1e3c72]">
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#1e3c72]">
                 Abstract submission
-              </h3>
-              <p class="mb-6 text-lg font-semibold text-slate-800">
+              </p>
+              <p class="mt-1.5 text-lg font-bold text-slate-900 sm:text-xl">
                 1 Oct 2026 – 31 Mar 2027
               </p>
-              <p class="text-sm leading-relaxed text-slate-600">
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[26ch]">
                 Submit your abstract for oral or poster presentation.
               </p>
-              <span class="mt-auto inline-flex items-center gap-1.5 pt-6 text-xs font-bold uppercase tracking-wide text-[#2a5298]">
-                Submit abstract
-                <svg class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </span>
-            </a>
+            </li>
 
             <!-- Regular Registration -->
-            <article
-              class="group relative flex flex-col rounded-3xl border border-[#b1414b]/20 bg-white bg-gradient-to-b from-[#b1414b]/[0.07] via-white to-white p-8 shadow-[0_12px_32px_-20px_rgba(142,52,59,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_44px_-20px_rgba(142,52,59,0.55)]"
-            >
-              <div
-                class="absolute inset-x-0 top-0 h-1 rounded-t-3xl bg-gradient-to-r from-[#8e343b] to-[#b1414b]"
-              >
-              </div>
+            <li class="relative pl-10 md:pl-0 md:text-center">
               <span
-                class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#b1414b]/10 text-sm font-extrabold text-[#b1414b] ring-1 ring-[#b1414b]/15"
+                class="absolute left-[5px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white ring-2 ring-[#b1414b] md:static md:mx-auto md:mb-5 md:h-6 md:w-6 md:ring-4 md:ring-[#b1414b]/15"
+                aria-hidden="true"
               >
-                03
+                <span class="h-2 w-2 rounded-full bg-[#b1414b] md:h-2.5 md:w-2.5"></span>
               </span>
-              <h3 class="mb-2 text-lg font-bold text-[#8e343b]">
+              <p class="text-xs font-bold uppercase tracking-[0.14em] text-[#8e343b]">
                 Regular registration
-              </h3>
-              <p class="mb-6 text-lg font-semibold text-slate-800">
+              </p>
+              <p class="mt-1.5 text-lg font-bold text-slate-900 sm:text-xl">
                 1 Dec 2026 – 28 Feb 2027
               </p>
-              <p class="text-sm leading-relaxed text-slate-600">
+              <p class="mt-2 text-sm leading-relaxed text-slate-600 md:mx-auto md:max-w-[26ch]">
                 Late rates apply — secure your place before the deadline.
               </p>
-            </article>
-          </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
