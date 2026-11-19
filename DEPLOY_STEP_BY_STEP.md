@@ -82,6 +82,7 @@ izmjena u kodu → npm run build → FTP upload cijelog dist/ → pm2 restart
 1. Spoji se na server (npr. **webserv.biol.pmf.hr**, korisnik **icd11**).
 2. Na serveru otvori mapu projekta, npr. **`/var/www/icd11.biol.pmf.hr/`**.
 3. S lokalnog računala uploadaj **cijelu** mapu **`dist/`** (uključujući **`client`** i **`server`**) i **prepiši** postojeće datoteke.
+4. **Ne uploadaj `.env`.** Na Macu je to predložak (`your_api_key_here`). Ako se prepiše preko serverske datoteke, sve prijave na newsletter padnu. Mailchimp ključ se mijenja samo uređivanjem `.env` na serveru, u SSH-u.
 
 ### 3. SSH — restart PM2
 
@@ -300,7 +301,9 @@ npm run build
 
 ### PM2 / newsletter: Mailchimp greške u logu
 
-- `.env` u **rootu** projekta na serveru, ispravni ključevi (ne placeholder). Nakon izmjene: `pm2 restart icd11-2027`.
+- `.env` se ne šalje s Maca. Ako u logu piše `example placeholder` ili `rejected the API key (401)`, ključ na serveru je predložak ili ne odgovara datacentru.
+- Nakon izmjene `.env` na serveru: `pm2 restart ecosystem.config.cjs --update-env`, pa `pm2 save`. Običan `pm2 restart icd11-2027` ne učita novu `.env` datoteku.
+- Običan deploy (samo `dist/`) i dalje koristi `pm2 restart icd11-2027` i ključ ne dira.
 
 ### Slike se ne vide
 

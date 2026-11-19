@@ -35,6 +35,25 @@ function isRateLimited(ip: string): boolean {
   return hits.length > MAX_REQUESTS;
 }
 
+// Example text from .env.example is not a credential. A real Mailchimp key
+// never contains these fragments. Treating them as missing stops an uploaded
+// template from being sent to Mailchimp as if it were a key.
+function envValue(value: unknown): string {
+  if (typeof value !== 'string') return '';
+  const trimmed = value.trim();
+  if (!trimmed) return '';
+  const lower = trimmed.toLowerCase();
+  if (
+    lower.includes('your_') ||
+    lower.includes('changeme') ||
+    lower.includes('placeholder') ||
+    lower.endsWith('_here')
+  ) {
+    return '';
+  }
+  return trimmed;
+}
+
 function getClientIp(request: Request, clientAddress: string): string {
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) {
@@ -132,18 +151,24 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     // the build was made without local Mailchimp credentials. import.meta.env
     // is a fallback for local `astro dev` / builds that inline .env values.
     const MAILCHIMP_API_KEY =
-      process.env.MAILCHIMP_API_KEY || import.meta.env.MAILCHIMP_API_KEY;
+      envValue(process.env.MAILCHIMP_API_KEY) ||
+      envValue(import.meta.env.MAILCHIMP_API_KEY);
     const MAILCHIMP_LIST_ID =
-      process.env.MAILCHIMP_LIST_ID || import.meta.env.MAILCHIMP_LIST_ID;
+      envValue(process.env.MAILCHIMP_LIST_ID) ||
+      envValue(import.meta.env.MAILCHIMP_LIST_ID);
     const MAILCHIMP_SERVER =
-      process.env.MAILCHIMP_SERVER || import.meta.env.MAILCHIMP_SERVER; // e.g. 'us1'
+      envValue(process.env.MAILCHIMP_SERVER) ||
+      envValue(import.meta.env.MAILCHIMP_SERVER); // e.g. 'us22'
 
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_LIST_ID || !MAILCHIMP_SERVER) {
-      console.error('Mailchimp credentials not configured', {
-        hasApiKey: !!MAILCHIMP_API_KEY,
-        hasListId: !!MAILCHIMP_LIST_ID,
-        hasServer: !!MAILCHIMP_SERVER,
-      });
+      console.error(
+        'Mailchimp credentials missing or still the example placeholder. Edit .env on the server. Do not upload .env from the Mac.',
+        {
+          hasApiKey: !!MAILCHIMP_API_KEY,
+          hasListId: !!MAILCHIMP_LIST_ID,
+          hasServer: !!MAILCHIMP_SERVER,
+        },
+      );
       return json(
         {
           error:
@@ -203,6 +228,20 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         return json(
           { error: 'This email is already subscribed to our newsletter.' },
           400,
+          origin,
+        );
+      }
+
+      if (response.status === 401) {
+        console.error(
+          'Mailchimp rejected the API key (401). The server .env has a bad key, or MAILCHIMP_SERVER does not match the suffix after the dash in the key. Do not upload .env from the Mac.',
+        );
+        return json(
+          {
+            error:
+              'Newsletter signup is temporarily unavailable. Please try again later.',
+          },
+          503,
           origin,
         );
       }

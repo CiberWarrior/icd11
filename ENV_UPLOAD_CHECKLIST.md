@@ -1,38 +1,40 @@
-# Checklist za Upload .env File-a na Server
+# Mailchimp `.env` na serveru
 
-## ✅ Prije Uploada
+`.env` s Maca se **ne uploadaja**. Na Macu stoji predložak `your_api_key_here`. Ako se ta datoteka prepiše preko serverske, Mailchimp odbije svaku prijavu.
 
-1. **Provjeri lokalni .env file:**
-   ```bash
-   cat .env
-   ```
-   
-   Trebao bi sadržavati:
-   ```
-   MAILCHIMP_API_KEY=your_mailchimp_api_key_here-us22
-   MAILCHIMP_LIST_ID=your_list_id_here
-   MAILCHIMP_SERVER=us22
-   ```
+Ključ se uređuje samo na serveru, u `/var/www/icd11.biol.pmf.hr/.env`, preko SSH-a. Cijeli ključ se ne šalje u chat i ne ispisuje naredbom `cat .env`.
 
-## 📤 Upload .env File-a
+## Provjera na serveru
 
-1. **Upload .env file na server:**
-   - Putanja: `/var/www/icd11.biol.pmf.hr/.env`
-   - Provjeri da file postoji i ima ispravne vrijednosti
-
-## ✅ Nakon Uploada - Provjere na Serveru
-
-### 1. Provjeri da .env file postoji i ima ispravne vrijednosti:
 ```bash
 cd /var/www/icd11.biol.pmf.hr
-cat .env
+node -e '
+const fs=require("fs");
+const env={};
+for (const line of fs.readFileSync(".env","utf8").split(/\n/)) {
+  const t=line.trim();
+  if (!t||t.startsWith("#")) continue;
+  const i=t.indexOf("=");
+  if (i<0) continue;
+  env[t.slice(0,i).trim()]=t.slice(i+1).trim().replace(/^["'\'']|["'\'']$/g,"");
+}
+const key=env.MAILCHIMP_API_KEY||"";
+const suffix=key.includes("-")?key.slice(key.lastIndexOf("-")+1):"";
+console.log(JSON.stringify({
+  placeholder: /your_|_here|changeme|placeholder/i.test(key),
+  suffixMatchesServer: suffix===env.MAILCHIMP_SERVER,
+  listPlaceholder: /your_|_here|changeme|placeholder/i.test(env.MAILCHIMP_LIST_ID||"")
+}, null, 2));
+'
 ```
 
-**Očekivani sadržaj:**
-```
-MAILCHIMP_API_KEY=your_mailchimp_api_key_here-us22
-MAILCHIMP_LIST_ID=your_list_id_here
-MAILCHIMP_SERVER=us22
+Očekivano: `placeholder: false`, `listPlaceholder: false`, `suffixMatchesServer: true`.
+
+Nakon izmjene `.env`:
+
+```bash
+pm2 restart ecosystem.config.cjs --update-env
+pm2 save
 ```
 
 ### 2. Provjeri dozvole .env file-a:
@@ -98,7 +100,7 @@ pm2 logs icd11-2027 --lines 20
 **Rješenje:**
 1. Provjeri da `ecosystem.config.cjs` ima `env_file: '.env'`
 2. Provjeri da .env file postoji u root direktoriju projekta
-3. Restart PM2 procesa: `pm2 restart icd11-2027`
+3. Učitaj novu datoteku: `pm2 restart ecosystem.config.cjs --update-env`, pa `pm2 save`
 
 ### Problem: "Mailchimp credentials not configured"
 
@@ -106,7 +108,7 @@ pm2 logs icd11-2027 --lines 20
 1. Provjeri da .env file sadrži sve tri varijable
 2. Provjeri da nema razmaka oko `=` znaka
 3. Provjeri da nema navodnika oko vrijednosti
-4. Restart PM2 procesa
+4. `pm2 restart ecosystem.config.cjs --update-env`, pa `pm2 save`
 
 ### Problem: Port conflict
 
@@ -117,7 +119,7 @@ pm2 logs icd11-2027 --lines 20
 
 ## 📝 Napomene
 
-- **NE treba rebuild** - env varijable se čitaju u runtime-u
-- **NE commit-aj .env file** - već je u .gitignore
-- **Samo restart PM2 procesa** nakon promjene .env file-a
-- **Provjeri dozvole** - .env file treba biti `600` (samo vlasnik)
+- **Ne uploadaj `.env` s Maca**
+- **Ne commitaj `.env`** — već je u .gitignore
+- Nakon promjene `.env` na serveru: `pm2 restart ecosystem.config.cjs --update-env`, pa `pm2 save`
+- **Provjeri dozvole** — `.env` treba biti `600` (samo vlasnik čita i piše)

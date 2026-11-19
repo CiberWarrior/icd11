@@ -46,6 +46,46 @@ function loadEnvFile(filePath) {
 const dotenvPath = path.join(__dirname, '.env');
 const fileEnv = loadEnvFile(dotenvPath);
 
+function isExampleValue(value) {
+  if (!value) return true;
+  const lower = String(value).trim().toLowerCase();
+  return (
+    lower.includes('your_') ||
+    lower.includes('changeme') ||
+    lower.includes('placeholder') ||
+    lower.endsWith('_here')
+  );
+}
+
+const mailchimpProblems = [];
+if (isExampleValue(fileEnv.MAILCHIMP_API_KEY)) {
+  mailchimpProblems.push('MAILCHIMP_API_KEY is missing or still the example text');
+}
+if (isExampleValue(fileEnv.MAILCHIMP_LIST_ID)) {
+  mailchimpProblems.push('MAILCHIMP_LIST_ID is missing or still the example text');
+}
+if (!fileEnv.MAILCHIMP_SERVER) {
+  mailchimpProblems.push('MAILCHIMP_SERVER is missing');
+}
+const apiKey = fileEnv.MAILCHIMP_API_KEY || '';
+if (apiKey.includes('-')) {
+  const suffix = apiKey.slice(apiKey.lastIndexOf('-') + 1);
+  if (fileEnv.MAILCHIMP_SERVER && suffix !== fileEnv.MAILCHIMP_SERVER) {
+    mailchimpProblems.push(
+      'MAILCHIMP_SERVER does not match the suffix at the end of the API key',
+    );
+  }
+} else if (apiKey && !isExampleValue(apiKey)) {
+  mailchimpProblems.push('MAILCHIMP_API_KEY has no datacenter suffix (for example -us22)');
+}
+if (mailchimpProblems.length > 0) {
+  console.error('[icd11] Newsletter will fail until .env on this server is fixed.');
+  for (const problem of mailchimpProblems) {
+    console.error('[icd11]', problem);
+  }
+  console.error('[icd11] Edit .env here. Do not upload .env from the Mac.');
+}
+
 module.exports = {
   apps: [
     {
